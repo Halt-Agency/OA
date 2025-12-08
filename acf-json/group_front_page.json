@@ -1,0 +1,62 @@
+{
+    "key": "group_front_page",
+    "title": "Front Page",
+    "fields": [
+        {
+            "key": "field_landing_title",
+            "label": "Landing Title",
+            "name": "landing_title",
+            "type": "text",
+            "instructions": "Enter the main landing page title",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Enter landing title",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_landing_copy",
+            "label": "Landing Copy",
+            "name": "landing_copy",
+            "type": "textarea",
+            "instructions": "Enter the landing page copy/description",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Enter landing copy",
+            "maxlength": "",
+            "rows": 5,
+            "new_lines": "wpautop"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for the front page landing section"
+}
+
