@@ -11,6 +11,18 @@ This theme is configured to work with [Git Updater](https://git-updater.com/). T
 
 ### Setup Instructions
 
+**⚠️ CRITICAL: Theme Directory Name Must Match Repository (Case-Sensitive)**
+
+The theme directory in WordPress **MUST** match the repository name **exactly**, including case sensitivity.
+
+- WordPress path: `wp-content/themes/OA/`
+- Repository name: `OA`
+- Directory name: `OA` (must match exactly, case-sensitive)
+
+**Note**: If your file system is case-insensitive (Windows/macOS default), you may need to use lowercase `oa`, but Git Updater prefers exact case matching. Try `OA` first, and if that doesn't work, try `oa`.
+
+If your theme directory has a different name, Git Updater **will not detect it**. Rename the directory to `oa` before proceeding.
+
 1. **Update the GitHub Theme URI** in `style.css`:
 
    - Replace `https://github.com/yourusername/your-repo` with your actual repository URL
