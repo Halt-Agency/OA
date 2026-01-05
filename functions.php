@@ -93,7 +93,7 @@ function dt_register_clients_post_type() {
         'label'                 => 'Client',
         'description'           => 'Client post type',
         'labels'                => $labels,
-        'supports'              => array('title', 'editor', 'thumbnail'),
+        'supports'              => array('title', 'thumbnail'),
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,
@@ -113,3 +113,11 @@ function dt_register_clients_post_type() {
     register_post_type('clients', $args);
 }
 add_action('init', 'dt_register_clients_post_type', 0);
+
+/**
+ * Remove editor support for clients post type (if already registered)
+ */
+function dt_remove_clients_editor() {
+    remove_post_type_support('clients', 'editor');
+}
+add_action('init', 'dt_remove_clients_editor', 100);
