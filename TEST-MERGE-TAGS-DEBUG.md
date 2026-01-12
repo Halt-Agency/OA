@@ -59,19 +59,21 @@ Copy this entire code block into your Divi Code Module:
   .marquee-wrapper {
     display: flex;
     width: 200%;
+    animation: marquee-scroll 30s linear infinite;
   }
 
   .marquee-track {
     display: flex;
     gap: 30px;
-    animation: marquee-scroll 30s linear infinite;
     width: 50%;
+    flex-shrink: 0;
   }
 
   .marquee-track-duplicate {
     display: flex;
     gap: 30px;
     width: 50%;
+    flex-shrink: 0;
   }
 
   .marquee-item {
@@ -82,6 +84,15 @@ Copy this entire code block into your Divi Code Module:
     max-width: 200px;
     height: auto;
     object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+
+  .marquee-item img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
   }
 
   @keyframes marquee-scroll {
@@ -89,8 +100,12 @@ Copy this entire code block into your Divi Code Module:
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-100%);
+      transform: translateX(-50%);
     }
+  }
+
+  .marquee-wrapper:hover {
+    animation-play-state: paused;
   }
 </style>
 
