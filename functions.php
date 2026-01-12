@@ -127,6 +127,10 @@ add_action('init', 'dt_remove_clients_editor', 100);
  * 
  * Usage examples:
  * {acf:field_name} - ACF field value
+ * {acf:repeater_name:0:sub_field} - Repeater field (row 0, sub field)
+ * {acf:repeater_name:0:image_field} - Repeater image field (returns image URL)
+ * {acf:repeater_name:0:image_field:url} - Repeater image URL
+ * {acf:repeater_name:0:image_field:alt} - Repeater image alt text
  * {meta:field_name} - Post meta value
  * {post_title} - Post title
  * {post_content} - Post content
@@ -156,20 +160,55 @@ function dt_process_merge_tags($content) {
         $tag = $matches[1];
         $value = '';
         
-        // ACF Fields: {acf:field_name}
+        // ACF Fields: {acf:field_name} or {acf:repeater:row:sub_field:property}
         if (strpos($tag, 'acf:') === 0) {
-            $field_name = str_replace('acf:', '', $tag);
+            $field_path = str_replace('acf:', '', $tag);
+            
             if (function_exists('get_field')) {
-                $field_value = get_field($field_name);
-                if (is_array($field_value)) {
-                    // Handle image fields
-                    if (isset($field_value['url'])) {
-                        $value = $field_value['url'];
-                    } else {
-                        $value = implode(', ', $field_value);
+                // Check if this is a repeater field (has colons for row:sub_field)
+                if (strpos($field_path, ':') !== false) {
+                    // Repeater field: repeater_name:row_index:sub_field:property
+                    $parts = explode(':', $field_path);
+                    $repeater_name = $parts[0];
+                    $row_index = isset($parts[1]) ? intval($parts[1]) : 0;
+                    $sub_field = isset($parts[2]) ? $parts[2] : '';
+                    $property = isset($parts[3]) ? $parts[3] : '';
+                    
+                    // Get repeater field
+                    $repeater = get_field($repeater_name);
+                    
+                    if ($repeater && is_array($repeater) && isset($repeater[$row_index])) {
+                        $row = $repeater[$row_index];
+                        
+                        if ($sub_field && isset($row[$sub_field])) {
+                            $sub_value = $row[$sub_field];
+                            
+                            // Handle image fields in repeaters
+                            if (is_array($sub_value) && isset($sub_value['url'])) {
+                                // Image field - return specific property or URL by default
+                                if ($property && isset($sub_value[$property])) {
+                                    $value = $sub_value[$property];
+                                } else {
+                                    $value = $sub_value['url']; // Default to URL
+                                }
+                            } else {
+                                $value = $sub_value;
+                            }
+                        }
                     }
                 } else {
-                    $value = $field_value;
+                    // Regular ACF field
+                    $field_value = get_field($field_path);
+                    if (is_array($field_value)) {
+                        // Handle image fields
+                        if (isset($field_value['url'])) {
+                            $value = $field_value['url'];
+                        } else {
+                            $value = implode(', ', $field_value);
+                        }
+                    } else {
+                        $value = $field_value;
+                    }
                 }
             }
         }

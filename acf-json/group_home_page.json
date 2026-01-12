@@ -1,6 +1,6 @@
 {
-    "key": "group_front_page",
-    "title": "Front Page",
+    "key": "group_home_page",
+    "title": "Home Page",
     "fields": [
         {
             "key": "field_landing_title",
@@ -44,9 +44,9 @@
     "location": [
         [
             {
-                "param": "page_type",
+                "param": "page",
                 "operator": "==",
-                "value": "front_page"
+                "value": "YOUR_HOME_PAGE_ID"
             }
         ]
     ],
@@ -57,7 +57,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Fields for the front page landing section",
-    "modified": 1733688000
+    "description": "Fields for the home page",
+    "modified": 1768218458
 }
-
