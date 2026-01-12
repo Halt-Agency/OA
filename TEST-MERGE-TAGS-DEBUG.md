@@ -209,23 +209,91 @@ Copy this entire code block into your Divi Code Module:
           // Try to fetch via REST API
           const postId = window.dtPostId || 0;
           if (postId) {
+            debugLog("data-check-output", "Trying ACF REST API endpoint...");
             fetch("/wp-json/acf/v3/pages/" + postId)
               .then(function (response) {
+                debugLog(
+                  "data-check-output",
+                  "ACF REST API response status: " + response.status
+                );
                 if (response.ok) {
-                  return response.json();
+                  return response.json().then(function (data) {
+                    debugLog(
+                      "data-check-output",
+                      "ACF REST API response: " +
+                        JSON.stringify(data).substring(0, 500)
+                    );
+                    return { source: "acf-v3", data: data };
+                  });
                 }
+                // Fallback to standard WordPress REST API
+                debugLog("data-check-output", "Trying WordPress REST API...");
                 return fetch("/wp-json/wp/v2/pages/" + postId).then(function (
                   r
                 ) {
-                  return r.ok ? r.json() : null;
+                  if (r.ok) {
+                    return r.json().then(function (data) {
+                      debugLog(
+                        "data-check-output",
+                        "WP REST API response keys: " +
+                          Object.keys(data).join(", ")
+                      );
+                      return { source: "wp-v2", data: data };
+                    });
+                  }
+                  return null;
                 });
               })
-              .then(function (data) {
-                if (data && data.acf) {
-                  window.dtACFData = data.acf;
+              .then(function (result) {
+                if (!result) {
                   debugLog(
                     "data-check-output",
-                    "✅ Fetched ACF data via REST API"
+                    "❌ Both REST API endpoints failed",
+                    true
+                  );
+                  return;
+                }
+
+                const data = result.data;
+                let acfData = null;
+
+                // Try different ways to get ACF data
+                if (data.acf) {
+                  acfData = data.acf;
+                  debugLog(
+                    "data-check-output",
+                    "✅ Found ACF data in data.acf"
+                  );
+                } else if (data.meta && data.meta.acf) {
+                  acfData = data.meta.acf;
+                  debugLog(
+                    "data-check-output",
+                    "✅ Found ACF data in data.meta.acf"
+                  );
+                } else if (data.meta) {
+                  // Check if ACF fields are in meta with acf_ prefix
+                  acfData = {};
+                  Object.keys(data.meta).forEach(function (key) {
+                    if (key.indexOf("acf_") === 0 || key.indexOf("_") === 0) {
+                      const cleanKey = key
+                        .replace(/^acf_/, "")
+                        .replace(/^_/, "");
+                      acfData[cleanKey] = data.meta[key];
+                    }
+                  });
+                  if (Object.keys(acfData).length > 0) {
+                    debugLog(
+                      "data-check-output",
+                      "✅ Found ACF data in meta fields"
+                    );
+                  }
+                }
+
+                if (acfData && Object.keys(acfData).length > 0) {
+                  window.dtACFData = acfData;
+                  debugLog(
+                    "data-check-output",
+                    "✅ Fetched ACF data via REST API (" + result.source + ")"
                   );
                   debugLog(
                     "data-check-output",
@@ -239,9 +307,74 @@ Copy this entire code block into your Divi Code Module:
                 } else {
                   debugLog(
                     "data-check-output",
-                    "❌ REST API returned no ACF data",
+                    "❌ REST API returned data but no ACF fields found",
                     true
                   );
+                  debugLog(
+                    "data-check-output",
+                    "Full response structure: " +
+                      JSON.stringify(Object.keys(data)).substring(0, 300),
+                    true
+                  );
+                  debugLog(
+                    "data-check-output",
+                    "⚠️ Check: 1) ACF field group location rules, 2) Fields are saved, 3) ACF REST API is enabled",
+                    true
+                  );
+
+                  // Try custom AJAX endpoint as final fallback
+                  debugLog(
+                    "data-check-output",
+                    "Trying custom AJAX endpoint..."
+                  );
+                  const ajaxUrl =
+                    window.dtAjaxUrl || "/wp-admin/admin-ajax.php";
+                  fetch(ajaxUrl, {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    body: "action=dt_get_acf_data&post_id=" + postId,
+                  })
+                    .then(function (response) {
+                      return response.json();
+                    })
+                    .then(function (result) {
+                      if (result.success && result.data.acf_data) {
+                        window.dtACFData = result.data.acf_data;
+                        debugLog(
+                          "data-check-output",
+                          "✅ Fetched ACF data via AJAX endpoint"
+                        );
+                        debugLog(
+                          "data-check-output",
+                          "Fields: " + Object.keys(window.dtACFData).join(", ")
+                        );
+                        // Re-run tests with new data
+                        setTimeout(function () {
+                          testMethod1();
+                          setTimeout(testMethod2, 100);
+                        }, 100);
+                      } else {
+                        debugLog(
+                          "data-check-output",
+                          "❌ AJAX endpoint also returned no data",
+                          true
+                        );
+                        debugLog(
+                          "data-check-output",
+                          "Response: " + JSON.stringify(result),
+                          true
+                        );
+                      }
+                    })
+                    .catch(function (error) {
+                      debugLog(
+                        "data-check-output",
+                        "❌ AJAX endpoint error: " + error.message,
+                        true
+                      );
+                    });
                 }
               })
               .catch(function (error) {

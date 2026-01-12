@@ -381,6 +381,7 @@ add_action('wp_footer', function() {
     echo '<script type="text/javascript">';
     echo 'window.dtACFData = ' . json_encode($acf_data) . ';';
     echo 'window.dtPostId = ' . intval($post_id) . ';';
+    echo 'window.dtAjaxUrl = "' . admin_url('admin-ajax.php') . '";';
     // Add debug info in development
     if (defined('WP_DEBUG') && WP_DEBUG) {
         echo 'window.dtACFDebug = ' . json_encode($debug_info) . ';';
@@ -389,6 +390,39 @@ add_action('wp_footer', function() {
     }
     echo '</script>';
 });
+
+/**
+ * Custom AJAX endpoint to fetch ACF data
+ * This works even if ACF REST API is not enabled
+ */
+add_action('wp_ajax_dt_get_acf_data', 'dt_ajax_get_acf_data');
+add_action('wp_ajax_nopriv_dt_get_acf_data', 'dt_ajax_get_acf_data');
+function dt_ajax_get_acf_data() {
+    if (!function_exists('get_fields')) {
+        wp_send_json_error(array('message' => 'ACF not available'));
+        return;
+    }
+    
+    $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
+    
+    if (!$post_id) {
+        wp_send_json_error(array('message' => 'No post ID provided'));
+        return;
+    }
+    
+    $acf_data = get_fields($post_id);
+    
+    if ($acf_data === false) {
+        $acf_data = array();
+    }
+    
+    wp_send_json_success(array(
+        'acf_data' => $acf_data,
+        'post_id' => $post_id,
+        'field_count' => is_array($acf_data) ? count($acf_data) : 0,
+        'field_keys' => is_array($acf_data) ? array_keys($acf_data) : array()
+    ));
+}
 
 /**
  * Marquee Carousel Shortcode
