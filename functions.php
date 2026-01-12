@@ -143,7 +143,7 @@ add_action('init', 'dt_remove_clients_editor', 100);
  * {featured_image} - Featured image URL
  */
 function dt_process_merge_tags($content) {
-    if (empty($content)) {
+    if (empty($content) || !is_string($content)) {
         return $content;
     }
     
@@ -302,17 +302,70 @@ function dt_process_merge_tags($content) {
     return $content;
 }
 
-// Filter Divi code module output
+// Filter Divi code module output - Try multiple hooks for compatibility
 add_filter('et_pb_module_content', 'dt_process_merge_tags', 10, 1);
+add_filter('et_module_shortcode_output', 'dt_process_merge_tags', 10, 1);
+add_filter('et_builder_render_layout_content', 'dt_process_merge_tags', 10, 1);
 
-// Also filter the_content for code modules (Divi 5 compatibility)
+// Process shortcodes in Divi code modules
+add_filter('et_pb_module_content', 'do_shortcode', 11, 1);
+add_filter('et_module_shortcode_output', 'do_shortcode', 11, 1);
+
+// Filter the_content for code modules (Divi 5 compatibility)
 add_filter('the_content', function($content) {
     // Only process if we're in a Divi context
     if (function_exists('et_is_builder_plugin_active') || defined('ET_BUILDER_PLUGIN_ACTIVE')) {
-        return dt_process_merge_tags($content);
+        $content = dt_process_merge_tags($content);
+        $content = do_shortcode($content);
     }
     return $content;
 }, 20);
+
+// Alternative: Hook into Divi's code module shortcode rendering
+add_filter('et_pb_code_content', 'dt_process_merge_tags', 10, 1);
+add_filter('et_pb_code_content', 'do_shortcode', 11, 1);
+
+// Divi 5 specific hook
+add_filter('et_builder_module_content', function($content, $props, $attrs, $render_slug) {
+    if ($render_slug === 'et_pb_code') {
+        $content = dt_process_merge_tags($content);
+        $content = do_shortcode($content);
+    }
+    return $content;
+}, 10, 4);
+
+// Inject ACF data into page for JavaScript access
+add_action('wp_footer', function() {
+    if (!function_exists('get_field')) {
+        return;
+    }
+    
+    global $post;
+    $acf_data = array();
+    $post_id = 0;
+    
+    // Get post ID from various contexts
+    if (is_singular() && $post) {
+        $post_id = $post->ID;
+        $acf_data = get_fields($post_id);
+    } elseif (is_home() || is_front_page()) {
+        // For home/front page, try to get the page ID
+        $page_id = get_option('page_for_posts');
+        if (is_front_page()) {
+            $page_id = get_option('page_on_front');
+        }
+        if ($page_id) {
+            $post_id = $page_id;
+            $acf_data = get_fields($post_id);
+        }
+    }
+    
+    // Always output the data (even if empty) so JavaScript knows it's available
+    echo '<script type="text/javascript">';
+    echo 'window.dtACFData = ' . json_encode($acf_data ?: array()) . ';';
+    echo 'window.dtPostId = ' . intval($post_id) . ';';
+    echo '</script>';
+});
 
 /**
  * Marquee Carousel Shortcode
