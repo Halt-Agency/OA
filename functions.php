@@ -343,11 +343,21 @@ add_action('wp_footer', function() {
     global $post;
     $acf_data = array();
     $post_id = 0;
+    $debug_info = array();
     
-    // Get post ID from various contexts
-    if (is_singular() && $post) {
-        $post_id = $post->ID;
+    // Handle preview pages first (they might not be detected as singular)
+    if (isset($_GET['preview_id']) && is_numeric($_GET['preview_id'])) {
+        $post_id = intval($_GET['preview_id']);
+        $debug_info[] = 'Preview ID detected: ' . $post_id;
         $acf_data = get_fields($post_id);
+        $debug_info[] = 'Fields retrieved: ' . (is_array($acf_data) ? count($acf_data) . ' fields' : 'false/empty');
+    }
+    // Get post ID from various contexts
+    elseif (is_singular() && $post) {
+        $post_id = $post->ID;
+        $debug_info[] = 'Singular post detected: ' . $post_id;
+        $acf_data = get_fields($post_id);
+        $debug_info[] = 'Fields retrieved: ' . (is_array($acf_data) ? count($acf_data) . ' fields' : 'false/empty');
     } elseif (is_home() || is_front_page()) {
         // For home/front page, try to get the page ID
         $page_id = get_option('page_for_posts');
@@ -356,14 +366,27 @@ add_action('wp_footer', function() {
         }
         if ($page_id) {
             $post_id = $page_id;
+            $debug_info[] = 'Front/Home page detected: ' . $post_id;
             $acf_data = get_fields($post_id);
+            $debug_info[] = 'Fields retrieved: ' . (is_array($acf_data) ? count($acf_data) . ' fields' : 'false/empty');
         }
+    }
+    
+    // Convert false to empty array for JSON encoding
+    if ($acf_data === false) {
+        $acf_data = array();
     }
     
     // Always output the data (even if empty) so JavaScript knows it's available
     echo '<script type="text/javascript">';
-    echo 'window.dtACFData = ' . json_encode($acf_data ?: array()) . ';';
+    echo 'window.dtACFData = ' . json_encode($acf_data) . ';';
     echo 'window.dtPostId = ' . intval($post_id) . ';';
+    // Add debug info in development
+    if (defined('WP_DEBUG') && WP_DEBUG) {
+        echo 'window.dtACFDebug = ' . json_encode($debug_info) . ';';
+        echo 'console.log("ACF Data Injection Debug:", ' . json_encode($debug_info) . ');';
+        echo 'console.log("ACF Data:", window.dtACFData);';
+    }
     echo '</script>';
 });
 
