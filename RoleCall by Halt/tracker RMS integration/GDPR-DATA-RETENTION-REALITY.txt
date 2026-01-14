@@ -1,0 +1,668 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                                                                               ║
+║           GDPR DATA RETENTION - THE REALITY                                   ║
+║           What TrackerRMS Does vs. What YOU Must Do                           ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+
+THE CRITICAL QUESTION:
+═══════════════════════════════════════════════════════════════════════════════
+
+"Will TrackerRMS automatically delete contacts in accordance with GDPR?"
+
+SHORT ANSWER: NO ❌
+
+LONG ANSWER: TrackerRMS is a DATABASE, not a COMPLIANCE SYSTEM.
+
+
+WHAT TRACKERRMS DOES:
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ Stores marketing preferences (emailOptIn, textOptIn, etc.)
+✅ Lets you update preferences (when someone unsubscribes)
+✅ Shows you the data in the UI
+✅ Provides API to read/write/update records
+✅ Stores data indefinitely (until YOU delete it)
+
+❌ Does NOT automatically delete old data
+❌ Does NOT enforce retention periods
+❌ Does NOT monitor GDPR compliance
+❌ Does NOT alert you when data is "expired"
+❌ Does NOT know your retention policies
+
+
+WHAT YOU (THE DATA CONTROLLER) MUST DO:
+═══════════════════════════════════════════════════════════════════════════════
+
+Under GDPR, YOU are responsible for:
+
+1. DEFINING RETENTION PERIODS
+   • Candidates: 6 months from last contact
+   • Marketing contacts: Until unsubscribe or 2 years inactive
+   • Sales leads: 12-24 months from first contact
+   • Event attendees: 6 months after event
+
+2. IMPLEMENTING DELETION PROCESSES
+   • Manual quarterly reviews, OR
+   • Automated cleanup scripts/systems
+
+3. RESPONDING TO DATA REQUESTS
+   • Access requests: Provide their data
+   • Erasure requests: Delete their data (within 30 days)
+   • Objection requests: Stop processing their data
+
+4. MAINTAINING AUDIT TRAIL
+   • Log when data was collected
+   • Log consent given
+   • Log when data was deleted
+   • Log why data was kept (if challenged)
+
+
+THE DIFFERENCE: OPT-OUT vs. DELETION
+═══════════════════════════════════════════════════════════════════════════════
+
+IMPORTANT: These are TWO DIFFERENT THINGS!
+
+
+SCENARIO 1: UNSUBSCRIBE (Opt-Out from Marketing)
+─────────────────────────────────────────────────
+
+What happens:
+1. Person clicks "Unsubscribe" in email
+2. Your system updates TrackerRMS:
+   ```
+   PATCH /api/v1/Contact/{id}
+   { "marketingPreferences": { "emailOptIn": false } }
+   ```
+3. Contact record STILL EXISTS in TrackerRMS
+4. But emailOptIn = false, so they won't be in future campaigns
+
+This is: ✅ GDPR compliant "Right to Object" (Article 21)
+
+Contact remains:
+• Can still respond to their enquiries
+• Can still see interaction history
+• Can still contact about existing business
+• Just can't send marketing emails
+
+
+SCENARIO 2: DATA DELETION (Right to Erasure)
+─────────────────────────────────────────────
+
+What happens:
+1. Person emails: "Delete all my data"
+2. You verify their identity
+3. You DELETE from WordPress (attendee records, form submissions)
+4. You DELETE from TrackerRMS:
+   ```
+   DELETE /api/v1/Contact/{id}
+   ```
+5. Contact record COMPLETELY REMOVED
+
+This is: ✅ GDPR compliant "Right to Erasure" (Article 17)
+
+Contact gone:
+• No record in system
+• Cannot contact them
+• Cannot see history
+• Must be deleted within 30 days of request
+
+
+RETENTION PERIOD DELETION (Automatic Cleanup)
+──────────────────────────────────────────────
+
+What should happen:
+1. Candidate uploaded CV 7 months ago
+2. No contact/activity since then
+3. 6-month retention period expired
+4. System should DELETE the candidate
+
+Currently happens: MANUALLY (or not at all)
+Should happen: AUTOMATED
+
+This is: ✅ GDPR compliant "Storage Limitation" (Article 5)
+
+
+THREE TYPES OF GDPR DELETION:
+═══════════════════════════════════════════════════════════════════════════════
+
+1. USER-REQUESTED (Right to Erasure)
+   Trigger: Person asks you to delete their data
+   Timeline: 30 days maximum
+   Process: Manual (verify identity, delete from all systems)
+   Frequency: As requested (hopefully rare)
+
+2. UNSUBSCRIBE (Right to Object)
+   Trigger: Person clicks unsubscribe
+   Timeline: 48 hours (for email)
+   Process: Can be automated (webhook updates emailOptIn = false)
+   Frequency: Ongoing (normal business)
+
+3. RETENTION PERIOD EXPIRY (Storage Limitation)
+   Trigger: Data older than retention period + no activity
+   Timeline: Should review monthly/quarterly
+   Process: Manual review OR automated cleanup
+   Frequency: Regular (monthly/quarterly)
+
+
+YOUR GDPR RESPONSIBILITIES:
+═══════════════════════════════════════════════════════════════════════════════
+
+OPTION A: MANUAL COMPLIANCE (Low Tech)
+───────────────────────────────────────
+
+QUARTERLY CLEANUP PROCESS:
+
+1. Review Candidates (6-month retention)
+   • Export all candidates from TrackerRMS
+   • Filter: Last activity > 6 months ago
+   • Manually review: Any reason to keep?
+   • Delete expired candidates (via TrackerRMS UI or API)
+   • Log deletions in compliance spreadsheet
+
+2. Review Marketing Contacts (2-year inactivity)
+   • Export marketing contacts
+   • Check: Any email opens/clicks in last 2 years?
+   • Delete completely inactive contacts
+   • Log deletions
+
+3. Review Sales Leads (18-24 months cold)
+   • Export leads with no activity
+   • Check: Still potential business?
+   • Delete cold leads
+   • Log deletions
+
+4. Review Event Attendees (6 months post-event)
+   • Find events older than 6 months
+   • Delete event-specific data from WordPress
+   • Keep TrackerRMS contact if marketing consent, otherwise review for deletion
+
+TIME: 2-4 hours per quarter
+COST: Staff time only
+RISK: Relies on human memory, easy to forget
+
+
+OPTION B: AUTOMATED COMPLIANCE (Recommended)
+─────────────────────────────────────────────
+
+BUILD AUTOMATED CLEANUP SYSTEM:
+
+WordPress Cron Job (runs daily):
+
+1. CANDIDATE CLEANUP
+   ```
+   • Find candidates in TrackerRMS where:
+     - Created > 6 months ago
+     - Last activity > 6 months ago
+     - Not placed in job
+   • Send warning email: "We'll delete your data in 30 days unless you respond"
+   • If no response in 30 days: DELETE via API
+   • Log deletion with reason and date
+   ```
+
+2. MARKETING CONTACT CLEANUP
+   ```
+   • Find contacts where:
+     - Marketing consent = true
+     - No email opens/clicks in 2 years
+     - No form submissions in 2 years
+   • Send re-consent email: "Are you still interested?"
+   • If no response: Set emailOptIn = false
+   • If 2+ years with no engagement: DELETE
+   • Log action
+   ```
+
+3. EVENT ATTENDEE CLEANUP
+   ```
+   • Find attendee records where:
+     - Event date > 6 months ago
+   • Delete WordPress attendee post
+   • Keep TrackerRMS contact (if marketing consent)
+   • Or delete TrackerRMS contact (if no marketing consent and no other activity)
+   • Log deletion
+   ```
+
+4. COLD LEAD CLEANUP
+   ```
+   • Find leads where:
+     - Created > 18 months ago
+     - Status = Cold/Lost
+     - No activity in 12+ months
+   • Review or auto-delete
+   • Keep linked Contact (might have other interactions)
+   • Log deletion
+   ```
+
+BENEFITS:
+✅ Runs automatically
+✅ Never forgets
+✅ Consistent application
+✅ Audit trail built-in
+✅ Warning emails (good UX)
+
+TIME: 1 hour/quarter (review reports)
+COST: 2-3 days development upfront
+RISK: Lower - automated and logged
+
+
+WHAT THE API ALLOWS:
+═══════════════════════════════════════════════════════════════════════════════
+
+DELETE ENDPOINTS AVAILABLE:
+
+✅ Contact Deletion:
+   DELETE /api/v1/Contact/{ContactId}
+   Returns: 200 (deleted) or 204 (not found)
+
+✅ Resource Deletion:
+   DELETE /api/v1/Resource/{ResourceId}
+   Returns: 200 (deleted) or 204 (not found)
+
+✅ Lead Deletion:
+   DELETE /api/v1/Lead/{LeadId}
+   Returns: 200 (deleted) or 204 (not found)
+
+ALL THREE RECORD TYPES CAN BE DELETED VIA API! ✅
+
+This means: Automated GDPR deletion is FULLY POSSIBLE!
+
+
+EXAMPLE API CALLS FOR DELETION:
+═══════════════════════════════════════════════════════════════════════════════
+
+DELETE CONTACT:
+```bash
+DELETE https://evoglapi.tracker-rms.com/api/v1/Contact/123
+Authorization: Bearer {JWT_TOKEN}
+```
+
+DELETE RESOURCE (CANDIDATE):
+```bash
+DELETE https://evoglapi.tracker-rms.com/api/v1/Resource/456
+Authorization: Bearer {JWT_TOKEN}
+```
+
+DELETE LEAD:
+```bash
+DELETE https://evoglapi.tracker-rms.com/api/v1/Lead/789
+Authorization: Bearer {JWT_TOKEN}
+```
+
+All return:
+• 200 OK = Successfully deleted
+• 204 No Content = Record doesn't exist (already deleted)
+• 400 Bad Request = Error (check permissions)
+
+
+PLUGIN IMPLEMENTATION FOR AUTOMATED CLEANUP:
+═══════════════════════════════════════════════════════════════════════════════
+
+WordPress Cron Job (Runs Daily):
+
+```php
+// Register cron schedule
+add_action( 'wp', 'schedule_gdpr_cleanup' );
+function schedule_gdpr_cleanup() {
+    if ( ! wp_next_scheduled( 'halt_tracker_gdpr_cleanup' ) ) {
+        wp_schedule_event( time(), 'daily', 'halt_tracker_gdpr_cleanup' );
+    }
+}
+
+// Run cleanup
+add_action( 'halt_tracker_gdpr_cleanup', 'run_gdpr_cleanup' );
+function run_gdpr_cleanup() {
+    
+    // 1. CANDIDATE CLEANUP (6 months + warning)
+    cleanup_old_candidates();
+    
+    // 2. MARKETING CONTACT CLEANUP (2 years inactive)
+    cleanup_inactive_marketing_contacts();
+    
+    // 3. EVENT ATTENDEE CLEANUP (6 months post-event)
+    cleanup_old_event_attendees();
+    
+    // 4. COLD LEAD CLEANUP (18 months + no activity)
+    cleanup_cold_leads();
+}
+
+function cleanup_old_candidates() {
+    $jwt = get_jwt_token();
+    
+    // Search for old candidates in TrackerRMS
+    $search_body = [
+        'updatedBefore' => date('c', strtotime('-7 months')), // 7 months = 6 + 1 buffer
+        'maxResults' => 100
+    ];
+    
+    $candidates = search_resources( $search_body, $jwt );
+    
+    foreach ( $candidates as $candidate ) {
+        // Check if they've been warned
+        $warned = get_option( 'warned_candidate_' . $candidate['id'] );
+        
+        if ( ! $warned ) {
+            // Send warning email: "We'll delete your data in 30 days"
+            send_deletion_warning_email( $candidate['contactDetails']['email'], $candidate['id'] );
+            update_option( 'warned_candidate_' . $candidate['id'], time() );
+        } else {
+            // Check if 30 days passed since warning
+            $warning_date = $warned;
+            if ( time() - $warning_date > 30 * DAY_IN_SECONDS ) {
+                // DELETE from TrackerRMS
+                $url = 'https://evoglapi.tracker-rms.com/api/v1/Resource/' . $candidate['id'];
+                
+                wp_remote_request( $url, [
+                    'method' => 'DELETE',
+                    'headers' => [
+                        'Authorization' => 'Bearer ' . $jwt
+                    ]
+                ]);
+                
+                // Log deletion
+                log_gdpr_deletion( 'Resource', $candidate['id'], 'Retention period expired' );
+                delete_option( 'warned_candidate_' . $candidate['id'] );
+            }
+        }
+    }
+}
+```
+
+
+GDPR COMPLIANCE WORKFLOW WITH PLUGIN:
+═══════════════════════════════════════════════════════════════════════════════
+
+AUTOMATED PROCESS:
+
+Day 1: Candidate uploads CV
+• Created in TrackerRMS
+• Timestamp recorded
+
+Day 180 (6 months): Retention period reached
+• Automated check runs
+• No recent activity detected
+• WARNING EMAIL sent: "Hi John, we'll delete your data in 30 days unless you respond"
+• Logged: "Warning sent to candidate ID 123 on 2025-12-04"
+
+Day 210 (7 months): If no response
+• Automated deletion runs
+• DELETE API call to TrackerRMS
+• Logged: "Candidate ID 123 deleted on 2025-01-03 - Reason: Retention period expired"
+• Option deleted to clean up
+
+MANUAL OVERRIDE:
+• If candidate responds to warning → Reset the clock (update 'last activity')
+• If placed in job → Exempt from auto-deletion (different retention rules)
+• If ongoing conversation → Add note to prevent deletion
+
+
+USER-REQUESTED DELETION (RIGHT TO ERASURE):
+═══════════════════════════════════════════════════════════════════════════════
+
+PROCESS:
+
+1. User emails: "Please delete all my data"
+2. Verify identity (reply to their registered email)
+3. Run deletion script:
+
+```php
+function process_erasure_request( $email ) {
+    $jwt = get_jwt_token();
+    
+    // Search TrackerRMS by email
+    $search_body = [ 'email' => $email, 'maxResults' => 10 ];
+    
+    // Check all three record types
+    $contacts = search_contacts( $search_body, $jwt );
+    $resources = search_resources( $search_body, $jwt );
+    $leads = search_leads( $search_body, $jwt );
+    
+    // Delete from TrackerRMS
+    foreach ( $contacts as $contact ) {
+        delete_tracker_record( 'Contact', $contact['contactId'], $jwt );
+        log_gdpr_deletion( 'Contact', $contact['contactId'], 'User requested erasure' );
+    }
+    
+    foreach ( $resources as $resource ) {
+        delete_tracker_record( 'Resource', $resource['resourceId'], $jwt );
+        log_gdpr_deletion( 'Resource', $resource['resourceId'], 'User requested erasure' );
+    }
+    
+    foreach ( $leads as $lead ) {
+        delete_tracker_record( 'Lead', $lead['leadId'], $jwt );
+        log_gdpr_deletion( 'Lead', $lead['leadId'], 'User requested erasure' );
+    }
+    
+    // Delete from WordPress
+    delete_wordpress_attendee_records( $email );
+    delete_wordpress_form_submissions( $email );
+    
+    // Send confirmation
+    send_erasure_confirmation_email( $email );
+    
+    // Log for audit trail
+    log_gdpr_action( 'ERASURE', $email, 'All records deleted from WordPress and TrackerRMS' );
+}
+
+function delete_tracker_record( $type, $id, $jwt ) {
+    $url = "https://evoglapi.tracker-rms.com/api/v1/{$type}/{$id}";
+    
+    $response = wp_remote_request( $url, [
+        'method' => 'DELETE',
+        'headers' => [
+            'Authorization' => 'Bearer ' . $jwt
+        ],
+        'timeout' => 20
+    ]);
+    
+    $code = wp_remote_retrieve_response_code( $response );
+    return ( 200 === $code || 204 === $code ); // Both mean deleted/doesn't exist
+}
+```
+
+4. Confirm deletion: "Your data has been deleted from all our systems"
+5. Keep audit log: "Erasure request from john@example.com processed 2025-12-04"
+
+
+AUDIT TRAIL / LOGGING:
+═══════════════════════════════════════════════════════════════════════════════
+
+Essential for GDPR compliance - you must PROVE you deleted data when asked.
+
+WORDPRESS DATABASE TABLE: wp_gdpr_log
+
+```sql
+CREATE TABLE wp_gdpr_log (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    action_type VARCHAR(50),        -- 'DELETION', 'ERASURE_REQUEST', 'WARNING_SENT'
+    record_type VARCHAR(50),        -- 'Contact', 'Resource', 'Lead'
+    record_id INT,                  -- TrackerRMS record ID
+    email VARCHAR(255),             -- Person's email
+    reason TEXT,                    -- 'Retention expired', 'User requested', etc.
+    timestamp DATETIME,             -- When action occurred
+    performed_by VARCHAR(100),      -- 'System' or 'Admin: John Smith'
+    notes TEXT                      -- Additional context
+);
+```
+
+LOG ENTRIES EXAMPLE:
+
+```
+| action_type      | record_type | record_id | email              | reason                | timestamp           | performed_by |
+|------------------|-------------|-----------|--------------------|-----------------------|---------------------|--------------|
+| WARNING_SENT     | Resource    | 123       | john@example.com   | 6-month retention     | 2025-12-04 10:00:00 | System       |
+| DELETION         | Resource    | 123       | john@example.com   | No response to warning| 2026-01-03 10:00:00 | System       |
+| ERASURE_REQUEST  | Contact     | 456       | sarah@example.com  | User requested        | 2025-12-10 14:30:00 | Admin: Jane  |
+| DELETION         | Contact     | 456       | sarah@example.com  | Right to erasure      | 2025-12-10 14:31:00 | Admin: Jane  |
+```
+
+WHY THIS MATTERS:
+• ICO audit: "Prove you deleted John's data"
+• You: "Here's the log entry showing deletion on 2026-01-03"
+• ICO: ✅ Compliant
+
+
+WHAT YOU NEED TO TELL OA:
+═══════════════════════════════════════════════════════════════════════════════
+
+"TrackerRMS stores your data indefinitely - it won't automatically delete anything 
+for GDPR compliance. That's YOUR responsibility as the data controller.
+
+The GOOD NEWS:
+• The API fully supports deletion - we can delete Contacts, Resources, and Leads
+• We can build automated cleanup systems
+• We can handle deletion requests efficiently
+
+You have TWO OPTIONS:
+
+OPTION A: MANUAL COMPLIANCE (Lower cost, more work)
+• Quarterly review: Export old data, manually delete in batches
+• Respond to deletion requests manually
+• Time: 2-4 hours per quarter
+• Cost: No development, just staff time
+• Risk: Easy to forget, inconsistent
+
+OPTION B: AUTOMATED COMPLIANCE (Higher upfront, less work) ⭐ RECOMMENDED
+• Daily automated checks for expired data
+• Warning emails before deletion (good UX + compliance)
+• Automatic deletion after retention periods
+• Audit trail logged automatically
+• Deletion request handler built-in
+• Time: 1 hour per quarter (review logs)
+• Cost: 2-3 days development upfront
+• Risk: Lower, consistent, auditable
+
+Either way, you MUST:
+• Define retention periods (we recommend: 6 months candidates, 2 years marketing)
+• Have a process for deletion requests (must respond within 30 days)
+• Keep audit logs (prove you deleted when asked)
+
+The marketing opt-in preferences we capture are PERFECT for knowing who consented 
+to what. But they don't trigger automatic deletion - that's a separate process 
+you need to implement."
+
+
+RECOMMENDED APPROACH:
+═══════════════════════════════════════════════════════════════════════════════
+
+PHASE 1: LAUNCH (Day 1)
+• Manual deletion process documented
+• Privacy policy in place
+• Deletion request email published
+• Respond manually to any requests
+
+PHASE 2: AUTOMATION (Month 2-3)
+• Build automated cleanup system (2-3 days dev)
+• Test on dummy data
+• Enable warning emails
+• Enable automated deletion
+• Monitor logs
+
+PHASE 3: ONGOING (Forever)
+• Monthly review of GDPR logs
+• Quarterly audit of retention compliance
+• Annual review of retention policies
+• Update as GDPR guidance evolves
+
+
+COMPARISON: WHAT CHANGES WITH AUTOMATION:
+═══════════════════════════════════════════════════════════════════════════════
+
+MANUAL COMPLIANCE:
+──────────────────
+✓ Lower upfront cost
+✓ Simple to understand
+✗ Easy to forget
+✗ Inconsistent application
+✗ Time-consuming (2-4 hours/quarter)
+✗ Human error risk
+✗ Manual audit trail (spreadsheet)
+
+AUTOMATED COMPLIANCE:
+─────────────────────
+✓ Consistent application
+✓ Never forgets
+✓ Minimal ongoing time (1 hour/quarter)
+✓ Automatic audit trail
+✓ Warning emails (better UX)
+✓ Scales with volume
+✗ Higher upfront cost (2-3 days dev)
+✗ Slightly more complex
+
+
+GDPR FINES TO AVOID:
+═══════════════════════════════════════════════════════════════════════════════
+
+What happens if you DON'T delete data properly:
+
+Scenario 1: Keep data too long
+• ICO complaint: "Why do you still have my CV after 2 years?"
+• You: No retention policy, forgot to delete
+• Fine: Up to £8.7 million or 2% turnover
+• Article violated: Article 5(1)(e) - Storage limitation
+
+Scenario 2: Don't respond to deletion request
+• User requests deletion
+• You don't respond within 30 days
+• User complains to ICO
+• Fine: Up to £17.5 million or 4% turnover
+• Article violated: Article 17 - Right to erasure
+
+Scenario 3: Can't prove you deleted
+• ICO audit: "Prove you deleted this person's data"
+• You: "We think we did, but no record"
+• Fine: Up to £8.7 million or 2% turnover
+• Article violated: Article 5(2) - Accountability
+
+THE STAKES ARE HIGH!
+
+But with proper systems:
+✅ Automated deletion = storage limitation complied
+✅ 30-day response handler = right to erasure complied
+✅ Audit trail = accountability proved
+
+Cost to implement: 2-3 days development (~£2,000-3,000)
+Cost of non-compliance: £millions + reputation damage
+
+It's a no-brainer to implement properly! 💰
+
+
+FINAL SUMMARY:
+═══════════════════════════════════════════════════════════════════════════════
+
+QUESTION: "Will TrackerRMS automatically delete contacts for GDPR compliance?"
+
+ANSWER: NO - but the API allows you to build automated deletion systems.
+
+WHAT TRACKERRMS DOES:
+✅ Stores marketing preferences (granular consent)
+✅ Provides API to delete records
+✅ Lets you update preferences
+❌ Does NOT auto-delete based on retention periods
+❌ Does NOT enforce GDPR compliance
+
+WHAT YOU MUST DO:
+✅ Define retention periods
+✅ Implement deletion process (manual or automated)
+✅ Respond to deletion requests (within 30 days)
+✅ Keep audit trail (prove compliance)
+
+RECOMMENDATION:
+Build automated GDPR compliance system (2-3 days development):
+• Daily checks for expired data
+• Warning emails before deletion
+• Automatic deletion after retention periods
+• Audit trail logging
+• Deletion request handler
+
+RESULT:
+✅ GDPR compliant
+✅ Minimal ongoing effort
+✅ Scalable
+✅ Auditable
+✅ Professional
+
+The marketing preferences capture consent.
+The deletion system enforces retention.
+Together = full GDPR compliance! 🎯
+

@@ -1,0 +1,230 @@
+{
+    "pages": [
+      { "title": "Home", "type": "page" },
+      { "title": "About", "type": "page" },
+      { "title": "Work for us", "type": "page" },
+      { "title": "Candidates", "type": "page" },
+      { "title": "Clients", "type": "page" },
+      { "title": "Contact", "type": "page" },
+      { "title": "Register Brief", "type": "page" },
+      { "title": "Register CV", "type": "page" },
+  
+      {
+        "title": "Meet the Team",
+        "type": "archive",
+        "source": "cpt: team_members"
+      },
+      {
+        "title": "Job Board",
+        "type": "archive",
+        "source": "cpt: jobs"
+      },
+  
+      {
+        "title": "Resource Hub",
+        "type": "page_or_archive",
+        "source": "posts"
+      },
+  
+      {
+        "title": "Events and networking",
+        "type": "page",
+        "notes": "Contains two grids: Upcoming Events and Event Recaps"
+      },
+  
+      {
+        "title": "Locations",
+        "type": "page",
+        "children": [
+          { "title": "Buckinghamshire", "type": "page" },
+          { "title": "Bedfordshire", "type": "page" },
+          { "title": "Cambridgeshire", "type": "page" },
+          { "title": "Hertfordshire", "type": "page" },
+          { "title": "North London", "type": "page" },
+          {
+            "title": "Onsite",
+            "type": "page",
+            "notes": "Uses a slightly different template"
+          }
+        ]
+      },
+  
+      {
+        "title": "Specialisms",
+        "type": "page",
+        "children": [
+          { "title": "Office & Commercial", "type": "page" },
+          { "title": "Warehousing & Distribution", "type": "page" },
+          { "title": "Manufacturing", "type": "page" },
+          { "title": "Events & Hospitality", "type": "page" },
+          { "title": "Engineering", "type": "page" }
+        ]
+      },
+  
+      {
+        "title": "Solutions",
+        "type": "page",
+        "children": [
+          { "title": "Permanent", "type": "page" },
+          { "title": "Temporary", "type": "page" },
+          { "title": "Embedded", "type": "page" },
+          { "title": "Executive Search", "type": "page" },
+          { "title": "High-Volume Perm", "type": "page" },
+          { "title": "High-Volume Temp", "type": "page" }
+        ]
+      },
+  
+      {
+        "title": "More",
+        "type": "page",
+        "children": [
+          { "title": "Employer Branding", "type": "page" },
+          { "title": "On-Boarding & Training", "type": "page" },
+          { "title": "Outplacement", "type": "page" },
+          { "title": "Microsites", "type": "page" }
+        ]
+      }
+    ],
+  
+    "custom_post_types": [
+      {
+        "name": "team_members",
+        "single_template": "Individual Bio",
+        "archive": "Meet the Team"
+      },
+      {
+        "name": "jobs",
+        "single_template": "Job template",
+        "archive": "Job Board"
+      },
+      {
+        "name": "events",
+        "label": "Events",
+        "single_templates": [
+          {
+            "name": "Upcoming Event",
+            "purpose": "Signup-focused event page",
+            "theme_builder_condition": "cpt=events AND event_status=upcoming"
+          },
+          {
+            "name": "Past Event",
+            "purpose": "Ended event page (no signup), shows ended messaging and optional recap teaser",
+            "theme_builder_condition": "cpt=events AND event_status=past"
+          },
+          {
+            "name": "Event Recap",
+            "purpose": "Recap-focused page; includes optional webinar-specific modules shown conditionally",
+            "theme_builder_condition": "cpt=events AND event_status=recap",
+            "conditional_modules": [
+              {
+                "when": "event_type=webinar",
+                "show": "Webinar extras section (recording embed, slides link, etc.)"
+              }
+            ]
+          }
+        ],
+        "taxonomies": [
+          {
+            "name": "event_status",
+            "label": "Event Status",
+            "terms": ["upcoming", "past", "recap"],
+            "usage": "Controls Theme Builder template selection and grid inclusion"
+          },
+          {
+            "name": "event_type",
+            "label": "Event Type",
+            "terms": ["webinar", "in_person", "networking"],
+            "usage": "Controls minor layout differences within the Recap template"
+          }
+        ],
+        "acf_fields": [
+          {
+            "name": "event_date",
+            "type": "datetime",
+            "required": true,
+            "usage": "Primary field used by automation to determine upcoming vs past"
+          },
+          {
+            "name": "signup_content",
+            "type": "group_or_wysiwyg",
+            "required": false,
+            "usage": "Displayed on Upcoming Event template"
+          },
+          {
+            "name": "recap_ready",
+            "type": "boolean",
+            "required": false,
+            "default": false,
+            "usage": "When true and event is in the past, automation sets status to recap"
+          },
+          {
+            "name": "recap_content",
+            "type": "group_or_wysiwyg",
+            "required": false,
+            "usage": "Displayed on Event Recap template"
+          }
+        ],
+        "automation": {
+          "on_save": [
+            {
+              "rule": "if event_date is in the future",
+              "set_event_status": "upcoming"
+            },
+            {
+              "rule": "if event_date is in the past AND recap_ready is true",
+              "set_event_status": "recap"
+            },
+            {
+              "rule": "if event_date is in the past AND recap_ready is false",
+              "set_event_status": "past"
+            }
+          ],
+          "daily_sweep": {
+            "frequency": "daily",
+            "purpose": "Ensures statuses remain correct even if no one edits events around the date boundary",
+            "rules": "Apply same rules as on_save across all events"
+          },
+          "edge_cases": [
+            {
+              "scenario": "Event date is edited from past to future",
+              "expected_behavior": "Status returns to upcoming; recap remains drafted but not shown until past and recap_ready=true"
+            }
+          ]
+        },
+        "events_page_grids": [
+          {
+            "page": "Events and networking",
+            "grid_name": "Upcoming Events",
+            "query": "cpt=events AND event_status=upcoming",
+            "notes": "Shows upcoming events only"
+          },
+          {
+            "page": "Events and networking",
+            "grid_name": "Event Recaps",
+            "query": "cpt=events AND event_status=recap",
+            "notes": "Shows recaps only; past events without recaps are excluded"
+          }
+        ]
+      },
+      {
+        "name": "microsite",
+        "label": "Microsites",
+        "single_template": "Microsite template"
+      }
+    ],
+  
+    "posts": {
+      "post_type": "post",
+      "used_for": "Resource Hub",
+      "categories": [
+        "Client Insight",
+        "Candidate Insight",
+        "Gated Download",
+        "Newsletter",
+        "Podcast and Video",
+        "Case Study"
+      ],
+      "templates": "Category-based post templates",
+      "notes": "Different templates and ACF field groups are assigned by category (treated as a single 'Resource Type' choice)."
+    }
+  }

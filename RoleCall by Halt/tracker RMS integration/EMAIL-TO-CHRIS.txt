@@ -1,0 +1,160 @@
+Subject: OA TrackerRMS Integration - Need Client Decision Call
+
+Hi Chris,
+
+The TrackerRMS integration is complete on the technical side and working well - I've successfully tested all three record types (candidates, contacts, and leads) and they're flowing into TrackerRMS correctly with full contact details.
+
+However, we need to schedule a call with OA to make some key decisions before we can build out the frontend forms and launch. These decisions will affect development time, costs, and how the system operates day-to-day.
+
+
+WHY WE NEED THIS CALL:
+──────────────────────
+
+Different types of forms need different handling, and there are several approaches we can take - each with different trade-offs. We need OA's input on what matters most to their business so we build the right solution, not just any solution.
+
+Also, GDPR compliance requires specific consent mechanisms for different form types, and we need to agree on data retention policies before we start collecting personal data.
+
+
+KEY DECISIONS OA NEEDS TO MAKE:
+────────────────────────────────
+
+1. EVENT MANAGEMENT APPROACH
+   We have three options for handling event registrations:
+   
+   A) TrackerRMS Only (simplest) - Use tags to filter attendees
+      → Best for: 1-2 small events per year
+      → Pros: Simple, no extra development
+      → Cons: Manual filtering, no capacity management
+   
+   B) WordPress Only - Build Events + Attendees system in WordPress
+      → Best for: Frequent/large events, need capacity management
+      → Pros: Automatic capacity tracking, check-in features
+      → Cons: Event attendees not in TrackerRMS contact book
+      → Dev time: +3 days
+   
+   C) Hybrid (Recommended) - WordPress for event management + TrackerRMS for contacts
+      → Best for: Regular events + want to build contact database
+      → Pros: Easy event management + unified contact history
+      → Cons: More complex setup
+      → Dev time: +3 days
+
+   Need to know: How many events per year? Typical attendance? Need capacity/check-in?
+
+
+2. NEWSLETTER MANAGEMENT
+   TrackerRMS has "Send Lists" but there's NO API to automatically add subscribers.
+   
+   A) TrackerRMS Manual - Someone manually adds subscribers weekly
+      → Best for: Low volume (under 10 signups/week)
+      → Cost: Free, but requires staff time
+   
+   B) Mailchimp Integration (Recommended) - Automatic list management
+      → Best for: Higher volume or want professional email features
+      → Cost: ~£20/month + 1 day development
+      → Pros: Automatic, professional features, better deliverability
+   
+   Need to know: Current signup volume? Budget for Mailchimp? Who manages newsletters?
+
+
+3. FORM PRIORITIES
+   Which forms are most important and in what order?
+   
+   Essential (probably):
+   - CV upload form
+   - Job application forms
+   - General contact form
+   
+   Secondary (depends on their business model):
+   - Event registration forms
+   - Content download forms (whitepapers, salary surveys)
+   - Client brief / RFP forms
+   - Newsletter signup
+   
+   Need to know: Which forms drive their business? What's the priority order?
+
+
+4. GDPR COMPLIANCE
+   Different forms need different consent checkboxes and retention periods:
+   
+   - CV uploads: Must have recruitment consent, 6-month retention
+   - Event registrations: Event consent required, optional marketing consent
+   - Content downloads: Legitimate interest notice, optional marketing consent
+   - Newsletter: Marketing consent required
+   
+   Need to know: 
+   - Do they have a GDPR officer?
+   - Is their privacy policy current?
+   - Who handles data deletion requests?
+   - Comfortable with automated cleanup or prefer manual review?
+
+
+5. TIMELINE & LAUNCH DATE
+   Based on their decisions, development time ranges from 3-11 days:
+   
+   - Core forms only: 3-4 days
+   - Core + Events (Hybrid): 6-7 days
+   - Core + Events + Mailchimp: 7-8 days
+   - Full package with automation: 8-11 days
+   
+   Need to know: Target launch date? Any imminent events that need registration?
+
+
+WHAT I'VE PREPARED:
+────────────────────
+
+I've created two documents:
+
+1. CLIENT-MEETING-DOCUMENT.txt (70 pages)
+   - Explains everything in plain English (no tech jargon)
+   - Detailed comparison of all options
+   - GDPR compliance guide with exact checkbox wording
+   - Privacy policy templates
+   - Timeline estimates
+
+2. MEETING-QUICK-REFERENCE.txt (8 pages)
+   - Cheat sheet for the call
+   - Key questions to ask
+   - Decision checklist
+   - Demo instructions (I can show working test records in their TrackerRMS)
+
+Both are ready to share with OA or use to guide the conversation.
+
+
+WHAT HAPPENS AFTER THE CALL:
+─────────────────────────────
+
+Once we have their decisions, I can:
+- Provide accurate timeline and cost estimate
+- Prioritize development tasks
+- Build the right solution for their needs
+- Ensure GDPR compliance from day one
+- Create a clear launch roadmap
+
+
+SUGGESTED AGENDA (60-75 minutes):
+──────────────────────────────────
+
+1. Demo working integration (10 min)
+2. Explain form types and options (15 min)
+3. Discuss GDPR requirements (15 min)
+4. Make key decisions together (20 min)
+5. Agree timeline and next steps (10 min)
+
+
+Can you set this up with OA? I'm flexible on timing and happy to present the documents beforehand if that helps them prepare.
+
+The integration is working beautifully - we just need their input to make sure we build what they actually need.
+
+Thanks,
+George
+
+
+---
+
+P.S. The test records in TrackerRMS show it's working perfectly:
+- Candidate with full CV details and contact info ✓
+- Contact with company and marketing consent ✓
+- Lead automatically linked to contact (shows email/phone) ✓
+
+All automated, no duplicates, ready for real forms.
+

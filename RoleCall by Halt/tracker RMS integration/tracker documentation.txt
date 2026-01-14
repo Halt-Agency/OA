@@ -1,0 +1,7112 @@
+Select a definition
+
+Tracker API v1
+Tracker API
+ 1.0.0 
+OAS 3.0
+/swagger/v1/swagger.json
+Too much information? Try the searchable documentation here.
+
+Beta Release
+The current api release is beta. Though we do not expect any breaking changes as a beta this is potentially subject to change. Please integrate with this in mind.
+
+Intended Audience
+This document is intended for technically trained developers. Please ensure you share this with developers who intend to implement the API. Support will not be provided for non technically trained users.
+
+Introduction
+The Tracker API is built on HTTP and is RESTful. It has predictable resource URLs and returns HTTP response codes to indicate errors.
+
+It returns JSON in the HTTP body. Use the HTTP/REST library in your favorite programming language when using this API, or generate a client SDK using your preferred development IDE.
+
+Many Tracker actions are supported by APIs which are documented and available for use, so that you may automate any necessary workflows or processes. This API reference documentation contains the most commonly integrated resources.
+
+Authentication
+All calls to this API require an authorised JWT token, which is obtained by exchanging a valid OAuth2 token for a JWT token using the /api/auth/exchangetoken endpoint.
+
+The token is acquired with the OAuth2 authentication flow using our OAuth2 API.
+
+Authentication steps
+
+Acquire a token using the OAuth2 flow with the /oauth2/authorize and /oauth2/token endpoints
+See the OAuth2 API documentation for details on these endpoints and note in particular that they are published on a separate domain to this API
+Exchange your token for a JWT token using the /api/auth/exchangetoken endpoint
+Send your JWT token in the Authorization header with all subsequent calls to the API
+Important: JWT tokens expire, so you should always check for an authentication failure (401) response and obtain a new JWT token by calling the /api/auth/exchangetoken endpoint, if necessary.
+
+Errors
+Tracker follows the error response format proposed in RFC 9457, which is also known as Problem Details for HTTP APIs.
+
+As with any API responses, your client must be prepared to gracefully handle additional members of the response.
+
+Rate Limits
+Tracker implements rate limiting on the API. Presently around 100 requests per minute.
+
+If the rate limit is exceeded, the API returns a '429 Too Many Requests' response.
+
+Response Codes
+This API follows REST specification. For convenience below is a table of returned response codes:
+
+Code	Meaning
+200 OK	The request was successful.
+201 Created	A new resource has been successfully created.
+202 Accepted	The request has been accepted for processing, but the processing is not complete.
+204 No Content	The request was successful, but there is no content to return.
+400 Bad Request	The request was malformed or invalid. Check the request parameters or body.
+401 Unauthorized	Authentication is required or has failed. Verify your JWT token.
+403 Forbidden	The client does not have permission to access the requested resource.
+404 Not Found	The requested resource could not be found.
+405 Method Not Allowed	The HTTP method is not supported for the requested resource.
+409 Conflict	The request could not be completed due to a conflict with the current state of the resource.
+415 Unsupported Media Type	The request entity has a media type that the server does not support.
+422 Unprocessable Entity	The server understands the content type and syntax, but the content is semantically invalid.
+429 Too Many Requests	The client has sent too many requests in a given amount of time (rate limiting).
+500 Internal Server Error	A generic error occurred on the server.
+502 Bad Gateway	The server received an invalid response from an upstream server.
+503 Service Unavailable	The server is currently unavailable, usually due to maintenance or overload.
+These status codes are returned in the HTTP response status line, and error responses may include a body formatted according to RFC 9457 (Problem Details) for additional context.
+
+Tracker Support - Website
+
+Authorize
+Activity
+Activities log events that have taken place (like phone calls, email sends, interviews and tasks).
+
+
+Auth
+A JWT token is required for all API calls. Authenticate via OAuth2 API then exchange the token for a JWT.
+
+JWT tokens must be passed to all API calls in the 'Authorization' header.
+
+
+
+POST
+/api/Auth/ExchangeToken
+Exchanges a Tracker OAuth2 token for an API JWT token
+
+
+Client
+Clients represent other companies and businesses with which you have a relationship.
+
+
+
+POST
+/api/v1/Client
+Creates a new client record
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "source": "string",
+  "contactDetails": {
+    "telephone": "string",
+    "mobilePhone": "string",
+    "fax": "string",
+    "email": "string"
+  },
+  "status": {
+    "id": 0,
+    "name": "string"
+  },
+  "territory": {
+    "id": 0,
+    "name": "string"
+  },
+  "department": {
+    "id": 0,
+    "name": "string"
+  },
+  "customFields": [
+    {
+      "id": 0,
+      "name": "string",
+      "value": "string"
+    }
+  ],
+  "owners": [
+    {
+      "ownerId": 0,
+      "rank": 0,
+      "name": "string",
+      "percent": 0,
+      "role": "string"
+    }
+  ],
+  "name": "string",
+  "internalReference": "string",
+  "website": "string",
+  "linkedInUrl": "string",
+  "isParentClient": true,
+  "parentClientId": 0,
+  "tagText": "string",
+  "specialTerms": "string",
+  "note": "string",
+  "background": "string",
+  "targetRevenue": 0,
+  "turnover": "string",
+  "supportDepartment": "string",
+  "supportTeam": "string",
+  "supportResource": "string",
+  "secondarysupportResource": "string",
+  "noticePeriod": "string",
+  "timesheetApprovals": true,
+  "clientTypes": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "sectors": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "quickSkills": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "bankingDetails": {
+    "bankName": "string",
+    "sortCode": "string",
+    "accountNumber": "string",
+    "bankReference": "string"
+  },
+  "invoicingDetails": {
+    "chargeRateTerms": "string",
+    "invoicingFrequency": "string",
+    "invoicingDay": "string",
+    "invoiceTerms": "string",
+    "invoicingContact": "string",
+    "invoiceSendCc": "string",
+    "chargeRate": 0,
+    "discount": 0,
+    "surcharge": 0,
+    "taxRate": 0,
+    "isTaxExempt": true,
+    "applySurcharge": true,
+    "creditApproved": true,
+    "allowOnlinePayments": true
+  },
+  "rank": {
+    "id": 0,
+    "name": "string",
+    "order": 0
+  },
+  "vertical": {
+    "id": 0,
+    "name": "string"
+  }
+}
+Responses
+Code	Description	Links
+200	
+record created successfully
+
+No links
+201	
+Created
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+record not created
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/Client/Search
+Searches for client records using the supplied parameters
+
+
+Sample request:
+
+ POST /
+ {
+    "searchTerm": "John Doe",
+        "maxResults": 50,
+        "pageNumber": 1,
+        "statusId": 1,
+        "sortBy": "name",
+        "sortDirection": "desc",
+        "updatedBefore": null,
+        "updatedAfter": null,
+        "onlyMyRecords": false,
+        "includeCustomFields": false
+ }
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "searchTerm": "acme",
+  "maxResults": 10,
+  "pageNumber": 1,
+  "sortBy": "",
+  "sortDirection": "ASC",
+  "statusId": 7,
+  "state": "open",
+  "updatedBefore": "2025-11-27T08:18:08.811Z",
+  "updatedAfter": "2025-11-27T08:18:08.811Z",
+  "onlyMyRecords": false,
+  "includeCustomFields": false
+}
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "clientId": 0,
+    "creationDate": "2025-11-27T08:18:08.812Z",
+    "clientName": "string",
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "town": "string",
+    "county": "string",
+    "postcode": "string",
+    "country": "string",
+    "email": "string",
+    "website": "string",
+    "telephone": "string",
+    "internalRef": "string",
+    "clientSource": "string",
+    "departmentName": "string",
+    "clientVerticalName": "string",
+    "clientRankName": "string",
+    "territory": "string",
+    "clientOwner": "string",
+    "customFields": [
+      {
+        "id": 0,
+        "name": "string",
+        "value": "string"
+      }
+    ]
+  }
+]
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/Client/AttachDocument
+Attaches a document to a client record
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "filename": "string",
+  "documentType": "string",
+  "documentData": "string",
+  "recordId": 0,
+  "isPrimary": true
+}
+Responses
+Code	Description	Links
+200	
+OK
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+201	
+Document attached successfully
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+400	
+Bad request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Client/DocumentFolders/{Id}
+Lists all document folders for a client record
+
+
+Sample request:
+
+GET /
+{
+   "Id": 1
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Folders found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "name": "string"
+  }
+]
+No links
+204	
+No Content
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Client/{Id}
+Gets an existing client record
+
+
+Sample request:
+
+GET /
+{
+   "Id": 1
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "name": "string",
+  "typeName": "string",
+  "source": "string",
+  "contactDetails": {
+    "telephone": "string",
+    "mobilePhone": "string",
+    "fax": "string",
+    "email": "string"
+  },
+  "status": {
+    "id": 0,
+    "name": "string"
+  },
+  "territory": {
+    "id": 0,
+    "name": "string"
+  },
+  "department": {
+    "id": 0,
+    "name": "string"
+  },
+  "customFields": [
+    {
+      "id": 0,
+      "name": "string",
+      "value": "string"
+    }
+  ],
+  "owners": [
+    {
+      "ownerId": 0,
+      "rank": 0,
+      "name": "string",
+      "percent": 0,
+      "role": "string"
+    }
+  ],
+  "internalReference": "string",
+  "website": "string",
+  "linkedInUrl": "string",
+  "isParentClient": true,
+  "parentClientId": 0,
+  "tagText": "string",
+  "specialTerms": "string",
+  "note": "string",
+  "background": "string",
+  "targetRevenue": 0,
+  "turnover": "string",
+  "supportDepartment": "string",
+  "supportTeam": "string",
+  "supportResource": "string",
+  "secondarysupportResource": "string",
+  "noticePeriod": "string",
+  "timesheetApprovals": true,
+  "clientTypes": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "sectors": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "quickSkills": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "bankingDetails": {
+    "bankName": "string",
+    "sortCode": "string",
+    "accountNumber": "string",
+    "bankReference": "string"
+  },
+  "invoicingDetails": {
+    "chargeRateTerms": "string",
+    "invoicingFrequency": "string",
+    "invoicingDay": "string",
+    "invoiceTerms": "string",
+    "invoicingContact": "string",
+    "invoiceSendCc": "string",
+    "chargeRate": 0,
+    "discount": 0,
+    "surcharge": 0,
+    "taxRate": 0,
+    "isTaxExempt": true,
+    "applySurcharge": true,
+    "creditApproved": true,
+    "allowOnlinePayments": true
+  },
+  "rank": {
+    "id": 0,
+    "name": "string",
+    "order": 0
+  },
+  "vertical": {
+    "id": 0,
+    "name": "string"
+  },
+  "history": {
+    "created": "2025-11-27T08:18:08.819Z",
+    "closed": "2025-11-27T08:18:08.819Z",
+    "updated": "2025-11-27T08:18:08.819Z",
+    "updatedBy": 0,
+    "renewal1": "2025-11-27T08:18:08.819Z",
+    "renewal2": "2025-11-27T08:18:08.819Z",
+    "cancelled": "2025-11-27T08:18:08.819Z",
+    "cancellationReason": "string"
+  }
+}
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+PATCH
+/api/v1/Client/{Id}
+Updates an existing client record
+
+
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+The record id
+
+Example : 27841
+
+27841
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "source": "string",
+  "contactDetails": {
+    "telephone": "string",
+    "mobilePhone": "string",
+    "fax": "string",
+    "email": "string"
+  },
+  "status": {
+    "id": 0,
+    "name": "string"
+  },
+  "territory": {
+    "id": 0,
+    "name": "string"
+  },
+  "department": {
+    "id": 0,
+    "name": "string"
+  },
+  "customFields": [
+    {
+      "id": 0,
+      "name": "string",
+      "value": "string"
+    }
+  ],
+  "owners": [
+    {
+      "ownerId": 0,
+      "rank": 0,
+      "name": "string",
+      "percent": 0,
+      "role": "string"
+    }
+  ],
+  "name": "string",
+  "internalReference": "string",
+  "website": "string",
+  "linkedInUrl": "string",
+  "isParentClient": true,
+  "parentClientId": 0,
+  "tagText": "string",
+  "specialTerms": "string",
+  "note": "string",
+  "background": "string",
+  "targetRevenue": 0,
+  "turnover": "string",
+  "supportDepartment": "string",
+  "supportTeam": "string",
+  "supportResource": "string",
+  "secondarysupportResource": "string",
+  "noticePeriod": "string",
+  "timesheetApprovals": true,
+  "clientTypes": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "sectors": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "quickSkills": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "bankingDetails": {
+    "bankName": "string",
+    "sortCode": "string",
+    "accountNumber": "string",
+    "bankReference": "string"
+  },
+  "invoicingDetails": {
+    "chargeRateTerms": "string",
+    "invoicingFrequency": "string",
+    "invoicingDay": "string",
+    "invoiceTerms": "string",
+    "invoicingContact": "string",
+    "invoiceSendCc": "string",
+    "chargeRate": 0,
+    "discount": 0,
+    "surcharge": 0,
+    "taxRate": 0,
+    "isTaxExempt": true,
+    "applySurcharge": true,
+    "creditApproved": true,
+    "allowOnlinePayments": true
+  },
+  "rank": {
+    "id": 0,
+    "name": "string",
+    "order": 0
+  },
+  "vertical": {
+    "id": 0,
+    "name": "string"
+  }
+}
+Responses
+Code	Description	Links
+200	
+Record updated
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+DELETE
+/api/v1/Client/{Id}
+Deletes a client record
+
+
+Sample request:
+
+DELETE /
+{
+   "id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record delete
+
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+Contact
+Contacts represent people with which you have a relationship.
+
+
+
+POST
+/api/v1/Contact
+Creates a new contact record
+
+
+Sample request:
+
+POST /Add
+{
+   ...leadServiceDto data
+}
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "source": "string",
+  "contactDetails": {
+    "telephone": "string",
+    "mobilePhone": "string",
+    "fax": "string",
+    "email": "string"
+  },
+  "status": {
+    "id": 0,
+    "name": "string"
+  },
+  "territory": {
+    "id": 0,
+    "name": "string"
+  },
+  "department": {
+    "id": 0,
+    "name": "string"
+  },
+  "customFields": [
+    {
+      "id": 0,
+      "name": "string",
+      "value": "string"
+    }
+  ],
+  "owners": [
+    {
+      "ownerId": 0,
+      "rank": 0,
+      "name": "string",
+      "percent": 0,
+      "role": "string"
+    }
+  ],
+  "preferredName": "string",
+  "firstName": "string",
+  "surname": "string",
+  "nickname": "string",
+  "jobTitle": "string",
+  "company": "string",
+  "website": "string",
+  "office": "string",
+  "spousesName": "string",
+  "birthday": "string",
+  "anniversary": "string",
+  "photo": "string",
+  "note": "string",
+  "isPrimary": true,
+  "marketingPreference": "string",
+  "businessUnit": "string",
+  "internalReference": "string",
+  "tagText": "string",
+  "sectors": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "quickSkills": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "client": {
+    "id": 0,
+    "name": "string"
+  },
+  "manager": {
+    "id": 0,
+    "name": "string"
+  },
+  "assistant": {
+    "id": 0,
+    "name": "string"
+  },
+  "referralFrom": {
+    "id": 0,
+    "name": "string"
+  },
+  "type": {
+    "id": 0,
+    "name": "string"
+  },
+  "role": {
+    "id": 0,
+    "name": "string"
+  },
+  "address": {
+    "isPrimary": true,
+    "addressName": "string",
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "town": "string",
+    "county": "string",
+    "country": "string",
+    "postcode": "string"
+  },
+  "additionalContactDetails": {
+    "type": "string",
+    "value": "string"
+  }
+}
+Responses
+Code	Description	Links
+200	
+Contact created successfully
+
+No links
+201	
+Created
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+Contact not created
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/Contact/Search
+Searches for contact records using the supplied parameters
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "searchTerm": "acme",
+  "maxResults": 10,
+  "pageNumber": 1,
+  "sortBy": "",
+  "sortDirection": "ASC",
+  "statusId": 7,
+  "updatedBefore": "2025-11-27T08:18:08.830Z",
+  "updatedAfter": "2025-11-27T08:18:08.830Z",
+  "onlyMyRecords": false,
+  "includeCustomFields": false,
+  "telephone": "acme",
+  "email": "acme"
+}
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "contactId": 0,
+    "clientName": "string",
+    "clientId": 0,
+    "salutation": "string",
+    "firstName": "string",
+    "surname": "string",
+    "displayAs": "string",
+    "jobTitle": "string",
+    "company": "string",
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "town": "string",
+    "county": "string",
+    "postcode": "string",
+    "country": "string",
+    "businessPhone": "string",
+    "homePhone": "string",
+    "mobilePhone": "string",
+    "otherPhone": "string",
+    "fax": "string",
+    "pager": "string",
+    "email": "string",
+    "website": "string",
+    "department": "string",
+    "office": "string",
+    "contactRole": "string",
+    "contactType": "string",
+    "referralFrom": 0,
+    "territory": "string",
+    "contactSource": "string",
+    "marketing": "string",
+    "businessUnit": "string",
+    "managerContactId": 0,
+    "contactRoleId": 0,
+    "contactTypeId": 0,
+    "lastUpdatedDateTime": "2025-11-27T08:18:08.831Z",
+    "lastUpdatedUserId": 0,
+    "creationDate": "2025-11-27T08:18:08.831Z",
+    "departmentId": 0,
+    "territoryId": 0,
+    "contactStatusId": 0,
+    "customFields": [
+      {
+        "id": 0,
+        "name": "string",
+        "value": "string"
+      }
+    ]
+  }
+]
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/Contact/Search/CustomField
+Searches custom fields for contact records using the supplied parameters
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "maxResults": 10,
+  "pageNumber": 1,
+  "sortBy": "",
+  "sortDirection": "ASC",
+  "customFieldValue": "acme",
+  "customFieldId": 0
+}
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "resourceId": 0,
+    "dateApplied": "string",
+    "clientName": "string",
+    "firstname": "string",
+    "surname": "string",
+    "displayAs": "string",
+    "jobTitle": "string",
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "town": "string",
+    "county": "string",
+    "postcode": "string",
+    "country": "string",
+    "email": "string",
+    "otherEmail": "string",
+    "linkedInUrl": "string",
+    "workTelephone": "string",
+    "homeTelephone": "string",
+    "mobilePhone": "string",
+    "nissNumber": "string",
+    "payrollNumber": "string",
+    "whereDidYouHear": "string",
+    "departmentName": "string",
+    "territory": "string",
+    "resourceOwner": "string",
+    "resourceStatusName": "string",
+    "availableForWork": "string",
+    "availableFrom": "2025-11-27T08:18:08.834Z",
+    "availability": "string",
+    "lastUpdatedDateTime": "2025-11-27T08:18:08.834Z",
+    "lastUpdatedUserId": 0,
+    "customFields": [
+      {
+        "id": 0,
+        "name": "string",
+        "value": "string"
+      }
+    ]
+  }
+]
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/Contact/AttachDocument
+Attaches a document to a contact record
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "filename": "string",
+  "documentType": "string",
+  "documentData": "string",
+  "recordId": 0,
+  "isPrimary": true
+}
+Responses
+Code	Description	Links
+201	
+Document attached successfully
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+400	
+Bad request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Contact/DocumentFolders/{Id}
+Lists all document folders for a contact record
+
+
+Sample request:
+
+GET /
+{
+   "Id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Folders found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "name": "string"
+  }
+]
+No links
+204	
+No Content
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Contact/{Id}
+Gets an existing contact record
+
+
+Sample request:
+
+GET /
+{
+   "id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Contact found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "name": "string",
+  "typeName": "string",
+  "source": "string",
+  "contactDetails": {
+    "telephone": "string",
+    "mobilePhone": "string",
+    "fax": "string",
+    "email": "string"
+  },
+  "status": {
+    "id": 0,
+    "name": "string"
+  },
+  "territory": {
+    "id": 0,
+    "name": "string"
+  },
+  "department": {
+    "id": 0,
+    "name": "string"
+  },
+  "customFields": [
+    {
+      "id": 0,
+      "name": "string",
+      "value": "string"
+    }
+  ],
+  "owners": [
+    {
+      "ownerId": 0,
+      "rank": 0,
+      "name": "string",
+      "percent": 0,
+      "role": "string"
+    }
+  ],
+  "preferredName": "string",
+  "firstName": "string",
+  "surname": "string",
+  "nickname": "string",
+  "jobTitle": "string",
+  "company": "string",
+  "website": "string",
+  "office": "string",
+  "spousesName": "string",
+  "birthday": "string",
+  "anniversary": "string",
+  "photo": "string",
+  "note": "string",
+  "isPrimary": true,
+  "marketingPreference": "string",
+  "businessUnit": "string",
+  "internalReference": "string",
+  "tagText": "string",
+  "sectors": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "quickSkills": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "marketingPreferences": {
+    "marketingPreference": "string",
+    "textOptIn": true,
+    "emailOptIn": true,
+    "telephoneOptIn": true,
+    "workOptIn": true
+  },
+  "client": {
+    "id": 0,
+    "name": "string"
+  },
+  "manager": {
+    "id": 0,
+    "name": "string"
+  },
+  "assistant": {
+    "id": 0,
+    "name": "string"
+  },
+  "referralFrom": {
+    "id": 0,
+    "name": "string"
+  },
+  "type": {
+    "id": 0,
+    "name": "string"
+  },
+  "role": {
+    "id": 0,
+    "name": "string"
+  },
+  "address": {
+    "isPrimary": true,
+    "addressName": "string",
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "town": "string",
+    "county": "string",
+    "country": "string",
+    "postcode": "string"
+  },
+  "offLimits": {
+    "offLimitsFromDate": "2025-11-27T08:18:08.845Z",
+    "offLimitsUntilDate": "2025-11-27T08:18:08.845Z",
+    "offLimitsNote": "string",
+    "restrictions": "string"
+  },
+  "history": {
+    "created": "2025-11-27T08:18:08.845Z",
+    "closed": "2025-11-27T08:18:08.845Z",
+    "updated": "2025-11-27T08:18:08.845Z",
+    "updatedBy": 0,
+    "dateLastContacted": "2025-11-27T08:18:08.845Z",
+    "lastActivityId": 0
+  },
+  "additionalContactDetails": {
+    "type": "string",
+    "value": "string"
+  }
+}
+No links
+204	
+Contact not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+429	
+Too many requests
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+PATCH
+/api/v1/Contact/{Id}
+Updates an existing contact record
+
+
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+The record id
+
+Example : 1001
+
+1001
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "source": "string",
+  "contactDetails": {
+    "telephone": "string",
+    "mobilePhone": "string",
+    "fax": "string",
+    "email": "string"
+  },
+  "status": {
+    "id": 0,
+    "name": "string"
+  },
+  "territory": {
+    "id": 0,
+    "name": "string"
+  },
+  "department": {
+    "id": 0,
+    "name": "string"
+  },
+  "customFields": [
+    {
+      "id": 0,
+      "name": "string",
+      "value": "string"
+    }
+  ],
+  "owners": [
+    {
+      "ownerId": 0,
+      "rank": 0,
+      "name": "string",
+      "percent": 0,
+      "role": "string"
+    }
+  ],
+  "preferredName": "string",
+  "firstName": "string",
+  "surname": "string",
+  "nickname": "string",
+  "jobTitle": "string",
+  "company": "string",
+  "website": "string",
+  "office": "string",
+  "spousesName": "string",
+  "birthday": "string",
+  "anniversary": "string",
+  "photo": "string",
+  "note": "string",
+  "isPrimary": true,
+  "marketingPreference": "string",
+  "businessUnit": "string",
+  "internalReference": "string",
+  "tagText": "string",
+  "sectors": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "quickSkills": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "client": {
+    "id": 0,
+    "name": "string"
+  },
+  "manager": {
+    "id": 0,
+    "name": "string"
+  },
+  "assistant": {
+    "id": 0,
+    "name": "string"
+  },
+  "referralFrom": {
+    "id": 0,
+    "name": "string"
+  },
+  "type": {
+    "id": 0,
+    "name": "string"
+  },
+  "role": {
+    "id": 0,
+    "name": "string"
+  },
+  "address": {
+    "isPrimary": true,
+    "addressName": "string",
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "town": "string",
+    "county": "string",
+    "country": "string",
+    "postcode": "string"
+  },
+  "additionalContactDetails": {
+    "type": "string",
+    "value": "string"
+  }
+}
+Responses
+Code	Description	Links
+200	
+Record updated
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+DELETE
+/api/v1/Contact/{ContactId}
+Deletes a contact record
+
+
+Sample request:
+
+DELETE /
+{
+   "id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id
+integer($int32)
+(query)
+Id
+ContactId *
+string
+(path)
+ContactId
+Responses
+Code	Description	Links
+200	
+Contact delete
+
+No links
+204	
+Contact not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+CustomFields
+Custom field lists handling
+
+
+
+GET
+/api/v1/CustomFields/{Id}
+Gets list values of a custom field list given a field list id
+
+
+Invoice
+Invoice records represent invoices raised in your database.
+
+
+
+POST
+/api/v1/Invoice
+Creates a new invoice record
+
+
+
+POST
+/api/v1/Invoice/Search
+Searches for invoice records using the supplied parameters
+
+
+
+GET
+/api/v1/Invoice/{Id}
+Gets an existing invoice record
+
+
+
+PATCH
+/api/v1/Invoice/{Id}
+Updates an existing invoice record
+
+
+
+DELETE
+/api/v1/Invoice/{Id}
+Deletes an invoice record
+
+
+Lead
+Leads represent sales leads.
+
+
+
+POST
+/api/v1/Lead
+Creates a new lead record
+
+
+
+POST
+/api/v1/Lead/Search
+Searches for lead records using the supplied parameters
+
+
+
+POST
+/api/v1/Lead/AttachDocument
+Attaches a document to a lead record
+
+
+
+GET
+/api/v1/Lead/DocumentFolders/{Id}
+List all document folders for a lead record
+
+
+
+GET
+/api/v1/Lead/{leadId}
+Gets an existing lead record
+
+
+
+PATCH
+/api/v1/Lead/{Id}
+Updates an existing lead record
+
+
+
+DELETE
+/api/v1/Lead/{Id}
+Deletes a lead record
+
+
+MetaData
+Obtain all the core access rights, naming conventions, statues, types, sources and teams for a given user.
+
+
+
+GET
+/api/v1/MetaData
+Gets full metadata
+
+
+
+GET
+/api/v1/MetaData/recordTypes
+Gets recordtype metadata
+
+
+
+GET
+/api/v1/MetaData/Skills/Hierarchy
+Gets skill categories and areas (lightweight hierarchy without skills)
+
+
+
+GET
+/api/v1/MetaData/Skills/Areas/{areaId}/Skills
+Gets paginated skills for a specific area
+
+
+
+GET
+/api/v1/MetaData/Skills/Search
+Gets paginated skills with search across all areas
+
+
+
+GET
+/api/v1/MetaData/Skills/Areas/{areaId}/Count
+Gets skills count for a specific area
+
+
+
+GET
+/api/v1/MetaData/Skills/List/{skillListId}
+Gets skill list with its associated values
+
+
+Opportunity
+Opportunities represent business opportunities such as jobs.
+
+
+
+POST
+/api/v1/Opportunity
+Creates a new opportunity record
+
+
+
+GET
+/api/v1/Opportunity/{Id}
+Gets an existing opportunity record
+
+
+
+PATCH
+/api/v1/Opportunity/{Id}
+Updates an existing opportunity record
+
+
+
+DELETE
+/api/v1/Opportunity/{Id}
+Deletes an opportunity record
+
+
+
+POST
+/api/v1/Opportunity/Search
+Searches for opportunity records using the supplied parameters
+
+
+
+POST
+/api/v1/Opportunity/AttachDocument
+Attaches a document to an opportunity record
+
+
+
+GET
+/api/v1/Opportunity/DocumentFolders/{Id}
+Lists all document folders for an opportunity record
+
+
+
+GET
+/api/v1/Opportunity/{Id}/Applicants
+Lists all applicants for a job only matched resources will be returned
+
+
+
+POST
+/api/v1/Opportunity/Longlist
+Adds a resource to an opportunity's longlist
+
+
+
+GET
+/api/v1/Opportunity/{Id}/Longlist
+Gets the list of candidates on the long list
+
+
+
+DELETE
+/api/v1/Opportunity/{OpportunityId}/shortlist/resource/{ResourceId}
+Removes a resource from an opportunity's shortlist
+
+
+
+DELETE
+/api/v1/Opportunity/{OpportunityId}/longlist/resource/{ResourceId}
+Removes a resource from an opportunity's longlist
+
+
+OpportunityResource
+OpportunityResources represent placements - resources that are shortlisted or placed on opportunities.
+
+
+
+POST
+/api/v1/OpportunityResource
+Adds a resource to an opportunity's shortlist
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "resourceId": 0,
+  "opportunityIds": [
+    0
+  ],
+  "statusId": 0,
+  "note": "string",
+  "placementSource": "string"
+}
+Responses
+Code	Description	Links
+200	
+record created successfully
+
+No links
+201	
+Created
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "success": true,
+  "namedAccount": "string",
+  "namedResource": "string",
+  "namedOpportunity": "string",
+  "reason": "string",
+  "opportunityResourceId": 0,
+  "placementSource": "string"
+}
+No links
+204	
+record not created
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/OpportunityResource/Search
+Searches for opportunityresource records using the supplied parameters
+
+
+Sample request:
+
+ POST /
+ {
+    "searchTerm": "John Doe",
+        "maxResults": 50,
+        "pageNumber": 1,
+        "statusId": 1,
+        "sortBy": "name",
+        "sortDirection": "desc",
+        "updatedBefore": null,
+        "updatedAfter": null,
+        "onlyMyRecords": false,
+        "includeCustomFields": false
+ }
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "searchTerm": "acme",
+  "maxResults": 10,
+  "pageNumber": 1,
+  "sortBy": "",
+  "sortDirection": "ASC",
+  "statusId": 7,
+  "state": "Shortlisted",
+  "updatedBefore": "2025-11-27T08:18:08.863Z",
+  "updatedAfter": "2025-11-27T08:18:08.863Z",
+  "confirmedBefore": "2025-11-27T08:18:08.863Z",
+  "confirmedAfter": "2025-11-27T08:18:08.863Z",
+  "onlyMyRecords": false,
+  "includeCustomFields": false,
+  "opportunityId": 1001,
+  "resourceId": 12345,
+  "onlyActive": true
+}
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "opportunityResourceId": 0,
+    "opportunityId": 0,
+    "resourceId": 0,
+    "clientId": 0,
+    "contactId": 0,
+    "opportunityName": "string",
+    "opportunityResourceStatus": "string",
+    "workType": "string",
+    "dateAssigned": "string",
+    "dateConfirmed": "string",
+    "note": "string",
+    "startDate": "string",
+    "endDate": "string",
+    "startTime": "string",
+    "endTime": "string",
+    "hoursInWorkingDay": 0,
+    "fee": "string",
+    "feeValue": "string",
+    "payRate": "string",
+    "chargeRate": "string",
+    "chargePeriod": "string",
+    "overtimeRate": "string",
+    "enterTimesheet": "string",
+    "arrivalInstructions": "string",
+    "rejectionReason": "string",
+    "assignmentValue": 0,
+    "percentEffort": 0,
+    "opportunityWorkTypeId": 0,
+    "feeTaxValue": "string",
+    "feeTotalValue": "string",
+    "tax": "string",
+    "suppliment": "string",
+    "overtimeChargeRate": "string",
+    "activeRecord": "string",
+    "timesheetEntry": "string",
+    "searchStatus": "string",
+    "awrEffectiveDate": "2025-11-27T08:18:08.863Z",
+    "awrPayRate": "string",
+    "awrOvertimePayRate": "string",
+    "awrChargeRate": "string",
+    "awrOvertimeChargeRate": "string",
+    "awrDayOneRightsDate": "2025-11-27T08:18:08.863Z",
+    "awrTermsDate": "2025-11-27T08:18:08.863Z",
+    "awrWorkingHours": "string",
+    "awrRestBreaks": "string",
+    "awrHoliday": "string",
+    "awrSickness": "string",
+    "awrBonus": "string",
+    "awrOvertime": "string",
+    "awrExpenses": "string",
+    "awrMaternity": "string",
+    "awrOtherEntitlements": "string",
+    "awrReport": "string",
+    "orderId": 0,
+    "opportunityResourceStatusId": 0,
+    "opportunityResourceTypeId": 0,
+    "territory": "string",
+    "assignedByUserId": 0,
+    "currencyCode": "string",
+    "portalShare": "string",
+    "portalWhyShortlisted": "string",
+    "portalRating": 0,
+    "portalFeedback": "string",
+    "portalViewDateTime": "2025-11-27T08:18:08.863Z",
+    "portalDocumentId": 0,
+    "daysOfWeek": "string",
+    "territoryId": 0,
+    "weekStarts": "string",
+    "firstOwnerId": 0,
+    "firstOwnerPercent": 0,
+    "firstOwnerRoleId": 0,
+    "secondOwnerId": 0,
+    "secondOwnerPercent": 0,
+    "secondOwnerRoleId": 0,
+    "thirdOwnerId": 0,
+    "thirdOwnerPercent": 0,
+    "thirdOwnerRoleId": 0,
+    "fourthOwnerId": 0,
+    "fourthOwnerPercent": 0,
+    "fourthOwnerRoleId": 0,
+    "fifthOwnerId": 0,
+    "fifthOwnerPercent": 0,
+    "fifthOwnerRoleId": 0,
+    "portalVideoResumeId": 0,
+    "placementSource": "string",
+    "portalInterviewId": 0,
+    "clientName": "string",
+    "contactDisplayAs": "string",
+    "resourceDisplayAs": "string",
+    "opportunityStatusDesc": "string",
+    "opportunityResourceStatusName": "string",
+    "opportunityResourceTypeName": "string",
+    "customFields": [
+      {
+        "id": 0,
+        "name": "string",
+        "value": "string"
+      }
+    ]
+  }
+]
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/OpportunityResource/{Id}
+Gets an existing opportunity record
+
+
+Sample request:
+
+GET /
+{
+   "Id": 1
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "name": "string",
+  "typeName": "string",
+  "source": "string",
+  "contactDetails": {
+    "telephone": "string",
+    "mobilePhone": "string",
+    "fax": "string",
+    "email": "string"
+  },
+  "status": {
+    "id": 0,
+    "name": "string"
+  },
+  "territory": {
+    "id": 0,
+    "name": "string"
+  },
+  "department": {
+    "id": 0,
+    "name": "string"
+  },
+  "customFields": [
+    {
+      "id": 0,
+      "name": "string",
+      "value": "string"
+    }
+  ],
+  "owners": [
+    {
+      "ownerId": 0,
+      "rank": 0,
+      "name": "string",
+      "percent": 0,
+      "role": "string"
+    }
+  ],
+  "opportunityResourceId": "string",
+  "dateAssigned": "2025-11-27",
+  "dateConfirmed": "2025-11-27",
+  "note": "string",
+  "startDate": "2025-11-27",
+  "endDate": "2025-11-27",
+  "startTime": "string",
+  "endTime": "string",
+  "hoursInWorkingDay": 0,
+  "payRate": "string",
+  "chargeRate": "string",
+  "chargePeriod": "string",
+  "overtimeRate": "string",
+  "rejectionReason": "string",
+  "overtimeChargeRate": "string",
+  "activeRecord": true,
+  "timesheetEntry": "string",
+  "opportunityResourceStatusId": 0,
+  "opportunityResourceTypeId": 0,
+  "assignedByUserId": 0,
+  "currencyCode": "string",
+  "portalViewDateTime": "2025-11-27T08:18:08.867Z",
+  "daysOfWeek": "string",
+  "weekStarts": "string",
+  "placementSource": "string",
+  "resource": {
+    "id": 0,
+    "name": "string"
+  },
+  "client": {
+    "id": 0,
+    "name": "string"
+  },
+  "contact": {
+    "id": 0,
+    "name": "string"
+  },
+  "workType": {
+    "id": 0,
+    "name": "string"
+  },
+  "opportunity": {
+    "id": 0,
+    "name": "string"
+  },
+  "history": {
+    "created": "2025-11-27T08:18:08.867Z",
+    "closed": "2025-11-27T08:18:08.867Z",
+    "updated": "2025-11-27T08:18:08.867Z",
+    "updatedBy": 0,
+    "confirmed": "2025-11-27T08:18:08.867Z"
+  }
+}
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+PATCH
+/api/v1/OpportunityResource/{Id}
+Updates an existing opportunity resource record
+
+
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+The record id
+
+Example : 1001
+
+1001
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "dateAssigned": "2025-11-27T08:18:08.871Z",
+  "dateConfirmed": "2025-11-27T08:18:08.871Z",
+  "note": "string",
+  "startDate": "2025-11-27T08:18:08.871Z",
+  "endDate": "2025-11-27T08:18:08.871Z",
+  "startTime": "2025-11-27T08:18:08.871Z",
+  "endTime": "2025-11-27T08:18:08.871Z",
+  "hoursInWorkingDay": 0,
+  "payRate": "string",
+  "chargeRate": "string",
+  "chargePeriod": "string",
+  "overtimeRate": "string",
+  "rejectionReason": "string",
+  "overtimeChargeRate": "string",
+  "timesheetEntry": "string",
+  "opportunityResourceStatusId": 0,
+  "opportunityResourceTypeId": 0,
+  "assignedByUserId": 0,
+  "currencyCode": "string",
+  "daysOfWeek": "string",
+  "weekStarts": "string",
+  "placementSource": "string",
+  "resource": {
+    "id": 0,
+    "name": "string"
+  },
+  "client": {
+    "id": 0,
+    "name": "string"
+  },
+  "contact": {
+    "id": 0,
+    "name": "string"
+  },
+  "workType": {
+    "id": 0,
+    "name": "string"
+  },
+  "opportunity": {
+    "id": 0,
+    "name": "string"
+  },
+  "customFields": [
+    {
+      "id": 0,
+      "name": "string",
+      "value": "string"
+    }
+  ],
+  "status": {
+    "id": 0,
+    "name": "string"
+  }
+}
+Responses
+Code	Description	Links
+200	
+Record updated
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+Record not found
+
+No links
+400	
+Bad request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+DELETE
+/api/v1/OpportunityResource/{Id}
+Deletes an opportunityresource record
+
+
+Sample request:
+
+DELETE /
+{
+   "id": 1
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record delete
+
+No links
+204	
+Record not found
+
+No links
+400	
+Bad request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/OpportunityResource/Shortlist/{opportunityId}
+Gets a opportunity short list
+
+
+Sample request:
+
+GET /
+{
+   "opportunityId": 1
+}
+Parameters
+Try it out
+Name	Description
+opportunityId *
+integer($int32)
+(path)
+opportunityId
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "opportunityResourceId": 0,
+    "resourceId": 0,
+    "displayAs": "string",
+    "resourceStatusId": 0,
+    "opportunityResourceStatusId": 0,
+    "contractStartDate": "string",
+    "contractEndDate": "string",
+    "tagText": "string",
+    "isCompliant": true,
+    "complianceInfo": "string"
+  }
+]
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+PartnerRecord
+PartnerRecords represent mappings between records in external systems and internal records
+
+
+
+POST
+/api/v1/PartnerRecord
+Creates a new partner record
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "partnerId": 0,
+  "partnerRecordId": "string",
+  "recordType": "string",
+  "recordId": 0
+}
+Responses
+Code	Description	Links
+200	
+record created successfully
+
+No links
+201	
+Created
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+record not created
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/PartnerRecord/Search
+Searches for partner record records using the supplied parameters
+
+
+Sample request:
+
+ POST /
+ {
+    "searchTerm": "John Doe",
+        "maxResults": 50,
+        "pageNumber": 1,
+        "statusId": 1,
+        "sortBy": "name",
+        "sortDirection": "desc",
+        "updatedBefore": null,
+        "updatedAfter": null,
+        "onlyMyRecords": false,
+        "includeCustomFields": false
+ }
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "maxResults": 10,
+  "pageNumber": 1,
+  "sortBy": "",
+  "sortDirection": "ASC",
+  "partnerId": 2,
+  "partnerTypeId": "string",
+  "recordId": 0,
+  "recordType": "string"
+}
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "partnerRecordTypeId": 0,
+    "partnerId": 0,
+    "partnerTypeId": "string",
+    "internalRecordTypeId": "string"
+  }
+]
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/PartnerRecord/{PartnerRecordId}/Partner/{PartnerId}
+Gets a list of existing records from the partners external id
+
+
+Sample request:
+
+GET /
+{
+   "Id": 1
+}
+Parameters
+Try it out
+Name	Description
+PartnerRecordId *
+string
+(path)
+PartnerRecordId
+PartnerId *
+integer($int32)
+(path)
+PartnerId
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "partnerId": 0,
+    "partnerRecordId": "string",
+    "recordType": "string",
+    "recordId": 0
+  }
+]
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+PATCH
+/api/v1/PartnerRecord/{Id}
+Updates an existing partner record record
+
+
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+The record id
+
+Example : 27841
+
+27841
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "partnerId": 0,
+  "partnerRecordId": "string",
+  "recordType": "string",
+  "recordId": 0
+}
+Responses
+Code	Description	Links
+200	
+Record updated
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+DELETE
+/api/v1/PartnerRecord/{Id}
+Deletes a partner record record
+
+
+Sample request:
+
+DELETE /
+{
+   "id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record delete
+
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+ProjectActivity
+Project Activity represent tasks linked to a project. On which resources are assigned
+
+
+
+POST
+/api/v1/ProjectActivity
+Creates a new project activity / task record
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "planTaskId": 0,
+  "projectId": 0,
+  "activityName": "string",
+  "budgetedDays": 0,
+  "billable": true,
+  "activityStatus": "string",
+  "activityNote": "string",
+  "stopTimesheet": true,
+  "expectedEndDate": "2025-11-27T08:18:08.889Z",
+  "expectedStartDate": "2025-11-27T08:18:08.889Z",
+  "payRate": 0,
+  "chargePeriod": "string",
+  "chargeRate": 0,
+  "activityOrderId": 0,
+  "ticketId": 0,
+  "activityType": "string",
+  "rateToUse": "string",
+  "projectPlanSetId": 0,
+  "purchaseOrderId": 0,
+  "threshold": 0,
+  "rolloverActivityId": 0,
+  "rolloverPeriod": "string",
+  "weekThreshold": 0
+}
+Responses
+Code	Description	Links
+200	
+record created successfully
+
+No links
+201	
+Created
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+record not created
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/ProjectActivity/{Id}
+Gets an existing project activity record
+
+
+Sample request:
+
+GET /
+{
+   "Id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "activityId": 0,
+  "planTaskId": 0,
+  "projectId": 0,
+  "activityName": "string",
+  "budgetedDays": 0,
+  "billable": true,
+  "clientRequired": true,
+  "activityStatus": "string",
+  "activityNote": "string",
+  "stopTimesheet": true,
+  "expectedEndDate": "2025-11-27T08:18:08.892Z",
+  "expectedStartDate": "2025-11-27T08:18:08.892Z",
+  "payRate": 0,
+  "chargePeriod": "string",
+  "chargeRate": 0,
+  "activityOrderId": 0,
+  "ticketId": 0,
+  "activityType": "string",
+  "rateToUse": "string",
+  "projectPlanSetId": 0,
+  "purchaseOrderId": 0,
+  "threshold": 0,
+  "rolloverActivityId": 0,
+  "rolloverPeriod": "string",
+  "weekThreshold": 0
+}
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+PATCH
+/api/v1/ProjectActivity/{Id}
+Updates an existing project activity record
+
+
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+The record id
+
+Example : 1001
+
+1001
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "planTaskId": 0,
+  "projectId": 0,
+  "activityName": "string",
+  "budgetedDays": 0,
+  "billable": true,
+  "activityStatus": "string",
+  "activityNote": "string",
+  "stopTimesheet": true,
+  "expectedEndDate": "2025-11-27T08:18:08.898Z",
+  "expectedStartDate": "2025-11-27T08:18:08.898Z",
+  "payRate": 0,
+  "chargePeriod": "string",
+  "chargeRate": 0,
+  "activityOrderId": 0,
+  "ticketId": 0,
+  "activityType": "string",
+  "rateToUse": "string",
+  "projectPlanSetId": 0,
+  "purchaseOrderId": 0,
+  "threshold": 0,
+  "rolloverActivityId": 0,
+  "rolloverPeriod": "string",
+  "weekThreshold": 0
+}
+Responses
+Code	Description	Links
+200	
+Record updated
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+DELETE
+/api/v1/ProjectActivity/{Id}
+Deletes a project activity record
+
+
+Sample request:
+
+DELETE /
+{
+   "id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record delete
+
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/ProjectActivity/{Id}/Resources
+Gets project activity resources
+
+
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "projectActivityResourceId": 0,
+    "projectActivityId": 0,
+    "resourceId": 0,
+    "payRate": 0,
+    "startDate": "2025-11-27",
+    "endDate": "2025-11-27",
+    "chargeRate": 0
+  }
+]
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+ProjectActivityResource
+Project Activity represent tasks linked to a project. On which resources are assigned
+
+
+
+POST
+/api/v1/ProjectActivityResource
+Creates a new project activity resource
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "projectId": 0,
+  "projectActivityId": 0,
+  "resourceId": 0,
+  "payRate": 0,
+  "startDate": "2025-11-27",
+  "endDate": "2025-11-27",
+  "chargeRate": 0
+}
+Responses
+Code	Description	Links
+200	
+record created successfully
+
+No links
+201	
+Created
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+record not created
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/ProjectActivityResource/{Id}
+Gets an existing project activity record
+
+
+Sample request:
+
+GET /
+{
+   "Id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "projectActivityResourceId": 0,
+  "projectActivityId": 0,
+  "resourceId": 0,
+  "payRate": 0,
+  "startDate": "2025-11-27",
+  "endDate": "2025-11-27",
+  "chargeRate": 0
+}
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+PATCH
+/api/v1/ProjectActivityResource/{Id}
+Updates an existing project activity resource record
+
+
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+The project activity resource id to update
+
+Example : 1001
+
+1001
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "projectId": 0,
+  "projectActivityId": 0,
+  "resourceId": 0,
+  "payRate": 0,
+  "startDate": "2025-11-27",
+  "endDate": "2025-11-27",
+  "chargeRate": 0
+}
+Responses
+Code	Description	Links
+200	
+Record updated
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+DELETE
+/api/v1/ProjectActivityResource/{Id}
+Deletes a project activity resource record
+
+
+Sample request:
+
+DELETE /
+{
+   "id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record delete
+
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+Project
+Projects represent projects on which your resources are working.
+
+
+
+POST
+/api/v1/Project
+Creates a new project record
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "source": "string",
+  "contactDetails": {
+    "telephone": "string",
+    "mobilePhone": "string",
+    "fax": "string",
+    "email": "string"
+  },
+  "status": {
+    "id": 0,
+    "name": "string"
+  },
+  "territory": {
+    "id": 0,
+    "name": "string"
+  },
+  "department": {
+    "id": 0,
+    "name": "string"
+  },
+  "customFields": [
+    {
+      "id": 0,
+      "name": "string",
+      "value": "string"
+    }
+  ],
+  "owners": [
+    {
+      "ownerId": 0,
+      "rank": 0,
+      "name": "string",
+      "percent": 0,
+      "role": "string"
+    }
+  ],
+  "name": "string",
+  "projectCode": "string",
+  "startDate": "2025-11-27T08:18:08.913Z",
+  "endDate": "2025-11-27T08:18:08.913Z",
+  "isSystemProject": true,
+  "comments": "string",
+  "health": "string",
+  "priority": "string",
+  "tagText": "string",
+  "opportunity": {
+    "id": 0,
+    "name": "string"
+  },
+  "client": {
+    "id": 0,
+    "name": "string"
+  },
+  "contact": {
+    "id": 0,
+    "name": "string"
+  },
+  "secondaryContact": {
+    "id": 0,
+    "name": "string"
+  },
+  "type": {
+    "id": 0,
+    "name": "string"
+  }
+}
+Responses
+Code	Description	Links
+200	
+record created successfully
+
+No links
+201	
+Created
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+record not created
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/Project/Opportunity/{Id}
+Creates a new project record from a existing opportunity
+
+
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Request successfull
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+201	
+Project created successfully
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Project/{Id}
+Gets an existing project record
+
+
+Sample request:
+
+GET /
+{
+   "Id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "name": "string",
+  "typeName": "string",
+  "source": "string",
+  "contactDetails": {
+    "telephone": "string",
+    "mobilePhone": "string",
+    "fax": "string",
+    "email": "string"
+  },
+  "status": {
+    "id": 0,
+    "name": "string"
+  },
+  "territory": {
+    "id": 0,
+    "name": "string"
+  },
+  "department": {
+    "id": 0,
+    "name": "string"
+  },
+  "customFields": [
+    {
+      "id": 0,
+      "name": "string",
+      "value": "string"
+    }
+  ],
+  "owners": [
+    {
+      "ownerId": 0,
+      "rank": 0,
+      "name": "string",
+      "percent": 0,
+      "role": "string"
+    }
+  ],
+  "projectCode": "string",
+  "startDate": "2025-11-27T08:18:08.919Z",
+  "endDate": "2025-11-27T08:18:08.919Z",
+  "isSystemProject": true,
+  "comments": "string",
+  "health": "string",
+  "priority": "string",
+  "tagText": "string",
+  "opportunity": {
+    "id": 0,
+    "name": "string"
+  },
+  "client": {
+    "id": 0,
+    "name": "string"
+  },
+  "contact": {
+    "id": 0,
+    "name": "string"
+  },
+  "secondaryContact": {
+    "id": 0,
+    "name": "string"
+  },
+  "type": {
+    "id": 0,
+    "name": "string"
+  },
+  "history": {
+    "created": "2025-11-27T08:18:08.919Z",
+    "closed": "2025-11-27T08:18:08.919Z",
+    "updated": "2025-11-27T08:18:08.919Z",
+    "updatedBy": 0
+  }
+}
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+PATCH
+/api/v1/Project/{Id}
+Updates an existing project record
+
+
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+The record id
+
+Example : 1001
+
+1001
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "source": "string",
+  "contactDetails": {
+    "telephone": "string",
+    "mobilePhone": "string",
+    "fax": "string",
+    "email": "string"
+  },
+  "status": {
+    "id": 0,
+    "name": "string"
+  },
+  "territory": {
+    "id": 0,
+    "name": "string"
+  },
+  "department": {
+    "id": 0,
+    "name": "string"
+  },
+  "customFields": [
+    {
+      "id": 0,
+      "name": "string",
+      "value": "string"
+    }
+  ],
+  "owners": [
+    {
+      "ownerId": 0,
+      "rank": 0,
+      "name": "string",
+      "percent": 0,
+      "role": "string"
+    }
+  ],
+  "name": "string",
+  "projectCode": "string",
+  "startDate": "2025-11-27T08:18:08.922Z",
+  "endDate": "2025-11-27T08:18:08.922Z",
+  "isSystemProject": true,
+  "comments": "string",
+  "health": "string",
+  "priority": "string",
+  "tagText": "string",
+  "opportunity": {
+    "id": 0,
+    "name": "string"
+  },
+  "client": {
+    "id": 0,
+    "name": "string"
+  },
+  "contact": {
+    "id": 0,
+    "name": "string"
+  },
+  "secondaryContact": {
+    "id": 0,
+    "name": "string"
+  },
+  "type": {
+    "id": 0,
+    "name": "string"
+  }
+}
+Responses
+Code	Description	Links
+200	
+Record updated
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+DELETE
+/api/v1/Project/{Id}
+Deletes a project record
+
+
+Sample request:
+
+DELETE /
+{
+   "id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record delete
+
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Project/{Id}/Activities
+Gets associated project activities/tasks for this project
+
+
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  0
+]
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/Project/Search
+Searches for project records based on supplied parameters
+
+
+Sample request:
+
+ POST /
+ {
+    "searchTerm": "John Doe",
+        "maxResults": 50,
+        "pageNumber": 1,
+        "statusId": 1,
+        "sortBy": "name",
+        "sortDirection": "desc",
+        "updatedBefore": null,
+        "updatedAfter": null,
+        "onlyMyRecords": false,
+        "includeCustomFields": false
+ }
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "searchTerm": "acme",
+  "maxResults": 10,
+  "pageNumber": 1,
+  "sortBy": "",
+  "sortDirection": "ASC",
+  "statusId": 7,
+  "state": "open",
+  "updatedBefore": "2025-11-27T08:18:08.929Z",
+  "updatedAfter": "2025-11-27T08:18:08.929Z",
+  "onlyMyRecords": false,
+  "includeCustomFields": false
+}
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "projectId": 0,
+    "opportunityId": 0,
+    "clientId": 0,
+    "contactId": 0,
+    "projectCode": "string",
+    "projectName": "string",
+    "projectStatus": "string",
+    "projectOwnerId": 0,
+    "projectType": "string",
+    "startDate": "string",
+    "endDate": "string",
+    "activitySetId": 0,
+    "territory": "string",
+    "systemProject": "string",
+    "comments": "string",
+    "active": "string",
+    "lastUpdatedDateTime": "2025-11-27T08:18:08.930Z",
+    "lastUpdatedUserId": 0,
+    "projectHealth": "string",
+    "projectPriority": "string",
+    "workingFolder": "string",
+    "creationDate": "2025-11-27T08:18:08.930Z",
+    "projectStatusId": 0,
+    "projectTypeId": 0,
+    "projectPriorityId": 0,
+    "secondaryContactId": 0,
+    "tagText": "string",
+    "projectNotification": "string",
+    "territoryId": 0,
+    "clientName": "string",
+    "projectStatusName": "string",
+    "projectTypeName": "string",
+    "customFields": [
+      {
+        "id": 0,
+        "name": "string",
+        "value": "string"
+      }
+    ]
+  }
+]
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/Project/AttachDocument
+Attaches a document to a project record
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "filename": "string",
+  "documentType": "string",
+  "documentData": "string",
+  "recordId": 0,
+  "isPrimary": true
+}
+Responses
+Code	Description	Links
+201	
+Document attached successfully
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+400	
+Bad request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Project/DocumentFolders/{Id}
+Lists all document folders for a project record
+
+
+Sample request:
+
+GET /
+{
+   "Id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Folders found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "name": "string"
+  }
+]
+No links
+204	
+No Content
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+Resource
+Resources represent people (like candidates and employees) in your database.
+
+
+
+POST
+/api/v1/Resource
+Creates a new resource record
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "source": "string",
+  "contactDetails": {
+    "telephone": "string",
+    "mobilePhone": "string",
+    "fax": "string",
+    "email": "string"
+  },
+  "status": {
+    "id": 0,
+    "name": "string"
+  },
+  "territory": {
+    "id": 0,
+    "name": "string"
+  },
+  "department": {
+    "id": 0,
+    "name": "string"
+  },
+  "customFields": [
+    {
+      "id": 0,
+      "name": "string",
+      "value": "string"
+    }
+  ],
+  "owners": [
+    {
+      "ownerId": 0,
+      "rank": 0,
+      "name": "string",
+      "percent": 0,
+      "role": "string"
+    }
+  ],
+  "dateApplied": "2025-11-27T08:18:08.938Z",
+  "preferredName": "string",
+  "displayAs": "string",
+  "firstName": "string",
+  "surname": "string",
+  "jobTitle": "string",
+  "linkedInUrl": "string",
+  "dateOfBirth": "string",
+  "languages": "string",
+  "educationSummary": "string",
+  "desiredPayRate": 0,
+  "journeyTime": "string",
+  "availableForWork": true,
+  "currentSalary": 0,
+  "currentSalaryNum": 0,
+  "desiredSalary": 0,
+  "desiredSalaryNum": 0,
+  "noticePeriod": 0,
+  "photo": "string",
+  "interviewResult": "string",
+  "interviewNote": "string",
+  "note": "string",
+  "currentSituation": "string",
+  "rating": 0,
+  "payRateNote": "string",
+  "payRateNum": 0,
+  "chargeRateNote": "string",
+  "chargeRateNum": 0,
+  "costCentreCode": "string",
+  "interviewedBy": "string",
+  "otherEmail": "string",
+  "fullEmploymentHistory": [
+    {
+      "organization": "string",
+      "startDate": "2025-11-27",
+      "endDate": "2025-11-27",
+      "description": "string",
+      "jobTitle": "string"
+    }
+  ],
+  "employmentHistory": "string",
+  "achievements": "string",
+  "associations": "string",
+  "nissNumber": "string",
+  "tagText": "string",
+  "payrollNumber": "string",
+  "availableFrom": "2025-11-27T08:18:08.938Z",
+  "bonuses": "string",
+  "contractStartDate": "2025-11-27T08:18:08.938Z",
+  "contractEndDate": "2025-11-27T08:18:08.938Z",
+  "holidayEntitlement": 0,
+  "holidayCarryOver": 0,
+  "maximumCarryOver": 0,
+  "rightToRepresent": true,
+  "taxApplicable": true,
+  "agencyName": "string",
+  "agencyType": "string",
+  "agencyAccountRef": "string",
+  "createdBy": "string",
+  "agencyAddress": {
+    "isPrimary": true,
+    "addressName": "string",
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "town": "string",
+    "county": "string",
+    "country": "string",
+    "postcode": "string"
+  },
+  "currentClient": {
+    "id": 0,
+    "name": "string"
+  },
+  "manager": {
+    "id": 0,
+    "name": "string"
+  },
+  "address": {
+    "isPrimary": true,
+    "addressName": "string",
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "town": "string",
+    "county": "string",
+    "country": "string",
+    "postcode": "string"
+  },
+  "bankingDetails": {
+    "bankName": "string",
+    "sortCode": "string",
+    "accountNumber": "string",
+    "bankReference": "string"
+  },
+  "additionalContactDetails": {
+    "type": "string",
+    "value": "string"
+  },
+  "quickSkills": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ]
+}
+Responses
+Code	Description	Links
+200	
+record created successfully
+
+No links
+201	
+Created
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+record not created
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/Resource/CreateFromResume
+Creates a new resource record from a resume
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "resourceStatusId": 0,
+  "opportunityId": "string",
+  "source": "string",
+  "resource": 0,
+  "list": "string",
+  "fileName": "string",
+  "fileData": "string",
+  "department": "string",
+  "userId": 0,
+  "resourceSource": "string"
+}
+Responses
+Code	Description	Links
+201	
+record created successfully
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "success": true,
+  "resourceId": 0,
+  "returnCode": "string",
+  "returnDescription": "string",
+  "returnAction": "string"
+}
+No links
+400	
+Bad request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/Resource/AttachDocument
+Attaches a document to a resource record
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "filename": "string",
+  "documentType": "string",
+  "documentData": "string",
+  "recordId": 0,
+  "isPrimary": true
+}
+Responses
+Code	Description	Links
+201	
+Document attached successfully
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+400	
+Bad request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/Resource/Search
+Searches for resource records based on supplied parameters
+
+
+Sample request:
+
+ POST /
+ {
+    "searchTerm": "John Doe",
+        "maxResults": 50,
+        "pageNumber": 1,
+        "sortBy": "name",
+        "sortDirection": "desc",
+        "updatedBefore": null,
+        "updatedAfter": null,
+        "onlyMyRecords": false,
+        "includeCustomFields": false,
+        "state": "active",
+        "telephone": "555 0100",
+        "email": "john.doe@example.com"
+ }
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "maxResults": 10,
+  "pageNumber": 1,
+  "sortBy": "",
+  "sortDirection": "ASC",
+  "searchTerm": "John Doe",
+  "state": "active",
+  "updatedBefore": "2025-11-27T08:18:08.950Z",
+  "updatedAfter": "2025-11-27T08:18:08.950Z",
+  "onlyMyRecords": false,
+  "includeCustomFields": false,
+  "telephone": "555 0100",
+  "email": "john.doe@example.com"
+}
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "resourceId": 0,
+    "dateApplied": "string",
+    "clientName": "string",
+    "firstname": "string",
+    "surname": "string",
+    "displayAs": "string",
+    "jobTitle": "string",
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "town": "string",
+    "county": "string",
+    "postcode": "string",
+    "country": "string",
+    "email": "string",
+    "otherEmail": "string",
+    "linkedInUrl": "string",
+    "workTelephone": "string",
+    "homeTelephone": "string",
+    "mobilePhone": "string",
+    "nissNumber": "string",
+    "payrollNumber": "string",
+    "whereDidYouHear": "string",
+    "departmentName": "string",
+    "territory": "string",
+    "resourceOwner": "string",
+    "resourceStatusName": "string",
+    "availableForWork": "string",
+    "availableFrom": "2025-11-27T08:18:08.951Z",
+    "availability": "string",
+    "lastUpdatedDateTime": "2025-11-27T08:18:08.951Z",
+    "lastUpdatedUserId": 0,
+    "customFields": [
+      {
+        "id": 0,
+        "name": "string",
+        "value": "string"
+      }
+    ]
+  }
+]
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/Resource/Search/CustomField
+Searches custom fields for resource records using the supplied parameters
+
+
+Sample request:
+
+ POST /
+ {
+    "searchTerm": "John Doe",
+        "maxResults": 50,
+        "pageNumber": 1,
+        "sortBy": "name",
+        "sortDirection": "desc",
+        "customFieldId": 0
+ }
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "maxResults": 10,
+  "pageNumber": 1,
+  "sortBy": "",
+  "sortDirection": "ASC",
+  "customFieldValue": "acme",
+  "customFieldId": 0
+}
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "resourceId": 0,
+    "dateApplied": "string",
+    "clientName": "string",
+    "firstname": "string",
+    "surname": "string",
+    "displayAs": "string",
+    "jobTitle": "string",
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "town": "string",
+    "county": "string",
+    "postcode": "string",
+    "country": "string",
+    "email": "string",
+    "otherEmail": "string",
+    "linkedInUrl": "string",
+    "workTelephone": "string",
+    "homeTelephone": "string",
+    "mobilePhone": "string",
+    "nissNumber": "string",
+    "payrollNumber": "string",
+    "whereDidYouHear": "string",
+    "departmentName": "string",
+    "territory": "string",
+    "resourceOwner": "string",
+    "resourceStatusName": "string",
+    "availableForWork": "string",
+    "availableFrom": "2025-11-27T08:18:08.954Z",
+    "availability": "string",
+    "lastUpdatedDateTime": "2025-11-27T08:18:08.954Z",
+    "lastUpdatedUserId": 0,
+    "customFields": [
+      {
+        "id": 0,
+        "name": "string",
+        "value": "string"
+      }
+    ]
+  }
+]
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+PATCH
+/api/v1/Resource/{Id}
+Updates an existing resource record
+
+
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+The record id
+
+Example : 1001
+
+1001
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "source": "string",
+  "contactDetails": {
+    "telephone": "string",
+    "mobilePhone": "string",
+    "fax": "string",
+    "email": "string"
+  },
+  "status": {
+    "id": 0,
+    "name": "string"
+  },
+  "territory": {
+    "id": 0,
+    "name": "string"
+  },
+  "department": {
+    "id": 0,
+    "name": "string"
+  },
+  "customFields": [
+    {
+      "id": 0,
+      "name": "string",
+      "value": "string"
+    }
+  ],
+  "owners": [
+    {
+      "ownerId": 0,
+      "rank": 0,
+      "name": "string",
+      "percent": 0,
+      "role": "string"
+    }
+  ],
+  "dateApplied": "2025-11-27T08:18:08.958Z",
+  "preferredName": "string",
+  "displayAs": "string",
+  "firstName": "string",
+  "surname": "string",
+  "jobTitle": "string",
+  "linkedInUrl": "string",
+  "dateOfBirth": "string",
+  "languages": "string",
+  "educationSummary": "string",
+  "desiredPayRate": 0,
+  "journeyTime": "string",
+  "availableForWork": true,
+  "currentSalary": 0,
+  "currentSalaryNum": 0,
+  "desiredSalary": 0,
+  "desiredSalaryNum": 0,
+  "noticePeriod": 0,
+  "photo": "string",
+  "interviewResult": "string",
+  "interviewNote": "string",
+  "note": "string",
+  "currentSituation": "string",
+  "rating": 0,
+  "payRateNote": "string",
+  "payRateNum": 0,
+  "chargeRateNote": "string",
+  "chargeRateNum": 0,
+  "costCentreCode": "string",
+  "interviewedBy": "string",
+  "otherEmail": "string",
+  "fullEmploymentHistory": [
+    {
+      "organization": "string",
+      "startDate": "2025-11-27",
+      "endDate": "2025-11-27",
+      "description": "string",
+      "jobTitle": "string"
+    }
+  ],
+  "employmentHistory": "string",
+  "achievements": "string",
+  "associations": "string",
+  "nissNumber": "string",
+  "tagText": "string",
+  "payrollNumber": "string",
+  "availableFrom": "2025-11-27T08:18:08.958Z",
+  "bonuses": "string",
+  "contractStartDate": "2025-11-27T08:18:08.958Z",
+  "contractEndDate": "2025-11-27T08:18:08.958Z",
+  "holidayEntitlement": 0,
+  "holidayCarryOver": 0,
+  "maximumCarryOver": 0,
+  "rightToRepresent": true,
+  "taxApplicable": true,
+  "agencyName": "string",
+  "agencyType": "string",
+  "agencyAccountRef": "string",
+  "createdBy": "string",
+  "agencyAddress": {
+    "isPrimary": true,
+    "addressName": "string",
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "town": "string",
+    "county": "string",
+    "country": "string",
+    "postcode": "string"
+  },
+  "currentClient": {
+    "id": 0,
+    "name": "string"
+  },
+  "manager": {
+    "id": 0,
+    "name": "string"
+  },
+  "address": {
+    "isPrimary": true,
+    "addressName": "string",
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "town": "string",
+    "county": "string",
+    "country": "string",
+    "postcode": "string"
+  },
+  "bankingDetails": {
+    "bankName": "string",
+    "sortCode": "string",
+    "accountNumber": "string",
+    "bankReference": "string"
+  },
+  "additionalContactDetails": {
+    "type": "string",
+    "value": "string"
+  },
+  "quickSkills": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ]
+}
+Responses
+Code	Description	Links
+200	
+Record updated
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Resource/{Id}
+Gets an existing resource record
+
+
+Sample request:
+
+GET /
+{
+   "Id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "name": "string",
+  "typeName": "string",
+  "source": "string",
+  "contactDetails": {
+    "telephone": "string",
+    "mobilePhone": "string",
+    "fax": "string",
+    "email": "string"
+  },
+  "status": {
+    "id": 0,
+    "name": "string"
+  },
+  "territory": {
+    "id": 0,
+    "name": "string"
+  },
+  "department": {
+    "id": 0,
+    "name": "string"
+  },
+  "customFields": [
+    {
+      "id": 0,
+      "name": "string",
+      "value": "string"
+    }
+  ],
+  "owners": [
+    {
+      "ownerId": 0,
+      "rank": 0,
+      "name": "string",
+      "percent": 0,
+      "role": "string"
+    }
+  ],
+  "resourceId": 0,
+  "dateApplied": "2025-11-27T08:18:08.963Z",
+  "preferredName": "string",
+  "displayAs": "string",
+  "firstName": "string",
+  "surname": "string",
+  "jobTitle": "string",
+  "linkedInUrl": "string",
+  "dateOfBirth": "string",
+  "languages": "string",
+  "educationSummary": "string",
+  "desiredPayRate": 0,
+  "journeyTime": "string",
+  "availableForWork": true,
+  "currentSalary": 0,
+  "currentSalaryNum": 0,
+  "desiredSalary": 0,
+  "desiredSalaryNum": 0,
+  "noticePeriod": 0,
+  "photo": "string",
+  "interviewResult": "string",
+  "interviewNote": "string",
+  "note": "string",
+  "currentSituation": "string",
+  "rating": 0,
+  "payRateNote": "string",
+  "payRateNum": 0,
+  "chargeRateNote": "string",
+  "chargeRateNum": 0,
+  "costCentreCode": "string",
+  "interviewedBy": "string",
+  "employmentHistory": "string",
+  "achievements": "string",
+  "associations": "string",
+  "nissNumber": "string",
+  "tagText": "string",
+  "payrollNumber": "string",
+  "availableFrom": "2025-11-27T08:18:08.963Z",
+  "bonuses": "string",
+  "contractStartDate": "2025-11-27T08:18:08.963Z",
+  "contractEndDate": "2025-11-27T08:18:08.963Z",
+  "holidayEntitlement": 0,
+  "holidayCarryOver": 0,
+  "maximumCarryOver": 0,
+  "rightToRepresent": true,
+  "taxApplicable": true,
+  "agencyName": "string",
+  "agencyType": "string",
+  "agencyAccountRef": "string",
+  "createdBy": "string",
+  "agencyAddress": {
+    "isPrimary": true,
+    "addressName": "string",
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "town": "string",
+    "county": "string",
+    "country": "string",
+    "postcode": "string"
+  },
+  "currentClient": {
+    "id": 0,
+    "name": "string"
+  },
+  "manager": {
+    "id": 0,
+    "name": "string"
+  },
+  "address": {
+    "isPrimary": true,
+    "addressName": "string",
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "town": "string",
+    "county": "string",
+    "country": "string",
+    "postcode": "string"
+  },
+  "bankingDetails": {
+    "bankName": "string",
+    "sortCode": "string",
+    "accountNumber": "string",
+    "bankReference": "string"
+  },
+  "additionalContactDetails": {
+    "type": "string",
+    "value": "string"
+  },
+  "marketingPreferences": {
+    "marketingPreference": "string",
+    "textOptIn": true,
+    "emailOptIn": true,
+    "telephoneOptIn": true,
+    "workOptIn": true
+  },
+  "quickSkills": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "partnerRecords": [
+    {
+      "partnerId": 0,
+      "partnerRecordId": "string",
+      "recordId": 0,
+      "recordType": "string",
+      "partnerName": "string"
+    }
+  ],
+  "workTypes": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "offLimits": {
+    "offLimitsFromDate": "2025-11-27T08:18:08.963Z",
+    "offLimitsUntilDate": "2025-11-27T08:18:08.963Z",
+    "offLimitsNote": "string",
+    "restrictions": "string"
+  },
+  "history": {
+    "created": "2025-11-27T08:18:08.963Z",
+    "closed": "2025-11-27T08:18:08.963Z",
+    "updated": "2025-11-27T08:18:08.963Z",
+    "updatedBy": 0,
+    "resumeRecieved": "2025-11-27T08:18:08.963Z",
+    "registered": "2025-11-27T08:18:08.963Z",
+    "applied": "2025-11-27T08:18:08.963Z",
+    "interviewed": "2025-11-27T08:18:08.963Z",
+    "dateLastContacted": "2025-11-27T08:18:08.963Z",
+    "lastActivityId": 0
+  }
+}
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+DELETE
+/api/v1/Resource/{Id}
+Deletes a resource record
+
+
+Sample request:
+
+DELETE /
+{
+   "id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record delete
+
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Resource/DocumentFolders/{Id}
+Lists all document folders for a resource record
+
+
+Sample request:
+
+GET /
+{
+   "Id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Folders found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "name": "string"
+  }
+]
+No links
+204	
+No Content
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Resource/{id}/Documents
+Gets documents for a resource
+
+
+Parameters
+Try it out
+Name	Description
+id *
+integer($int32)
+(path)
+id
+Responses
+Code	Description	Links
+200	
+OK
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "documentId": 0,
+    "filename": "string",
+    "isPrimary": true,
+    "documentType": "string",
+    "description": "string",
+    "folderId": 0,
+    "fileType": "string",
+    "history": {
+      "createdOn": "2025-11-27T08:18:08.971Z",
+      "createdByUserId": 0,
+      "createdByDisplayName": "string"
+    }
+  }
+]
+No links
+204	
+No Content
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Resource/{resourceId}/Document/{documentId}
+Gets the physical file for a specific resource document
+
+
+Parameters
+Try it out
+Name	Description
+resourceId *
+integer($int32)
+(path)
+The resource ID
+
+resourceId
+documentId *
+integer($int32)
+(path)
+The document ID
+
+documentId
+Responses
+Code	Description	Links
+200	
+File found and returned successfully
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "documentId": 0,
+  "filename": "string",
+  "isPrimary": true,
+  "documentType": "string",
+  "description": "string",
+  "folderId": 0,
+  "fileType": "string",
+  "history": {
+    "createdOn": "2025-11-27T08:18:08.973Z",
+    "createdByUserId": 0,
+    "createdByDisplayName": "string"
+  },
+  "filecontent": "string"
+}
+No links
+204	
+File not found
+
+No links
+400	
+Bad request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/Resource/{resourceId}/Skills
+Adds or updates multiple skills for a resource
+
+
+Sample request:
+
+POST /api/v1/Resource/123/Skills
+{
+    "skills": [
+        {
+            "skillId": 1,
+            "skillValueId": 10,
+            "skillValue": "Expert"
+        },
+        {
+            "skillId": 2,
+            "skillValue": "Yes"
+        }
+    ]
+}
+Parameters
+Try it out
+Name	Description
+resourceId *
+integer($int32)
+(path)
+The resource identifier
+
+resourceId
+Request body
+
+application/json-patch+json
+List of skills to add or update
+
+Example Value
+Schema
+{
+  "skills": [
+    {
+      "skillId": 0,
+      "skillName": "string",
+      "skillValueId": 0,
+      "skillValue": "string",
+      "skillType": "string"
+    }
+  ]
+}
+Responses
+Code	Description	Links
+201	
+Skills added successfully
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+400	
+Bad request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Resource/{resourceId}/Skills
+Gets all skills for a resource
+
+
+Parameters
+Try it out
+Name	Description
+resourceId *
+integer($int32)
+(path)
+The resource identifier
+
+resourceId
+Responses
+Code	Description	Links
+200	
+Skills found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "skills": [
+    {
+      "skillId": 0,
+      "skillName": "string",
+      "skillValueId": 0,
+      "skillValue": "string",
+      "skillType": "string"
+    }
+  ]
+}
+No links
+204	
+No skills found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+PUT
+/api/v1/Resource/{resourceId}/Skills
+Replaces all skills for a resource with the provided skills
+
+
+This endpoint will delete all existing skills and replace them with the provided skills.
+
+Sample request:
+
+PUT /api/v1/Resource/123/Skills
+{
+    "skills": [
+        {
+            "skillId": 1,
+            "skillValueId": 10,
+            "skillValue": "Expert"
+        },
+        {
+            "skillId": 3,
+            "skillValue": "Intermediate"
+        }
+    ]
+}
+Parameters
+Try it out
+Name	Description
+resourceId *
+integer($int32)
+(path)
+The resource identifier
+
+resourceId
+Request body
+
+application/json-patch+json
+The complete list of skills to replace existing ones
+
+Example Value
+Schema
+{
+  "skills": [
+    {
+      "skillId": 0,
+      "skillName": "string",
+      "skillValueId": 0,
+      "skillValue": "string",
+      "skillType": "string"
+    }
+  ]
+}
+Responses
+Code	Description	Links
+200	
+Skills updated successfully
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+Resource not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+DELETE
+/api/v1/Resource/{resourceId}/Skills
+Deletes all skills for a resource
+
+
+Parameters
+Try it out
+Name	Description
+resourceId *
+integer($int32)
+(path)
+The resource identifier
+
+resourceId
+Responses
+Code	Description	Links
+200	
+Skills deleted successfully
+
+No links
+400	
+Bad request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Resource/{resourceId}/Skills/{skillId}
+Gets a specific skill for a resource by resource ID and skill ID
+
+
+Parameters
+Try it out
+Name	Description
+resourceId *
+integer($int32)
+(path)
+The resource identifier
+
+resourceId
+skillId *
+integer($int32)
+(path)
+The skill identifier
+
+skillId
+Responses
+Code	Description	Links
+200	
+Skill found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "skillId": 0,
+  "skillName": "string",
+  "skillValueId": 0,
+  "skillValue": "string",
+  "skillType": "string"
+}
+No links
+204	
+Skill not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+DELETE
+/api/v1/Resource/{resourceId}/Skills/{skillId}
+Deletes a specific skill for a resource by resource ID and skill ID
+
+
+Parameters
+Try it out
+Name	Description
+resourceId *
+integer($int32)
+(path)
+The resource identifier
+
+resourceId
+skillId *
+integer($int32)
+(path)
+The skill identifier
+
+skillId
+Responses
+Code	Description	Links
+200	
+Skill deleted successfully
+
+No links
+204	
+Skill not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+TimesheetEntries
+Timesheet entries records represent timesheets records raised in your database.
+
+
+
+POST
+/api/v1/TimesheetEntries
+Creates a new record
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "resourceId": 0,
+  "projectId": 0,
+  "projectActivityId": 0,
+  "clientId": 0,
+  "entryDate": "2025-11-27",
+  "hours": 0,
+  "billableHours": 0,
+  "entryNote": "string",
+  "approvalStatus": "s",
+  "billed": true,
+  "billReference": "string",
+  "startTime1": "string",
+  "endTime1": "string",
+  "startTime2": "string",
+  "endTime2": "string",
+  "startTime3": "string",
+  "endTime3": "string",
+  "paid": true,
+  "payReference": "string"
+}
+Responses
+Code	Description	Links
+200	
+record created successfully
+
+No links
+201	
+Created
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+record not created
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/TimesheetEntries/bulk
+Bulk add new records
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+[
+  {
+    "resourceId": 0,
+    "projectId": 0,
+    "projectActivityId": 0,
+    "clientId": 0,
+    "entryDate": "2025-11-27",
+    "hours": 0,
+    "billableHours": 0,
+    "entryNote": "string",
+    "approvalStatus": "s",
+    "billed": true,
+    "billReference": "string",
+    "startTime1": "string",
+    "endTime1": "string",
+    "startTime2": "string",
+    "endTime2": "string",
+    "startTime3": "string",
+    "endTime3": "string",
+    "paid": true,
+    "payReference": "string"
+  }
+]
+Responses
+Code	Description	Links
+200	
+record created successfully
+
+No links
+201	
+Created
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+record not created
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/TimesheetEntries/{Id}
+Gets an existing timesheet entry record
+
+
+
+PATCH
+/api/v1/TimesheetEntries/{Id}
+Updates an existing timesheet entry record
+
+
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+The record id
+
+Example : 1001
+
+1001
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "resourceId": 0,
+  "projectId": 0,
+  "projectActivityId": 0,
+  "clientId": 0,
+  "entryDate": "2025-11-27",
+  "hours": 0,
+  "billableHours": 0,
+  "entryNote": "string",
+  "approvalStatus": "s",
+  "billed": true,
+  "billReference": "string",
+  "startTime1": "string",
+  "endTime1": "string",
+  "startTime2": "string",
+  "endTime2": "string",
+  "startTime3": "string",
+  "endTime3": "string",
+  "paid": true,
+  "payReference": "string"
+}
+Responses
+Code	Description	Links
+200	
+Record updated
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/TimesheetEntries/Search
+Searches for entry records using the supplied parameters
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "maxResults": 10,
+  "pageNumber": 1,
+  "sortBy": "",
+  "sortDirection": "ASC",
+  "status": "open",
+  "dateFrom": "2025-11-27",
+  "dateTo": "2025-11-27",
+  "resourceId": 0,
+  "clientId": 0,
+  "projectId": 0,
+  "isPaid": true,
+  "rateToUse": "string"
+}
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "projectId": 0,
+    "resourceId": 0,
+    "clientId": 0,
+    "entryId": 0,
+    "taskId": 0,
+    "taskName": "string",
+    "entryDate": "2025-11-27",
+    "timeBooked": 0,
+    "status": "string",
+    "checkInTime": "string",
+    "checkOutTime": "string",
+    "firstBreakInTime": "string",
+    "firstBreakOutTime": "string",
+    "secondBreakInTime": "string",
+    "secondBreakOutTime": "string",
+    "note": "string",
+    "billed": true,
+    "billReference": 0,
+    "paid": true,
+    "paidReference": 0,
+    "entryType": "string",
+    "approvalContactId": 0,
+    "approvalReport": "string",
+    "approvalRequestDate": "2025-11-27",
+    "approvalRequestTime": "string",
+    "approvalStatus": "string",
+    "rateToUse": "string",
+    "taskPayRate": 0,
+    "placementPayRate": 0
+  }
+]
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+Webhook
+Webhooks provide real time updates when activities and records are created, updated and deleted.
+
+
+
+POST
+/api/v1/Webhook
+Creates a new webhook
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "id": 0,
+  "url": "string",
+  "action": "string",
+  "recordType": "string"
+}
+Responses
+Code	Description	Links
+200	
+Hook created successfully
+
+No links
+201	
+Created
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+PATCH
+/api/v1/Webhook
+Updates an existing webhook
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "id": 0,
+  "url": "string",
+  "action": "string",
+  "recordType": "string"
+}
+Responses
+Code	Description	Links
+200	
+Hook updated successfully
+
+No links
+201	
+Created
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Webhook/Actions/{hookId}
+Gets a list of all actions that trigger a webhook
+
+
+Parameters
+Try it out
+Name	Description
+hookId *
+integer($int32)
+(path)
+hookId
+Responses
+Code	Description	Links
+200	
+Hooks found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "userId": 0,
+    "url": "string",
+    "recordType": "string",
+    "action": "string",
+    "created": "2025-11-27T08:18:09.005Z",
+    "updated": "2025-11-27T08:18:09.005Z"
+  }
+]
+No links
+204	
+Hooks not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Webhook/Meta/Actions
+Gets actions list options
+
+
+Parameters
+Try it out
+No parameters
+
+Responses
+Code	Description	Links
+200	
+Ok found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "action": "string"
+  }
+]
+No links
+204	
+No results
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Webhook/List
+Gets an existing webhook
+
+
+Parameters
+Try it out
+No parameters
+
+Responses
+Code	Description	Links
+200	
+Hooks found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "userId": 0,
+    "url": "string",
+    "recordType": "string",
+    "action": "string",
+    "created": "2025-11-27T08:18:09.009Z",
+    "updated": "2025-11-27T08:18:09.009Z"
+  }
+]
+No links
+204	
+Hooks not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Webhook/{hookId}
+Gets specific webhook information
+
+
+Parameters
+Try it out
+Name	Description
+hookId *
+integer($int32)
+(path)
+hookId
+Responses
+Code	Description	Links
+200	
+Hooks found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "userId": 0,
+  "url": "string",
+  "recordType": "string",
+  "action": "string",
+  "created": "2025-11-27T08:18:09.011Z",
+  "updated": "2025-11-27T08:18:09.011Z"
+}
+No links
+204	
+Hooks not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+DELETE
+/api/v1/Webhook/{Id}
+Deletes an existing webhook
+
+
+Sample request:
+
+DELETE /
+{
+   "id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record delete
+
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+User
+Users represent system users.
+
+
+
+POST
+/api/v1/User/Search
+Searches for user records using the supplied parameters
+
+
+Sample request:
+
+ POST /Search
+ {
+    "searchTerm": "John Doe",
+        "maxResults": 50,
+        "pageNumber": 1,
+        "statusId": 1,
+        "sortBy": "fullname",
+        "sortDirection": "desc",
+        "updatedBefore": null,
+        "updatedAfter": null,
+        "onlyMyRecords": false,
+        "includeCustomFields": false
+ }
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "searchTerm": "acme",
+  "maxResults": 10,
+  "pageNumber": 1,
+  "sortBy": "",
+  "sortDirection": "ASC",
+  "statusId": 7,
+  "state": "open",
+  "updatedBefore": "2025-11-27T08:18:09.015Z",
+  "updatedAfter": "2025-11-27T08:18:09.015Z",
+  "onlyMyRecords": false,
+  "includeCustomFields": false
+}
+Responses
+Code	Description	Links
+200	
+Records found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "userId": 0,
+    "username": "string",
+    "fullName": "string",
+    "email": "string",
+    "departmentName": "string",
+    "userGroupName": "string",
+    "territoryName": "string",
+    "userTeamName": "string",
+    "timezoneOffset": 0,
+    "lastLogon": "2025-11-27T08:18:09.016Z"
+  }
+]
+No links
+204	
+Records not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/User/{userId}
+Gets an existing user record
+
+
+Sample request:
+
+GET /1001
+Parameters
+Try it out
+Name	Description
+userId *
+integer($int32)
+(path)
+userId
+Responses
+Code	Description	Links
+200	
+User found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "username": "string",
+  "fullname": "string",
+  "email": "string",
+  "userGroup": {
+    "id": 0,
+    "name": "string"
+  },
+  "department": {
+    "id": 0,
+    "name": "string"
+  },
+  "territory": {
+    "id": 0,
+    "name": "string"
+  },
+  "userTeam": {
+    "id": 0,
+    "name": "string"
+  },
+  "timezone": {
+    "id": 0,
+    "name": "string"
+  },
+  "timezoneOffset": 0,
+  "lastLogon": "2025-11-27T08:18:09.018Z"
+}
+No links
+204	
+User not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+403	
+Access denied - cannot access system user
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+OAuth2
+
+
+GET
+/oAuth2/Authorize
+Starts the OAuth2 authentication flow and calls back to redirect_uri with an access code if the user authenticates successfully. For client_id use EvoApi_1.0
+
+
+Parameters
+Try it out
+Name	Description
+client_id *
+string
+(query)
+EvoApi_1.0
+response_type *
+string
+(query)
+code
+scope *
+string
+(query)
+read,write
+redirect_uri *
+string
+(query)
+redirect_uri
+state *
+string
+(query)
+state
+Responses
+Code	Description	Links
+200	
+Authorization code returned
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "code": "string",
+  "state": "string"
+}
+No links
+
+POST
+/oAuth2/Token
+Exchanges an access code returned by Authorize for a token that can be used in subsequent calls to the API
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/x-www-form-urlencoded
+client_id
+string
+redirect_uri
+string
+grant_type
+string
+client_secret
+string
+code
+string
+refresh_token
+string
+Responses
+Code	Description	Links
+200	
+OAuth Token obtained
+
+Media type
+
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "Token": "string"
+}
+No links
+
+Schemas
+ActivityRequestDto
+ActivityResponseDto
+ActivitySearchRequestDto
+ActivitySearchResponseDto
+ClientRequestDto
+ClientResponseDto
+ClientSearchResponseDto
+ContactRequestDto
+ContactResponseDto
+ContactSearchRequestDto
+ContactSearchResponseDto
+CustomFieldListResponseDto
+FileContentResponseDto
+InvoiceRequestDto
+InvoiceResponseDto
+InvoiceSearchResponseDto
+LeadRequestDto
+LeadResponseDto
+LeadSearchResponseDto
+LongListResponseDto
+MetaDataResponseDto
+OpportunityRequestDto
+OpportunityResourceRequestDto
+OpportunityResourceResponseDto
+OpportunityResourceSearchRequestDto
+OpportunityResourceSearchResponseDto
+OpportunityResponseDto
+OpportunitySearchResponseDto
+PartnerRecordRequestDto
+PartnerRecordResponseDto
+PartnerRecordSearchRequestDto
+PartnerRecordSearchResponseDto
+PartnerResponseDto
+ProjectActivityRequestDto
+ProjectActivityResourceRequestDto
+ProjectActivityResourceResponseDto
+ProjectActivityResponseDto
+ProjectRequestDto
+ProjectResponseDto
+ProjectSearchResponseDto
+ResourceHistoryServiceDto
+ResourceRequestDto
+ResourceResponseDto
+ResourceSearchRequestDto
+ResourceSearchResponseDto
+SearchCustomFieldRequestDto
+SearchRequestDto
+SkillsHierarchyResponseDto
+SkillsRequestDto
+SkillsResponseDto
+SkillsSearchResponseDto
+TimesheetEntriesRequestDto
+TimesheetEntriesResponseDto
+TimesheetEntriesSearchRequestDto
+TimesheetEntriesSearchResponseDto
+UpdatedResponseDto
+UserResponseDto
+UserSearchResponseDto
+WebhookRequestDto
+WebhookResponseDto

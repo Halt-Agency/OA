@@ -1,0 +1,1250 @@
+Select a definition
+
+Opportunity API
+Opportunity API
+ 1.0.0 
+OAS 3.0
+/swagger/opportunity/swagger.json
+Too much information? Try the searchable documentation here.
+
+API Documentation for Opportunities
+
+
+Authorize
+Opportunity
+Opportunities represent business opportunities such as jobs.
+
+
+
+POST
+/api/v1/Opportunity
+Creates a new opportunity record
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "name": "string",
+  "description": "string",
+  "note": "string",
+  "location": "string",
+  "locationCity": "string",
+  "locationState": "string",
+  "postCodeLocation": "string",
+  "clientReference": "string",
+  "strategy": "string",
+  "contractType": "string",
+  "numberOfPositions": 0,
+  "probabiity": 0,
+  "estimatedValue": 0,
+  "factoredValue": 0,
+  "targetMargin": 0,
+  "invoiceStartDate": "2025-12-02T12:52:39.505Z",
+  "startDateTime": "2025-12-02T12:52:39.505Z",
+  "endDateTime": "2025-12-02T12:52:39.505Z",
+  "tagText": "string",
+  "vmsReference": "string",
+  "payRate": 0,
+  "chargeRate": 0,
+  "currencyCode": "string",
+  "unitsInADay": 0,
+  "billingPerDay": "string",
+  "daysOfWeek": "string",
+  "contactRole": "string",
+  "businessType": {
+    "id": 0,
+    "name": "string"
+  },
+  "bidDetails": {
+    "type": "string",
+    "dueDate": "2025-12-02T12:52:39.505Z",
+    "driver": "string",
+    "noBid": "string",
+    "noBidReason": "string",
+    "manager": {
+      "id": 0,
+      "name": "string"
+    }
+  },
+  "advertDetails": {
+    "publishOnline": true,
+    "reference": "string",
+    "title": "string",
+    "description": "string",
+    "location": "string",
+    "duration": "string",
+    "workType": "string",
+    "sector": "string",
+    "category": "string",
+    "salaryFrom": "string",
+    "salaryTo": "string",
+    "salaryPer": "string",
+    "benefits": "string",
+    "skills": "string",
+    "publishDate": "2025-12-02T12:52:39.505Z",
+    "startDate": "2025-12-02T12:52:39.505Z",
+    "advertStatus": "string"
+  },
+  "client": {
+    "id": 0,
+    "name": "string"
+  },
+  "contact": {
+    "id": 0,
+    "name": "string"
+  },
+  "secondaryContact": {
+    "id": 0,
+    "name": "string"
+  },
+  "workType": {
+    "id": 0,
+    "name": "string"
+  },
+  "publishContact": {
+    "id": 0,
+    "name": "string"
+  },
+  "mandact": {
+    "money": "string",
+    "moneyScore": "string",
+    "authority": "string",
+    "authorityScore": "string",
+    "need": "string",
+    "needScore": "string",
+    "decision": "string",
+    "decisionScore": "string",
+    "ability": "string",
+    "abilityScore": "string",
+    "competition": "string",
+    "competitionScore": "string",
+    "timing": "string",
+    "timingScore": "string"
+  },
+  "status": {
+    "id": 0,
+    "name": "string"
+  },
+  "sectors": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ]
+}
+Responses
+Code	Description	Links
+200	
+record created successfully
+
+No links
+201	
+Created
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+record not created
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Opportunity/{Id}
+Gets an existing opportunity record
+
+
+Sample request:
+
+GET /
+{
+   "Id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "name": "string",
+  "typeName": "string",
+  "source": "string",
+  "contactDetails": {
+    "telephone": "string",
+    "mobilePhone": "string",
+    "fax": "string",
+    "email": "string"
+  },
+  "status": {
+    "id": 0,
+    "name": "string"
+  },
+  "territory": {
+    "id": 0,
+    "name": "string"
+  },
+  "department": {
+    "id": 0,
+    "name": "string"
+  },
+  "customFields": [
+    {
+      "id": 0,
+      "name": "string",
+      "value": "string"
+    }
+  ],
+  "owners": [
+    {
+      "ownerId": 0,
+      "rank": 0,
+      "name": "string",
+      "percent": 0,
+      "role": "string"
+    }
+  ],
+  "description": "string",
+  "note": "string",
+  "location": "string",
+  "locationCity": "string",
+  "locationState": "string",
+  "postCodeLocation": "string",
+  "clientReference": "string",
+  "strategy": "string",
+  "contractType": "string",
+  "numberOfPositions": 0,
+  "probabiity": 0,
+  "estimatedValue": 0,
+  "factoredValue": 0,
+  "targetMargin": 0,
+  "invoiceStartDate": "2025-12-02",
+  "startDate": "2025-12-02",
+  "endDate": "2025-12-02",
+  "startTime": "string",
+  "endTime": "string",
+  "tagText": "string",
+  "vmsReference": "string",
+  "payRate": 0,
+  "chargeRate": 0,
+  "currencyCode": "string",
+  "unitsInADay": 0,
+  "billingPerDay": "string",
+  "daysOfWeek": "string",
+  "contactRole": "string",
+  "businessType": {
+    "id": 0,
+    "name": "string"
+  },
+  "bidDetails": {
+    "type": "string",
+    "dueDate": "2025-12-02T12:52:39.510Z",
+    "driver": "string",
+    "noBid": "string",
+    "noBidReason": "string",
+    "manager": {
+      "id": 0,
+      "name": "string"
+    }
+  },
+  "advertDetails": {
+    "publishOnline": true,
+    "reference": "string",
+    "title": "string",
+    "description": "string",
+    "location": "string",
+    "duration": "string",
+    "workType": "string",
+    "sector": "string",
+    "category": "string",
+    "salaryFrom": "string",
+    "salaryTo": "string",
+    "salaryPer": "string",
+    "benefits": "string",
+    "skills": "string",
+    "publishDate": "2025-12-02T12:52:39.510Z",
+    "startDate": "2025-12-02T12:52:39.510Z",
+    "advertStatus": "string"
+  },
+  "client": {
+    "id": 0,
+    "name": "string"
+  },
+  "contact": {
+    "id": 0,
+    "name": "string"
+  },
+  "secondaryContact": {
+    "id": 0,
+    "name": "string"
+  },
+  "workType": {
+    "id": 0,
+    "name": "string"
+  },
+  "publishContact": {
+    "id": 0,
+    "name": "string"
+  },
+  "mandact": {
+    "money": "string",
+    "moneyScore": "string",
+    "authority": "string",
+    "authorityScore": "string",
+    "need": "string",
+    "needScore": "string",
+    "decision": "string",
+    "decisionScore": "string",
+    "ability": "string",
+    "abilityScore": "string",
+    "competition": "string",
+    "competitionScore": "string",
+    "timing": "string",
+    "timingScore": "string"
+  },
+  "sectors": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "history": {
+    "created": "2025-12-02T12:52:39.510Z",
+    "closed": "2025-12-02T12:52:39.510Z",
+    "updated": "2025-12-02T12:52:39.510Z",
+    "updatedBy": 0,
+    "opened": "2025-12-02T12:52:39.510Z",
+    "awarded": "2025-12-02T12:52:39.510Z",
+    "filled": "2025-12-02T12:52:39.510Z",
+    "approved": "2025-12-02T12:52:39.510Z",
+    "approvedBy": "string"
+  }
+}
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+PATCH
+/api/v1/Opportunity/{Id}
+Updates an existing opportunity record
+
+
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+The record id
+
+Example : 1001
+
+1001
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "name": "string",
+  "description": "string",
+  "note": "string",
+  "location": "string",
+  "locationCity": "string",
+  "locationState": "string",
+  "postCodeLocation": "string",
+  "clientReference": "string",
+  "strategy": "string",
+  "contractType": "string",
+  "numberOfPositions": 0,
+  "probabiity": 0,
+  "estimatedValue": 0,
+  "factoredValue": 0,
+  "targetMargin": 0,
+  "invoiceStartDate": "2025-12-02T12:52:39.518Z",
+  "startDateTime": "2025-12-02T12:52:39.518Z",
+  "endDateTime": "2025-12-02T12:52:39.518Z",
+  "tagText": "string",
+  "vmsReference": "string",
+  "payRate": 0,
+  "chargeRate": 0,
+  "currencyCode": "string",
+  "unitsInADay": 0,
+  "billingPerDay": "string",
+  "daysOfWeek": "string",
+  "contactRole": "string",
+  "businessType": {
+    "id": 0,
+    "name": "string"
+  },
+  "bidDetails": {
+    "type": "string",
+    "dueDate": "2025-12-02T12:52:39.518Z",
+    "driver": "string",
+    "noBid": "string",
+    "noBidReason": "string",
+    "manager": {
+      "id": 0,
+      "name": "string"
+    }
+  },
+  "advertDetails": {
+    "publishOnline": true,
+    "reference": "string",
+    "title": "string",
+    "description": "string",
+    "location": "string",
+    "duration": "string",
+    "workType": "string",
+    "sector": "string",
+    "category": "string",
+    "salaryFrom": "string",
+    "salaryTo": "string",
+    "salaryPer": "string",
+    "benefits": "string",
+    "skills": "string",
+    "publishDate": "2025-12-02T12:52:39.518Z",
+    "startDate": "2025-12-02T12:52:39.518Z",
+    "advertStatus": "string"
+  },
+  "client": {
+    "id": 0,
+    "name": "string"
+  },
+  "contact": {
+    "id": 0,
+    "name": "string"
+  },
+  "secondaryContact": {
+    "id": 0,
+    "name": "string"
+  },
+  "workType": {
+    "id": 0,
+    "name": "string"
+  },
+  "publishContact": {
+    "id": 0,
+    "name": "string"
+  },
+  "mandact": {
+    "money": "string",
+    "moneyScore": "string",
+    "authority": "string",
+    "authorityScore": "string",
+    "need": "string",
+    "needScore": "string",
+    "decision": "string",
+    "decisionScore": "string",
+    "ability": "string",
+    "abilityScore": "string",
+    "competition": "string",
+    "competitionScore": "string",
+    "timing": "string",
+    "timingScore": "string"
+  },
+  "status": {
+    "id": 0,
+    "name": "string"
+  },
+  "sectors": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ]
+}
+Responses
+Code	Description	Links
+200	
+Record updated
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+DELETE
+/api/v1/Opportunity/{Id}
+Deletes an opportunity record
+
+
+Sample request:
+
+DELETE /
+{
+   "id": 1,
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record delete
+
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/Opportunity/Search
+Searches for opportunity records using the supplied parameters
+
+
+Sample request:
+
+ POST /
+ {
+    "searchTerm": "John Doe",
+        "maxResults": 50,
+        "pageNumber": 1,
+        "sortBy": "name",
+        "sortDirection": "desc",
+        "updatedBefore": null,
+        "updatedAfter": null,
+        "onlyMyRecords": false,
+        "includeCustomFields": false
+ }
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "searchTerm": "acme",
+  "maxResults": 10,
+  "pageNumber": 1,
+  "sortBy": "",
+  "sortDirection": "ASC",
+  "statusId": 7,
+  "state": "open",
+  "updatedBefore": "2025-12-02T12:52:39.523Z",
+  "updatedAfter": "2025-12-02T12:52:39.523Z",
+  "onlyMyRecords": false,
+  "includeCustomFields": false,
+  "publishOnline": false
+}
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "opportunityId": 0,
+    "opportunityName": "string",
+    "opportunityOwnerId": 0,
+    "department": "string",
+    "opportunityStatusId": 0,
+    "clientId": 0,
+    "contactId": 0,
+    "dateOpened": "string",
+    "location": "string",
+    "clientRef": "string",
+    "workType": "string",
+    "opportunitySource": "string",
+    "probability": 0,
+    "duration": "string",
+    "estimatedValue": 0,
+    "factoredValue": 0,
+    "targetMargin": "string",
+    "awardDate": "string",
+    "invoiceStartDate": "string",
+    "startDate": "string",
+    "endDate": "string",
+    "dateFilled": "string",
+    "opportunityDescription": "string",
+    "note": "string",
+    "active": "string",
+    "money": "string",
+    "moneyScore": 0,
+    "authority": "string",
+    "authorityScore": 0,
+    "need": "string",
+    "needScore": 0,
+    "decision": "string",
+    "decisionScore": 0,
+    "ability": "string",
+    "abilityScore": 0,
+    "competition": "string",
+    "competitionScore": 0,
+    "timing": "string",
+    "timingScore": 0,
+    "winStrategy": "string",
+    "bidType": "string",
+    "newRepeat": "string",
+    "competitive": "string",
+    "contractType": "string",
+    "bidDueDate": "string",
+    "bidDriver": "string",
+    "bidNoBid": "string",
+    "bidNoBidReason": "string",
+    "bidManager": "string",
+    "bidCosts": 0,
+    "approvedBy": "string",
+    "approvalDate": "string",
+    "territory": "string",
+    "contactRole": "string",
+    "reasonForClose": "string",
+    "publishOnline": "string",
+    "publishReference": "string",
+    "publishTitle": "string",
+    "publishDescription": "string",
+    "publishLocation": "string",
+    "publishStartDate": "string",
+    "publishDuration": "string",
+    "publishWorkType": "string",
+    "publishSector": "string",
+    "publishCategory": "string",
+    "publishContactUserId": 0,
+    "postcodeLocation": "string",
+    "lastUpdatedDateTime": "2025-12-02T12:52:39.524Z",
+    "lastUpdatedUserId": 0,
+    "opportunityWorkTypeId": 0,
+    "workingFolder": "string",
+    "opportunityRate": "string",
+    "creationDate": "2025-12-02T12:52:39.524Z",
+    "currencyCode": "string",
+    "publishSalaryFrom": "string",
+    "publishSalaryTo": "string",
+    "publishSalaryPer": "string",
+    "publishBenefits": "string",
+    "publishSkills": "string",
+    "tagText": "string",
+    "opportunityChargeRate": "string",
+    "startTime": "string",
+    "endTime": "string",
+    "businessType": "string",
+    "renewalOpportunityId": 0,
+    "secondaryOwnerId": 0,
+    "ownerPercent": 0,
+    "secondaryOwnerPercent": 0,
+    "indeedPost": "string",
+    "departmentId": 0,
+    "territoryId": 0,
+    "businessTypeId": 0,
+    "fyreReqId": "string",
+    "advertId": 0,
+    "advertUserId": 0,
+    "advertStatus": "string",
+    "publishDate": "string",
+    "publishViewCount": 0,
+    "publishApplyCount": 0,
+    "ownerRoleId": 0,
+    "secondaryOwnerRoleId": 0,
+    "thirdOwnerId": 0,
+    "thirdOwnerPercent": 0,
+    "thirdOwnerRoleId": 0,
+    "fourthOwnerId": 0,
+    "fourthOwnerPercent": 0,
+    "fourthOwnerRoleId": 0,
+    "fifthOwnerId": 0,
+    "fifthOwnerPercent": 0,
+    "fifthOwnerRoleId": 0,
+    "payPer": "string",
+    "unitsInADay": 0,
+    "daysOfWeek": "string",
+    "secondaryContactId": 0,
+    "locationCity": "string",
+    "locationState": "string",
+    "marginCalculation": "string",
+    "privateRecord": "string",
+    "clientName": "string",
+    "displayAs": "string",
+    "opportunityStatusDesc": "string",
+    "workTypeName": "string",
+    "countShortlisted": 0,
+    "customFields": [
+      {
+        "id": 0,
+        "name": "string",
+        "value": "string"
+      }
+    ]
+  }
+]
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/Opportunity/AttachDocument
+Attaches a document to an opportunity record
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "filename": "string",
+  "documentType": "string",
+  "documentData": "string",
+  "recordId": 0,
+  "isPrimary": true
+}
+Responses
+Code	Description	Links
+201	
+Document attached successfully
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": 0,
+  "success": true,
+  "message": "string"
+}
+No links
+400	
+Bad request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Opportunity/DocumentFolders/{Id}
+Lists all document folders for an opportunity record
+
+
+Sample request:
+
+GET /
+{
+   "Id": 1
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Folders found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "name": "string"
+  }
+]
+No links
+204	
+No Content
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Opportunity/{Id}/Applicants
+Lists all applicants for a job only matched resources will be returned
+
+
+Sample request:
+
+GET /
+{
+   "Id": 1
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Folders found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "resourceId": 0,
+    "firstname": "string",
+    "surname": "string",
+    "telephone": "string",
+    "email": "string",
+    "applicationDate": "2025-12-02T12:52:39.530Z"
+  }
+]
+No links
+204	
+No Content
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+POST
+/api/v1/Opportunity/Longlist
+Adds a resource to an opportunity's longlist
+
+
+Parameters
+Try it out
+No parameters
+
+Request body
+
+application/json-patch+json
+Example Value
+Schema
+{
+  "resourceId": 0,
+  "opportunityId": 0
+}
+Responses
+Code	Description	Links
+200	
+Longlist request was successfull
+
+No links
+201	
+Created
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": 0,
+    "success": true,
+    "message": "string"
+  }
+]
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+GET
+/api/v1/Opportunity/{Id}/Longlist
+Gets the list of candidates on the long list
+
+
+Sample request:
+
+GET /
+{
+   "Id": 1
+}
+Parameters
+Try it out
+Name	Description
+Id *
+integer($int32)
+(path)
+Id
+Responses
+Code	Description	Links
+200	
+Record found
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "resourceId": 0,
+    "opportunityId": 0,
+    "rank": 0,
+    "status": "string"
+  }
+]
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+DELETE
+/api/v1/Opportunity/{OpportunityId}/shortlist/resource/{ResourceId}
+Removes a resource from an opportunity's shortlist
+
+
+Sample request:
+
+DELETE /
+{
+   "id": 1,
+}
+Parameters
+Try it out
+Name	Description
+OpportunityId *
+integer($int32)
+(path)
+Id of opportunity
+
+OpportunityId
+ResourceId *
+integer($int32)
+(path)
+The resource to remove
+
+ResourceId
+Responses
+Code	Description	Links
+200	
+Record delete
+
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+DELETE
+/api/v1/Opportunity/{OpportunityId}/longlist/resource/{ResourceId}
+Removes a resource from an opportunity's longlist
+
+
+Sample request:
+
+DELETE /
+{
+   "id": 1,
+}
+Parameters
+Try it out
+Name	Description
+OpportunityId *
+integer($int32)
+(path)
+Id of opportunity
+
+OpportunityId
+ResourceId *
+integer($int32)
+(path)
+The resource to remove
+
+ResourceId
+Responses
+Code	Description	Links
+200	
+Record delete
+
+No links
+204	
+Record not found
+
+No links
+400	
+Bad Request
+
+Media type
+
+text/plain
+Example Value
+Schema
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+No links
+
+Schemas
+LongListResponseDto
+OpportunityRequestDto
+OpportunityResponseDto
+OpportunitySearchRequestDto
+OpportunitySearchResponseDto
+UpdatedResponseDto

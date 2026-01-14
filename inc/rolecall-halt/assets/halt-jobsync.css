@@ -1,0 +1,477 @@
+/* Halt JobSync Plugin Styles */
+
+.halt-jobsync-container {
+    font-family: Arial, sans-serif;
+    background: white;
+    color: black;
+    margin: -20px -20px 0 -20px;
+    padding: 0;
+    width: calc(100% + 20px);
+    min-height: 100vh;
+}
+
+.halt-banner {
+    background: #030304;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 50px 0;
+    padding: 40px 20px 20px 20px;
+}
+
+.halt-brand-text {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.halt-logo-container {
+    position: relative;
+}
+
+.halt-logo-container::before {
+    content: "Powered by";
+    position: absolute;
+    top: 10px;
+    right: 90%;
+    margin-right: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    white-space: nowrap;
+}
+
+.halt-logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.halt-logo-img {
+    max-height: 65px;
+    width: auto;
+}
+
+.halt-main-content {
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.halt-section {
+    margin-bottom: 40px;
+    padding-bottom: 50px;
+}
+
+.halt-section h2 {
+    font-size: 28px;
+}
+
+.halt-section p {
+    width: 80%;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Stats Table Styles */
+.halt-stats-table {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 30px 0;
+}
+
+.halt-stats-table h3 {
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.halt-stats {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.halt-stats td {
+    padding: 8px 0;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 14px;
+}
+
+.halt-stats td:first-child {
+    width: 40%;
+    color: #666;
+}
+
+.halt-stats td:last-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.halt-stats tr:last-child td {
+    border-bottom: none;
+}
+
+.main-page-section-hr {
+    margin: 50px 0 25px 0;
+}
+
+/* Countdown Styles */
+
+.halt-countdown-container{
+    color: #5e5e5e;
+}
+
+.halt-countdown {
+    background: #e3f2fd;
+    border: 1px solid #bbdefb;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.halt-countdown h3 {
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    color: #1976d2;
+}
+
+.countdown-timer {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1976d2;
+}
+
+.countdown-timer .time-unit {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 15px 10px 10px 10px;
+    background: #1976d2;
+    color: white;
+    border-radius: 4px;
+    min-width: 60px;
+}
+
+.countdown-timer .time-label {
+    font-size: 12px;
+    display: block;
+    margin-top: 2px;
+    font-weight: normal;
+}
+
+.manual-sync-container {
+    color: #5e5e5e;
+}
+
+.manual-sync-container .halt-button {
+    margin-top: 20px;
+}
+
+.halt-button {
+    background: #1d2327;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    transition: background 0.3s ease;
+}
+
+.halt-button:hover {
+    background: #1d2327cf;
+}
+
+.halt-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.halt-button-secondary {
+    background: #666;
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+.halt-button-secondary:hover {
+    background: #555;
+}
+
+.halt-form-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.halt-form-table th {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 30px 0;
+    font-weight: bold;
+    color: black;
+}
+
+.halt-form-table td {
+    padding: 15px 0;
+}
+
+.halt-form-table input,
+.halt-form-table textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.halt-form-table textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.halt-description {
+    font-size: 13px;
+    color: #666;
+    margin-top: 5px;
+    font-family: Arial, sans-serif;
+}
+
+/* Sync Log Styles */
+.halt-sync-log-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.sync-report {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.sync-report-header {
+    background: #f5f5f5;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.sync-report-header:hover {
+    background: #e9e9e9;
+}
+
+.sync-report-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.sync-report-header p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.sync-report-toggle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #666;
+    transition: transform 0.3s ease;
+    user-select: none;
+}
+
+.sync-report-toggle.expanded {
+    transform: rotate(180deg);
+}
+
+.sync-report-content {
+    padding: 15px;
+    display: none;
+    border-top: 1px solid #eee;
+}
+
+.sync-report-content.expanded {
+    display: block;
+}
+
+.job-item {
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background: #fafafa;
+}
+
+.job-item-header {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.job-item-header:hover {
+    background: #f0f0f0;
+}
+
+.job-item-header h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.job-item-header p {
+    margin: 5px 0 0 0;
+    font-size: 12px;
+    color: #666;
+}
+
+.job-item-toggle {
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+    transition: transform 0.3s ease;
+    user-select: none;
+}
+
+.job-item-toggle.expanded {
+    transform: rotate(180deg);
+}
+
+.job-item-content {
+    padding: 10px;
+    display: none;
+    border-top: 1px solid #eee;
+    background: #fff;
+}
+
+.job-item-content.expanded {
+    display: block;
+}
+
+.job-details {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.job-details strong {
+    color: #333;
+}
+
+.job-details .detail-row {
+    margin-bottom: 8px;
+    padding: 5px 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.job-details .detail-row:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* Modal Styles */
+.halt-sync-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 999999;
+}
+
+.halt-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    max-width: 400px;
+    width: 90%;
+    font-family: Arial, sans-serif;
+}
+
+.halt-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #0073aa;
+    border-radius: 50%;
+    animation: halt-spin 1s linear infinite;
+    margin: 0 auto 20px auto;
+}
+
+.halt-modal-title {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+.halt-modal-text {
+    margin: 0 0 20px 0;
+    color: #666;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+}
+
+.halt-modal-info {
+    background: #f0f8ff;
+    padding: 15px;
+    border-radius: 4px;
+    border-left: 4px solid #0073aa;
+}
+
+.halt-modal-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+/* Animations */
+@keyframes halt-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Success/Error Messages */
+.halt-message {
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.halt-message-success {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.halt-message-error {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}

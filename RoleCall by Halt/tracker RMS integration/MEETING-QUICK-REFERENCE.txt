@@ -1,0 +1,272 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                                                                               ║
+║           TRACKERRMS INTEGRATION - MEETING QUICK REFERENCE                    ║
+║           Use this as a cheat sheet during your meeting                       ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+
+═══════════════════════════════════════════════════════════════════════════════
+DEMO: WHAT TO SHOW CLIENT
+═══════════════════════════════════════════════════════════════════════════════
+
+In TrackerRMS, search for: "0857"
+
+Show these 4 records:
+
+1. Resource #110: Sarah Johnson (0857)
+   → Point out: Full contact details saved (email, phone)
+   → Explain: This is how CV uploads will look
+
+2. Contact #789: Michael Chen (0857)
+   → Point out: Company, job title, marketing consent
+   → Explain: This is how event registrations will look
+
+3. Contact #790: Emma Williams (0857)
+   → Point out: This contact is linked to a Lead
+   → Explain: This is how content downloads work
+
+4. Lead #17: Global Recruitment Partners (0857)
+   → Point out: Shows Emma's contact details
+   → Explain: Lead linked to contact = shows email/phone
+
+
+═══════════════════════════════════════════════════════════════════════════════
+KEY DECISIONS TO MAKE
+═══════════════════════════════════════════════════════════════════════════════
+
+DECISION 1: EVENTS
+──────────────────
+
+Ask: "How many events do you run per year and how large are they?"
+
+If 1-2 small events → Recommend: TrackerRMS Tags Only
+If 3+ events or 50+ people → Recommend: WordPress Attendees CPT
+If want contact database → Recommend: Hybrid (Both)
+
+Client Choice: ______________________________________________
+
+
+DECISION 2: NEWSLETTERS
+───────────────────────
+
+Ask: "How many newsletter signups per week?"
+
+If under 10/week → Recommend: TrackerRMS (manual)
+If over 10/week → Recommend: Mailchimp (automatic)
+
+Ask: "Budget for Mailchimp (~£20/month)?" Yes / No
+
+Client Choice: ______________________________________________
+
+
+DECISION 3: DATA CLEANUP
+─────────────────────────
+
+Ask: "Someone available for quarterly manual review of old data?"
+
+If Yes → Manual cleanup (no extra dev)
+If No → Automated cleanup (1-2 days dev)
+
+Client Choice: ______________________________________________
+
+
+═══════════════════════════════════════════════════════════════════════════════
+GDPR CONSENT QUICK REFERENCE
+═══════════════════════════════════════════════════════════════════════════════
+
+CV UPLOADS:
+Required: ☑ "I consent to storing my CV for recruitment purposes"
+Optional: ☐ "I want to receive newsletters"
+
+EVENT REGISTRATIONS:
+Required: ☑ "I agree to provide my details for this event"
+Optional: ☐ "I want to receive marketing about future events"
+
+CONTENT DOWNLOADS:
+Information: "We'll contact you about your interest in our services"
+Optional: ☐ "I want to receive marketing emails"
+
+NEWSLETTERS:
+Required: ☑ "I consent to receiving marketing emails"
+
+CLIENT BRIEFS:
+Information: "We'll use your details to respond to your enquiry"
+
+GENERAL CONTACT:
+Information: "We'll use your details to respond"
+
+
+═══════════════════════════════════════════════════════════════════════════════
+DATA RETENTION QUICK REFERENCE
+═══════════════════════════════════════════════════════════════════════════════
+
+CANDIDATES (CVs): 6 months from last contact
+MARKETING CONTACTS: Until unsubscribe or 2 years inactive
+SALES LEADS: 12-24 months from first contact
+EVENT ATTENDEES: 6 months after event (event data only)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+PRIORITY FORMS
+═══════════════════════════════════════════════════════════════════════════════
+
+Ask client to prioritize (1 = most important):
+
+___ CV Upload Form
+___ Job Application Form
+___ Event Registration Form
+___ Content Download Form
+___ Newsletter Signup
+___ Client Brief Form
+___ General Contact Form
+
+
+═══════════════════════════════════════════════════════════════════════════════
+TIMELINE ESTIMATE
+═══════════════════════════════════════════════════════════════════════════════
+
+Core Forms Only: 3-4 days
++ Events (Hybrid): +3 days → Total: 6-7 days
++ Mailchimp: +1 day
++ Automated Cleanup: +1-2 days
+
+Typical Full Launch: 2-3 weeks from today
+
+
+═══════════════════════════════════════════════════════════════════════════════
+QUESTIONS TO ASK
+═══════════════════════════════════════════════════════════════════════════════
+
+1. "How many events do you run per year?" __________
+
+2. "What's typical event attendance?" __________
+
+3. "How many newsletter signups per week?" __________
+
+4. "Do you have a GDPR compliance officer?" Yes / No
+
+5. "Is your privacy policy up to date?" Yes / No / Needs Update
+
+6. "Which forms are most important to get right?" ___________________
+
+7. "Budget for Mailchimp (~£20/month)?" Yes / No
+
+8. "Who will manage this day-to-day?" ___________________
+
+9. "When do you want to launch?" ___________________
+
+
+═══════════════════════════════════════════════════════════════════════════════
+MEETING FLOW
+═══════════════════════════════════════════════════════════════════════════════
+
+1. DEMO (10 min)
+   → Show working test records in TrackerRMS
+   → Explain what each form type does
+
+2. EXPLAIN OPTIONS (15 min)
+   → Events: Tags vs WordPress vs Hybrid
+   → Newsletter: TrackerRMS vs Mailchimp
+   → Show comparison tables
+
+3. GDPR DISCUSSION (15 min)
+   → Consent checkboxes required
+   → Retention periods
+   → Compliance process
+
+4. MAKE DECISIONS (20 min)
+   → Choose event approach
+   → Choose newsletter approach
+   → Prioritize forms
+   → Choose cleanup approach
+
+5. TIMELINE (10 min)
+   → Review estimates based on decisions
+   → Agree on launch date
+   → Schedule checkpoints
+
+
+═══════════════════════════════════════════════════════════════════════════════
+WHAT'S ALREADY DONE
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ Plugin integration complete
+✅ API connection working
+✅ Form routing system built
+✅ Contact search (prevents duplicates)
+✅ Lead linking (shows contact details)
+✅ Job sync (real-time via webhooks)
+✅ Job application linking
+✅ Admin dashboard
+✅ Queue system with retries
+
+Ready for: Frontend forms in Divi
+
+
+═══════════════════════════════════════════════════════════════════════════════
+WHAT NEEDS TO BE BUILT
+═══════════════════════════════════════════════════════════════════════════════
+
+Based on decisions:
+
+□ Divi forms (3-4 days)
+□ Events CPT (3 days) - If chosen
+□ Mailchimp integration (1 day) - If chosen
+□ Automated cleanup (1-2 days) - If chosen
+□ Privacy policy update (1 day)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+AFTER MEETING ACTION ITEMS
+═══════════════════════════════════════════════════════════════════════════════
+
+□ Document all decisions made
+□ Create prioritized task list
+□ Draft timeline
+□ Send meeting summary to client
+□ Schedule next check-in
+□ Begin form development
+
+
+═══════════════════════════════════════════════════════════════════════════════
+KEY SELLING POINTS
+═══════════════════════════════════════════════════════════════════════════════
+
+"This integration will save you 2-3 hours per week on manual data entry"
+
+"No more duplicate contacts - system checks automatically"
+
+"Real-time job sync - update in TrackerRMS, website updates instantly"
+
+"GDPR compliant - proper consent, retention, deletion processes"
+
+"Flexible - adapts to your business needs"
+
+"Already working - we've tested it with real data"
+
+
+═══════════════════════════════════════════════════════════════════════════════
+OBJECTION HANDLING
+═══════════════════════════════════════════════════════════════════════════════
+
+"This seems complicated"
+→ "The backend is complex, but for your team it's simple - forms just work"
+
+"What if someone wants their data deleted?"
+→ "We have a clear process for both WordPress and TrackerRMS deletion"
+
+"Can we change things later?"
+→ "Yes! We can add features as your needs grow"
+
+"What about Send Lists / Newsletter automation?"
+→ "TrackerRMS API doesn't support this, so we recommend Mailchimp"
+
+"How do we know it won't create duplicates?"
+→ "System searches by email before creating - already tested and working"
+
+
+═══════════════════════════════════════════════════════════════════════════════
+END OF QUICK REFERENCE
+═══════════════════════════════════════════════════════════════════════════════
+

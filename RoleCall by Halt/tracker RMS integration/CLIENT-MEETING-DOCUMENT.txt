@@ -1,0 +1,1783 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                                                                               ║
+║           TRACKERRMS & WORDPRESS INTEGRATION                                  ║
+║           Client Meeting Document                                             ║
+║                                                                               ║
+║           Understanding Your Integration, GDPR Compliance,                    ║
+║           and Planning Your Launch                                            ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+
+═══════════════════════════════════════════════════════════════════════════════
+TABLE OF CONTENTS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. What This Integration Does (Plain English)
+2. How Your Website and TrackerRMS Work Together
+3. Different Types of Forms and Where Data Goes
+4. GDPR Compliance Requirements
+5. Required Consent Checkboxes Per Form Type
+6. Data Retention Periods and Legal Basis
+7. Event Registration Options (Three Approaches)
+8. Next Steps and Launch Roadmap
+
+
+═══════════════════════════════════════════════════════════════════════════════
+1. WHAT THIS INTEGRATION DOES (PLAIN ENGLISH)
+═══════════════════════════════════════════════════════════════════════════════
+
+THE SIMPLE EXPLANATION:
+
+When someone fills out a form on your website, their information automatically 
+goes into TrackerRMS - your recruitment and contact management system.
+
+Think of it like this:
+• Your website is the "front door" where people come in
+• TrackerRMS is your "filing cabinet" where you organize and manage them
+• The integration is the "courier" that carries information between them
+
+
+WHAT IT DOES AUTOMATICALLY:
+
+✓ Job Applications → Creates candidates in TrackerRMS + links them to the job
+✓ CV Uploads → Creates candidate profiles in TrackerRMS
+✓ Event Registrations → Saves attendees and creates contacts
+✓ Content Downloads → Creates sales leads for follow-up
+✓ Newsletter Signups → Creates marketing contacts
+✓ Client Briefs → Creates sales opportunities with full context
+✓ Job Postings → Syncs from TrackerRMS to your website in real-time
+
+
+WHAT IT PREVENTS:
+
+✗ Manual data entry (no more copy-pasting from emails)
+✗ Duplicate contacts (checks if someone already exists)
+✗ Lost leads (everything captured automatically)
+✗ Outdated job listings (syncs instantly when you update TrackerRMS)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+2. HOW YOUR WEBSITE AND TRACKERRMS WORK TOGETHER
+═══════════════════════════════════════════════════════════════════════════════
+
+THE FLOW:
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         YOUR WEBSITE                                     │
+│                                                                          │
+│  Visitor fills out form:                                                │
+│  • CV upload form                                                       │
+│  • Job application form                                                 │
+│  • Event registration form                                              │
+│  • Content download form                                                │
+│  • Newsletter signup                                                    │
+│  • Contact form                                                         │
+│                                                                          │
+└────────────────────────────┬────────────────────────────────────────────┘
+                             │
+                             │ Data sent automatically
+                             │ (within seconds)
+                             ↓
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         TRACKERRMS                                       │
+│                                                                          │
+│  Information organized into:                                            │
+│  • CANDIDATES (Resources) - People looking for jobs                    │
+│  • CONTACTS - Business contacts, event attendees                       │
+│  • LEADS - Sales opportunities, potential clients                      │
+│                                                                          │
+│  Your team can then:                                                    │
+│  • Call candidates about job opportunities                              │
+│  • Follow up with leads about your services                            │
+│  • Send event updates to attendees                                     │
+│  • Add newsletter subscribers to mailing lists                         │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
+
+
+THE REVERSE FLOW (JOBS):
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         TRACKERRMS                                       │
+│                                                                          │
+│  Your team posts a new job:                                             │
+│  • Job Title: Senior Account Manager                                   │
+│  • Salary: £50,000                                                      │
+│  • Location: London                                                     │
+│  • Mark as "Publish Online"                                            │
+│                                                                          │
+└────────────────────────────┬────────────────────────────────────────────┘
+                             │
+                             │ Syncs automatically
+                             │ (within seconds via webhook)
+                             ↓
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         YOUR WEBSITE                                     │
+│                                                                          │
+│  Job appears on your jobs page automatically:                           │
+│  • Title, description, salary all populated                             │
+│  • Apply button ready for candidates                                   │
+│  • Updates in real-time when you edit in TrackerRMS                    │
+│  • Disappears when you mark as "Don't Publish"                         │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+3. DIFFERENT TYPES OF FORMS AND WHERE DATA GOES
+═══════════════════════════════════════════════════════════════════════════════
+
+You can have different forms on your website, and each one sends data to the 
+right place in TrackerRMS:
+
+
+FORM TYPE 1: CV UPLOADS / JOB APPLICATIONS
+───────────────────────────────────────────
+Where: "Upload Your CV" page, "Apply for Job" pages
+What it collects: Name, email, phone, CV, experience
+Where it goes: CANDIDATES (Resources) in TrackerRMS
+What happens: Creates candidate profile, if applying for specific job, 
+              automatically adds them to that job's applicant list
+
+Example: Jane uploads her CV → She appears as a candidate in TrackerRMS → 
+         Your recruiters can view her profile, match her to jobs, contact her
+
+
+FORM TYPE 2: EVENT REGISTRATIONS
+─────────────────────────────────
+Where: Event pages (conferences, networking events, seminars)
+What it collects: Name, email, phone, dietary requirements, ticket type
+Where it goes: CONTACTS in TrackerRMS + ATTENDEES list in WordPress
+What happens: Creates contact in TrackerRMS, creates attendee record in 
+              WordPress linked to specific event
+
+Example: John registers for "Summer Conference 2025" → Contact created in 
+         TrackerRMS → Attendee record in WordPress → You can manage event 
+         capacity, send updates, check people in on the day
+
+
+FORM TYPE 3: CONTENT DOWNLOADS
+───────────────────────────────
+Where: Gated content pages (whitepapers, salary surveys, guides)
+What it collects: Name, email, company, job title
+Where it goes: LEADS (sales opportunities) in TrackerRMS
+What happens: Creates contact, then creates lead linked to that contact
+
+Example: Sarah downloads "Salary Survey 2025" → Contact + Lead created → 
+         Tagged with what she downloaded → Your sales team can follow up: 
+         "Hi Sarah, I saw you downloaded our salary survey..."
+
+
+FORM TYPE 4: CLIENT BRIEFS / RFP SUBMISSIONS
+─────────────────────────────────────────────
+Where: "Work With Us" page, "Submit Brief" page
+What it collects: Name, email, company, requirements, budget
+Where it goes: LEADS (sales opportunities) in TrackerRMS
+What happens: Creates contact, creates lead with potential value
+
+Example: Bob submits a brief for 5 roles → Lead created worth £50,000 → 
+         Your sales team sees it as a hot opportunity to pursue
+
+
+FORM TYPE 5: NEWSLETTER SIGNUPS
+────────────────────────────────
+Where: Footer, sidebar, popup newsletter forms
+What it collects: Email, name (optional)
+Where it goes: CONTACTS in TrackerRMS
+What happens: Creates contact tagged for newsletter
+
+Example: Alice signs up for newsletter → Contact created and tagged → 
+         You manually add to Send List in TrackerRMS
+         
+⚠️ NOTE: There is NO automatic "Send List" API, so newsletter subscribers 
+must be manually added to mailing lists in TrackerRMS. Alternative: Use 
+Mailchimp or similar for automatic newsletter management.
+
+
+FORM TYPE 6: GENERAL CONTACT FORMS
+───────────────────────────────────
+Where: "Contact Us" page
+What it collects: Name, email, message
+Where it goes: CONTACTS in TrackerRMS
+What happens: Creates contact with enquiry notes
+
+Example: Tom asks a question → Contact created → Your team responds
+
+
+═══════════════════════════════════════════════════════════════════════════════
+4. GDPR COMPLIANCE REQUIREMENTS
+═══════════════════════════════════════════════════════════════════════════════
+
+WHAT IS GDPR?
+
+The law that protects people's personal information. When you collect someone's 
+email, name, or phone number, you MUST:
+• Tell them what you're doing with it
+• Get their permission (where required)
+• Keep it secure
+• Delete it when they ask
+• Only keep it as long as necessary
+
+
+THE PROBLEM:
+
+When someone fills out a form, their data goes to TWO places:
+1. WordPress (for event management, job applications, etc.)
+2. TrackerRMS (for contact management, recruitment, sales)
+
+This means when someone asks you to delete their data, you must delete it from 
+BOTH systems.
+
+
+THE RISK:
+
+If you collect data without proper consent or keep it too long, you could face:
+• Fines up to £17.5 million or 4% of annual turnover
+• Damage to reputation
+• Legal action from individuals
+• ICO (Information Commissioner's Office) investigations
+
+
+THE SOLUTION:
+
+✓ Clear consent checkboxes on every form (see section 5)
+✓ Privacy policy explaining what you do with data
+✓ Different retention periods for different purposes (see section 6)
+✓ Process to delete data when requested
+✓ Regular cleanup of old data
+
+
+DUAL STORAGE CONSIDERATIONS:
+
+When someone submits a form:
+• Data stored in WordPress: For immediate functionality (attendee lists, 
+  application tracking, etc.)
+• Data sent to TrackerRMS: For long-term contact management, recruitment 
+  pipeline, sales follow-up
+
+GDPR requires you to:
+• Explain BOTH storage locations in your privacy policy
+• Delete from BOTH when requested
+• Have valid legal basis for BOTH
+• Apply appropriate retention periods to BOTH
+
+
+═══════════════════════════════════════════════════════════════════════════════
+5. REQUIRED CONSENT CHECKBOXES PER FORM TYPE
+═══════════════════════════════════════════════════════════════════════════════
+
+Each form needs different consent checkboxes based on what you're doing with 
+the data:
+
+
+CV UPLOAD / JOB APPLICATION FORMS:
+──────────────────────────────────
+
+REQUIRED CHECKBOX:
+☐ I consent to [Company Name] storing my CV and contact details for 
+  recruitment purposes. I understand you may contact me about relevant job 
+  opportunities.
+  
+OPTIONAL CHECKBOX (if you want to market to candidates):
+☐ I would also like to receive newsletters and updates about recruitment 
+  trends and career advice.
+
+WHY: Consent is the lawful basis for processing CV data for recruitment.
+RETENTION: 6-12 months from last contact (UK ICO guidance for recruitment)
+
+
+EVENT REGISTRATION FORMS:
+─────────────────────────
+
+REQUIRED CHECKBOX:
+☐ I agree to provide my details for registration and management of this event. 
+  You may contact me with event updates and information.
+
+OPTIONAL CHECKBOX:
+☐ I would like to receive marketing communications about future events and 
+  services.
+
+WHY: Legitimate interest for event management, consent for marketing.
+RETENTION: 
+  - Event data: 6 months after event
+  - Marketing (if consented): Until consent withdrawn
+
+
+CONTENT DOWNLOAD FORMS:
+───────────────────────
+
+INFORMATION (no checkbox required):
+"By downloading this content, we'll use your details to follow up on your 
+interest in our services. This is our legitimate business interest."
+
+OPTIONAL CHECKBOX:
+☐ I would also like to receive marketing communications about similar content 
+  and services.
+
+WHY: Legitimate interest for sales follow-up on demonstrated interest.
+RETENTION: 12-24 months from download if no further engagement
+
+
+CLIENT BRIEF / RFP FORMS:
+─────────────────────────
+
+INFORMATION (no checkbox required):
+"We'll use your details to respond to your enquiry and provide the services 
+you're requesting."
+
+WHY: Legitimate interest or contract (responding to business enquiry).
+RETENTION: Duration of potential contract + 6-12 months
+
+
+NEWSLETTER SIGNUP FORMS:
+────────────────────────
+
+REQUIRED CHECKBOX:
+☐ I consent to receiving marketing emails from [Company Name]. I can 
+  unsubscribe at any time.
+
+WHY: Consent is required for marketing communications.
+RETENTION: Until they unsubscribe or 2 years of inactivity
+
+
+GENERAL CONTACT FORMS:
+──────────────────────
+
+INFORMATION (no checkbox required):
+"We'll use your details to respond to your enquiry."
+
+OPTIONAL CHECKBOX:
+☐ I would like to receive information about your services.
+
+WHY: Legitimate interest for responding to enquiry.
+RETENTION: 6-12 months after enquiry resolved
+
+
+═══════════════════════════════════════════════════════════════════════════════
+6. DATA RETENTION PERIODS AND LEGAL BASIS
+═══════════════════════════════════════════════════════════════════════════════
+
+Different types of data can be kept for different lengths of time:
+
+
+CANDIDATES (RESOURCES) - CV UPLOADS & JOB APPLICATIONS
+───────────────────────────────────────────────────────
+
+Legal Basis: CONSENT
+Purpose: Recruitment, matching to job opportunities
+Data Collected: CV, name, email, phone, work history, salary expectations
+
+RETENTION PERIODS (UK ICO Guidance):
+• Active job search: 6 months from last contact
+• Placed candidates: 6 years (employment records)
+• Unsuccessful applicants: 6 months from rejection
+
+STORED IN:
+• TrackerRMS: Candidate profile, CV, notes
+• WordPress: Job application submissions (can be deleted after sent to Tracker)
+
+COMPLIANCE:
+• Send email after 4 months: "Are you still looking for work?"
+• If no response by 6 months: Delete from system
+• If they respond: Reset the 6-month clock
+
+
+MARKETING CONTACTS - EVENT ATTENDEES, NEWSLETTERS
+──────────────────────────────────────────────────
+
+Legal Basis: CONSENT (for marketing)
+Purpose: Marketing communications, event invitations
+Data Collected: Name, email, company, job title
+
+RETENTION PERIODS:
+• Until consent withdrawn (they unsubscribe)
+• Or 2 years of complete inactivity (no opens, clicks, responses)
+
+STORED IN:
+• TrackerRMS: Contact record with marketing consent flag
+• WordPress: Attendee records (for specific events only - 6 months after event)
+
+COMPLIANCE:
+• Every email must have unsubscribe link
+• Honour unsubscribe requests within 48 hours
+• Track consent date and source
+• Regular cleanup of inactive contacts (2 years no engagement)
+
+
+SALES LEADS - CONTENT DOWNLOADS, CLIENT BRIEFS
+───────────────────────────────────────────────
+
+Legal Basis: LEGITIMATE INTEREST
+Purpose: Following up on demonstrated business interest
+Data Collected: Name, email, company, what they downloaded/requested
+
+RETENTION PERIODS:
+• Active leads (responding): Until sale concluded + 12 months
+• Cold leads (not responding): 12-24 months from first contact
+• Lost opportunities: 6-12 months after closure
+
+STORED IN:
+• TrackerRMS: Lead record with contact details, notes, potential value
+• WordPress: Form submission record (can be deleted after sent to Tracker)
+
+COMPLIANCE:
+• Must pass "Legitimate Interest Assessment" (benefits outweigh risks)
+• Must honour "Right to Object" if they ask
+• Clear privacy notice: "We'll contact you about this enquiry"
+• Regular review: Delete cold leads after 18-24 months
+
+
+EVENT ATTENDEES (SPECIFIC EVENTS)
+──────────────────────────────────
+
+Legal Basis: LEGITIMATE INTEREST or CONTRACT
+Purpose: Event management, attendance, communications
+Data Collected: Name, email, phone, dietary requirements, ticket type
+
+RETENTION PERIODS:
+• 3-6 months after event (unless marketing consent given)
+• If marketing consent: Keep in TrackerRMS, delete WordPress attendee record
+
+STORED IN:
+• WordPress: Attendee record linked to event (for capacity, check-in, etc.)
+• TrackerRMS: Contact record (ongoing relationship)
+
+COMPLIANCE:
+• Delete event-specific data 6 months after event
+• Keep TrackerRMS contact only if marketing consent given
+• Clear separation: Event data vs. marketing data
+
+
+═══════════════════════════════════════════════════════════════════════════════
+7. EVENT REGISTRATION - THREE OPTIONS TO CONSIDER
+═══════════════════════════════════════════════════════════════════════════════
+
+You have THREE options for handling event registrations. Each has pros and cons:
+
+
+OPTION A: TRACKERRMS ONLY (SIMPLEST)
+═════════════════════════════════════
+
+HOW IT WORKS:
+• Event registration creates Contact in TrackerRMS
+• Tag with event name: "Summer Conference 2025"
+• No special WordPress setup needed
+
+PROS:
+✓ Simple - uses existing integration
+✓ One system to manage (just TrackerRMS)
+✓ All contact data in one place
+
+CONS:
+✗ Manual filtering required (search by tag)
+✗ No automatic capacity management
+✗ Can't easily see attendee lists per event
+✗ No check-in system
+✗ Tags can get messy with many events
+
+BEST FOR:
+• Infrequent events (1-2 per year)
+• Small events (under 20 people)
+• Simple registration needs
+• Teams comfortable with TrackerRMS filtering
+
+
+OPTION B: WORDPRESS ONLY (MOST CONTROL)
+════════════════════════════════════════
+
+HOW IT WORKS:
+• Events created as posts in WordPress
+• Attendees stored as posts in WordPress
+• Don't send to TrackerRMS at all
+• Manage entirely on website
+
+PROS:
+✓ Full control over event management
+✓ Easy capacity tracking
+✓ Built-in attendee lists per event
+✓ Can add check-in features
+✓ Separate from TrackerRMS (clean data separation)
+
+CONS:
+✗ Event attendees not in TrackerRMS contact book
+✗ Can't use for marketing follow-up in TrackerRMS
+✗ No connection to recruitment/sales data
+✗ Two separate databases
+
+BEST FOR:
+• Frequent events (multiple per year)
+• Large events (50+ people)
+• Complex requirements (capacity, check-in, ticketing)
+• Events separate from recruitment/sales business
+
+
+OPTION C: HYBRID (BEST OF BOTH WORLDS) ⭐ RECOMMENDED
+═════════════════════════════════════════════════════
+
+HOW IT WORKS:
+• Events managed in WordPress (capacity, attendees, check-in)
+• Registration ALSO creates Contact in TrackerRMS
+• Links maintained between systems
+
+WORDPRESS HANDLES:
+• Event posts with dates, capacity, descriptions
+• Attendee posts linked to events
+• Capacity tracking: "45/50 spots filled"
+• Dietary requirements, ticket types
+• Check-in on event day
+• Attendee lists and reports
+
+TRACKERRMS HANDLES:
+• Contact record for each person
+• Contact history across all interactions
+• Marketing consent tracking
+• Future follow-up and campaigns
+
+THE FLOW:
+1. User registers for "Summer Conference 2025" on website
+2. WordPress creates Attendee record (linked to Event)
+3. WordPress searches TrackerRMS for existing contact
+4. If found: Uses existing contact, adds activity note
+5. If not found: Creates new contact
+6. WordPress stores TrackerRMS contact ID with attendee
+
+BENEFITS:
+✓ Easy event management in WordPress (capacity, lists, check-in)
+✓ Contact book built in TrackerRMS (for marketing, future events)
+✓ No duplicate contacts (searches before creating)
+✓ Complete contact history in one place
+✓ Can see: "John attended 3 events, downloaded 2 resources, good contact!"
+
+DATA FLOW EXAMPLE:
+• WordPress knows: "John attended Summer Conference, needed vegetarian meal"
+• TrackerRMS knows: "John is a contact at ACME Corp, attended 3 events, 
+  downloaded content, opted into marketing"
+
+BEST FOR:
+• Regular events (3+ per year)
+• Medium-large events (20-100+ people)
+• Want to build contact database for marketing
+• Want easy event management features
+
+
+COMPARISON TABLE:
+─────────────────
+
+Feature                      | TrackerRMS Only | WordPress Only | Hybrid ⭐
+─────────────────────────────┼─────────────────┼────────────────┼──────────
+Capacity Management          | Manual          | Automatic      | Automatic
+Attendee Lists               | Manual filter   | Automatic      | Automatic
+Check-in System             | No              | Yes            | Yes
+Contact Database            | Yes             | No             | Yes
+Marketing Follow-up         | Yes             | No             | Yes
+Setup Complexity            | Low             | Medium         | Medium
+Ongoing Maintenance         | Medium          | Low            | Low
+Duplicate Prevention        | Manual          | N/A            | Automatic
+Multi-event History         | Via tags        | Separate       | Unified
+GDPR Compliance             | Medium          | Easy           | Good
+
+
+═══════════════════════════════════════════════════════════════════════════════
+8. UNDERSTANDING TRACKERRMS RECORD TYPES
+═══════════════════════════════════════════════════════════════════════════════
+
+TrackerRMS organizes people into three categories:
+
+
+RESOURCES (CANDIDATES) 👤
+─────────────────────────
+
+WHO THEY ARE: People looking for jobs
+USE FOR: CV uploads, job applications, talent pool
+
+WHAT YOU CAN DO:
+• View CV and work history
+• Match to job opportunities
+• Track application status
+• Schedule interviews
+• Record salary expectations
+• Manage placements
+
+EXAMPLE: Sarah uploads CV → You review → Match to "PHP Developer" role → 
+         Send to client → She gets the job → Track placement fee
+
+
+CONTACTS 📞
+───────────
+
+WHO THEY ARE: Business contacts, hiring managers, event attendees
+USE FOR: Event registrations, newsletter signups, general enquiries, clients
+
+WHAT YOU CAN DO:
+• Store contact details
+• Track interactions
+• Add to mailing lists (manual)
+• Link to companies
+• Schedule calls and meetings
+• Build relationships
+
+EXAMPLE: John registers for event → You add to contact book → Send follow-up 
+         email → He becomes a client → You track all interactions
+
+
+LEADS 💼
+────────
+
+WHO THEY ARE: Sales opportunities, potential business
+USE FOR: Content downloads, client briefs, RFP submissions, business enquiries
+
+WHAT YOU CAN DO:
+• Track sales pipeline
+• Assign monetary value
+• Follow up on interest
+• Convert to clients
+• Track win/loss
+• Measure sales performance
+
+EXAMPLE: Emma downloads salary survey → Lead created worth £10k → Your sales 
+         team calls → She needs 5 roles filled → Becomes client worth £50k
+
+IMPORTANT: Leads must be linked to a Contact to show email/phone in TrackerRMS.
+The plugin handles this automatically - it creates the Contact first, then 
+links the Lead to it.
+
+
+═══════════════════════════════════════════════════════════════════════════════
+9. GDPR COMPLIANCE CHECKLIST
+═══════════════════════════════════════════════════════════════════════════════
+
+BEFORE LAUNCHING:
+
+□ Privacy Policy Updated
+  • Explains all form types
+  • States data stored in WordPress AND TrackerRMS
+  • Lists retention periods for each form type
+  • Explains rights (access, deletion, objection)
+  • Provides contact email for data requests
+
+□ Form Consent Checkboxes
+  • CV forms: Recruitment consent required
+  • Event forms: Event registration required, marketing optional
+  • Newsletter: Marketing consent required
+  • Downloads: Legitimate interest notice, optional marketing consent
+  • All checkboxes clearly worded and separate
+
+□ Retention Policy Documented
+  • Candidates: 6 months from last contact (or longer if placed)
+  • Marketing contacts: Until unsubscribe or 2 years inactive
+  • Sales leads: 12-24 months from first contact
+  • Event attendees: 6 months after event (data, not contact)
+
+□ Deletion Process
+  • How users request deletion (email address published)
+  • Process to delete from WordPress
+  • Process to delete from TrackerRMS
+  • Response timeframe: 30 days maximum
+  • Logging of deletion requests
+
+□ Data Access Process
+  • How users request their data
+  • Process to extract from WordPress
+  • Process to extract from TrackerRMS
+  • Format provided: PDF or structured data
+  • Response timeframe: 30 days maximum
+
+□ Newsletter Unsubscribe
+  • Every email has unsubscribe link
+  • Unsubscribe processed within 48 hours
+  • Removes from Send List in TrackerRMS
+  • Updates contact preferences
+
+□ Regular Data Cleanup
+  • Monthly/quarterly review of old data
+  • Automated cleanup where possible
+  • Delete candidates after 6 months no contact
+  • Delete cold leads after 18-24 months
+  • Remove old event attendee records
+
+
+ONGOING COMPLIANCE:
+
+□ Staff Training
+  • Team understands GDPR requirements
+  • Know how to handle data requests
+  • Understand retention periods
+  • Know when to delete vs. keep data
+
+□ Regular Audits
+  • Quarterly review of stored data
+  • Check retention periods followed
+  • Verify consent records present
+  • Test deletion process
+
+□ Documentation
+  • Keep records of consent given
+  • Log deletion requests
+  • Document legitimate interest assessments
+  • Track data processing activities
+
+
+═══════════════════════════════════════════════════════════════════════════════
+10. PRIVACY POLICY REQUIREMENTS
+═══════════════════════════════════════════════════════════════════════════════
+
+Your privacy policy must include:
+
+
+SECTION 1: WHAT DATA WE COLLECT
+────────────────────────────────
+
+"When you submit forms on our website, we collect:
+• CV Uploads: Name, email, phone, CV document, work history, salary
+• Event Registrations: Name, email, phone, dietary requirements
+• Content Downloads: Name, email, company, job title
+• Newsletter Signups: Email, name (optional)
+• Job Applications: Name, email, phone, CV, cover letter, job applied for
+• Contact Forms: Name, email, message"
+
+
+SECTION 2: HOW WE USE YOUR DATA
+────────────────────────────────
+
+"We use your information for these purposes:
+
+CV Uploads & Job Applications:
+• To match you with suitable job opportunities
+• To contact you about relevant roles
+• To present you to potential employers
+• To manage the recruitment process
+
+Event Registrations:
+• To manage event attendance and capacity
+• To send event updates and information
+• To accommodate dietary/accessibility needs
+• To contact you about the event
+
+Content Downloads & Client Briefs:
+• To follow up on your interest in our services
+• To provide the information or services you requested
+• To understand our audience and improve our content
+
+Newsletter Signups:
+• To send you marketing communications
+• To keep you informed about our services
+• To share relevant content and updates"
+
+
+SECTION 3: WHERE WE STORE YOUR DATA
+────────────────────────────────────
+
+"Your data is stored in two systems:
+
+1. Our Website (WordPress):
+   • Event attendee lists
+   • Job application records
+   • Form submissions
+   • Managed by: [Your company/hosting provider]
+
+2. TrackerRMS (Recruitment & Contact Management System):
+   • Candidate profiles
+   • Contact database
+   • Sales opportunities
+   • Managed by: Tracker RMS (UK-based, GDPR compliant)
+
+Both systems are secured, encrypted, and GDPR compliant."
+
+
+SECTION 4: HOW LONG WE KEEP YOUR DATA
+──────────────────────────────────────
+
+"We only keep your data as long as necessary:
+
+• Candidates (CVs): 6 months from last contact, unless placed
+• Event Attendees: 6 months after event (event data only)
+• Marketing Contacts: Until you unsubscribe or 2 years of inactivity
+• Sales Leads: 12-24 months from first contact
+• Job Applications: 6 months after recruitment process ends
+
+You can request deletion at any time by emailing: privacy@[yourdomain].com"
+
+
+SECTION 5: YOUR RIGHTS
+──────────────────────
+
+"You have the right to:
+• Access: Request a copy of your data
+• Rectification: Correct inaccurate information
+• Erasure: Request deletion of your data
+• Object: Object to processing of your data
+• Portability: Receive your data in a usable format
+• Withdraw Consent: Unsubscribe or withdraw consent at any time
+
+To exercise these rights: privacy@[yourdomain].com
+Response time: Within 30 days"
+
+
+═══════════════════════════════════════════════════════════════════════════════
+11. SEND LISTS / NEWSLETTER MANAGEMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+THE LIMITATION:
+
+TrackerRMS has "Send Lists" for bulk email campaigns, but there is NO API to 
+automatically add contacts to Send Lists.
+
+
+YOUR OPTIONS:
+
+OPTION 1: MANUAL ADDITION (Current Capability)
+───────────────────────────────────────────────
+• Newsletter form creates Contact in TrackerRMS
+• Tagged with "Newsletter Subscriber"
+• Someone manually adds to Send List once per week
+• Viable for low volume (under 10 signups/week)
+
+PROS: Uses existing system, no additional tools
+CONS: Manual work required, potential delays
+
+
+OPTION 2: MAILCHIMP / CONVERTKIT (Recommended for Newsletters)
+───────────────────────────────────────────────────────────────
+• Newsletter forms send directly to Mailchimp (not TrackerRMS)
+• Automatic list management
+• Proper unsubscribe handling
+• Better email deliverability
+• All other forms still go to TrackerRMS
+
+PROS: Automatic, professional, GDPR compliant, better email tools
+CONS: Additional monthly cost (£10-30), another system to manage
+
+
+OPTION 3: HYBRID APPROACH
+──────────────────────────
+• Newsletter signups create Contact in TrackerRMS (for contact book)
+• AND send to Mailchimp (for actual emails)
+• Best of both worlds
+
+PROS: Contact database in TrackerRMS + professional email tool
+CONS: Slightly more complex, email list in two places
+
+
+RECOMMENDATION:
+For professional newsletter management: Use Mailchimp for emails
+For contact database: Keep in TrackerRMS
+This separates concerns and gives you better tools for each purpose.
+
+
+═══════════════════════════════════════════════════════════════════════════════
+12. EVENT REGISTRATION - DETAILED COMPARISON
+═══════════════════════════════════════════════════════════════════════════════
+
+Let's look at a real scenario to understand each option:
+
+
+SCENARIO: You're hosting "Summer Conference 2025"
+• Capacity: 100 people
+• Expected registrations: 75 people
+• Frequency: Quarterly events (4 per year)
+
+
+OPTION A: TRACKERRMS TAGS ONLY
+═══════════════════════════════
+
+SETUP:
+• Event registration form on website
+• Creates Contact in TrackerRMS
+• Tags: "Event Attendee, Summer Conference 2025"
+
+DAY-TO-DAY USE:
+• Check registrations: Filter TrackerRMS contacts by tag
+• Count attendees: Manual count or export to Excel
+• Send updates: Create bulk email in TrackerRMS
+• Check capacity: Count doesn't auto-update
+• On event day: Print list from TrackerRMS
+
+EXAMPLE WORKFLOW:
+1. Sarah registers → Contact created, tagged
+2. You want to see total: Filter by "Summer Conference 2025" → Count manually
+3. Check capacity: 45 registered, 55 spots left (manual calculation)
+4. Event day: Export list, print, check people off manually
+5. Next event: Need to tag differently to separate events
+
+TIME COST: 
+• 2-3 hours per event for list management
+• Risk of errors in manual counting
+
+GDPR: 
+• After 6 months: Filter by tag, manually delete attendee records
+• Keep contacts if marketing consent, just remove tag
+
+
+OPTION B: WORDPRESS ATTENDEES CPT
+══════════════════════════════════
+
+SETUP:
+• Events as Custom Post Type in WordPress
+• Attendees as Custom Post Type in WordPress
+• Registration creates Attendee post linked to Event
+• Don't send to TrackerRMS
+
+DAY-TO-DAY USE:
+• Check registrations: View event in WordPress
+• Count attendees: Automatic counter in WordPress
+• Capacity: "45/100 spots filled" (live)
+• Send updates: Email plugin or export list
+• On event day: Mobile-friendly check-in interface
+
+EXAMPLE WORKFLOW:
+1. Sarah registers → Attendee post created, linked to Event post
+2. View "Summer Conference 2025" → See "45/100 registered" automatically
+3. Capacity nearly full? → Form shows "Only 5 spots left!"
+4. Event day → Open WordPress on tablet → Check people in → Live dashboard
+5. Next event → Completely separate, no tag confusion
+
+TIME COST:
+• 30 minutes per event (mostly automated)
+• Clean separation between events
+
+GDPR:
+• After 6 months: Automated cleanup deletes old attendee posts
+• Event-specific data automatically removed
+• Clear, contained per event
+
+
+OPTION C: HYBRID - WORDPRESS + TRACKERRMS
+═══════════════════════════════════════════
+
+SETUP:
+• Events and Attendees in WordPress (like Option B)
+• Registration ALSO creates Contact in TrackerRMS
+• Attendee post stores TrackerRMS Contact ID
+• Links maintained between systems
+
+DAY-TO-DAY USE:
+• Event management: All in WordPress (easy!)
+• Contact history: All in TrackerRMS (complete!)
+• Best of both worlds
+
+EXAMPLE WORKFLOW:
+1. Sarah registers for "Summer Conference 2025"
+2. WordPress checks TrackerRMS: Is Sarah already a contact?
+3. If YES: Use existing contact (she registered for last event too!)
+4. If NO: Create new contact
+5. WordPress creates Attendee post with TrackerRMS contact ID
+6. WordPress: Easy event management
+7. TrackerRMS: Complete contact history
+
+SARAH'S JOURNEY VISIBLE IN TRACKERRMS:
+• March 2025: Registered for Spring Networking Event
+• May 2025: Downloaded Salary Survey
+• June 2025: Registered for Summer Conference
+• July 2025: Downloaded Recruitment Guide
+→ You can see: "Sarah is engaged, attended 2 events, downloaded 2 resources, 
+   hot prospect for marketing!"
+
+BENEFITS:
+✓ Easy event management (WordPress handles complexity)
+✓ Contact database grows (every attendee captured)
+✓ No duplicates (searches before creating)
+✓ See complete contact history (all interactions)
+✓ Marketing opportunities (can follow up with engaged attendees)
+✓ GDPR compliant (clear retention for event data vs. contact data)
+
+WORKFLOW:
+• Event management: WordPress (capacity, lists, check-in)
+• Contact management: TrackerRMS (history, marketing, relationships)
+• Data retention: Event data deleted 6 months, contact kept if consented
+
+TIME COST:
+• 30 minutes per event (WordPress automation)
+• Contact database grows automatically (no extra work)
+
+GDPR:
+• WordPress: Auto-delete attendee posts after 6 months
+• TrackerRMS: Keep contact if marketing consent, otherwise review for deletion
+• Clear separation: Event data (temporary) vs. Contact data (ongoing)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+13. TECHNICAL CAPABILITIES SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+WHAT THE INTEGRATION CAN DO:
+
+
+FORM SUBMISSIONS → TRACKERRMS:
+✓ Create Candidates from CV uploads
+✓ Create Contacts from event registrations
+✓ Create Leads from content downloads
+✓ Link job applications to specific jobs
+✓ Search for existing contacts (prevent duplicates)
+✓ Attach documents (CVs, files)
+✓ Add custom tags for filtering
+✓ Create activity notes
+✓ Set status, department, source automatically
+
+
+TRACKERRMS → WEBSITE:
+✓ Sync jobs automatically (real-time via webhooks)
+✓ Update jobs when changed in TrackerRMS
+✓ Remove jobs when unpublished
+✓ Full job details (title, salary, location, description)
+✓ Apply button links back to TrackerRMS job ID
+✓ Applications automatically added to job's candidate list
+
+
+DATA QUALITY:
+✓ Email-based duplicate detection
+✓ Automatic contact linking for Leads
+✓ Validation of required fields
+✓ Clean data structure
+✓ Complete contact history in one place
+
+
+WHAT IT CANNOT DO:
+
+✗ Automatically add contacts to Send Lists (must be done manually in TrackerRMS)
+✗ Sync FROM WordPress TO TrackerRMS (except via forms - not bi-directional)
+✗ Fuzzy matching (only exact email matches to prevent errors)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+14. LAUNCH ROADMAP - DECISIONS TO MAKE
+═══════════════════════════════════════════════════════════════════════════════
+
+DECISION 1: EVENT MANAGEMENT APPROACH
+──────────────────────────────────────
+
+Choose ONE:
+A. □ TrackerRMS Only (tags) - Simple, manual
+B. □ WordPress Only (CPT) - Powerful, isolated
+C. □ Hybrid (Both) - Best features, more setup ⭐ RECOMMENDED
+
+Questions to help decide:
+• How many events per year? (More events = need WordPress)
+• Average attendance? (Larger events = need WordPress)
+• Need check-in system? (Yes = need WordPress)
+• Want to build contact database from events? (Yes = include TrackerRMS)
+
+IMPACT ON PROJECT:
+• Option A: No additional development
+• Option B: Build Events + Attendees CPTs (2-3 days)
+• Option C: Build Events + Attendees CPTs + integration (3-4 days)
+
+
+DECISION 2: NEWSLETTER MANAGEMENT
+──────────────────────────────────
+
+Choose ONE:
+A. □ TrackerRMS Send Lists (manual addition weekly)
+B. □ Mailchimp integration (automatic, professional) ⭐ RECOMMENDED
+C. □ Hybrid (both systems)
+
+Questions to help decide:
+• Current newsletter volume? (High volume = need Mailchimp)
+• Someone available for weekly manual work? (No = need Mailchimp)
+• Budget for Mailchimp? (£10-30/month)
+• Need advanced email features? (Yes = Mailchimp)
+
+IMPACT ON PROJECT:
+• Option A: No additional development
+• Option B: Mailchimp integration (1 day)
+• Option C: Mailchimp + TrackerRMS (1 day)
+
+
+DECISION 3: FORM CONFIGURATION APPROACH
+────────────────────────────────────────
+
+Choose ONE:
+A. □ Simple routing (current) - Forms mapped to record types via settings
+B. □ Per-form configuration - Each form has custom field mapping & settings
+
+Questions to help decide:
+• How many different forms? (Many forms = per-form config helpful)
+• Forms very different from each other? (Yes = per-form config)
+• Need fine-grained control? (Yes = per-form config)
+• Prefer simplicity? (Yes = simple routing)
+
+IMPACT ON PROJECT:
+• Option A: No additional development (already built!)
+• Option B: Build configuration UI (2-3 days)
+
+RECOMMENDATION: Start with Option A (simple), upgrade to B if needed later.
+
+
+DECISION 4: DATA RETENTION AUTOMATION
+──────────────────────────────────────
+
+Choose:
+□ Manual cleanup (quarterly review and deletion)
+□ Automated cleanup (scheduled deletion of old records)
+
+AUTOMATED CLEANUP FEATURES:
+• Delete candidate records after 6 months no contact
+• Delete event attendee posts after 6 months post-event
+• Flag cold leads after 18 months (for review/deletion)
+• Remove marketing contacts after 2 years inactivity
+• Log all deletions for audit trail
+
+IMPACT ON PROJECT:
+• Manual: No development, requires staff time
+• Automated: 1-2 days development, saves ongoing time
+
+
+═══════════════════════════════════════════════════════════════════════════════
+15. CURRENT STATUS & WHAT'S READY
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ COMPLETED & WORKING:
+
+Plugin Features:
+• OAuth2 authentication with TrackerRMS
+• NEW REST API integration (/api/v1/*)
+• Automatic contactDetails structure building
+• Contact search to prevent duplicates
+• Lead linking to Contacts (shows contact info)
+• Form routing system (Resource/Contact/Lead)
+• Job sync from TrackerRMS (via webhooks + daily fallback)
+• Job application linking (candidate added to job's list)
+• Field mapping system
+• Queue system with retry logic
+• Activity logging in TrackerRMS
+• Admin dashboard with statistics
+
+Job Listings:
+• Custom Post Type for jobs (halt_job)
+• Real-time sync via webhooks
+• Daily fallback sync
+• Respects "Publish Online" setting
+• Stores TrackerRMS job ID for application linking
+
+
+⏳ REQUIRES DEVELOPMENT:
+
+Website:
+• Build frontend pages and forms in Divi
+• Design job listing pages
+• Design event pages (if using events)
+• Create form field configurations
+
+Optional (Based on Decisions):
+• Events & Attendees Custom Post Types
+• Mailchimp integration
+• Per-form configuration UI
+• Automated data cleanup system
+
+
+⏳ REQUIRES CONFIGURATION:
+
+TrackerRMS:
+• Set up webhook for job sync
+• Configure statuses, departments (if using)
+• Set up Send Lists (for newsletters)
+
+WordPress:
+• Map Divi form IDs to record types
+• Configure field mappings
+• Set up activity templates
+• Configure GDPR settings
+
+Documentation:
+• Update privacy policy
+• Create deletion request process
+• Document retention periods
+• Staff training materials
+
+
+═══════════════════════════════════════════════════════════════════════════════
+16. MEETING AGENDA & QUESTIONS FOR CLIENT
+═══════════════════════════════════════════════════════════════════════════════
+
+USE THIS DOCUMENT TO STRUCTURE YOUR MEETING:
+
+
+PART 1: EXPLAIN WHAT THEY'RE GETTING (15 MINUTES)
+──────────────────────────────────────────────────
+
+Walk through:
+✓ Section 1: What the integration does (simple explanation)
+✓ Section 2: How website and TrackerRMS work together
+✓ Section 3: Different form types and where data goes
+
+Show them the test records in TrackerRMS (search "0857"):
+• Point out candidate with full contact details
+• Show contact record
+• Show lead linked to contact
+• Demonstrate how clean the data looks
+
+
+PART 2: DISCUSS GDPR COMPLIANCE (20 MINUTES)
+─────────────────────────────────────────────
+
+Review:
+✓ Section 4: GDPR requirements
+✓ Section 5: Required consent checkboxes per form
+✓ Section 6: Data retention periods
+
+Questions to ask:
+• Do you have a privacy policy? Does it need updating?
+• Who handles data deletion requests currently?
+• Are you comfortable with the retention periods suggested?
+• Do you have a Data Protection Officer or GDPR lead?
+
+
+PART 3: MAKE KEY DECISIONS (30 MINUTES)
+────────────────────────────────────────
+
+Go through Section 14 (Launch Roadmap) and decide:
+
+DECISION 1: Event Management
+Ask:
+• How many events do you run per year?
+• What's typical attendance?
+• Do you need capacity management?
+• Do you need check-in features?
+• Want to build contact database from events?
+
+Recommend based on answers (see Section 7 comparison)
+
+
+DECISION 2: Newsletter Management
+Ask:
+• How many newsletter signups per week?
+• Who manages the newsletter currently?
+• Budget available for Mailchimp (~£20/month)?
+• Need advanced email features (templates, automation, analytics)?
+
+Recommend: Mailchimp if volume > 10/week or they want professional features
+
+
+DECISION 3: Form Configuration
+Ask:
+• How many different forms will you have?
+• Are forms very different from each other?
+• Comfortable with simple routing or need detailed control?
+
+Recommend: Start simple (already built), upgrade later if needed
+
+
+DECISION 4: Data Retention
+Ask:
+• Someone available for quarterly manual cleanup?
+• Or prefer automated deletion after retention periods?
+• Comfort level with automation vs. manual review?
+
+Recommend: Automated with monthly review reports
+
+
+PART 4: CREATE LAUNCH PLAN (15 MINUTES)
+────────────────────────────────────────
+
+Based on decisions, create timeline:
+
+PHASE 1: Core Forms (Week 1-2)
+• CV upload form
+• Job application forms
+• General contact form
+• Configure form routing
+• Test submissions
+• Update privacy policy
+
+PHASE 2: Job Listings (Week 2-3)
+• Design job listing pages
+• Test job sync
+• Set up TrackerRMS webhook
+• Test application flow
+
+PHASE 3: Additional Forms (Week 3-4)
+• Content download forms
+• Client brief forms
+• Newsletter signup (or Mailchimp)
+• Test all submission types
+
+PHASE 4: Events (Week 4-5) - If applicable
+• Build Events CPT
+• Build Attendees CPT
+• Event registration forms
+• Capacity management
+• Test full flow
+
+PHASE 5: Polish & Launch (Week 5-6)
+• GDPR compliance final review
+• Privacy policy live
+• Staff training
+• Soft launch
+• Monitor and adjust
+
+
+═══════════════════════════════════════════════════════════════════════════════
+17. QUESTIONS TO ASK CLIENT
+═══════════════════════════════════════════════════════════════════════════════
+
+ABOUT THEIR BUSINESS:
+
+□ What are your most important lead sources?
+  (Helps prioritize which forms to build first)
+
+□ How do you currently capture leads/candidates?
+  (Understand current process and pain points)
+
+□ What percentage of your business is:
+  • Recruitment / Candidates: ___%
+  • Sales / New Business: ___%
+  • Events: ___%
+  (Helps prioritize features)
+
+□ What's your biggest frustration with current setup?
+  (Identifies high-value fixes)
+
+
+ABOUT FORMS:
+
+□ What forms do you definitely need? (Priority order them)
+  □ CV upload
+  □ Job application
+  □ Event registration
+  □ Content downloads
+  □ Newsletter signup
+  □ Client brief
+  □ General contact
+  □ Other: ________________
+
+□ Which forms are most important to get right?
+  (Focus effort here)
+
+
+ABOUT EVENTS:
+
+□ How many events do you run per year? _______
+
+□ Typical attendance per event? _______
+
+□ Types of events:
+  □ Conferences (50+ people)
+  □ Networking events (20-50 people)
+  □ Webinars (online)
+  □ Small workshops (under 20)
+
+□ Event management needs:
+  □ Registration only (basic)
+  □ Capacity management (track spots)
+  □ Check-in system (day of event)
+  □ Ticketing (multiple ticket types)
+  □ Dietary requirements
+  □ Waitlist management
+
+□ Want to use event attendees for marketing? Yes / No
+
+
+ABOUT NEWSLETTER:
+
+□ Current email volume per week? _______
+
+□ Currently using any email platform? (Mailchimp, etc.) _______
+
+□ Budget for email tool (£20-30/month)? Yes / No
+
+□ Who manages newsletters currently? _______
+
+
+ABOUT GDPR:
+
+□ Do you have a GDPR compliance officer? Yes / No
+
+□ Current privacy policy covers recruitment? Yes / No / Needs update
+
+□ How do you currently handle deletion requests? _______
+
+□ Comfortable with suggested retention periods? Yes / No / Discuss
+
+□ Need help with GDPR compliance? Yes / No
+
+
+ABOUT RESOURCES:
+
+□ Who will manage this integration day-to-day? _______
+
+□ Technical capability of team? (Low / Medium / High)
+
+□ Preference for:
+  □ Simple setup (less features, easier to use)
+  □ Powerful setup (more features, more complexity)
+  □ Somewhere in between
+
+□ Budget for additional tools (Mailchimp, etc.)? £ _______/month
+
+
+═══════════════════════════════════════════════════════════════════════════════
+18. RECOMMENDATIONS BASED ON TYPICAL USE CASES
+═══════════════════════════════════════════════════════════════════════════════
+
+SCENARIO 1: RECRUITMENT AGENCY (PRIMARY FOCUS: CANDIDATES)
+───────────────────────────────────────────────────────────
+
+Recommended Setup:
+• ⭐ CV Uploads → Resource (HIGH PRIORITY)
+• ⭐ Job Applications → Resource + Job Linking (HIGH PRIORITY)
+• ⭐ Job Listings from TrackerRMS (HIGH PRIORITY)
+• ⚡ Content Downloads → Lead (for business development)
+• ⚡ Events → Hybrid WordPress + TrackerRMS (2-4 events/year)
+• 🔧 Newsletter → Mailchimp (if sending regularly)
+
+Why:
+• Core business is recruitment - candidates are #1 priority
+• Job application flow must be seamless
+• Contact database secondary but valuable for marketing
+
+
+SCENARIO 2: RECRUITMENT WITH STRONG EVENTS PROGRAM
+───────────────────────────────────────────────────
+
+Recommended Setup:
+• ⭐ Events → Hybrid WordPress + TrackerRMS (HIGH PRIORITY)
+• ⭐ CV Uploads → Resource (HIGH PRIORITY)
+• ⭐ Job Applications → Resource + Job Linking (HIGH PRIORITY)
+• ⚡ Job Listings from TrackerRMS
+• ⚡ Newsletter → Mailchimp
+• 🔧 Content Downloads → Lead
+
+Why:
+• Events are key to business development
+• Need professional event management
+• Want to build contact database from events
+• Events feed recruitment and sales pipeline
+
+
+SCENARIO 3: SMALLER AGENCY (SIMPLE SETUP)
+──────────────────────────────────────────
+
+Recommended Setup:
+• ⭐ CV Uploads → Resource
+• ⭐ Job Applications → Resource + Job Linking
+• ⭐ Job Listings from TrackerRMS
+• ⚡ General Contact Form → Contact
+• ⚡ Events → TrackerRMS tags only (1-2 events/year)
+• Skip: Advanced features until needed
+
+Why:
+• Get core functionality working first
+• Minimal complexity
+• Can upgrade later as needs grow
+
+
+KEY:
+⭐ = Must Have / Core Feature
+⚡ = Should Have / Important
+🔧 = Nice to Have / Optional
+
+
+═══════════════════════════════════════════════════════════════════════════════
+19. COSTS & TIMELINE ESTIMATES
+═══════════════════════════════════════════════════════════════════════════════
+
+DEVELOPMENT EFFORT:
+
+Current Status:
+✅ Core plugin: Complete (form submissions, job sync, routing)
+✅ API integration: Complete (NEW REST API, contact search, linking)
+✅ Admin interface: Complete (settings, dashboard, logs)
+
+Remaining Development:
+
+Frontend Forms (Divi):
+• 1-2 days: CV upload + job application forms
+• 1 day: Content download forms
+• 1 day: Newsletter + contact forms
+• Total: 3-4 days
+
+Events System (If choosing Hybrid Option):
+• 1 day: Events CPT setup
+• 1 day: Attendees CPT setup
+• 1 day: Registration integration
+• Total: 3 days
+
+Mailchimp Integration (If chosen):
+• 1 day: Integration + testing
+• Total: 1 day
+
+Per-Form Configuration UI (If needed later):
+• 2-3 days: Build configuration interface
+• Total: 2-3 days
+
+TOTAL ESTIMATE: 7-11 days depending on features chosen
+
+
+ONGOING COSTS:
+
+Hosting:
+• No change to current hosting costs
+
+Third-party Services:
+• Mailchimp: £10-30/month (if used for newsletters)
+• TrackerRMS: [Your current subscription - no change]
+
+Maintenance:
+• Manual GDPR cleanup: 2-4 hours/quarter
+• OR Automated cleanup: 1 hour/quarter review
+• Form updates: As needed
+• Integration monitoring: 1 hour/month
+
+
+═══════════════════════════════════════════════════════════════════════════════
+20. SUCCESS CRITERIA - HOW YOU'LL KNOW IT'S WORKING
+═══════════════════════════════════════════════════════════════════════════════
+
+WEEK 1 POST-LAUNCH:
+
+✓ All form submissions appear in TrackerRMS within seconds
+✓ Contact details (email, phone) saved correctly
+✓ No error messages in admin dashboard
+✓ Jobs syncing from TrackerRMS to website
+✓ No duplicate contacts created
+
+
+MONTH 1 POST-LAUNCH:
+
+✓ 100+ form submissions processed successfully
+✓ Zero manual data entry needed
+✓ Job applications linked to correct jobs
+✓ Sales leads followed up by team
+✓ Candidates called about opportunities
+✓ No GDPR complaints or data issues
+
+
+MONTH 3 POST-LAUNCH:
+
+✓ Contact database growing (measurable size)
+✓ Lead pipeline visible in TrackerRMS
+✓ Time saved: 10+ hours/week on data entry
+✓ Better data quality than manual entry
+✓ Team comfortable with system
+✓ No technical issues
+
+
+MEASURABLE BENEFITS:
+
+Before Integration:
+• Forms submitted → Emails sent → Manual copy-paste to TrackerRMS
+• Time per submission: 5-10 minutes
+• Errors: Common (typos, missed fields)
+• Duplicate contacts: Frequent
+• Job listings: Manual updates
+
+After Integration:
+• Forms submitted → Automatic TrackerRMS entry
+• Time per submission: 0 minutes (automatic)
+• Errors: Rare (validation built-in)
+• Duplicate contacts: Prevented automatically
+• Job listings: Real-time sync
+
+TIME SAVINGS:
+• 20 submissions/week × 7 minutes saved = 140 minutes/week = 2.3 hours/week
+• Over a year: 120 hours saved = 3 weeks of work!
+
+
+═══════════════════════════════════════════════════════════════════════════════
+21. RISK ASSESSMENT & MITIGATION
+═══════════════════════════════════════════════════════════════════════════════
+
+TECHNICAL RISKS:
+
+Risk: API connection failure
+Impact: Forms submitted but not sent to TrackerRMS
+Mitigation: Queue system with automatic retries, alerts in admin dashboard
+
+Risk: Duplicate contacts created
+Impact: Messy data in TrackerRMS
+Mitigation: Email search before creating contacts (already implemented)
+
+Risk: Webhook failure (job sync)
+Impact: Jobs out of sync between systems
+Mitigation: Daily fallback sync catches anything webhooks miss
+
+Risk: Data loss during submission
+Impact: Lost leads/candidates
+Mitigation: Queue table stores everything, can manually retry failed submissions
+
+
+GDPR RISKS:
+
+Risk: Data kept too long
+Impact: GDPR violation, potential fines
+Mitigation: Clear retention policies, regular cleanup (manual or automated)
+
+Risk: Missing consent records
+Impact: Can't prove lawful processing
+Mitigation: All forms capture consent, stored with submission data
+
+Risk: Unable to delete data when requested
+Impact: Right to erasure violation
+Mitigation: Documented deletion process for both WordPress and TrackerRMS
+
+Risk: Data breach (unauthorized access)
+Impact: Serious GDPR violation, fines, reputation damage
+Mitigation: Secure API credentials, encrypted transmission, access controls
+
+
+OPERATIONAL RISKS:
+
+Risk: Team doesn't understand new system
+Impact: Confusion, errors, workarounds
+Mitigation: Training session, documentation, ongoing support
+
+Risk: Forms misconfigured
+Impact: Data goes to wrong place in TrackerRMS
+Mitigation: Testing phase, clear documentation, form ID management
+
+Risk: Client expectations not met
+Impact: Dissatisfaction, rework needed
+Mitigation: This meeting! Clear requirements, agreed roadmap
+
+
+═══════════════════════════════════════════════════════════════════════════════
+22. DISCUSSION POINTS FOR MEETING
+═══════════════════════════════════════════════════════════════════════════════
+
+PRESENT THE WORKING SYSTEM:
+
+"We've successfully integrated your WordPress website with TrackerRMS. 
+Let me show you what's working..."
+
+→ Show test records in TrackerRMS (search "0857")
+→ Demonstrate candidate with full details
+→ Show lead linked to contact
+→ Explain how this will work with real forms
+
+
+EXPLAIN THE OPTIONS:
+
+"For different types of forms, we have options for how to handle them..."
+
+→ Walk through Section 3 (form types)
+→ Explain Section 7 (event options)
+→ Show Section 14 (decision points)
+
+
+DISCUSS GDPR:
+
+"Because we're collecting personal data, there are some legal requirements..."
+
+→ Review Section 5 (consent checkboxes needed)
+→ Review Section 6 (retention periods)
+→ Review Section 9 (compliance checklist)
+→ Identify any concerns or questions
+
+
+MAKE DECISIONS TOGETHER:
+
+"Let's decide on the approach for each type of form..."
+
+→ Go through Section 14 (Launch Roadmap Decisions)
+→ Check boxes for chosen options
+→ Note any special requirements
+→ Identify must-haves vs. nice-to-haves
+
+
+CREATE TIMELINE:
+
+"Based on what we've decided, here's the plan..."
+
+→ Review Section 19 (timeline estimates)
+→ Adjust based on decisions made
+→ Agree on launch date
+→ Schedule checkpoints
+
+
+═══════════════════════════════════════════════════════════════════════════════
+23. NEXT STEPS AFTER MEETING
+═══════════════════════════════════════════════════════════════════════════════
+
+IMMEDIATELY AFTER MEETING:
+
+1. Document decisions made (fill in Section 14 checkboxes)
+2. Create prioritized feature list
+3. Draft timeline based on estimates
+4. Send meeting summary to client
+
+
+WEEK 1:
+
+□ Update privacy policy with agreed wording
+□ Design forms in Divi (based on priorities)
+□ Configure form routing in plugin
+□ Set up test environment
+
+
+WEEK 2-4:
+
+□ Build prioritized features (forms, events, etc.)
+□ Configure field mappings
+□ Test each form type
+□ Set up TrackerRMS webhook
+□ Client review and feedback
+
+
+WEEK 5:
+
+□ Final GDPR compliance review
+□ Staff training session
+□ Soft launch (limited forms)
+□ Monitor for issues
+
+
+WEEK 6:
+
+□ Full launch
+□ All forms live
+□ Documentation finalized
+□ Ongoing monitoring begins
+
+
+═══════════════════════════════════════════════════════════════════════════════
+24. KEY TAKEAWAYS FOR CLIENT
+═══════════════════════════════════════════════════════════════════════════════
+
+WHAT YOU'RE GETTING:
+
+✅ Automatic data capture from website forms to TrackerRMS
+✅ Real-time job sync from TrackerRMS to website
+✅ Clean, organized data (no duplicates, proper structure)
+✅ Time savings (no manual data entry)
+✅ GDPR compliance framework
+✅ Flexible system that grows with your needs
+
+
+WHAT YOU NEED TO DECIDE:
+
+1. Event management approach (tags / WordPress / hybrid)
+2. Newsletter tool (TrackerRMS / Mailchimp)
+3. Configuration style (simple / detailed per-form)
+4. Data retention approach (manual / automated)
+
+
+WHAT YOU NEED TO PROVIDE:
+
+• Updated privacy policy wording (we can help draft)
+• Approval of consent checkbox wording
+• Decisions on event management
+• Prioritized list of forms needed
+• TrackerRMS webhook setup (we'll guide you)
+
+
+WHAT HAPPENS NEXT:
+
+• We finalize decisions based on this meeting
+• Create detailed launch plan with timeline
+• Begin building prioritized features
+• Regular check-ins (weekly)
+• Soft launch for testing
+• Full launch when you're ready
+
+
+═══════════════════════════════════════════════════════════════════════════════
+END OF DOCUMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+Questions or concerns?
+Contact: [Your contact information]
+
+This document prepared: December 4, 2025
+Plugin version: 0.1.0
+Integration status: Core features complete, ready for frontend development
+
