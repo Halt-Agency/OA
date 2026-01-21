@@ -1616,7 +1616,7 @@ final class Halt_Tracker_Plugin {
      * Register custom post type for jobs.
      */
     public function register_job_post_type() {
-        register_post_type( 'halt_job', [
+        register_post_type( 'oa_job', [
             'labels' => [
                 'name'               => __( 'Jobs', 'halt-tracker' ),
                 'singular_name'      => __( 'Job', 'halt-tracker' ),
@@ -1724,7 +1724,7 @@ final class Halt_Tracker_Plugin {
 
         // Check if job already exists
         $existing = get_posts( [
-            'post_type'   => 'halt_job',
+            'post_type'   => 'oa_job',
             'meta_key'    => '_tracker_opportunity_id',
             'meta_value'  => $opp_id,
             'post_status' => 'any',
@@ -1753,7 +1753,7 @@ final class Halt_Tracker_Plugin {
         $post_data = [
             'post_title'   => sanitize_text_field( $title ),
             'post_content' => wp_kses_post( $description ),
-            'post_type'    => 'halt_job',
+            'post_type'    => 'oa_job',
             'post_status'  => 'publish',
         ];
 
@@ -1786,4 +1786,3 @@ final class Halt_Tracker_Plugin {
 }
 
 // Initialization is handled by the loader file
-

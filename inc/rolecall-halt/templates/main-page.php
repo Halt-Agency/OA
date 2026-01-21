@@ -100,7 +100,7 @@ $synced = $data['synced'] ?? 0;
                     </tr>
                     <tr>
                         <td><strong>Total Jobs in WordPress:</strong></td>
-                        <td><?php echo wp_count_posts( 'halt_job' )->publish ?? 0; ?></td>
+                        <td><?php echo wp_count_posts( 'oa_job' )->publish ?? 0; ?></td>
                     </tr>
                 </table>
             </div>

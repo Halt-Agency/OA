@@ -185,7 +185,7 @@ $lock_cleared = $data['lock_cleared'] ?? 0;
                                 Enable job sync from TrackerRMS
                             </label>
                             <div class="halt-description">
-                                When enabled, jobs marked as "Publish Online" in TrackerRMS will be synced to WordPress as <code>halt_job</code> posts.
+                                When enabled, jobs marked as "Publish Online" in TrackerRMS will be synced to WordPress as <code>oa_job</code> posts.
                                 <br><strong>Sync Method:</strong> Real-time via webhooks + daily fallback sync.
                             </div>
                         </td>

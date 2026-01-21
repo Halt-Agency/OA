@@ -1,0 +1,24 @@
+{
+    "key": "group_page_resource_hub",
+    "title": "Resource Hub Page",
+    "fields": [],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "17"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for the Resource Hub page",
+    "show_in_rest": 0,
+    "modified": 0
+}
