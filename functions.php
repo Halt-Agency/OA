@@ -63,17 +63,12 @@ function dt_admin_collapse_editor_canvas($hook) {
         return;
     }
 
-    $screen = function_exists('get_current_screen') ? get_current_screen() : null;
-    if (!$screen || $screen->post_type !== 'page') {
-        return;
-    }
-
     wp_register_script('dt-admin-editor-hack', false, ['wp-data'], null, true);
     wp_enqueue_script('dt-admin-editor-hack');
     wp_add_inline_script(
         'dt-admin-editor-hack',
         "(function(){\n"
-        . "  if (!document.body.classList.contains('block-editor-page') || !document.body.classList.contains('post-type-page')) {\n"
+        . "  if (!document.body.classList.contains('block-editor-page')) {\n"
         . "    return;\n"
         . "  }\n"
         . "  var styleId = 'dt-admin-editor-hack-style';\n"
@@ -84,11 +79,11 @@ function dt_admin_collapse_editor_canvas($hook) {
         . "    var style = document.createElement('style');\n"
         . "    style.id = styleId;\n"
         . "    style.textContent = ''\n"
-        . "      + 'body.post-type-page.block-editor-page .edit-post-layout__content{padding-top:0;display:flex;flex-direction:column;}'\n"
-        . "      + 'body.post-type-page.block-editor-page .edit-post-layout__content .editor-styles-wrapper::after{content:none !important;height:0 !important;display:none !important;}'\n"
-        . "      + 'body.post-type-page.block-editor-page .edit-post-layout__metaboxes{margin-top:0;flex:1 1 auto;}'\n"
-        . "      + 'body.post-type-page.block-editor-page #postdivrich,body.post-type-page #post-status-info{display:none;}'\n"
-        . "      + 'body.post-type-page #post-body-content{margin-bottom:0;}';\n"
+        . "      + 'body.block-editor-page .edit-post-layout__content{padding-top:0;display:flex;flex-direction:column;}'\n"
+        . "      + 'body.block-editor-page .edit-post-layout__content .editor-styles-wrapper::after{content:none !important;height:0 !important;display:none !important;}'\n"
+        . "      + 'body.block-editor-page .edit-post-layout__metaboxes{margin-top:0;flex:1 1 auto;}'\n"
+        . "      + 'body.block-editor-page #postdivrich,body.block-editor-page #post-status-info{display:none;}'\n"
+        . "      + 'body.block-editor-page #post-body-content{margin-bottom:0;}';\n"
         . "    document.head.appendChild(style);\n"
         . "  }\n"
         . "  function apply(){\n"
@@ -205,12 +200,386 @@ function dt_register_clients_post_type() {
 add_action('init', 'dt_register_clients_post_type', 0);
 
 /**
- * Remove editor support for clients post type (if already registered)
+ * Register Events post type and taxonomy.
  */
-function dt_remove_clients_editor() {
-    remove_post_type_support('clients', 'editor');
+function dt_register_events_post_type() {
+    $labels = array(
+        'name'                  => 'Events',
+        'singular_name'         => 'Event',
+        'menu_name'             => 'Events',
+        'name_admin_bar'        => 'Event',
+        'archives'              => 'Event Archives',
+        'attributes'            => 'Event Attributes',
+        'parent_item_colon'     => 'Parent Event:',
+        'all_items'             => 'All Events',
+        'add_new_item'          => 'Add New Event',
+        'add_new'               => 'Add New',
+        'new_item'              => 'New Event',
+        'edit_item'             => 'Edit Event',
+        'update_item'           => 'Update Event',
+        'view_item'             => 'View Event',
+        'view_items'            => 'View Events',
+        'search_items'          => 'Search Events',
+        'not_found'             => 'Not found',
+        'not_found_in_trash'    => 'Not found in Trash',
+        'featured_image'        => 'Featured Image',
+        'set_featured_image'    => 'Set featured image',
+        'remove_featured_image' => 'Remove featured image',
+        'use_featured_image'    => 'Use as featured image',
+        'insert_into_item'      => 'Insert into event',
+        'uploaded_to_this_item' => 'Uploaded to this event',
+        'items_list'            => 'Events list',
+        'items_list_navigation' => 'Events list navigation',
+        'filter_items_list'     => 'Filter events list',
+    );
+
+    $args = array(
+        'label'                 => 'Event',
+        'description'           => 'Event post type',
+        'labels'                => $labels,
+        'supports'              => array('title', 'thumbnail'),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 21,
+        'menu_icon'             => 'dashicons-calendar',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'post',
+        'show_in_rest'          => true,
+        'rewrite'               => array('slug' => 'event'),
+        'taxonomies'            => array('event_type'),
+    );
+
+    register_post_type('events', $args);
 }
-add_action('init', 'dt_remove_clients_editor', 100);
+add_action('init', 'dt_register_events_post_type', 0);
+
+function dt_register_event_type_taxonomy() {
+    $labels = array(
+        'name'              => 'Event Types',
+        'singular_name'     => 'Event Type',
+        'search_items'      => 'Search Event Types',
+        'all_items'         => 'All Event Types',
+        'edit_item'         => 'Edit Event Type',
+        'update_item'       => 'Update Event Type',
+        'add_new_item'      => 'Add New Event Type',
+        'new_item_name'     => 'New Event Type Name',
+        'menu_name'         => 'Event Types',
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'show_in_rest'      => true,
+        'rewrite'           => array('slug' => 'event-type'),
+    );
+
+    register_taxonomy('event_type', array('events'), $args);
+}
+add_action('init', 'dt_register_event_type_taxonomy', 0);
+
+function dt_seed_event_type_terms() {
+    $terms = array('Internal event', 'Industry event', 'Networking event', 'Webinar');
+    foreach ($terms as $term_name) {
+        if (!term_exists($term_name, 'event_type')) {
+            wp_insert_term($term_name, 'event_type');
+        }
+    }
+}
+add_action('init', 'dt_seed_event_type_terms', 11);
+
+/**
+ * Keep event timing meta in sync for conditional fields.
+ */
+function dt_update_event_is_past($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    if (wp_is_post_revision($post_id)) {
+        return;
+    }
+    if (get_post_type($post_id) !== 'events') {
+        return;
+    }
+
+    $start = get_post_meta($post_id, 'event_start', true);
+    $end = get_post_meta($post_id, 'event_end', true);
+    $date_value = $end ?: $start;
+
+    if (!$date_value) {
+        update_post_meta($post_id, 'is_past', 0);
+        return;
+    }
+
+    $event_ts = strtotime($date_value);
+    if ($event_ts === false) {
+        return;
+    }
+
+    $is_past = $event_ts < current_time('timestamp');
+    update_post_meta($post_id, 'is_past', $is_past ? 1 : 0);
+}
+add_action('save_post', 'dt_update_event_is_past');
+
+function dt_load_event_is_past_value($value, $post_id, $field) {
+    $start = get_post_meta($post_id, 'event_start', true);
+    $end = get_post_meta($post_id, 'event_end', true);
+    $date_value = $end ?: $start;
+
+    if (!$date_value) {
+        return 0;
+    }
+
+    $event_ts = strtotime($date_value);
+    if ($event_ts === false) {
+        return 0;
+    }
+
+    return $event_ts < current_time('timestamp') ? 1 : 0;
+}
+add_filter('acf/load_value/name=is_past', 'dt_load_event_is_past_value', 10, 3);
+
+function dt_force_event_is_past_value($value, $post_id, $field) {
+    $start = get_post_meta($post_id, 'event_start', true);
+    $end = get_post_meta($post_id, 'event_end', true);
+    $date_value = $end ?: $start;
+
+    if (!$date_value) {
+        return 0;
+    }
+
+    $event_ts = strtotime($date_value);
+    if ($event_ts === false) {
+        return 0;
+    }
+
+    return $event_ts < current_time('timestamp') ? 1 : 0;
+}
+add_filter('acf/update_value/name=is_past', 'dt_force_event_is_past_value', 10, 3);
+
+function dt_events_recap_admin_notice() {
+    if (!function_exists('get_current_screen')) {
+        return;
+    }
+    $screen = get_current_screen();
+    if (!$screen || $screen->post_type !== 'events') {
+        return;
+    }
+    if (!in_array($screen->base, array('post', 'post-new'), true)) {
+        return;
+    }
+    if (!function_exists('get_field')) {
+        return;
+    }
+
+    $post_id = isset($_GET['post']) ? (int) $_GET['post'] : 0;
+    if (!$post_id) {
+        return;
+    }
+
+    $is_past = (bool) get_field('is_past', $post_id);
+    $show_recap = (bool) get_field('show_in_recap_grid', $post_id);
+
+    if ($is_past && !$show_recap) {
+        echo '<div class="notice notice-warning"><p>'
+            . esc_html__('This event is in the past. Enable "Show in Recap Grid" to display it in the recap tab.', 'oa')
+            . '</p></div>';
+    }
+}
+add_action('admin_notices', 'dt_events_recap_admin_notice');
+
+function dt_hide_event_is_past_field() {
+    if (!function_exists('get_current_screen')) {
+        return;
+    }
+    $screen = get_current_screen();
+    if (!$screen || $screen->post_type !== 'events') {
+        return;
+    }
+    echo '<style>.acf-field.is-past-hidden{display:none !important;}</style>';
+}
+add_action('admin_head', 'dt_hide_event_is_past_field');
+
+function dt_remove_events_taxonomy_metabox() {
+    remove_meta_box('event_typediv', 'events', 'side');
+}
+add_action('add_meta_boxes', 'dt_remove_events_taxonomy_metabox', 11);
+
+function dt_disable_gutenberg_for_events($use_block_editor, $post_type) {
+    if (in_array($post_type, array('events', 'team_members', 'oa_job'), true)) {
+        return false;
+    }
+    return $use_block_editor;
+}
+add_filter('use_block_editor_for_post_type', 'dt_disable_gutenberg_for_events', 10, 2);
+
+function dt_remove_events_editor_support() {
+    remove_post_type_support('events', 'editor');
+    remove_post_type_support('events', 'excerpt');
+}
+add_action('init', 'dt_remove_events_editor_support', 100);
+
+function dt_remove_team_members_editor_support() {
+    remove_post_type_support('team_members', 'editor');
+    remove_post_type_support('team_members', 'excerpt');
+}
+add_action('init', 'dt_remove_team_members_editor_support', 100);
+
+function dt_remove_jobs_editor_support() {
+    remove_post_type_support('oa_job', 'editor');
+    remove_post_type_support('oa_job', 'excerpt');
+}
+add_action('init', 'dt_remove_jobs_editor_support', 100);
+
+function dt_team_members_title_placeholder($title) {
+    $screen = function_exists('get_current_screen') ? get_current_screen() : null;
+    if ($screen && $screen->post_type === 'team_members') {
+        return 'Full Name';
+    }
+    return $title;
+}
+add_filter('enter_title_here', 'dt_team_members_title_placeholder');
+
+function dt_sync_team_member_featured_image($post_id) {
+    if (get_post_type($post_id) !== 'team_members') {
+        return;
+    }
+    if (!function_exists('get_field')) {
+        return;
+    }
+
+    $profile = get_field('profile_image', $post_id);
+    $attachment_id = 0;
+    if (is_array($profile) && isset($profile['ID'])) {
+        $attachment_id = (int) $profile['ID'];
+    } elseif (is_numeric($profile)) {
+        $attachment_id = (int) $profile;
+    }
+
+    if ($attachment_id) {
+        set_post_thumbnail($post_id, $attachment_id);
+    }
+}
+add_action('acf/save_post', 'dt_sync_team_member_featured_image', 20);
+
+function dt_disable_comments_sitewide() {
+    // Close comments on the front-end.
+    add_filter('comments_open', '__return_false', 20, 2);
+    add_filter('pings_open', '__return_false', 20, 2);
+    // Hide existing comments from the front-end.
+    add_filter('comments_array', '__return_empty_array', 10, 2);
+}
+add_action('init', 'dt_disable_comments_sitewide');
+
+function dt_disable_comments_admin() {
+    // Disable support for comments on all post types.
+    foreach (get_post_types() as $post_type) {
+        if (post_type_supports($post_type, 'comments')) {
+            remove_post_type_support($post_type, 'comments');
+            remove_post_type_support($post_type, 'trackbacks');
+        }
+    }
+
+    // Redirect comment management pages.
+    if (is_admin() && isset($_GET['page']) && $_GET['page'] === 'comment') {
+        wp_safe_redirect(admin_url());
+        exit;
+    }
+}
+add_action('admin_init', 'dt_disable_comments_admin');
+
+function dt_disable_comments_admin_bar() {
+    global $wp_admin_bar;
+    if (is_object($wp_admin_bar)) {
+        $wp_admin_bar->remove_node('comments');
+    }
+}
+add_action('admin_bar_menu', 'dt_disable_comments_admin_bar', 999);
+
+function dt_remove_admin_menus() {
+    remove_menu_page('edit-comments.php');
+    remove_menu_page('edit.php?post_type=project');
+    remove_menu_page('edit.php?post_type=projects');
+}
+add_action('admin_menu', 'dt_remove_admin_menus', 999);
+
+function dt_rename_posts_to_resources() {
+    $labels = get_post_type_object('post')->labels;
+    $labels->name = 'Resources';
+    $labels->singular_name = 'Resource';
+    $labels->add_new = 'Add Resource';
+    $labels->add_new_item = 'Add New Resource';
+    $labels->edit_item = 'Edit Resource';
+    $labels->new_item = 'Resource';
+    $labels->view_item = 'View Resource';
+    $labels->search_items = 'Search Resources';
+    $labels->not_found = 'No resources found';
+    $labels->not_found_in_trash = 'No resources found in Trash';
+    $labels->all_items = 'All Resources';
+    $labels->menu_name = 'Resources';
+    $labels->name_admin_bar = 'Resource';
+}
+add_action('init', 'dt_rename_posts_to_resources');
+
+function dt_rename_posts_menu_label() {
+    global $menu, $submenu;
+    foreach ($menu as &$item) {
+        if (isset($item[2]) && $item[2] === 'edit.php') {
+            $item[0] = 'Resources';
+            break;
+        }
+    }
+    if (isset($submenu['edit.php'])) {
+        $submenu['edit.php'][5][0] = 'All Resources';
+        $submenu['edit.php'][10][0] = 'Add Resource';
+    }
+}
+add_action('admin_menu', 'dt_rename_posts_menu_label', 999);
+
+function dt_custom_menu_order($menu_order) {
+    if (!$menu_order) {
+        return true;
+    }
+
+    $preferred = array(
+        'index.php',
+        'edit.php?post_type=page',
+        'edit.php?post_type=oa_job',
+        'edit.php',
+        'edit.php?post_type=events',
+        'edit.php?post_type=team_members',
+        'edit.php?post_type=microsite',
+        'edit.php?post_type=clients',
+        'upload.php',
+        'halt-tracker',
+    );
+
+    $sorted = array();
+    foreach ($preferred as $item) {
+        if (in_array($item, $menu_order, true)) {
+            $sorted[] = $item;
+        }
+    }
+
+    foreach ($menu_order as $item) {
+        if (!in_array($item, $sorted, true)) {
+            $sorted[] = $item;
+        }
+    }
+
+    return $sorted;
+}
+add_filter('custom_menu_order', '__return_true');
+add_filter('menu_order', 'dt_custom_menu_order');
 
 /**
  * Enable Merge Tags in Divi Code Modules
@@ -583,6 +952,117 @@ function dt_register_team_members() {
     register_post_type('team_members', $args);
 }
 add_action('init', 'dt_register_team_members', 0);
+
+function dt_register_team_taxonomies() {
+    $specialism_labels = array(
+        'name'              => 'Specialisms',
+        'singular_name'     => 'Specialism',
+        'search_items'      => 'Search Specialisms',
+        'all_items'         => 'All Specialisms',
+        'edit_item'         => 'Edit Specialism',
+        'update_item'       => 'Update Specialism',
+        'add_new_item'      => 'Add New Specialism',
+        'new_item_name'     => 'New Specialism Name',
+        'menu_name'         => 'Specialisms',
+    );
+
+    $solution_labels = array(
+        'name'              => 'Solutions',
+        'singular_name'     => 'Solution',
+        'search_items'      => 'Search Solutions',
+        'all_items'         => 'All Solutions',
+        'edit_item'         => 'Edit Solution',
+        'update_item'       => 'Update Solution',
+        'add_new_item'      => 'Add New Solution',
+        'new_item_name'     => 'New Solution Name',
+        'menu_name'         => 'Solutions',
+    );
+    $location_labels = array(
+        'name'              => 'Locations',
+        'singular_name'     => 'Location',
+        'search_items'      => 'Search Locations',
+        'all_items'         => 'All Locations',
+        'edit_item'         => 'Edit Location',
+        'update_item'       => 'Update Location',
+        'add_new_item'      => 'Add New Location',
+        'new_item_name'     => 'New Location Name',
+        'menu_name'         => 'Locations',
+    );
+
+    $tax_args = array(
+        'hierarchical'      => true,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'show_in_rest'      => true,
+    );
+
+    register_taxonomy('specialism', array('team_members', 'oa_job'), $tax_args + array('labels' => $specialism_labels, 'rewrite' => array('slug' => 'specialism')));
+    register_taxonomy('solution', array('team_members'), $tax_args + array('labels' => $solution_labels, 'rewrite' => array('slug' => 'solution')));
+    register_taxonomy('location', array('team_members'), $tax_args + array('labels' => $location_labels, 'rewrite' => array('slug' => 'location')));
+}
+add_action('init', 'dt_register_team_taxonomies', 0);
+
+function dt_seed_team_taxonomies_once() {
+    if (get_option('dt_team_taxonomies_seeded_v2')) {
+        return;
+    }
+
+    $specialisms = array(
+        'Engineering',
+        'Office & Commercial',
+        'Events & Hospitality',
+        'Manufacturing',
+        'Warehousing & Distribution',
+    );
+    foreach ($specialisms as $name) {
+        $slug = sanitize_title($name);
+        if (!term_exists($slug, 'specialism')) {
+            wp_insert_term($name, 'specialism', array('slug' => $slug));
+        }
+    }
+
+    $solutions = array(
+        'Permanent',
+        'Temporary',
+        'Embedded',
+        'Executive Search',
+        'Executive Search',
+        'High-Volume Temp',
+    );
+    foreach ($solutions as $name) {
+        $slug = sanitize_title($name);
+        if (!term_exists($slug, 'solution')) {
+            wp_insert_term($name, 'solution', array('slug' => $slug));
+        }
+    }
+
+    $locations = array(
+        'Buckinghamshire',
+        'Bedfordshire',
+        'Cambridgeshire',
+        'Hertfordshire',
+        'North London',
+        'Onsite',
+    );
+    foreach ($locations as $name) {
+        $slug = sanitize_title($name);
+        if (!term_exists($slug, 'location')) {
+            wp_insert_term($name, 'location', array('slug' => $slug));
+        }
+    }
+
+    update_option('dt_team_taxonomies_seeded_v2', 1);
+}
+add_action('init', 'dt_seed_team_taxonomies_once', 11);
+
+function dt_remove_team_taxonomy_metaboxes() {
+    remove_meta_box('specialismdiv', 'team_members', 'side');
+    remove_meta_box('solutiondiv', 'team_members', 'side');
+    remove_meta_box('locationdiv', 'team_members', 'side');
+    remove_meta_box('specialismdiv', 'oa_job', 'side');
+}
+add_action('add_meta_boxes', 'dt_remove_team_taxonomy_metaboxes', 11);
 
 /**
  * Register Microsites Post Type

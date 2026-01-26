@@ -6,6 +6,7 @@
             "key": "field_client_logo",
             "label": "Logo",
             "name": "client_logo",
+            "aria-label": "",
             "type": "image",
             "instructions": "Upload the client logo",
             "required": 0,
@@ -37,14 +38,14 @@
         ]
     ],
     "menu_order": 0,
-    "position": "high",
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": [
-        "the_content"
-    ],
+    "hide_on_screen": "",
     "active": true,
     "description": "Fields for the clients post type",
-    "modified": 1768218458
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1769416968
 }
