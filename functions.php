@@ -889,6 +889,11 @@ function dt_ajax_get_acf_data() {
 require_once get_stylesheet_directory() . '/inc/marquee-carousel.php';
 
 /**
+ * Include Divi modules.
+ */
+require_once get_stylesheet_directory() . '/inc/divi-modules/client-logos-marquee.php';
+
+/**
  * Include RoleCall by Halt - Tracker RMS Integration
  */
 require_once get_stylesheet_directory() . '/inc/rolecall-halt/loader.php';
