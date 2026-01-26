@@ -1,0 +1,17 @@
+{
+  "module": {
+    "advanced": {},
+    "decoration": {}
+  },
+  "settings": {
+    "innerContent": {
+      "desktop": {
+        "value": {
+          "excludeSlugs": "",
+          "speed": "30",
+          "direction": "left"
+        }
+      }
+    }
+  }
+}

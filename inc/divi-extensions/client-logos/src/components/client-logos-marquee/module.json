@@ -1,0 +1,135 @@
+{
+  "name": "oa/client-logos-marquee",
+  "d4Shortcode": "",
+  "title": "Client Logos Marquee",
+  "titles": "Client Logos Marquee",
+  "moduleIcon": "example/module-static",
+  "moduleClassName": "oa_client_logos_marquee",
+  "moduleOrderClassName": "oa_client_logos_marquee",
+  "category": "module",
+  "attributes": {
+    "module": {
+      "type": "object",
+      "selector": "{{selector}}",
+      "default": {
+        "meta": {
+          "adminLabel": {
+            "desktop": {
+              "value": "Client Logos Marquee"
+            }
+          }
+        }
+      },
+      "settings": {
+        "meta": {
+          "adminLabel": {}
+        },
+        "advanced": {
+          "link": {},
+          "text": {},
+          "htmlAttributes": {}
+        },
+        "decoration": {
+          "background": {},
+          "bodyFont": {},
+          "sizing": {},
+          "spacing": {},
+          "border": {},
+          "boxShadow": {},
+          "filters": {},
+          "transform": {},
+          "animation": {},
+          "overflow": {},
+          "disabledOn": {},
+          "transition": {},
+          "position": {},
+          "zIndex": {},
+          "scroll": {},
+          "sticky": {}
+        }
+      }
+    },
+    "settings": {
+      "type": "object",
+      "default": {
+        "innerContent": {
+          "desktop": {
+            "value": {
+              "excludeSlugs": "",
+              "speed": "30",
+              "direction": "left"
+            }
+          }
+        }
+      },
+      "settings": {
+        "innerContent": {
+          "groupType": "group-items",
+          "items": {
+            "excludeSlugs": {
+              "groupSlug": "contentMarquee",
+              "priority": 10,
+              "render": true,
+              "subName": "excludeSlugs",
+              "label": "Exclude Slugs",
+              "description": "Comma-separated client slugs to exclude.",
+              "features": {
+                "sticky": false,
+                "responsive": false,
+                "hover": false,
+                "dynamicContent": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            },
+            "speed": {
+              "groupSlug": "contentMarquee",
+              "priority": 20,
+              "render": true,
+              "subName": "speed",
+              "label": "Speed (seconds)",
+              "description": "Lower is faster.",
+              "features": {
+                "sticky": false,
+                "responsive": false,
+                "hover": false,
+                "dynamicContent": false
+              },
+              "component": {
+                "name": "divi/range",
+                "type": "field",
+                "props": {
+                  "min": 5,
+                  "max": 120,
+                  "step": 1,
+                  "allowedUnits": ["s"],
+                  "defaultUnit": "s"
+                }
+              }
+            },
+            "direction": {
+              "groupSlug": "contentMarquee",
+              "priority": 30,
+              "render": true,
+              "subName": "direction",
+              "label": "Direction",
+              "description": "Enter left or right.",
+              "features": {
+                "sticky": false,
+                "responsive": false,
+                "hover": false,
+                "dynamicContent": false
+              },
+              "component": {
+                "name": "divi/text",
+                "type": "field"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
