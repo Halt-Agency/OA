@@ -29,7 +29,17 @@ export const ClientLogosMarqueeEdit = (props: ClientLogosMarqueeEditProps): Reac
         attrName: 'module',
       })}
       <div className="oa_client_logos_marquee__placeholder">
-        Client Logos Marquee
+        <div className="oa_client_logos_marquee__placeholder-title">
+          Client Logos Marquee
+        </div>
+        <div className="oa_client_logos_marquee__placeholder-track">
+          {Array.from({ length: 10 }).map((_, index) => (
+            <div
+              key={`logo-${index}`}
+              className="oa_client_logos_marquee__placeholder-item"
+            />
+          ))}
+        </div>
       </div>
     </ModuleContainer>
   );

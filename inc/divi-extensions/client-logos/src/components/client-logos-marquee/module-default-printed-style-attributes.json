@@ -7,11 +7,12 @@
     "innerContent": {
       "desktop": {
         "value": {
-          "excludeSlugs": "",
-          "speed": "30",
-          "direction": "left"
-        }
+        "excludeSlugs": "",
+        "speed": "30",
+        "direction": "left",
+        "grayscale": true
       }
     }
+  }
   }
 }

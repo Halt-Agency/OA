@@ -18,6 +18,12 @@ use OA\Modules\ClientLogosMarquee\ClientLogosMarquee;
 trait RenderCallbackTrait {
     public static function render_callback( $attrs, $content, $block, $elements ) {
         $settings = $attrs['settings']['innerContent']['desktop']['value'] ?? [];
+        if ( empty( $settings ) && isset( $attrs['settings']['innerContent']['value'] ) ) {
+            $settings = $attrs['settings']['innerContent']['value'];
+        }
+        if ( empty( $settings ) && isset( $attrs['settings']['innerContent'] ) && is_array( $attrs['settings']['innerContent'] ) ) {
+            $settings = $attrs['settings']['innerContent'];
+        }
         $exclude_raw = isset( $settings['excludeSlugs'] ) ? (string) $settings['excludeSlugs'] : '';
         $exclude = [];
         if ( $exclude_raw !== '' ) {
@@ -36,6 +42,14 @@ trait RenderCallbackTrait {
 
         $direction = isset( $settings['direction'] ) ? strtolower( trim( (string) $settings['direction'] ) ) : 'left';
         $direction_css = $direction === 'right' ? 'reverse' : 'normal';
+        $grayscale = isset( $settings['grayscale'] ) ? (bool) $settings['grayscale'] : true;
+        $columns = 5;
+        if ( $columns < 2 ) {
+            $columns = 2;
+        }
+        if ( $columns > 10 ) {
+            $columns = 10;
+        }
 
         $query = new \WP_Query(
             [
@@ -75,10 +89,22 @@ trait RenderCallbackTrait {
         wp_reset_postdata();
 
         if ( empty( $items ) ) {
+            if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
+                return '<script>console.warn("OA Client Logos: no client_logo items found for clients CPT.");</script>';
+            }
             return '';
         }
 
+        $loop_items = $items;
+
         $uid = 'oa-client-marquee-' . wp_generate_uuid4();
+
+        $grayscale_css = $grayscale
+            ? '.%1$s .marquee-item img{width:100%%;max-width:100%%;max-height:80px;height:auto;object-fit:contain;filter:grayscale(100%%);opacity:.7;transition:all .3s ease;}'
+            : '.%1$s .marquee-item img{width:100%%;max-width:100%%;max-height:80px;height:auto;object-fit:contain;transition:all .3s ease;}';
+        $grayscale_hover_css = $grayscale
+            ? '.%1$s .marquee-item img:hover{filter:grayscale(0%%);opacity:1;transform:scale(1.05);}'
+            : '.%1$s .marquee-item img:hover{transform:scale(1.05);}';
 
         $style = HTMLUtility::render(
             [
@@ -86,24 +112,26 @@ trait RenderCallbackTrait {
                 'childrenSanitizer' => 'et_core_esc_previously',
                 'children'          => sprintf(
                     '.%1$s{width:100%%;overflow:hidden;position:relative;padding:40px 0;}' .
-                    '.%1$s .marquee-wrapper{display:flex;width:200%%;}' .
+                    '.%1$s .marquee-wrapper{display:flex;width:200%%;animation:%1$s-scroll %2$ss linear infinite;animation-direction:%3$s;}' .
                     '.%1$s .marquee-track,.%1$s .marquee-track-duplicate{display:flex;gap:30px;width:50%%;}' .
-                    '.%1$s .marquee-track{animation:%1$s-scroll %2$ss linear infinite;animation-direction:%3$s;}' .
-                    '.%1$s .marquee-track:hover,.%1$s .marquee-track-duplicate:hover{animation-play-state:paused;}' .
-                    '.%1$s .marquee-item{flex-shrink:0;display:flex;align-items:center;justify-content:center;}' .
-                    '.%1$s .marquee-item img{max-width:200px;height:auto;object-fit:contain;filter:grayscale(100%%);opacity:.7;transition:all .3s ease;}' .
-                    '.%1$s .marquee-item img:hover{filter:grayscale(0%%);opacity:1;transform:scale(1.05);}' .
-                    '@keyframes %1$s-scroll{0%%{transform:translateX(0);}100%%{transform:translateX(-100%%);}}' .
-                    '@media (max-width:768px){.%1$s .marquee-item img{max-width:150px}.%1$s .marquee-track,.%1$s .marquee-track-duplicate{gap:20px;}}',
+                    '.%1$s .marquee-wrapper:hover{animation-play-state:paused;}' .
+                    '.%1$s .marquee-item{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:calc(100%%/var(--oa-columns, %6$d));padding:0 10px;box-sizing:border-box;}' .
+                    '%4$s' .
+                    '%5$s' .
+                    '@keyframes %1$s-scroll{0%%{transform:translateX(0);}100%%{transform:translateX(-50%%);}}' .
+                    '@media (max-width:768px){.%1$s .marquee-item{width:calc(100%%/3);padding:0 8px}.%1$s .marquee-item img{max-height:60px}.%1$s .marquee-track,.%1$s .marquee-track-duplicate{gap:20px;}}',
                     esc_attr( $uid ),
                     esc_attr( $speed ),
-                    esc_attr( $direction_css )
+                    esc_attr( $direction_css ),
+                    $grayscale_css,
+                    $grayscale_hover_css,
+                    $columns
                 ),
             ]
         );
 
         $track = '';
-        foreach ( $items as $item ) {
+        foreach ( $loop_items as $item ) {
             $track .= HTMLUtility::render(
                 [
                     'tag'               => 'div',
@@ -126,7 +154,10 @@ trait RenderCallbackTrait {
         $marquee_html = HTMLUtility::render(
             [
                 'tag'               => 'div',
-                'attributes'        => [ 'class' => $uid ],
+                'attributes'        => [
+                    'class' => $uid,
+                    'style' => sprintf( '--oa-columns:%d;', $columns ),
+                ],
                 'childrenSanitizer' => 'et_core_esc_previously',
                 'children'          => $style . HTMLUtility::render(
                     [
@@ -152,6 +183,10 @@ trait RenderCallbackTrait {
                 ),
             ]
         );
+
+        if ( ! is_object( $elements ) || ! method_exists( $elements, 'render' ) || ! class_exists( '\ET\Builder\Packages\Module\Module' ) ) {
+            return $marquee_html;
+        }
 
         $parent       = BlockParserStore::get_parent( $block->parsed_block['id'], $block->parsed_block['storeInstance'] );
         $parent_attrs = $parent->attrs ?? [];

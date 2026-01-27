@@ -11,15 +11,39 @@ define( 'OA_CLIENT_LOGOS_EXTENSION_PATH', get_stylesheet_directory() . '/inc/div
 define( 'OA_CLIENT_LOGOS_EXTENSION_JSON_PATH', OA_CLIENT_LOGOS_EXTENSION_PATH . 'modules-json/' );
 define( 'OA_CLIENT_LOGOS_EXTENSION_URL', get_stylesheet_directory_uri() . '/inc/divi-extensions/client-logos/' );
 
-require_once OA_CLIENT_LOGOS_EXTENSION_PATH . 'modules/ClientLogosMarquee/ClientLogosMarquee.php';
-require_once OA_CLIENT_LOGOS_EXTENSION_PATH . 'modules/Modules.php';
+function oa_register_client_logos_divi_module_fallback() {
+    if ( ! class_exists( '\ET\Builder\Packages\ModuleLibrary\ModuleRegistration' ) ) {
+        return;
+    }
+
+    require_once OA_CLIENT_LOGOS_EXTENSION_PATH . 'modules/ClientLogosMarquee/ClientLogosMarquee.php';
+
+    $module_json_paths = [
+        OA_CLIENT_LOGOS_EXTENSION_JSON_PATH . 'client-logos-marquee/',
+    ];
+
+    foreach ( $module_json_paths as $module_json_folder_path ) {
+        \ET\Builder\Packages\ModuleLibrary\ModuleRegistration::register_module(
+            $module_json_folder_path,
+            [
+                'render_callback' => [ \OA\Modules\ClientLogosMarquee\ClientLogosMarquee::class, 'render_callback' ],
+            ]
+        );
+    }
+}
+add_action( 'init', 'oa_register_client_logos_divi_module_fallback', 20 );
 
 function oa_client_logos_enqueue_vb_scripts() {
     if ( function_exists( 'et_builder_d5_enabled' ) && et_builder_d5_enabled() && function_exists( 'et_core_is_fb_enabled' ) && et_core_is_fb_enabled() ) {
+        $bundle_path = OA_CLIENT_LOGOS_EXTENSION_PATH . 'scripts/bundle.js';
+        $bundle_ver  = file_exists( $bundle_path ) ? (string) filemtime( $bundle_path ) : '1.0.0';
+        $vb_style_path = OA_CLIENT_LOGOS_EXTENSION_PATH . 'styles/vb-bundle.css';
+        $vb_style_ver  = file_exists( $vb_style_path ) ? (string) filemtime( $vb_style_path ) : '1.0.0';
+
         \ET\Builder\VisualBuilder\Assets\PackageBuildManager::register_package_build(
             [
                 'name'   => 'oa-client-logos-builder-bundle-script',
-                'version' => '1.0.0',
+                'version' => $bundle_ver,
                 'script' => [
                     'src' => OA_CLIENT_LOGOS_EXTENSION_URL . 'scripts/bundle.js',
                     'deps'               => [
@@ -35,7 +59,7 @@ function oa_client_logos_enqueue_vb_scripts() {
         \ET\Builder\VisualBuilder\Assets\PackageBuildManager::register_package_build(
             [
                 'name'   => 'oa-client-logos-builder-vb-bundle-style',
-                'version' => '1.0.0',
+                'version' => $vb_style_ver,
                 'style' => [
                     'src' => OA_CLIENT_LOGOS_EXTENSION_URL . 'styles/vb-bundle.css',
                     'deps'               => [],
@@ -49,6 +73,8 @@ function oa_client_logos_enqueue_vb_scripts() {
 add_action( 'divi_visual_builder_assets_before_enqueue_scripts', 'oa_client_logos_enqueue_vb_scripts' );
 
 function oa_client_logos_enqueue_frontend_styles() {
-    wp_enqueue_style( 'oa-client-logos-bundle-style', OA_CLIENT_LOGOS_EXTENSION_URL . 'styles/bundle.css', [], '1.0.0' );
+    $style_path = OA_CLIENT_LOGOS_EXTENSION_PATH . 'styles/bundle.css';
+    $style_ver  = file_exists( $style_path ) ? (string) filemtime( $style_path ) : '1.0.0';
+    wp_enqueue_style( 'oa-client-logos-bundle-style', OA_CLIENT_LOGOS_EXTENSION_URL . 'styles/bundle.css', [], $style_ver );
 }
 add_action( 'wp_enqueue_scripts', 'oa_client_logos_enqueue_frontend_styles' );

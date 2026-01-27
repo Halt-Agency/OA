@@ -9,28 +9,15 @@ if ( ! defined( 'ABSPATH' ) ) {
     die( 'Direct access forbidden.' );
 }
 
-use ET\Builder\Framework\DependencyManagement\Interfaces\DependencyInterface;
-use ET\Builder\Packages\ModuleLibrary\ModuleRegistration;
+require_once __DIR__ . '/ClientLogosMarqueeTrait/RenderCallbackTrait.php';
+require_once __DIR__ . '/ClientLogosMarqueeTrait/ModuleClassnamesTrait.php';
+require_once __DIR__ . '/ClientLogosMarqueeTrait/ModuleStylesTrait.php';
+require_once __DIR__ . '/ClientLogosMarqueeTrait/ModuleScriptDataTrait.php';
 
-class ClientLogosMarquee implements DependencyInterface {
+class ClientLogosMarquee {
     use ClientLogosMarqueeTrait\RenderCallbackTrait;
     use ClientLogosMarqueeTrait\ModuleClassnamesTrait;
     use ClientLogosMarqueeTrait\ModuleStylesTrait;
     use ClientLogosMarqueeTrait\ModuleScriptDataTrait;
 
-    public function load() {
-        $module_json_folder_path = OA_CLIENT_LOGOS_EXTENSION_JSON_PATH . 'client-logos-marquee/';
-
-        add_action(
-            'init',
-            function() use ( $module_json_folder_path ) {
-                ModuleRegistration::register_module(
-                    $module_json_folder_path,
-                    [
-                        'render_callback' => [ ClientLogosMarquee::class, 'render_callback' ],
-                    ]
-                );
-            }
-        );
-    }
 }
