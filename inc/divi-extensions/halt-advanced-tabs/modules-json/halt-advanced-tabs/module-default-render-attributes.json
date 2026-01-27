@@ -1,0 +1,31 @@
+{
+  "module": {
+    "meta": {
+      "adminLabel": {
+        "desktop": {
+          "value": "Halt Advanced Tabs"
+        }
+      }
+    },
+    "advanced": {},
+    "decoration": {}
+  },
+  "settings": {
+    "innerContent": {
+      "desktop": {
+        "value": {
+          "tab1_title": "Office & Commercial",
+          "tab1_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+          "tab1_button1_text": "Search opportunities",
+          "tab1_button1_url": "#",
+          "tab1_button2_text": "Send us a brief",
+          "tab1_button2_url": "#",
+          "tab2_title": "Events & Hospitality",
+          "tab3_title": "Warehousing & Distribution",
+          "tab4_title": "Manufacturing",
+          "tab5_title": "Engineering"
+        }
+      }
+    }
+  }
+}
