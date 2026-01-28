@@ -188,16 +188,25 @@ trait RenderCallbackTrait {
             return $marquee_html;
         }
 
-        $parent       = BlockParserStore::get_parent( $block->parsed_block['id'], $block->parsed_block['storeInstance'] );
+        $parsed_block  = is_object( $block ) ? ( $block->parsed_block ?? [] ) : [];
+        $block_id      = $parsed_block['id'] ?? '';
+        $store_instance = $parsed_block['storeInstance'] ?? '';
+        $order_index    = $parsed_block['orderIndex'] ?? 0;
+
+        if ( $block_id === '' || $store_instance === '' ) {
+            return $marquee_html;
+        }
+
+        $parent       = BlockParserStore::get_parent( $block_id, $store_instance );
         $parent_attrs = $parent->attrs ?? [];
 
         return Module::render(
             [
-                'orderIndex'          => $block->parsed_block['orderIndex'],
-                'storeInstance'       => $block->parsed_block['storeInstance'],
+                'orderIndex'          => $order_index,
+                'storeInstance'       => $store_instance,
                 'attrs'               => $attrs,
                 'elements'            => $elements,
-                'id'                  => $block->parsed_block['id'],
+                'id'                  => $block_id,
                 'name'                => $block->block_type->name,
                 'moduleCategory'      => $block->block_type->category,
                 'classnamesFunction'  => [ ClientLogosMarquee::class, 'module_classnames' ],
@@ -210,9 +219,9 @@ trait RenderCallbackTrait {
                     ElementComponents::component(
                         [
                             'attrs'         => $attrs['module']['decoration'] ?? [],
-                            'id'            => $block->parsed_block['id'],
-                            'orderIndex'    => $block->parsed_block['orderIndex'],
-                            'storeInstance' => $block->parsed_block['storeInstance'],
+                            'id'            => $block_id,
+                            'orderIndex'    => $order_index,
+                            'storeInstance' => $store_instance,
                         ]
                     ),
                     $marquee_html,
