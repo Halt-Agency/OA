@@ -7,7 +7,7 @@
             "label": "Page Content",
             "name": "page_content",
             "type": "group",
-            "instructions": "",
+            "instructions": "Divi key: page_content",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -22,7 +22,7 @@
                     "label": "Hero Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -38,7 +38,7 @@
                     "label": "Hero Background Image",
                     "name": "hero_background_image",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_hero_background_image",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -46,7 +46,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
+                    "return_format": "url",
                     "preview_size": "medium",
                     "library": "all",
                     "min_width": "",
@@ -62,7 +62,7 @@
                     "label": "Intro Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -78,7 +78,7 @@
                     "label": "Intro Kicker",
                     "name": "intro_kicker",
                     "type": "text",
-                    "instructions": "Small label above the heading.",
+                    "instructions": "Small label above the heading.\nDivi key: page_content_intro_kicker",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -97,7 +97,7 @@
                     "label": "Intro Heading",
                     "name": "intro_heading",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_intro_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -116,7 +116,7 @@
                     "label": "Intro Copy",
                     "name": "intro_copy",
                     "type": "wysiwyg",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_intro_copy",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -135,7 +135,7 @@
                     "label": "Form Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -151,7 +151,7 @@
                     "label": "Form Heading",
                     "name": "form_heading",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_form_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -170,7 +170,7 @@
                     "label": "Form Shortcode",
                     "name": "form_shortcode",
                     "type": "text",
-                    "instructions": "Paste the form shortcode or embed tag.",
+                    "instructions": "Paste the form shortcode or embed tag.\nDivi key: page_content_form_shortcode",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -189,7 +189,7 @@
                     "label": "Insights Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -205,7 +205,7 @@
                     "label": "Heading Prefix",
                     "name": "insights_heading_prefix",
                     "type": "text",
-                    "instructions": "Text before the underlined word or phrase.",
+                    "instructions": "Text before the underlined word or phrase.\nDivi key: page_content_insights_heading_prefix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -224,7 +224,7 @@
                     "label": "Heading Emphasis",
                     "name": "insights_heading_emphasis",
                     "type": "text",
-                    "instructions": "Underlined word or phrase.",
+                    "instructions": "Underlined word or phrase.\nDivi key: page_content_insights_heading_emphasis",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -243,7 +243,7 @@
                     "label": "Heading Suffix",
                     "name": "insights_heading_suffix",
                     "type": "text",
-                    "instructions": "Text after the underlined word or phrase.",
+                    "instructions": "Text after the underlined word or phrase.\nDivi key: page_content_insights_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -262,7 +262,7 @@
                     "label": "Button",
                     "name": "insights_button",
                     "type": "link",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_insights_button",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -277,7 +277,7 @@
                     "label": "Posts Source",
                     "name": "insights_source",
                     "type": "select",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_insights_source",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -302,7 +302,7 @@
                     "label": "Latest Posts Count",
                     "name": "insights_count",
                     "type": "number",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_insights_count",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -329,7 +329,7 @@
                     "label": "Posts",
                     "name": "insights_posts",
                     "type": "relationship",
-                    "instructions": "Select posts to feature.",
+                    "instructions": "Select posts to feature.\nDivi key: page_content_insights_posts",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -378,5 +378,5 @@
     "active": true,
     "description": "Fields for the Register Brief page",
     "show_in_rest": 0,
-    "modified": 0
+    "modified": 1769608947
 }

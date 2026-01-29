@@ -7,7 +7,7 @@
             "label": "Page Content",
             "name": "page_content",
             "type": "group",
-            "instructions": "",
+            "instructions": "Divi key: page_content",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -22,7 +22,7 @@
                     "label": "Hero Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -38,7 +38,7 @@
                     "label": "Hero Heading Prefix",
                     "name": "hero_heading_prefix",
                     "type": "text",
-                    "instructions": "Text before the underlined word or phrase.",
+                    "instructions": "Text before the underlined word or phrase.\nDivi key: page_content_hero_heading_prefix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -57,7 +57,7 @@
                     "label": "Hero Heading Emphasis",
                     "name": "hero_heading_emphasis",
                     "type": "text",
-                    "instructions": "Underlined word or phrase.",
+                    "instructions": "Underlined word or phrase.\nDivi key: page_content_hero_heading_emphasis",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -76,7 +76,7 @@
                     "label": "Hero Heading Suffix",
                     "name": "hero_heading_suffix",
                     "type": "text",
-                    "instructions": "Text after the underlined word or phrase.",
+                    "instructions": "Text after the underlined word or phrase.\nDivi key: page_content_hero_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -95,7 +95,7 @@
                     "label": "Intro Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -111,7 +111,7 @@
                     "label": "Intro Kicker",
                     "name": "intro_kicker",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_intro_kicker",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -130,7 +130,7 @@
                     "label": "Intro Heading",
                     "name": "intro_heading",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_intro_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -149,7 +149,7 @@
                     "label": "Intro Copy (Left)",
                     "name": "intro_copy_left",
                     "type": "wysiwyg",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_intro_copy_left",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -168,7 +168,7 @@
                     "label": "Intro Copy (Right)",
                     "name": "intro_copy_right",
                     "type": "wysiwyg",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_intro_copy_right",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -187,7 +187,7 @@
                     "label": "Industry Events Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -203,7 +203,7 @@
                     "label": "Heading",
                     "name": "industry_heading",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_industry_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -222,7 +222,7 @@
                     "label": "Copy",
                     "name": "industry_copy",
                     "type": "wysiwyg",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_industry_copy",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -241,7 +241,7 @@
                     "label": "Main Image",
                     "name": "industry_main_image",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_industry_main_image",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -249,7 +249,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
+                    "return_format": "url",
                     "preview_size": "medium",
                     "library": "all",
                     "min_width": "",
@@ -265,7 +265,7 @@
                     "label": "Gallery",
                     "name": "industry_gallery",
                     "type": "repeater",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_industry_gallery",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -285,7 +285,7 @@
                             "label": "Image",
                             "name": "image",
                             "type": "image",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_industry_gallery_0_image",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -293,7 +293,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array",
+                            "return_format": "url",
                             "preview_size": "medium",
                             "library": "all",
                             "min_width": "",
@@ -311,7 +311,7 @@
                     "label": "Internal Events Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -327,7 +327,7 @@
                     "label": "Heading",
                     "name": "internal_heading",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_internal_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -346,7 +346,7 @@
                     "label": "Copy",
                     "name": "internal_copy",
                     "type": "wysiwyg",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_internal_copy",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -365,7 +365,7 @@
                     "label": "Main Image",
                     "name": "internal_main_image",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_internal_main_image",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -373,7 +373,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
+                    "return_format": "url",
                     "preview_size": "medium",
                     "library": "all",
                     "min_width": "",
@@ -389,7 +389,7 @@
                     "label": "Gallery",
                     "name": "internal_gallery",
                     "type": "repeater",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_internal_gallery",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -409,7 +409,7 @@
                             "label": "Image",
                             "name": "image",
                             "type": "image",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_internal_gallery_0_image",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -417,7 +417,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array",
+                            "return_format": "url",
                             "preview_size": "medium",
                             "library": "all",
                             "min_width": "",
@@ -435,7 +435,7 @@
                     "label": "Browse Events Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -451,7 +451,7 @@
                     "label": "Heading",
                     "name": "browse_heading",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_browse_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -470,7 +470,7 @@
                     "label": "Tab Labels",
                     "name": "browse_tabs",
                     "type": "group",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_browse_tabs",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -485,7 +485,7 @@
                             "label": "Upcoming Label",
                             "name": "upcoming_label",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_browse_tabs_upcoming_label",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -504,7 +504,7 @@
                             "label": "Recap Label",
                             "name": "recap_label",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_browse_tabs_recap_label",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -525,7 +525,7 @@
                     "label": "Subscribe Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -541,7 +541,7 @@
                     "label": "Heading",
                     "name": "subscribe_heading",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_subscribe_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -560,7 +560,7 @@
                     "label": "Copy",
                     "name": "subscribe_copy",
                     "type": "textarea",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_subscribe_copy",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -579,7 +579,7 @@
                     "label": "Form Shortcode",
                     "name": "subscribe_form_shortcode",
                     "type": "text",
-                    "instructions": "Paste the form shortcode or embed tag.",
+                    "instructions": "Paste the form shortcode or embed tag.\nDivi key: page_content_subscribe_form_shortcode",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -614,5 +614,5 @@
     "active": true,
     "description": "Fields for the Events and Networking page",
     "show_in_rest": 0,
-    "modified": 0
+    "modified": 1769608947
 }

@@ -14,7 +14,10 @@
     "innerContent": {
       "desktop": {
       "value": {
-        "excludeSlugs": "",
+        "logoVariant": "white",
+        "filterMode": "all",
+        "taxonomy": "client_category",
+        "taxonomyTerms": "",
         "speed": "30",
         "direction": "left",
         "grayscale": true

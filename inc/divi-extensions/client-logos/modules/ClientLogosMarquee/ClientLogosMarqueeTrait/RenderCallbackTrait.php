@@ -24,15 +24,42 @@ trait RenderCallbackTrait {
         if ( empty( $settings ) && isset( $attrs['settings']['innerContent'] ) && is_array( $attrs['settings']['innerContent'] ) ) {
             $settings = $attrs['settings']['innerContent'];
         }
-        $exclude_raw = isset( $settings['excludeSlugs'] ) ? (string) $settings['excludeSlugs'] : '';
-        $exclude = [];
-        if ( $exclude_raw !== '' ) {
-            $parts = array_map( 'trim', explode( ',', $exclude_raw ) );
+        $filter_mode_raw = $settings['filterMode'] ?? 'all';
+        $logo_variant_raw = $settings['logoVariant'] ?? 'white';
+        $direction_raw = $settings['direction'] ?? 'left';
+        $taxonomy_raw = $settings['taxonomy'] ?? 'client_category';
+
+        $filter_mode_map = [ 'all', 'taxonomy' ];
+        $logo_variant_map = [ 'white', 'colour' ];
+        $direction_map = [ 'left', 'right' ];
+
+        if ( is_numeric( $filter_mode_raw ) ) {
+            $filter_mode_raw = $filter_mode_map[ (int) $filter_mode_raw ] ?? 'all';
+        }
+        if ( is_numeric( $logo_variant_raw ) ) {
+            $logo_variant_raw = $logo_variant_map[ (int) $logo_variant_raw ] ?? 'white';
+        }
+        if ( is_numeric( $direction_raw ) ) {
+            $direction_raw = $direction_map[ (int) $direction_raw ] ?? 'left';
+        }
+        if ( is_numeric( $taxonomy_raw ) ) {
+            $taxonomy_raw = 'client_category';
+        }
+
+        $filter_mode    = strtolower( trim( (string) $filter_mode_raw ) );
+        $taxonomy       = sanitize_key( (string) $taxonomy_raw );
+        $terms_raw      = isset( $settings['taxonomyTerms'] ) ? (string) $settings['taxonomyTerms'] : '';
+        $taxonomy_terms = [];
+        if ( $terms_raw !== '' ) {
+            $parts = array_map( 'trim', explode( ',', $terms_raw ) );
             foreach ( $parts as $part ) {
                 if ( $part !== '' ) {
-                    $exclude[] = sanitize_title( $part );
+                    $taxonomy_terms[] = sanitize_title( $part );
                 }
             }
+        }
+        if ( $filter_mode !== 'taxonomy' && ! empty( $taxonomy_terms ) ) {
+            $filter_mode = 'taxonomy';
         }
 
         $speed = isset( $settings['speed'] ) ? (float) $settings['speed'] : 30;
@@ -40,29 +67,42 @@ trait RenderCallbackTrait {
             $speed = 30;
         }
 
-        $direction = isset( $settings['direction'] ) ? strtolower( trim( (string) $settings['direction'] ) ) : 'left';
+        $direction = strtolower( trim( (string) $direction_raw ) );
         $direction_css = $direction === 'right' ? 'reverse' : 'normal';
         $grayscale = isset( $settings['grayscale'] ) ? (bool) $settings['grayscale'] : true;
-        $columns = 5;
-        if ( $columns < 2 ) {
-            $columns = 2;
-        }
-        if ( $columns > 10 ) {
-            $columns = 10;
+        $logo_variant = strtolower( trim( (string) $logo_variant_raw ) );
+        if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
+            $debug_payload = [
+                'filterMode'     => $filter_mode,
+                'taxonomy'       => $taxonomy,
+                'taxonomyTerms'  => $taxonomy_terms,
+                'logoVariant'    => $logo_variant,
+                'settings'       => $settings,
+            ];
+            echo '<script>console.log("OA Client Logos debug", ' . wp_json_encode( $debug_payload ) . ');</script>';
         }
 
-        $query = new \WP_Query(
-            [
-                'post_type'        => 'clients',
-                'post_status'      => 'publish',
-                'posts_per_page'   => -1,
-                'post_name__not_in' => $exclude,
-                'orderby'          => [
-                    'menu_order' => 'ASC',
-                    'title'      => 'ASC',
+        $query_args = [
+            'post_type'       => 'clients',
+            'post_status'     => 'publish',
+            'posts_per_page'  => -1,
+            'orderby'         => [
+                'menu_order' => 'ASC',
+                'title'      => 'ASC',
+            ],
+        ];
+
+        if ( $filter_mode === 'taxonomy' && $taxonomy && ! empty( $taxonomy_terms ) ) {
+            $query_args['tax_query'] = [
+                [
+                    'taxonomy' => $taxonomy,
+                    'field'    => 'slug',
+                    'terms'    => $taxonomy_terms,
                 ],
-            ]
-        );
+            ];
+        }
+
+        $query = new \WP_Query( $query_args );
 
         if ( ! $query->have_posts() ) {
             return '';
@@ -71,7 +111,11 @@ trait RenderCallbackTrait {
         $items = [];
         while ( $query->have_posts() ) {
             $query->the_post();
-            $logo = function_exists( 'get_field' ) ? get_field( 'client_logo', get_the_ID() ) : null;
+            $field_name = $logo_variant === 'colour' ? 'client_logo_colour' : 'client_logo';
+            $logo = function_exists( 'get_field' ) ? get_field( $field_name, get_the_ID() ) : null;
+            if ( empty( $logo ) && $field_name !== 'client_logo' ) {
+                $logo = function_exists( 'get_field' ) ? get_field( 'client_logo', get_the_ID() ) : null;
+            }
             if ( is_array( $logo ) && isset( $logo['url'] ) ) {
                 $items[] = [
                     'url'   => $logo['url'],
@@ -112,20 +156,19 @@ trait RenderCallbackTrait {
                 'childrenSanitizer' => 'et_core_esc_previously',
                 'children'          => sprintf(
                     '.%1$s{width:100%%;overflow:hidden;position:relative;padding:40px 0;}' .
-                    '.%1$s .marquee-wrapper{display:flex;width:200%%;animation:%1$s-scroll %2$ss linear infinite;animation-direction:%3$s;}' .
-                    '.%1$s .marquee-track,.%1$s .marquee-track-duplicate{display:flex;gap:30px;width:50%%;}' .
+                    '.%1$s .marquee-wrapper{display:flex;width:max-content;animation:%1$s-scroll %2$ss linear infinite;animation-direction:%3$s;}' .
+                    '.%1$s .marquee-track,.%1$s .marquee-track-duplicate{display:flex;gap:30px;width:max-content;}' .
                     '.%1$s .marquee-wrapper:hover{animation-play-state:paused;}' .
-                    '.%1$s .marquee-item{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:calc(100%%/var(--oa-columns, %6$d));padding:0 10px;box-sizing:border-box;}' .
+                    '.%1$s .marquee-item{flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:0 10px;box-sizing:border-box;width:clamp(90px, 12vw, 160px);}' .
                     '%4$s' .
                     '%5$s' .
                     '@keyframes %1$s-scroll{0%%{transform:translateX(0);}100%%{transform:translateX(-50%%);}}' .
-                    '@media (max-width:768px){.%1$s .marquee-item{width:calc(100%%/3);padding:0 8px}.%1$s .marquee-item img{max-height:60px}.%1$s .marquee-track,.%1$s .marquee-track-duplicate{gap:20px;}}',
+                    '@media (max-width:768px){.%1$s .marquee-item{width:clamp(70px, 24vw, 120px);padding:0 8px}.%1$s .marquee-item img{max-height:60px}.%1$s .marquee-track,.%1$s .marquee-track-duplicate{gap:20px;}}',
                     esc_attr( $uid ),
                     esc_attr( $speed ),
                     esc_attr( $direction_css ),
                     $grayscale_css,
-                    $grayscale_hover_css,
-                    $columns
+                    $grayscale_hover_css
                 ),
             ]
         );
@@ -156,7 +199,7 @@ trait RenderCallbackTrait {
                 'tag'               => 'div',
                 'attributes'        => [
                     'class' => $uid,
-                    'style' => sprintf( '--oa-columns:%d;', $columns ),
+                    'style' => '',
                 ],
                 'childrenSanitizer' => 'et_core_esc_previously',
                 'children'          => $style . HTMLUtility::render(

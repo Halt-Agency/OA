@@ -193,11 +193,77 @@ function dt_register_clients_post_type() {
         'publicly_queryable'    => true,
         'capability_type'       => 'post',
         'show_in_rest'          => true,
+        'taxonomies'            => array( 'client_category' ),
     );
     
     register_post_type('clients', $args);
 }
 add_action('init', 'dt_register_clients_post_type', 0);
+
+/**
+ * Register Client taxonomy.
+ */
+function dt_register_client_taxonomy() {
+    $labels = array(
+        'name'              => 'Client Categories',
+        'singular_name'     => 'Client Category',
+        'search_items'      => 'Search Client Categories',
+        'all_items'         => 'All Client Categories',
+        'parent_item'       => 'Parent Client Category',
+        'parent_item_colon' => 'Parent Client Category:',
+        'edit_item'         => 'Edit Client Category',
+        'update_item'       => 'Update Client Category',
+        'add_new_item'      => 'Add New Client Category',
+        'new_item_name'     => 'New Client Category',
+        'menu_name'         => 'Client Categories',
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'client-category' ),
+        'show_in_rest'      => true,
+    );
+
+    register_taxonomy( 'client_category', array( 'clients' ), $args );
+}
+add_action( 'init', 'dt_register_client_taxonomy', 0 );
+
+/**
+ * Allow REST filtering of Clients by client_category taxonomy.
+ */
+function dt_rest_clients_allow_tax_query( $params ) {
+    $params['client_category'] = array(
+        'description'       => 'Limit results to client_category term slugs.',
+        'type'              => 'array',
+        'items'             => array(
+            'type' => 'string',
+        ),
+        'sanitize_callback' => 'wp_parse_slug_list',
+    );
+
+    return $params;
+}
+add_filter( 'rest_clients_collection_params', 'dt_rest_clients_allow_tax_query' );
+
+function dt_rest_clients_apply_tax_query( $args, $request ) {
+    $terms = $request['client_category'] ?? [];
+    if ( ! empty( $terms ) ) {
+        $args['tax_query'] = array(
+            array(
+                'taxonomy' => 'client_category',
+                'field'    => 'slug',
+                'terms'    => is_array( $terms ) ? $terms : wp_parse_slug_list( (string) $terms ),
+            ),
+        );
+    }
+
+    return $args;
+}
+add_filter( 'rest_clients_query', 'dt_rest_clients_apply_tax_query', 10, 2 );
 
 /**
  * Register Events post type and taxonomy.
@@ -581,6 +647,39 @@ function dt_custom_menu_order($menu_order) {
 add_filter('custom_menu_order', '__return_true');
 add_filter('menu_order', 'dt_custom_menu_order');
 
+// Allow SVG uploads.
+add_filter('upload_mimes', function($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    $mimes['svgz'] = 'image/svg+xml';
+    return $mimes;
+});
+
+// Store a URL meta key for Divi custom meta use (ACF image fields save IDs).
+add_action('acf/save_post', function($post_id) {
+    if (!function_exists('get_field')) {
+        return;
+    }
+
+    if (get_post_type($post_id) !== 'page') {
+        return;
+    }
+
+    $group = get_field('page_content', $post_id);
+    if (!is_array($group)) {
+        return;
+    }
+
+    $image_url = isset($group['hero_background_image']) ? $group['hero_background_image'] : '';
+    if (is_array($image_url) && isset($image_url['url'])) {
+        $image_url = $image_url['url'];
+    }
+
+    if (is_string($image_url) && $image_url !== '') {
+        update_post_meta($post_id, 'page_content_hero_background_image_url', $image_url);
+    } else {
+        delete_post_meta($post_id, 'page_content_hero_background_image_url');
+    }
+}, 20);
 
 // Inject ACF data into page for JavaScript access
 add_action('wp_footer', function() {

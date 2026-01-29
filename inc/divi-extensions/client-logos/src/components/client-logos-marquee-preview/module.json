@@ -55,9 +55,13 @@
         "innerContent": {
           "desktop": {
             "value": {
-              "excludeSlugs": "",
+              "logoVariant": "white",
+              "filterMode": "all",
+              "taxonomy": "client_category",
+              "taxonomyTerms": "",
               "speed": "30",
-              "direction": "left"
+              "direction": "left",
+              "grayscale": true
             }
           }
         }
@@ -66,13 +70,13 @@
         "innerContent": {
           "groupType": "group-items",
           "items": {
-            "excludeSlugs": {
+            "logoVariant": {
               "groupSlug": "contentMarquee",
               "priority": 10,
               "render": true,
-              "subName": "excludeSlugs",
-              "label": "Exclude Slugs",
-              "description": "Comma-separated client slugs to exclude.",
+              "subName": "logoVariant",
+              "label": "Logo Variant",
+              "description": "Choose which logo field to display.",
               "features": {
                 "sticky": false,
                 "responsive": false,
@@ -80,13 +84,26 @@
                 "dynamicContent": false
               },
               "component": {
-                "name": "divi/text",
-                "type": "field"
+                "name": "divi/select",
+                "type": "field",
+                "props": {
+                  "defaultValue": "white",
+                  "options": [
+                    {
+                      "value": "white",
+                      "label": "White"
+                    },
+                    {
+                      "value": "colour",
+                      "label": "Colour"
+                    }
+                  ]
+                }
               }
             },
             "speed": {
               "groupSlug": "contentMarquee",
-              "priority": 20,
+              "priority": 40,
               "render": true,
               "subName": "speed",
               "label": "Speed (seconds)",
@@ -111,7 +128,7 @@
             },
             "direction": {
               "groupSlug": "contentMarquee",
-              "priority": 30,
+              "priority": 50,
               "render": true,
               "subName": "direction",
               "label": "Direction",
@@ -126,6 +143,7 @@
                 "name": "divi/select",
                 "type": "field",
                 "props": {
+                  "defaultValue": "left",
                   "options": [
                     {
                       "value": "left",
@@ -141,7 +159,7 @@
             },
             "grayscale": {
               "groupSlug": "contentMarquee",
-              "priority": 40,
+              "priority": 60,
               "render": true,
               "subName": "grayscale",
               "label": "Grayscale Logos",
@@ -154,6 +172,82 @@
               },
               "component": {
                 "name": "divi/toggle",
+                "type": "field"
+              }
+            },
+            "filterMode": {
+              "groupSlug": "contentMarquee",
+              "priority": 20,
+              "render": true,
+              "subName": "filterMode",
+              "label": "Filter Mode",
+              "description": "Show all clients or filter by taxonomy terms.",
+              "features": {
+                "sticky": false,
+                "responsive": false,
+                "hover": false,
+                "dynamicContent": false
+              },
+              "component": {
+                "name": "divi/select",
+                "type": "field",
+                "props": {
+                  "defaultValue": "all",
+                  "options": [
+                    {
+                      "value": "all",
+                      "label": "All Clients"
+                    },
+                    {
+                      "value": "taxonomy",
+                      "label": "Filter by Taxonomy"
+                    }
+                  ]
+                }
+              }
+            },
+            "taxonomy": {
+              "groupSlug": "contentMarquee",
+              "priority": 30,
+              "render": true,
+              "subName": "taxonomy",
+              "label": "Client Taxonomy",
+              "description": "Pick the taxonomy to filter by.",
+              "features": {
+                "sticky": false,
+                "responsive": false,
+                "hover": false,
+                "dynamicContent": false
+              },
+              "component": {
+                "name": "divi/select",
+                "type": "field",
+                "props": {
+                  "defaultValue": "client_category",
+                  "options": [
+                    {
+                      "value": "client_category",
+                      "label": "Client Categories"
+                    }
+                  ]
+                }
+              }
+            },
+            "taxonomyTerms": {
+              "groupSlug": "contentMarquee",
+              "priority": 35,
+              "render": true,
+              "subName": "taxonomyTerms",
+              "label": "Include Terms (Slugs)",
+              "description": "Comma-separated term slugs to include.",
+              "features": {
+                "sticky": false,
+                "responsive": false,
+                "hover": false,
+                "dynamicContent": false
+              },
+              "component": {
+                "name": "divi/text",
                 "type": "field"
               }
             }

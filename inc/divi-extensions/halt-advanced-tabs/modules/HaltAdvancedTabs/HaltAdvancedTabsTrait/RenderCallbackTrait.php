@@ -59,6 +59,33 @@ trait RenderCallbackTrait {
             return '';
         }
 
+        $tabs_bg = isset( $settings['tabs_container_bg'] ) ? trim( (string) $settings['tabs_container_bg'] ) : '';
+        $tabs_border = isset( $settings['tabs_container_border'] ) ? trim( (string) $settings['tabs_container_border'] ) : '';
+        $panels_bg = isset( $settings['panels_container_bg'] ) ? trim( (string) $settings['panels_container_bg'] ) : '';
+        $panels_border = isset( $settings['panels_container_border'] ) ? trim( (string) $settings['panels_container_border'] ) : '';
+        $tab_bg = isset( $settings['tabs_bg'] ) ? trim( (string) $settings['tabs_bg'] ) : '';
+        $tab_bg_active = isset( $settings['tabs_bg_active'] ) ? trim( (string) $settings['tabs_bg_active'] ) : '';
+
+        $style_vars = '';
+        if ( $tabs_bg !== '' ) {
+            $style_vars .= '--halt-tabs-list-bg:' . esc_attr( $tabs_bg ) . ';';
+        }
+        if ( $tabs_border !== '' ) {
+            $style_vars .= '--halt-tabs-list-border:' . esc_attr( $tabs_border ) . ';';
+        }
+        if ( $panels_bg !== '' ) {
+            $style_vars .= '--halt-tabs-panel-bg:' . esc_attr( $panels_bg ) . ';';
+        }
+        if ( $panels_border !== '' ) {
+            $style_vars .= '--halt-tabs-panel-border:' . esc_attr( $panels_border ) . ';';
+        }
+        if ( $tab_bg !== '' ) {
+            $style_vars .= '--halt-tabs-tab-bg:' . esc_attr( $tab_bg ) . ';';
+        }
+        if ( $tab_bg_active !== '' ) {
+            $style_vars .= '--halt-tabs-tab-bg-active:' . esc_attr( $tab_bg_active ) . ';';
+        }
+
         $uid = 'halt-advanced-tabs-' . wp_generate_uuid4();
 
         $style = HTMLUtility::render(
@@ -67,16 +94,17 @@ trait RenderCallbackTrait {
                 'childrenSanitizer' => 'et_core_esc_previously',
                 'children'          => sprintf(
                     '.%1$s{display:grid;grid-template-columns:minmax(220px,320px) 1fr;gap:24px;align-items:stretch;}' .
-                    '.%1$s .halt-tabs__list{display:flex;flex-direction:column;gap:16px;}' .
-                    '.%1$s .halt-tabs__tab{background:rgba(0,0,0,.15);border-radius:14px;padding:16px 18px;font-weight:600;color:#fff;cursor:pointer;transition:all .2s ease;border:1px solid transparent;text-align:left;}' .
-                    '.%1$s .halt-tabs__tab.is-active{background:#7e5df6;border-color:rgba(255,255,255,.35);}' .
+                    '.%1$s .halt-tabs__list{display:flex;flex-direction:column;gap:16px;background:var(--halt-tabs-list-bg, transparent);border:1px solid var(--halt-tabs-list-border, transparent);border-radius:16px;padding:16px;}' .
+                    '.%1$s .halt-tabs__tab{background:var(--halt-tabs-tab-bg, rgba(0,0,0,.15));border-radius:14px;padding:16px 18px;cursor:pointer;transition:all .2s ease;border:1px solid transparent;text-align:left;font-family:"Zalando Sans SemiExpanded", sans-serif;font-size:22px;font-weight:600;color:#fff;}' .
+                    '.%1$s .halt-tabs__tab.is-active{background:var(--halt-tabs-tab-bg-active, #7e5df6);border-color:rgba(255,255,255,.35);}' .
                     '.%1$s .halt-tabs__panels{height:100%%;}' .
-                    '.%1$s .halt-tabs__panel{display:none;background:rgba(0,0,0,.2);border-radius:18px;padding:24px;color:#fff;min-height:100%%;}' .
-                    '.%1$s .halt-tabs__panel.is-active{display:block;height:100%%;}' .
-                    '.%1$s .halt-tabs__panel h3{margin:0 0 12px;font-size:22px;}' .
-                    '.%1$s .halt-tabs__content{line-height:1.6;}' .
-                    '.%1$s .halt-tabs__buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;}' .
-                    '.%1$s .halt-tabs__button{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.45);color:#fff;text-decoration:none;font-weight:600;}' .
+                    '.%1$s .halt-tabs__panel{display:none;background:var(--halt-tabs-panel-bg, rgba(0,0,0,.2));border:1px solid var(--halt-tabs-panel-border, transparent);border-radius:18px;padding:24px;color:#fff;min-height:100%%;flex-direction:column;}' .
+                    '.%1$s .halt-tabs__panel.is-active{display:flex;height:100%%;}' .
+                    '.%1$s .halt-tabs__panel h3{margin:0 0 12px;font-family:"Zalando Sans SemiExpanded", sans-serif;font-size:22px;font-weight:600;color:#fff;}' .
+                    '.%1$s .halt-tabs__content{line-height:1.6;font-family:"Poppins", sans-serif;font-size:16px;font-weight:400;color:#fff;}' .
+                    '.%1$s .halt-tabs__buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:auto;padding-top:20px;}' .
+                    '.%1$s .halt-tabs__button{display:inline-flex;align-items:center;justify-content:center;padding:15px 25px;border-radius:10px;border:1px solid #8467FF;color:#fff;text-decoration:none;font-family:"Poppins", sans-serif;font-size:16px;font-weight:600;background:transparent;transition:background-color .2s ease,color .2s ease,border-color .2s ease;}' .
+                    '.%1$s .halt-tabs__button:hover{color:#8467FF;background:rgba(255,255,255,0.1);}' .
                     '@media (max-width:980px){.%1$s{grid-template-columns:1fr;}}',
                     esc_attr( $uid )
                 ),
@@ -109,7 +137,7 @@ trait RenderCallbackTrait {
                     [
                         'tag'               => 'a',
                         'attributes'        => [
-                            'class' => 'halt-tabs__button',
+                        'class' => 'halt-tabs__button',
                             'href'  => esc_url( $button['url'] ),
                         ],
                         'childrenSanitizer' => 'et_core_esc_previously',
@@ -170,7 +198,10 @@ trait RenderCallbackTrait {
         $markup = HTMLUtility::render(
             [
                 'tag'               => 'div',
-                'attributes'        => [ 'class' => $uid ],
+                'attributes'        => [
+                    'class' => $uid,
+                    'style' => $style_vars,
+                ],
                 'childrenSanitizer' => 'et_core_esc_previously',
                 'children'          => $style . HTMLUtility::render(
                     [

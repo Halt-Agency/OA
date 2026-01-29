@@ -43,9 +43,13 @@ export interface ClientLogosMarqueeAttrs extends InternalAttrs {
     innerContent?: {
       desktop?: {
         value?: {
-          excludeSlugs?: string;
+          logoVariant?: string;
+          filterMode?: string;
+          taxonomy?: string;
+          taxonomyTerms?: string;
           speed?: string;
           direction?: string;
+          grayscale?: boolean;
         };
       };
     };

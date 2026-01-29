@@ -99,7 +99,8 @@ Source: group_about_page.json
 ## Client Fields
 Source: group_clients.json
 
-- client_logo (image) — Logo
+- client_logo (image) — Logo (White)
+- client_logo_colour (image) — Logo (Colour)
 
 ## Event Fields
 Source: group_events.json
@@ -140,18 +141,14 @@ Source: group_home_page.json
 - page_content (group) — Page Content
   - (no name) (tab) — Hero Section
   - hero_background_image (image) — Hero Background Image
-  - hero_heading (text) — Hero Heading
+  - hero_heading_prefix (text) — Hero Heading Prefix
   - hero_heading_emphasis (text) — Hero Heading Emphasis
-  - hero_copy (wysiwyg) — Hero Copy
-  - hero_buttons (group) — Hero Buttons
-    - button_1 (group) — Button 1
-      - button_1_text (text) — Button 1 Text
-      - button_1_link (link) — Button 1 Link
-    - button_2 (group) — Button 2
-      - button_2_text (text) — Button 2 Text
-      - button_2_link (link) — Button 2 Link
+  - hero_heading_suffix (text) — Hero Heading Suffix
   - (no name) (tab) — Why Choose OA Section
-  - why_heading (text) — Heading
+  - why_kicker (text) — Why Choose Kicker
+  - why_heading_prefix (text) — Why Choose Heading Prefix
+  - why_heading_emphasis (text) — Why Choose Heading Emphasis
+  - why_heading_suffix (text) — Why Choose Heading Suffix
   - why_copy (wysiwyg) — Copy
   - why_image (image) — Image
   - why_buttons (group) — Buttons

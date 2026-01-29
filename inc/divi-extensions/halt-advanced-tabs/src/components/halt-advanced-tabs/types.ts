@@ -39,6 +39,25 @@ export interface HaltAdvancedTabsAttrs extends InternalAttrs {
       attributes?: any;
     };
   };
+  button?: {
+    decoration?: Element.Decoration.PickedAttributes<
+      'button' |
+      'background' |
+      'border' |
+      'boxShadow' |
+      'font' |
+      'spacing'
+    >;
+  };
+  tabTitle?: {
+    decoration?: Element.Decoration.PickedAttributes<'font'>;
+  };
+  contentHeading?: {
+    decoration?: Element.Decoration.PickedAttributes<'font'>;
+  };
+  contentBody?: {
+    decoration?: Element.Decoration.PickedAttributes<'font'>;
+  };
   settings?: {
     innerContent?: {
       desktop?: {
@@ -73,6 +92,12 @@ export interface HaltAdvancedTabsAttrs extends InternalAttrs {
           tab5_button1_url?: string;
           tab5_button2_text?: string;
           tab5_button2_url?: string;
+          tabs_container_bg?: string;
+          tabs_container_border?: string;
+          panels_container_bg?: string;
+          panels_container_border?: string;
+          tabs_bg?: string;
+          tabs_bg_active?: string;
         };
       };
     };

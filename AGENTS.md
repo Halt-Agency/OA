@@ -58,6 +58,10 @@
 - Keep `ACF-TREE.md` in sync with `acf-json/`.
   - Update it any time ACF JSON changes:
     - `scripts/generate-acf-tree.py`
+- Keep `ACF-TREE-DIVI.md` in sync with `acf-json/`.
+  - Update it any time ACF JSON changes:
+    - `scripts/generate-acf-tree-divi.py`
+- Be careful changing ACF image `return_format`: the Client Logos module expects `client_logo` to return an array (needs `url` key). Switching it to `url` will break the carousel unless the module is updated.
 
 ## Testing and verification
 - No automated test suite is currently configured.

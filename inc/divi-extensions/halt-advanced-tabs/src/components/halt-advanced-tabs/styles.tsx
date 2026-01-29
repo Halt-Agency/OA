@@ -26,6 +26,34 @@ export const ModuleStyles = ({
         },
       },
     })}
+    {elements.style({
+      attrName: 'button',
+      styleProps: {
+        selector: `${orderClass} .halt-tabs__button`,
+        type: 'button',
+      },
+    })}
+    {elements.style({
+      attrName: 'tabTitle',
+      styleProps: {
+        selector: `${orderClass} .halt-tabs__tab`,
+        type: 'element',
+      },
+    })}
+    {elements.style({
+      attrName: 'contentHeading',
+      styleProps: {
+        selector: `${orderClass} .halt-tabs__panel h3`,
+        type: 'element',
+      },
+    })}
+    {elements.style({
+      attrName: 'contentBody',
+      styleProps: {
+        selector: `${orderClass} .halt-tabs__content`,
+        type: 'element',
+      },
+    })}
     <CssStyle selector={orderClass} attr={attrs?.css} cssFields={cssFields} />
   </StyleContainer>
 );

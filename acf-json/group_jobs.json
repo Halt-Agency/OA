@@ -25,7 +25,7 @@
             "name": "job_title",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: job_title",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -45,7 +45,7 @@
             "name": "job_location",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: job_location",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -65,7 +65,7 @@
             "name": "job_hours",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: job_hours",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -85,7 +85,7 @@
             "name": "job_contract_type",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: job_contract_type",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -105,7 +105,7 @@
             "name": "job_sector",
             "aria-label": "",
             "type": "taxonomy",
-            "instructions": "",
+            "instructions": "Divi key: job_sector",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -145,7 +145,7 @@
             "name": "salary_per_hour",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: salary_per_hour",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -165,7 +165,7 @@
             "name": "salary_per_annum",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: salary_per_annum",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -202,7 +202,7 @@
             "name": "job_consultant",
             "aria-label": "",
             "type": "relationship",
-            "instructions": "",
+            "instructions": "Divi key: job_consultant",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -245,7 +245,7 @@
             "name": "job_description",
             "aria-label": "",
             "type": "wysiwyg",
-            "instructions": "",
+            "instructions": "Divi key: job_description",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -279,5 +279,5 @@
     "description": "Fields for the OA Jobs post type",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1769436793
+    "modified": 1769608947
 }

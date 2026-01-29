@@ -7,7 +7,7 @@
             "label": "Page Content",
             "name": "page_content",
             "type": "group",
-            "instructions": "",
+            "instructions": "Divi key: page_content",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -22,7 +22,7 @@
                     "label": "Hero Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -38,7 +38,7 @@
                     "label": "Hero Background Image",
                     "name": "hero_background_image",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_hero_background_image",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -46,7 +46,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
+                    "return_format": "url",
                     "preview_size": "medium",
                     "library": "all",
                     "min_width": "",
@@ -62,7 +62,7 @@
                     "label": "Intro Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -78,7 +78,7 @@
                     "label": "Intro Kicker",
                     "name": "intro_kicker",
                     "type": "text",
-                    "instructions": "Small label above the heading.",
+                    "instructions": "Small label above the heading.\nDivi key: page_content_intro_kicker",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -97,7 +97,7 @@
                     "label": "Intro Heading Prefix",
                     "name": "intro_heading_prefix",
                     "type": "text",
-                    "instructions": "Text before the underlined word or phrase.",
+                    "instructions": "Text before the underlined word or phrase.\nDivi key: page_content_intro_heading_prefix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -116,7 +116,7 @@
                     "label": "Intro Heading Emphasis",
                     "name": "intro_heading_emphasis",
                     "type": "text",
-                    "instructions": "Underlined word or phrase.",
+                    "instructions": "Underlined word or phrase.\nDivi key: page_content_intro_heading_emphasis",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -135,7 +135,7 @@
                     "label": "Intro Heading Suffix",
                     "name": "intro_heading_suffix",
                     "type": "text",
-                    "instructions": "Text after the underlined word or phrase.",
+                    "instructions": "Text after the underlined word or phrase.\nDivi key: page_content_intro_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -154,7 +154,7 @@
                     "label": "Intro Copy",
                     "name": "intro_copy",
                     "type": "wysiwyg",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_intro_copy",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -173,7 +173,7 @@
                     "label": "Location List",
                     "name": "intro_list",
                     "type": "repeater",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_intro_list",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -193,7 +193,7 @@
                             "label": "Item",
                             "name": "item",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_intro_list_0_item",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -214,7 +214,7 @@
                     "label": "Map Image",
                     "name": "map_image",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_map_image",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -222,7 +222,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
+                    "return_format": "url",
                     "preview_size": "medium",
                     "library": "all",
                     "min_width": "",
@@ -238,7 +238,7 @@
                     "label": "Featured Location Card",
                     "name": "featured_card",
                     "type": "group",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_featured_card",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -253,7 +253,7 @@
                             "label": "Title",
                             "name": "title",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_featured_card_title",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -272,7 +272,7 @@
                             "label": "Contact Name",
                             "name": "contact_name",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_featured_card_contact_name",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -291,7 +291,7 @@
                             "label": "Contact Email",
                             "name": "contact_email",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_featured_card_contact_email",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -310,7 +310,7 @@
                             "label": "Contact Phone",
                             "name": "contact_phone",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_featured_card_contact_phone",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -329,7 +329,7 @@
                             "label": "Link",
                             "name": "link",
                             "type": "link",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_featured_card_link",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -344,7 +344,7 @@
                             "label": "Photo",
                             "name": "photo",
                             "type": "image",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_featured_card_photo",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -352,7 +352,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array",
+                            "return_format": "url",
                             "preview_size": "medium",
                             "library": "all",
                             "min_width": "",
@@ -370,7 +370,7 @@
                     "label": "Locations We Cover Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -386,7 +386,7 @@
                     "label": "Heading Prefix",
                     "name": "locations_heading_prefix",
                     "type": "text",
-                    "instructions": "Text before the underlined word or phrase.",
+                    "instructions": "Text before the underlined word or phrase.\nDivi key: page_content_locations_heading_prefix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -405,7 +405,7 @@
                     "label": "Heading Emphasis",
                     "name": "locations_heading_emphasis",
                     "type": "text",
-                    "instructions": "Underlined word or phrase.",
+                    "instructions": "Underlined word or phrase.\nDivi key: page_content_locations_heading_emphasis",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -424,7 +424,7 @@
                     "label": "Heading Suffix",
                     "name": "locations_heading_suffix",
                     "type": "text",
-                    "instructions": "Text after the underlined word or phrase.",
+                    "instructions": "Text after the underlined word or phrase.\nDivi key: page_content_locations_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -443,7 +443,7 @@
                     "label": "Location Cards",
                     "name": "locations_cards",
                     "type": "repeater",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_locations_cards",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -463,7 +463,7 @@
                             "label": "Location Name",
                             "name": "location_name",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_locations_cards_0_location_name",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -482,7 +482,7 @@
                             "label": "Contact Name",
                             "name": "contact_name",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_locations_cards_0_contact_name",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -501,7 +501,7 @@
                             "label": "Copy",
                             "name": "copy",
                             "type": "textarea",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_locations_cards_0_copy",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -520,7 +520,7 @@
                             "label": "Button Link",
                             "name": "button_link",
                             "type": "link",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_locations_cards_0_button_link",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -553,5 +553,5 @@
     "active": true,
     "description": "Fields for the Locations page",
     "show_in_rest": 0,
-    "modified": 0
+    "modified": 1769608947
 }

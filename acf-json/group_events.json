@@ -26,7 +26,7 @@
             "name": "event_start",
             "aria-label": "",
             "type": "date_time_picker",
-            "instructions": "Used to determine upcoming vs past events.",
+            "instructions": "Used to determine upcoming vs past events.\nDivi key: event_start",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -34,7 +34,7 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "d\/m\/Y H:i",
+            "display_format": "d/m/Y H:i",
             "return_format": "Y-m-d H:i:s",
             "first_day": 1,
             "default_to_current_date": 0
@@ -45,7 +45,7 @@
             "name": "event_end",
             "aria-label": "",
             "type": "date_time_picker",
-            "instructions": "Optional. If blank, the start date is used.",
+            "instructions": "Optional. If blank, the start date is used.\nDivi key: event_end",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -53,7 +53,7 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "d\/m\/Y H:i",
+            "display_format": "d/m/Y H:i",
             "return_format": "Y-m-d H:i:s",
             "first_day": 1,
             "default_to_current_date": 0
@@ -64,7 +64,7 @@
             "name": "event_types",
             "aria-label": "",
             "type": "taxonomy",
-            "instructions": "",
+            "instructions": "Divi key: event_types",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -88,7 +88,7 @@
             "name": "event_location",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: event_location",
             "required": 0,
             "conditional_logic": [
                 [
@@ -133,7 +133,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "<strong>Status:<\/strong> Upcoming",
+            "message": "<strong>Status:</strong> Upcoming",
             "new_lines": "wpautop",
             "esc_html": 0
         },
@@ -143,7 +143,7 @@
             "name": "is_past",
             "aria-label": "",
             "type": "true_false",
-            "instructions": "Auto-calculated based on the event dates.",
+            "instructions": "Auto-calculated based on the event dates.\nDivi key: is_past",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -180,7 +180,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "<strong>Status:<\/strong> Past",
+            "message": "<strong>Status:</strong> Past",
             "new_lines": "wpautop",
             "esc_html": 0
         },
@@ -208,7 +208,7 @@
             "name": "hero_kicker",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: hero_kicker",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -228,7 +228,7 @@
             "name": "hero_heading",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: hero_heading",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -248,7 +248,7 @@
             "name": "hero_subheading",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Divi key: hero_subheading",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -268,7 +268,7 @@
             "name": "hero_image",
             "aria-label": "",
             "type": "image",
-            "instructions": "",
+            "instructions": "Divi key: hero_image",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -276,7 +276,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "url",
             "preview_size": "medium",
             "library": "all",
             "min_width": "",
@@ -311,7 +311,7 @@
             "name": "overview_heading",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: overview_heading",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -331,7 +331,7 @@
             "name": "overview_copy",
             "aria-label": "",
             "type": "wysiwyg",
-            "instructions": "",
+            "instructions": "Divi key: overview_copy",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -369,7 +369,7 @@
             "name": "hosts_heading",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: hosts_heading",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -389,7 +389,7 @@
             "name": "hosts",
             "aria-label": "",
             "type": "relationship",
-            "instructions": "",
+            "instructions": "Divi key: hosts",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -434,7 +434,7 @@
             "name": "signup_heading",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: signup_heading",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -454,7 +454,7 @@
             "name": "signup_copy",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Divi key: signup_copy",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -492,7 +492,7 @@
             "name": "show_in_recap_grid",
             "aria-label": "",
             "type": "true_false",
-            "instructions": "Enable to display this event in the recap tab.",
+            "instructions": "Enable to display this event in the recap tab.\nDivi key: show_in_recap_grid",
             "required": 0,
             "conditional_logic": [
                 [
@@ -520,7 +520,7 @@
             "name": "recap_kicker",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: recap_kicker",
             "required": 0,
             "conditional_logic": [
                 [
@@ -548,7 +548,7 @@
             "name": "recap_heading",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: recap_heading",
             "required": 0,
             "conditional_logic": [
                 [
@@ -576,7 +576,7 @@
             "name": "recap_copy",
             "aria-label": "",
             "type": "wysiwyg",
-            "instructions": "",
+            "instructions": "Divi key: recap_copy",
             "required": 0,
             "conditional_logic": [
                 [
@@ -604,7 +604,7 @@
             "name": "recap_gallery",
             "aria-label": "",
             "type": "gallery",
-            "instructions": "",
+            "instructions": "Divi key: recap_gallery",
             "required": 0,
             "conditional_logic": [
                 [
@@ -640,7 +640,7 @@
             "name": "recap_video",
             "aria-label": "",
             "type": "oembed",
-            "instructions": "",
+            "instructions": "Divi key: recap_video",
             "required": 0,
             "conditional_logic": [
                 [
@@ -679,5 +679,5 @@
     "description": "Fields for the events post type",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1769427445
+    "modified": 1769608947
 }

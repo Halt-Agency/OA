@@ -22,14 +22,43 @@ export const ClientLogosMarqueeEdit = (props: ClientLogosMarqueeEditProps): Reac
     id,
     name,
   } = props;
-  const grayscale = !!attrs?.settings?.innerContent?.desktop?.value?.grayscale;
+  const settingsValue =
+    attrs?.settings?.innerContent?.desktop?.value ||
+    (attrs?.settings as any)?.innerContent?.value ||
+    attrs?.settings?.innerContent ||
+    {};
+  const grayscale = !!settingsValue?.grayscale;
+  const mapSelectValue = (value: any, options: string[], fallback: string) => {
+    if (typeof value === 'number') {
+      return options[value] || fallback;
+    }
+    if (value === '0' || value === '1') {
+      const idx = parseInt(value, 10);
+      return options[idx] || fallback;
+    }
+    return (value ?? fallback).toString();
+  };
+
+  const logoVariant = mapSelectValue(settingsValue?.logoVariant, ['white', 'colour'], 'white');
+  const filterMode = mapSelectValue(settingsValue?.filterMode, ['all', 'taxonomy'], 'all');
+  const taxonomy = mapSelectValue(settingsValue?.taxonomy, ['client_category'], 'client_category');
+  const taxonomyTermsRaw = (settingsValue?.taxonomyTerms || '').toString();
+  const taxonomyTerms = taxonomyTermsRaw
+    .split(',')
+    .map((term) => term.trim())
+    .filter(Boolean);
+  const isTaxonomyFilter = filterMode === 'taxonomy' || taxonomyTerms.length > 0;
   const [items, setItems] = useState<ClientLogoPreviewItem[] | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let isMounted = true;
     const apiRoot = (window as any)?.wpApiSettings?.root || '/wp-json/';
-    const endpoint = `${apiRoot}wp/v2/clients?per_page=100&_fields=id,slug,title,acf,featured_media`;
+    const taxonomyQuery =
+      isTaxonomyFilter && taxonomy && taxonomyTerms.length
+        ? `&${encodeURIComponent(taxonomy)}=${encodeURIComponent(taxonomyTerms.join(','))}`
+        : '';
+    const endpoint = `${apiRoot}wp/v2/clients?per_page=100&_fields=id,slug,title,acf,featured_media${taxonomyQuery}`;
 
     const fetchMedia = async (mediaId: number): Promise<{ url?: string; alt?: string } | null> => {
       if (!mediaId) {
@@ -59,7 +88,8 @@ export const ClientLogosMarqueeEdit = (props: ClientLogosMarqueeEditProps): Reac
         const data = await res.json();
         const resolved = await Promise.all(
           (Array.isArray(data) ? data : []).map(async (item: any) => {
-            const acfLogo = item?.acf?.client_logo;
+            const logoField = logoVariant === 'colour' ? 'client_logo_colour' : 'client_logo';
+            const acfLogo = item?.acf?.[logoField] || item?.acf?.client_logo;
             if (acfLogo && typeof acfLogo === 'object' && acfLogo.url) {
               return {
                 id: item.id,
@@ -114,7 +144,7 @@ export const ClientLogosMarqueeEdit = (props: ClientLogosMarqueeEditProps): Reac
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [filterMode, taxonomy, taxonomyTermsRaw, logoVariant]);
 
   return (
     <ModuleContainer

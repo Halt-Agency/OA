@@ -20,11 +20,17 @@
           "tab1_button1_url": "#",
           "tab1_button2_text": "Send us a brief",
           "tab1_button2_url": "#",
-          "tab2_title": "Events & Hospitality",
-          "tab3_title": "Warehousing & Distribution",
-          "tab4_title": "Manufacturing",
-          "tab5_title": "Engineering"
-        }
+        "tab2_title": "Events & Hospitality",
+        "tab3_title": "Warehousing & Distribution",
+        "tab4_title": "Manufacturing",
+        "tab5_title": "Engineering",
+        "tabs_container_bg": "",
+        "tabs_container_border": "",
+        "panels_container_bg": "",
+        "panels_container_border": "",
+        "tabs_bg": "",
+        "tabs_bg_active": ""
+      }
       }
     }
   }
