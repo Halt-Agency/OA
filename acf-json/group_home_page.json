@@ -8,7 +8,7 @@
             "name": "page_content",
             "aria-label": "",
             "type": "group",
-            "instructions": "",
+            "instructions": "Divi key: page_content",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -24,7 +24,7 @@
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -42,7 +42,7 @@
                     "name": "hero_background_image",
                     "aria-label": "",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_hero_background_image",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -50,8 +50,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
-                    "preview_size": "medium",
+                    "return_format": "url",
                     "library": "all",
                     "min_width": "",
                     "min_height": "",
@@ -59,15 +58,17 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "allow_in_bindings": 1,
+                    "preview_size": "medium"
                 },
                 {
-                    "key": "field_home_hero_heading",
-                    "label": "Hero Heading",
-                    "name": "hero_heading",
+                    "key": "field_home_hero_heading_prefix",
+                    "label": "Hero Heading Prefix",
+                    "name": "hero_heading_prefix",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_hero_heading_prefix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -87,7 +88,7 @@
                     "name": "hero_heading_emphasis",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "Optional emphasized word or phrase.",
+                    "instructions": "Optional emphasized word or phrase.\nDivi key: page_content_hero_heading_emphasis",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -102,12 +103,12 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_home_hero_copy",
-                    "label": "Hero Copy",
-                    "name": "hero_copy",
+                    "key": "field_home_hero_heading_suffix",
+                    "label": "Hero Heading Suffix",
+                    "name": "hero_heading_suffix",
                     "aria-label": "",
-                    "type": "wysiwyg",
-                    "instructions": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_hero_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -116,136 +117,10 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
-                    "delay": 0
-                },
-                {
-                    "key": "field_home_hero_buttons",
-                    "label": "Hero Buttons",
-                    "name": "hero_buttons",
-                    "aria-label": "",
-                    "type": "group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "row",
-                    "sub_fields": [
-                        {
-                            "key": "field_home_hero_button_1",
-                            "label": "Button 1",
-                            "name": "button_1",
-                            "aria-label": "",
-                            "type": "group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "row",
-                            "sub_fields": [
-                                {
-                                    "key": "field_home_hero_button_1_text",
-                                    "label": "Button 1 Text",
-                                    "name": "button_1_text",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_home_hero_button_1_link",
-                                    "label": "Button 1 Link",
-                                    "name": "button_1_link",
-                                    "aria-label": "",
-                                    "type": "link",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "array"
-                                }
-                            ]
-                        },
-                        {
-                            "key": "field_home_hero_button_2",
-                            "label": "Button 2",
-                            "name": "button_2",
-                            "aria-label": "",
-                            "type": "group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "row",
-                            "sub_fields": [
-                                {
-                                    "key": "field_home_hero_button_2_text",
-                                    "label": "Button 2 Text",
-                                    "name": "button_2_text",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_home_hero_button_2_link",
-                                    "label": "Button 2 Link",
-                                    "name": "button_2_link",
-                                    "aria-label": "",
-                                    "type": "link",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "array"
-                                }
-                            ]
-                        }
-                    ]
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 },
                 {
                     "key": "field_home_tab_why_choose",
@@ -253,7 +128,7 @@
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -266,12 +141,72 @@
                     "selected": 0
                 },
                 {
-                    "key": "field_home_why_heading",
-                    "label": "Heading",
-                    "name": "why_heading",
+                    "key": "field_home_why_kicker",
+                    "label": "Why Choose Kicker",
+                    "name": "why_kicker",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_why_kicker",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_home_why_heading_prefix",
+                    "label": "Why Choose Heading Prefix",
+                    "name": "why_heading_prefix",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_why_heading_prefix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_home_why_heading_emphasis",
+                    "label": "Why Choose Heading Emphasis",
+                    "name": "why_heading_emphasis",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Optional emphasized word or phrase.\nDivi key: page_content_why_heading_emphasis",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_home_why_heading_suffix",
+                    "label": "Why Choose Heading Suffix",
+                    "name": "why_heading_suffix",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_why_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -291,7 +226,7 @@
                     "name": "why_copy",
                     "aria-label": "",
                     "type": "wysiwyg",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_why_copy",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -311,7 +246,7 @@
                     "name": "why_image",
                     "aria-label": "",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_why_image",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -319,7 +254,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
+                    "return_format": "url",
                     "preview_size": "medium",
                     "library": "all",
                     "min_width": "",
@@ -336,7 +271,7 @@
                     "name": "why_buttons",
                     "aria-label": "",
                     "type": "group",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_why_buttons",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -352,7 +287,7 @@
                             "name": "button_1",
                             "aria-label": "",
                             "type": "group",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_why_buttons_button_1",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -368,7 +303,7 @@
                                     "name": "button_1_text",
                                     "aria-label": "",
                                     "type": "text",
-                                    "instructions": "",
+                                    "instructions": "Divi key: page_content_why_buttons_button_1_button_1_text",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -388,7 +323,7 @@
                                     "name": "button_1_link",
                                     "aria-label": "",
                                     "type": "link",
-                                    "instructions": "",
+                                    "instructions": "Divi key: page_content_why_buttons_button_1_button_1_link",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -406,7 +341,7 @@
                             "name": "button_2",
                             "aria-label": "",
                             "type": "group",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_why_buttons_button_2",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -422,7 +357,7 @@
                                     "name": "button_2_text",
                                     "aria-label": "",
                                     "type": "text",
-                                    "instructions": "",
+                                    "instructions": "Divi key: page_content_why_buttons_button_2_button_2_text",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -442,7 +377,7 @@
                                     "name": "button_2_link",
                                     "aria-label": "",
                                     "type": "link",
-                                    "instructions": "",
+                                    "instructions": "Divi key: page_content_why_buttons_button_2_button_2_link",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -462,7 +397,7 @@
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -480,7 +415,7 @@
                     "name": "clients_marquee_heading",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_clients_marquee_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -500,7 +435,7 @@
                     "name": "clients_marquee_subheading",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_clients_marquee_subheading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -520,7 +455,7 @@
                     "name": "clients_marquee_use_all",
                     "aria-label": "",
                     "type": "true_false",
-                    "instructions": "If enabled, the marquee uses all Clients posts and their menu order.",
+                    "instructions": "If enabled, the marquee uses all Clients posts and their menu order.\nDivi key: page_content_clients_marquee_use_all",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -540,7 +475,7 @@
                     "name": "clients_marquee_clients",
                     "aria-label": "",
                     "type": "relationship",
-                    "instructions": "Select clients to include when Manual Select is chosen.",
+                    "instructions": "Select clients to include when Manual Select is chosen.\nDivi key: page_content_clients_marquee_clients",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -575,7 +510,7 @@
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -593,7 +528,7 @@
                     "name": "solutions_heading",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_solutions_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -613,7 +548,7 @@
                     "name": "solutions_copy",
                     "aria-label": "",
                     "type": "textarea",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_solutions_copy",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -633,7 +568,7 @@
                     "name": "solutions_primary",
                     "aria-label": "",
                     "type": "repeater",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_solutions_primary",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -654,7 +589,7 @@
                             "name": "title",
                             "aria-label": "",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_solutions_primary_0_title",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -675,7 +610,7 @@
                             "name": "copy",
                             "aria-label": "",
                             "type": "textarea",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_solutions_primary_0_copy",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -696,7 +631,7 @@
                             "name": "link",
                             "aria-label": "",
                             "type": "link",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_solutions_primary_0_link",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -715,7 +650,7 @@
                     "name": "solutions_secondary",
                     "aria-label": "",
                     "type": "repeater",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_solutions_secondary",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -736,7 +671,7 @@
                             "name": "title",
                             "aria-label": "",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_solutions_secondary_0_title",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -757,7 +692,7 @@
                             "name": "link",
                             "aria-label": "",
                             "type": "link",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_solutions_secondary_0_link",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -776,7 +711,7 @@
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -794,7 +729,7 @@
                     "name": "sectors_heading",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_sectors_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -814,7 +749,7 @@
                     "name": "sectors_copy",
                     "aria-label": "",
                     "type": "textarea",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_sectors_copy",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -834,7 +769,7 @@
                     "name": "sectors",
                     "aria-label": "",
                     "type": "repeater",
-                    "instructions": "Each sector renders as a left tab with content on the right.",
+                    "instructions": "Each sector renders as a left tab with content on the right.\nDivi key: page_content_sectors",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -855,7 +790,7 @@
                             "name": "sector_name",
                             "aria-label": "",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_sectors_0_sector_name",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -876,7 +811,7 @@
                             "name": "sector_intro",
                             "aria-label": "",
                             "type": "textarea",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_sectors_0_sector_intro",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -897,7 +832,7 @@
                             "name": "sector_roles",
                             "aria-label": "",
                             "type": "repeater",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_sectors_0_sector_roles",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -911,6 +846,7 @@
                             "layout": "row",
                             "button_label": "Add Role",
                             "rows_per_page": 20,
+                            "parent_repeater": "field_home_sectors",
                             "sub_fields": [
                                 {
                                     "key": "field_home_sector_role",
@@ -918,7 +854,7 @@
                                     "name": "role",
                                     "aria-label": "",
                                     "type": "text",
-                                    "instructions": "",
+                                    "instructions": "Divi key: page_content_sectors_0_sector_roles_0_role",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -933,8 +869,7 @@
                                     "maxlength": "",
                                     "parent_repeater": "field_home_sector_roles"
                                 }
-                            ],
-                            "parent_repeater": "field_home_sectors"
+                            ]
                         },
                         {
                             "key": "field_home_sector_buttons",
@@ -942,7 +877,7 @@
                             "name": "sector_buttons",
                             "aria-label": "",
                             "type": "group",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_sectors_0_sector_buttons",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -951,6 +886,7 @@
                                 "id": ""
                             },
                             "layout": "row",
+                            "parent_repeater": "field_home_sectors",
                             "sub_fields": [
                                 {
                                     "key": "field_home_sector_button_1",
@@ -958,7 +894,7 @@
                                     "name": "button_1",
                                     "aria-label": "",
                                     "type": "group",
-                                    "instructions": "",
+                                    "instructions": "Divi key: page_content_sectors_0_sector_buttons_button_1",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -974,7 +910,7 @@
                                             "name": "button_1_text",
                                             "aria-label": "",
                                             "type": "text",
-                                            "instructions": "",
+                                            "instructions": "Divi key: page_content_sectors_0_sector_buttons_button_1_button_1_text",
                                             "required": 0,
                                             "conditional_logic": 0,
                                             "wrapper": {
@@ -994,7 +930,7 @@
                                             "name": "button_1_link",
                                             "aria-label": "",
                                             "type": "link",
-                                            "instructions": "",
+                                            "instructions": "Divi key: page_content_sectors_0_sector_buttons_button_1_button_1_link",
                                             "required": 0,
                                             "conditional_logic": 0,
                                             "wrapper": {
@@ -1012,7 +948,7 @@
                                     "name": "button_2",
                                     "aria-label": "",
                                     "type": "group",
-                                    "instructions": "",
+                                    "instructions": "Divi key: page_content_sectors_0_sector_buttons_button_2",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -1028,7 +964,7 @@
                                             "name": "button_2_text",
                                             "aria-label": "",
                                             "type": "text",
-                                            "instructions": "",
+                                            "instructions": "Divi key: page_content_sectors_0_sector_buttons_button_2_button_2_text",
                                             "required": 0,
                                             "conditional_logic": 0,
                                             "wrapper": {
@@ -1048,7 +984,7 @@
                                             "name": "button_2_link",
                                             "aria-label": "",
                                             "type": "link",
-                                            "instructions": "",
+                                            "instructions": "Divi key: page_content_sectors_0_sector_buttons_button_2_button_2_link",
                                             "required": 0,
                                             "conditional_logic": 0,
                                             "wrapper": {
@@ -1060,8 +996,7 @@
                                         }
                                     ]
                                 }
-                            ],
-                            "parent_repeater": "field_home_sectors"
+                            ]
                         }
                     ]
                 },
@@ -1071,7 +1006,7 @@
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1089,7 +1024,7 @@
                     "name": "jobs_cta_heading",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_jobs_cta_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1109,7 +1044,7 @@
                     "name": "jobs_cta_copy",
                     "aria-label": "",
                     "type": "textarea",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_jobs_cta_copy",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1129,7 +1064,7 @@
                     "name": "jobs_cta_button",
                     "aria-label": "",
                     "type": "link",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_jobs_cta_button",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1145,7 +1080,7 @@
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1163,7 +1098,7 @@
                     "name": "testimonials_heading",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_testimonials_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1183,7 +1118,7 @@
                     "name": "testimonials",
                     "aria-label": "",
                     "type": "repeater",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_testimonials",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1204,7 +1139,7 @@
                             "name": "quote",
                             "aria-label": "",
                             "type": "textarea",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_testimonials_0_quote",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1225,7 +1160,7 @@
                             "name": "name",
                             "aria-label": "",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_testimonials_0_name",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1246,7 +1181,7 @@
                             "name": "role",
                             "aria-label": "",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_testimonials_0_role",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1267,7 +1202,7 @@
                             "name": "company",
                             "aria-label": "",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_testimonials_0_company",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1288,7 +1223,7 @@
                             "name": "photo",
                             "aria-label": "",
                             "type": "image",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_testimonials_0_photo",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1296,7 +1231,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array",
+                            "return_format": "url",
                             "preview_size": "medium",
                             "library": "all",
                             "min_width": "",
@@ -1316,7 +1251,7 @@
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1329,12 +1264,52 @@
                     "selected": 0
                 },
                 {
-                    "key": "field_home_insights_heading",
-                    "label": "Heading",
-                    "name": "insights_heading",
+                    "key": "field_home_insights_heading_prefix",
+                    "label": "Insights Heading Prefix",
+                    "name": "insights_heading_prefix",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_insights_heading_prefix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_home_insights_heading_emphasis",
+                    "label": "Insights Heading Emphasis",
+                    "name": "insights_heading_emphasis",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Optional emphasized word or phrase.\nDivi key: page_content_insights_heading_emphasis",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_home_insights_heading_suffix",
+                    "label": "Insights Heading Suffix",
+                    "name": "insights_heading_suffix",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_insights_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1354,7 +1329,7 @@
                     "name": "insights_button",
                     "aria-label": "",
                     "type": "link",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_insights_button",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1370,7 +1345,7 @@
                     "name": "insights_source",
                     "aria-label": "",
                     "type": "select",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_insights_source",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1398,7 +1373,7 @@
                     "name": "insights_count",
                     "aria-label": "",
                     "type": "number",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_insights_count",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -1428,7 +1403,7 @@
                     "name": "insights_posts",
                     "aria-label": "",
                     "type": "relationship",
-                    "instructions": "Select posts to feature.",
+                    "instructions": "Select posts to feature.\nDivi key: page_content_insights_posts",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -1463,7 +1438,7 @@
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1481,7 +1456,7 @@
                     "name": "conversation_heading",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_conversation_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1501,7 +1476,7 @@
                     "name": "conversation_cards",
                     "aria-label": "",
                     "type": "repeater",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_conversation_cards",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1522,7 +1497,7 @@
                             "name": "title",
                             "aria-label": "",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_conversation_cards_0_title",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1543,7 +1518,7 @@
                             "name": "copy",
                             "aria-label": "",
                             "type": "textarea",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_conversation_cards_0_copy",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1564,7 +1539,7 @@
                             "name": "button_text",
                             "aria-label": "",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_conversation_cards_0_button_text",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1585,7 +1560,7 @@
                             "name": "button_link",
                             "aria-label": "",
                             "type": "link",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_conversation_cards_0_button_link",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1604,7 +1579,7 @@
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1622,7 +1597,7 @@
                     "name": "newsletter_heading",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_newsletter_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1642,7 +1617,7 @@
                     "name": "newsletter_copy",
                     "aria-label": "",
                     "type": "textarea",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_newsletter_copy",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1662,7 +1637,7 @@
                     "name": "newsletter_form_shortcode",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "Paste the form shortcode or embed tag.",
+                    "instructions": "Paste the form shortcode or embed tag.\nDivi key: page_content_newsletter_form_shortcode",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1700,5 +1675,5 @@
     "description": "Fields for the home page",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1768990205
+    "modified": 1769608947
 }

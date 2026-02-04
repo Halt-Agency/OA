@@ -1,0 +1,21 @@
+{
+  "module": {
+    "advanced": {},
+    "decoration": {}
+  },
+  "settings": {
+    "innerContent": {
+      "desktop": {
+      "value": {
+        "logoVariant": "white",
+        "filterMode": "all",
+        "taxonomy": "client_category",
+        "taxonomyTerms": "",
+        "speed": "30",
+        "direction": "left",
+        "grayscale": true
+      }
+    }
+  }
+  }
+}

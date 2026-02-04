@@ -7,7 +7,7 @@
             "label": "Page Content",
             "name": "page_content",
             "type": "group",
-            "instructions": "",
+            "instructions": "Divi key: page_content",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -22,7 +22,7 @@
                     "label": "Hero Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -38,7 +38,7 @@
                     "label": "Hero Background Image",
                     "name": "hero_background_image",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_hero_background_image",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -46,7 +46,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
+                    "return_format": "url",
                     "preview_size": "medium",
                     "library": "all",
                     "min_width": "",
@@ -62,7 +62,7 @@
                     "label": "Intro Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -78,7 +78,7 @@
                     "label": "Intro Kicker",
                     "name": "intro_kicker",
                     "type": "text",
-                    "instructions": "Small label above the heading.",
+                    "instructions": "Small label above the heading.\nDivi key: page_content_intro_kicker",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -97,7 +97,7 @@
                     "label": "Intro Heading",
                     "name": "intro_heading",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_intro_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -116,7 +116,7 @@
                     "label": "Intro Image",
                     "name": "intro_image",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_intro_image",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -124,7 +124,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
+                    "return_format": "url",
                     "preview_size": "medium",
                     "library": "all",
                     "min_width": "",
@@ -140,7 +140,7 @@
                     "label": "Intro Subheading",
                     "name": "intro_subheading",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_intro_subheading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -159,7 +159,7 @@
                     "label": "Intro Copy",
                     "name": "intro_copy",
                     "type": "wysiwyg",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_intro_copy",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -178,7 +178,7 @@
                     "label": "Email",
                     "name": "contact_email",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_contact_email",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -197,7 +197,7 @@
                     "label": "Phone",
                     "name": "contact_phone",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_contact_phone",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -216,7 +216,7 @@
                     "label": "Locations Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -232,7 +232,7 @@
                     "label": "Heading Prefix",
                     "name": "locations_heading_prefix",
                     "type": "text",
-                    "instructions": "Text before the underlined word or phrase.",
+                    "instructions": "Text before the underlined word or phrase.\nDivi key: page_content_locations_heading_prefix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -251,7 +251,7 @@
                     "label": "Heading Emphasis",
                     "name": "locations_heading_emphasis",
                     "type": "text",
-                    "instructions": "Underlined word or phrase.",
+                    "instructions": "Underlined word or phrase.\nDivi key: page_content_locations_heading_emphasis",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -270,7 +270,7 @@
                     "label": "Heading Suffix",
                     "name": "locations_heading_suffix",
                     "type": "text",
-                    "instructions": "Text after the underlined word or phrase.",
+                    "instructions": "Text after the underlined word or phrase.\nDivi key: page_content_locations_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -289,7 +289,7 @@
                     "label": "Intro Copy",
                     "name": "locations_intro_copy",
                     "type": "textarea",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_locations_intro_copy",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -308,7 +308,7 @@
                     "label": "Intro Link",
                     "name": "locations_intro_link",
                     "type": "link",
-                    "instructions": "Optional inline link.",
+                    "instructions": "Optional inline link.\nDivi key: page_content_locations_intro_link",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -323,7 +323,7 @@
                     "label": "Locations",
                     "name": "locations",
                     "type": "repeater",
-                    "instructions": "Each location renders as a selectable tab.",
+                    "instructions": "Each location renders as a selectable tab.\nDivi key: page_content_locations",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -343,7 +343,7 @@
                             "label": "Location Name",
                             "name": "location_name",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_locations_0_location_name",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -362,7 +362,7 @@
                             "label": "Map Embed",
                             "name": "map_embed",
                             "type": "textarea",
-                            "instructions": "Paste the map embed iframe or URL.",
+                            "instructions": "Paste the map embed iframe or URL.\nDivi key: page_content_locations_0_map_embed",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -381,7 +381,7 @@
                             "label": "Contact Name",
                             "name": "contact_name",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_locations_0_contact_name",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -400,7 +400,7 @@
                             "label": "Address",
                             "name": "address",
                             "type": "textarea",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_locations_0_address",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -419,7 +419,7 @@
                             "label": "Phone",
                             "name": "phone",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_locations_0_phone",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -438,7 +438,7 @@
                             "label": "Email",
                             "name": "email",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_locations_0_email",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -459,7 +459,7 @@
                     "label": "Final CTA Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -475,7 +475,7 @@
                     "label": "Heading",
                     "name": "final_heading",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_final_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -494,7 +494,7 @@
                     "label": "CTA Cards",
                     "name": "final_cards",
                     "type": "repeater",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_final_cards",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -514,7 +514,7 @@
                             "label": "Title",
                             "name": "title",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_final_cards_0_title",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -533,7 +533,7 @@
                             "label": "Copy",
                             "name": "copy",
                             "type": "textarea",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_final_cards_0_copy",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -552,7 +552,7 @@
                             "label": "Button Text",
                             "name": "button_text",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_final_cards_0_button_text",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -571,7 +571,7 @@
                             "label": "Button Link",
                             "name": "button_link",
                             "type": "link",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_final_cards_0_button_link",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -604,5 +604,5 @@
     "active": true,
     "description": "Fields for the Contact page",
     "show_in_rest": 0,
-    "modified": 0
+    "modified": 1769608947
 }

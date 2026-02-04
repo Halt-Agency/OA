@@ -25,7 +25,7 @@
             "name": "first_name",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: first_name",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -45,7 +45,7 @@
             "name": "last_name",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: last_name",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -65,7 +65,7 @@
             "name": "job_title",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: job_title",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -85,7 +85,7 @@
             "name": "profile_image",
             "aria-label": "",
             "type": "image",
-            "instructions": "",
+            "instructions": "Divi key: profile_image",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -93,7 +93,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "url",
             "preview_size": "medium",
             "library": "all",
             "min_width": "",
@@ -110,7 +110,7 @@
             "name": "linkedin_url",
             "aria-label": "",
             "type": "url",
-            "instructions": "",
+            "instructions": "Divi key: linkedin_url",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -127,7 +127,7 @@
             "name": "phone_number",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Divi key: phone_number",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -147,7 +147,7 @@
             "name": "email",
             "aria-label": "",
             "type": "email",
-            "instructions": "",
+            "instructions": "Divi key: email",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -166,7 +166,7 @@
             "name": "tracker_user_id",
             "aria-label": "",
             "type": "text",
-            "instructions": "Use the Tracker user ID to match this consultant to job posts.",
+            "instructions": "Use the Tracker user ID to match this consultant to job posts.\nDivi key: tracker_user_id",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -203,7 +203,7 @@
             "name": "specialisms",
             "aria-label": "",
             "type": "taxonomy",
-            "instructions": "",
+            "instructions": "Divi key: specialisms",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -226,7 +226,7 @@
             "name": "solutions",
             "aria-label": "",
             "type": "taxonomy",
-            "instructions": "",
+            "instructions": "Divi key: solutions",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -249,7 +249,7 @@
             "name": "locations",
             "aria-label": "",
             "type": "taxonomy",
-            "instructions": "",
+            "instructions": "Divi key: locations",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -289,7 +289,7 @@
             "name": "role_at_oa",
             "aria-label": "",
             "type": "wysiwyg",
-            "instructions": "",
+            "instructions": "Divi key: role_at_oa",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -309,7 +309,7 @@
             "name": "why_oa",
             "aria-label": "",
             "type": "wysiwyg",
-            "instructions": "",
+            "instructions": "Divi key: why_oa",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -329,7 +329,7 @@
             "name": "biggest_work_win",
             "aria-label": "",
             "type": "wysiwyg",
-            "instructions": "",
+            "instructions": "Divi key: biggest_work_win",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -349,7 +349,7 @@
             "name": "office_reputation",
             "aria-label": "",
             "type": "wysiwyg",
-            "instructions": "",
+            "instructions": "Divi key: office_reputation",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -383,5 +383,5 @@
     "description": "Fields for the team members post type",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1769436823
+    "modified": 1769608947
 }

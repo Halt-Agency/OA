@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+inc/divi-extensions/client-logos/node_modules/
+inc/divi-extensions/halt-advanced-tabs/node_modules/
+
+# OS / editor
+.DS_Store
+*.log
+
+# AI assistant instructions (personal)
+AGENTS.md

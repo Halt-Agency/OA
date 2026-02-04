@@ -12,3 +12,31 @@ Primary Branch: main
 
 /* =Theme customization starts here
 ------------------------------------------------------- */
+
+/* Image gradient overlay helper (Divi image module or any element) */
+.oa-image-gradient,
+.oa-image-gradient .et_pb_image_wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.oa-image-gradient .et_pb_image_wrap::after,
+.oa-image-gradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(233, 122, 253, 0.7) 0%,
+    rgba(39, 28, 80, 0.01) 25%,
+    rgba(39, 28, 80, 0.01) 75%,
+    rgba(92, 217, 255, 0.7) 100%
+  );
+  z-index: 2;
+}
+
+.dipi_testimonial_0-popup[id^="dipi-review-popup-0-"] {
+  border-radius: 20px !important;
+}

@@ -7,7 +7,7 @@
             "label": "Page Content",
             "name": "page_content",
             "type": "group",
-            "instructions": "",
+            "instructions": "Divi key: page_content",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -22,7 +22,7 @@
                     "label": "Hero Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -38,7 +38,7 @@
                     "label": "Hero Background Image",
                     "name": "hero_background_image",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_hero_background_image",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -46,7 +46,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
+                    "return_format": "url",
                     "preview_size": "medium",
                     "library": "all",
                     "min_width": "",
@@ -62,7 +62,7 @@
                     "label": "Intro Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -78,7 +78,7 @@
                     "label": "Intro Kicker",
                     "name": "intro_kicker",
                     "type": "text",
-                    "instructions": "Small label above the heading.",
+                    "instructions": "Small label above the heading.\nDivi key: page_content_intro_kicker",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -97,7 +97,7 @@
                     "label": "Intro Heading Prefix",
                     "name": "intro_heading_prefix",
                     "type": "text",
-                    "instructions": "Text before the underlined word or phrase.",
+                    "instructions": "Text before the underlined word or phrase.\nDivi key: page_content_intro_heading_prefix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -116,7 +116,7 @@
                     "label": "Intro Heading Emphasis",
                     "name": "intro_heading_emphasis",
                     "type": "text",
-                    "instructions": "Underlined word or phrase.",
+                    "instructions": "Underlined word or phrase.\nDivi key: page_content_intro_heading_emphasis",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -135,7 +135,7 @@
                     "label": "Intro Heading Suffix",
                     "name": "intro_heading_suffix",
                     "type": "text",
-                    "instructions": "Text after the underlined word or phrase.",
+                    "instructions": "Text after the underlined word or phrase.\nDivi key: page_content_intro_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -154,7 +154,7 @@
                     "label": "Intro Lead Copy",
                     "name": "intro_lead",
                     "type": "textarea",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_intro_lead",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -173,7 +173,7 @@
                     "label": "Intro Copy",
                     "name": "intro_copy",
                     "type": "wysiwyg",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_intro_copy",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -192,7 +192,7 @@
                     "label": "Intro Image",
                     "name": "intro_image",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_intro_image",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -200,7 +200,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array",
+                    "return_format": "url",
                     "preview_size": "medium",
                     "library": "all",
                     "min_width": "",
@@ -216,7 +216,7 @@
                     "label": "What We Offer Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -232,7 +232,7 @@
                     "label": "Kicker",
                     "name": "benefits_kicker",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_benefits_kicker",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -251,7 +251,7 @@
                     "label": "Heading",
                     "name": "benefits_heading",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_benefits_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -270,7 +270,7 @@
                     "label": "Benefit Items",
                     "name": "benefits",
                     "type": "repeater",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_benefits",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -290,7 +290,7 @@
                             "label": "Title",
                             "name": "title",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_benefits_0_title",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -309,7 +309,7 @@
                             "label": "Copy",
                             "name": "copy",
                             "type": "textarea",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_benefits_0_copy",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -330,7 +330,7 @@
                     "label": "Values Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -346,7 +346,7 @@
                     "label": "Kicker",
                     "name": "values_kicker",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_values_kicker",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -365,7 +365,7 @@
                     "label": "Heading",
                     "name": "values_heading",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_values_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -384,7 +384,7 @@
                     "label": "Values",
                     "name": "values",
                     "type": "repeater",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_values",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -404,7 +404,7 @@
                             "label": "Icon",
                             "name": "icon",
                             "type": "image",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_values_0_icon",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -412,7 +412,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array",
+                            "return_format": "url",
                             "preview_size": "medium",
                             "library": "all",
                             "min_width": "",
@@ -428,7 +428,7 @@
                             "label": "Title",
                             "name": "title",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_values_0_title",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -447,7 +447,7 @@
                             "label": "Copy",
                             "name": "copy",
                             "type": "textarea",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_values_0_copy",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -468,7 +468,7 @@
                     "label": "Internal Opportunities Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -484,7 +484,7 @@
                     "label": "Heading",
                     "name": "opportunities_heading",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_opportunities_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -503,7 +503,7 @@
                     "label": "Use All OA Jobs",
                     "name": "opportunities_use_all",
                     "type": "true_false",
-                    "instructions": "If enabled, the section uses all OA Job posts and their menu order.",
+                    "instructions": "If enabled, the section uses all OA Job posts and their menu order.\nDivi key: page_content_opportunities_use_all",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -522,7 +522,7 @@
                     "label": "OA Jobs",
                     "name": "opportunities_jobs",
                     "type": "relationship",
-                    "instructions": "Select OA Job posts to include when Manual Select is chosen.",
+                    "instructions": "Select OA Job posts to include when Manual Select is chosen.\nDivi key: page_content_opportunities_jobs",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -555,7 +555,7 @@
                     "label": "Internal News Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -571,7 +571,7 @@
                     "label": "Heading Prefix",
                     "name": "internal_news_heading_prefix",
                     "type": "text",
-                    "instructions": "Text before the underlined word or phrase.",
+                    "instructions": "Text before the underlined word or phrase.\nDivi key: page_content_internal_news_heading_prefix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -590,7 +590,7 @@
                     "label": "Heading Emphasis",
                     "name": "internal_news_heading_emphasis",
                     "type": "text",
-                    "instructions": "Underlined word or phrase.",
+                    "instructions": "Underlined word or phrase.\nDivi key: page_content_internal_news_heading_emphasis",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -609,7 +609,7 @@
                     "label": "Heading Suffix",
                     "name": "internal_news_heading_suffix",
                     "type": "text",
-                    "instructions": "Text after the underlined word or phrase.",
+                    "instructions": "Text after the underlined word or phrase.\nDivi key: page_content_internal_news_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -628,7 +628,7 @@
                     "label": "Button",
                     "name": "internal_news_button",
                     "type": "link",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_internal_news_button",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -643,7 +643,7 @@
                     "label": "Posts Source",
                     "name": "internal_news_source",
                     "type": "select",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_internal_news_source",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -668,7 +668,7 @@
                     "label": "Latest Posts Count",
                     "name": "internal_news_count",
                     "type": "number",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_internal_news_count",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -695,7 +695,7 @@
                     "label": "Posts",
                     "name": "internal_news_posts",
                     "type": "relationship",
-                    "instructions": "Select posts to feature.",
+                    "instructions": "Select posts to feature.\nDivi key: page_content_internal_news_posts",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -728,7 +728,7 @@
                     "label": "Career CTA Section",
                     "name": "",
                     "type": "tab",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -744,7 +744,7 @@
                     "label": "Heading",
                     "name": "career_heading",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_career_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -763,7 +763,7 @@
                     "label": "Copy",
                     "name": "career_copy",
                     "type": "textarea",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_career_copy",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -782,7 +782,7 @@
                     "label": "Buttons",
                     "name": "career_buttons",
                     "type": "group",
-                    "instructions": "",
+                    "instructions": "Divi key: page_content_career_buttons",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -797,7 +797,7 @@
                             "label": "Button 1",
                             "name": "button_1",
                             "type": "group",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_career_buttons_button_1",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -812,7 +812,7 @@
                                     "label": "Button 1 Text",
                                     "name": "button_1_text",
                                     "type": "text",
-                                    "instructions": "",
+                                    "instructions": "Divi key: page_content_career_buttons_button_1_button_1_text",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -831,7 +831,7 @@
                                     "label": "Button 1 Link",
                                     "name": "button_1_link",
                                     "type": "link",
-                                    "instructions": "",
+                                    "instructions": "Divi key: page_content_career_buttons_button_1_button_1_link",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -848,7 +848,7 @@
                             "label": "Button 2",
                             "name": "button_2",
                             "type": "group",
-                            "instructions": "",
+                            "instructions": "Divi key: page_content_career_buttons_button_2",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -863,7 +863,7 @@
                                     "label": "Button 2 Text",
                                     "name": "button_2_text",
                                     "type": "text",
-                                    "instructions": "",
+                                    "instructions": "Divi key: page_content_career_buttons_button_2_button_2_text",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -882,7 +882,7 @@
                                     "label": "Button 2 Link",
                                     "name": "button_2_link",
                                     "type": "link",
-                                    "instructions": "",
+                                    "instructions": "Divi key: page_content_career_buttons_button_2_button_2_link",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -917,5 +917,5 @@
     "active": true,
     "description": "Fields for the Work for Us page",
     "show_in_rest": 0,
-    "modified": 0
+    "modified": 1769608947
 }

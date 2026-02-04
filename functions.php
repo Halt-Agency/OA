@@ -193,11 +193,77 @@ function dt_register_clients_post_type() {
         'publicly_queryable'    => true,
         'capability_type'       => 'post',
         'show_in_rest'          => true,
+        'taxonomies'            => array( 'client_category' ),
     );
     
     register_post_type('clients', $args);
 }
 add_action('init', 'dt_register_clients_post_type', 0);
+
+/**
+ * Register Client taxonomy.
+ */
+function dt_register_client_taxonomy() {
+    $labels = array(
+        'name'              => 'Client Categories',
+        'singular_name'     => 'Client Category',
+        'search_items'      => 'Search Client Categories',
+        'all_items'         => 'All Client Categories',
+        'parent_item'       => 'Parent Client Category',
+        'parent_item_colon' => 'Parent Client Category:',
+        'edit_item'         => 'Edit Client Category',
+        'update_item'       => 'Update Client Category',
+        'add_new_item'      => 'Add New Client Category',
+        'new_item_name'     => 'New Client Category',
+        'menu_name'         => 'Client Categories',
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'client-category' ),
+        'show_in_rest'      => true,
+    );
+
+    register_taxonomy( 'client_category', array( 'clients' ), $args );
+}
+add_action( 'init', 'dt_register_client_taxonomy', 0 );
+
+/**
+ * Allow REST filtering of Clients by client_category taxonomy.
+ */
+function dt_rest_clients_allow_tax_query( $params ) {
+    $params['client_category'] = array(
+        'description'       => 'Limit results to client_category term slugs.',
+        'type'              => 'array',
+        'items'             => array(
+            'type' => 'string',
+        ),
+        'sanitize_callback' => 'wp_parse_slug_list',
+    );
+
+    return $params;
+}
+add_filter( 'rest_clients_collection_params', 'dt_rest_clients_allow_tax_query' );
+
+function dt_rest_clients_apply_tax_query( $args, $request ) {
+    $terms = $request['client_category'] ?? [];
+    if ( ! empty( $terms ) ) {
+        $args['tax_query'] = array(
+            array(
+                'taxonomy' => 'client_category',
+                'field'    => 'slug',
+                'terms'    => is_array( $terms ) ? $terms : wp_parse_slug_list( (string) $terms ),
+            ),
+        );
+    }
+
+    return $args;
+}
+add_filter( 'rest_clients_query', 'dt_rest_clients_apply_tax_query', 10, 2 );
 
 /**
  * Register Events post type and taxonomy.
@@ -421,6 +487,9 @@ function dt_disable_gutenberg_for_events($use_block_editor, $post_type) {
     return $use_block_editor;
 }
 add_filter('use_block_editor_for_post_type', 'dt_disable_gutenberg_for_events', 10, 2);
+add_filter('use_block_editor_for_post', '__return_false', 10);
+
+
 
 function dt_remove_events_editor_support() {
     remove_post_type_support('events', 'editor');
@@ -439,6 +508,102 @@ function dt_remove_jobs_editor_support() {
     remove_post_type_support('oa_job', 'excerpt');
 }
 add_action('init', 'dt_remove_jobs_editor_support', 100);
+
+function dt_remove_posts_editor_support() {
+    remove_post_type_support('post', 'editor');
+    remove_post_type_support('post', 'excerpt');
+}
+add_action('init', 'dt_remove_posts_editor_support', 100);
+
+/**
+ * Add duplicate link to post row actions
+ */
+function dt_add_duplicate_post_link($actions, $post) {
+    if ($post->post_type === 'post' && current_user_can('edit_posts')) {
+        $url = wp_nonce_url(
+            admin_url('admin.php?action=dt_duplicate_post&post=' . $post->ID),
+            'dt_duplicate_post_' . $post->ID
+        );
+        $actions['duplicate'] = '<a href="' . esc_url($url) . '">Duplicate</a>';
+    }
+    return $actions;
+}
+add_filter('post_row_actions', 'dt_add_duplicate_post_link', 10, 2);
+
+/**
+ * Handle post duplication
+ */
+function dt_handle_duplicate_post() {
+    // Check if post ID is provided
+    if (empty($_GET['post'])) {
+        wp_die('No post to duplicate.');
+    }
+
+    $post_id = absint($_GET['post']);
+
+    // Verify nonce
+    if (!wp_verify_nonce($_GET['_wpnonce'], 'dt_duplicate_post_' . $post_id)) {
+        wp_die('Security check failed.');
+    }
+
+    // Check permissions
+    if (!current_user_can('edit_posts')) {
+        wp_die('You do not have permission to duplicate posts.');
+    }
+
+    // Get the original post
+    $original_post = get_post($post_id);
+
+    if (!$original_post || $original_post->post_type !== 'post') {
+        wp_die('Invalid post.');
+    }
+
+    // Create duplicate post data
+    $new_post = array(
+        'post_title'     => $original_post->post_title . ' (Copy)',
+        'post_content'   => $original_post->post_content,
+        'post_status'    => 'draft',
+        'post_type'      => $original_post->post_type,
+        'post_author'    => get_current_user_id(),
+        'post_parent'    => $original_post->post_parent,
+        'post_excerpt'   => $original_post->post_excerpt,
+        'menu_order'     => $original_post->menu_order,
+        'comment_status' => $original_post->comment_status,
+        'ping_status'    => $original_post->ping_status
+    );
+
+    // Insert the duplicate post
+    $new_post_id = wp_insert_post($new_post);
+
+    if (is_wp_error($new_post_id)) {
+        wp_die('Failed to create duplicate post.');
+    }
+
+    // Copy taxonomies (categories, tags)
+    $taxonomies = get_object_taxonomies($original_post->post_type);
+    foreach ($taxonomies as $taxonomy) {
+        $terms = wp_get_object_terms($post_id, $taxonomy, array('fields' => 'slugs'));
+        wp_set_object_terms($new_post_id, $terms, $taxonomy);
+    }
+
+    // Copy post meta (including ACF fields)
+    $post_meta = get_post_meta($post_id);
+    foreach ($post_meta as $meta_key => $meta_values) {
+        // Skip protected meta keys that shouldn't be copied
+        if ($meta_key === '_edit_lock' || $meta_key === '_edit_last') {
+            continue;
+        }
+
+        foreach ($meta_values as $meta_value) {
+            add_post_meta($new_post_id, $meta_key, maybe_unserialize($meta_value));
+        }
+    }
+
+    // Redirect to edit the new post
+    wp_redirect(admin_url('post.php?action=edit&post=' . $new_post_id));
+    exit;
+}
+add_action('admin_action_dt_duplicate_post', 'dt_handle_duplicate_post');
 
 function dt_team_members_title_placeholder($title) {
     $screen = function_exists('get_current_screen') ? get_current_screen() : null;
@@ -581,217 +746,39 @@ function dt_custom_menu_order($menu_order) {
 add_filter('custom_menu_order', '__return_true');
 add_filter('menu_order', 'dt_custom_menu_order');
 
-/**
- * Enable Merge Tags in Divi Code Modules
- * 
- * Usage examples:
- * {acf:field_name} - ACF field value
- * {acf:repeater_name:0:sub_field} - Repeater field (row 0, sub field)
- * {acf:repeater_name:0:image_field} - Repeater image field (returns image URL)
- * {acf:repeater_name:0:image_field:url} - Repeater image URL
- * {acf:repeater_name:0:image_field:alt} - Repeater image alt text
- * {meta:field_name} - Post meta value
- * {post_title} - Post title
- * {post_content} - Post content
- * {post_excerpt} - Post excerpt
- * {post_date} - Post date
- * {post_url} - Post URL
- * {site_url} - Site URL
- * {site_name} - Site name
- * {author_name} - Author name
- * {featured_image} - Featured image URL
- */
-function dt_process_merge_tags($content) {
-    if (empty($content) || !is_string($content)) {
-        return $content;
-    }
-    
-    global $post;
-    
-    // Get current post if available
-    $current_post = $post;
-    if (!$current_post && is_singular()) {
-        $current_post = get_queried_object();
-    }
-    
-    // Process merge tags
-    $content = preg_replace_callback('/\{([^}]+)\}/', function($matches) use ($current_post) {
-        $tag = $matches[1];
-        $value = '';
-        
-        // ACF Fields: {acf:field_name} or {acf:repeater:row:sub_field:property}
-        if (strpos($tag, 'acf:') === 0) {
-            $field_path = str_replace('acf:', '', $tag);
-            
-            if (function_exists('get_field')) {
-                // Check if this is a repeater field (has colons for row:sub_field)
-                if (strpos($field_path, ':') !== false) {
-                    // Repeater field: repeater_name:row_index:sub_field:property
-                    $parts = explode(':', $field_path);
-                    $repeater_name = $parts[0];
-                    $row_index = isset($parts[1]) ? intval($parts[1]) : 0;
-                    $sub_field = isset($parts[2]) ? $parts[2] : '';
-                    $property = isset($parts[3]) ? $parts[3] : '';
-                    
-                    // Get repeater field
-                    $repeater = get_field($repeater_name);
-                    
-                    if ($repeater && is_array($repeater) && isset($repeater[$row_index])) {
-                        $row = $repeater[$row_index];
-                        
-                        if ($sub_field && isset($row[$sub_field])) {
-                            $sub_value = $row[$sub_field];
-                            
-                            // Handle image fields in repeaters
-                            if (is_array($sub_value) && isset($sub_value['url'])) {
-                                // Image field - return specific property or URL by default
-                                if ($property && isset($sub_value[$property])) {
-                                    $value = $sub_value[$property];
-                                } else {
-                                    $value = $sub_value['url']; // Default to URL
-                                }
-                            } else {
-                                $value = $sub_value;
-                            }
-                        }
-                    }
-                } else {
-                    // Regular ACF field
-                    $field_value = get_field($field_path);
-                    if (is_array($field_value)) {
-                        // Handle image fields
-                        if (isset($field_value['url'])) {
-                            $value = $field_value['url'];
-                        } else {
-                            $value = implode(', ', $field_value);
-                        }
-                    } else {
-                        $value = $field_value;
-                    }
-                }
-            }
-        }
-        // Post Meta: {meta:field_name}
-        elseif (strpos($tag, 'meta:') === 0) {
-            $field_name = str_replace('meta:', '', $tag);
-            if ($current_post) {
-                $value = get_post_meta($current_post->ID, $field_name, true);
-            }
-        }
-        // Post Title: {post_title}
-        elseif ($tag === 'post_title') {
-            if ($current_post) {
-                $value = get_the_title($current_post->ID);
-            }
-        }
-        // Post Content: {post_content}
-        elseif ($tag === 'post_content') {
-            if ($current_post) {
-                $value = apply_filters('the_content', $current_post->post_content);
-            }
-        }
-        // Post Excerpt: {post_excerpt}
-        elseif ($tag === 'post_excerpt') {
-            if ($current_post) {
-                $value = get_the_excerpt($current_post->ID);
-            }
-        }
-        // Post Date: {post_date}
-        elseif ($tag === 'post_date') {
-            if ($current_post) {
-                $value = get_the_date('', $current_post->ID);
-            }
-        }
-        // Post URL: {post_url}
-        elseif ($tag === 'post_url') {
-            if ($current_post) {
-                $value = get_permalink($current_post->ID);
-            }
-        }
-        // Site URL: {site_url}
-        elseif ($tag === 'site_url') {
-            $value = home_url();
-        }
-        // Site Name: {site_name}
-        elseif ($tag === 'site_name') {
-            $value = get_bloginfo('name');
-        }
-        // Author Name: {author_name}
-        elseif ($tag === 'author_name') {
-            if ($current_post) {
-                $value = get_the_author_meta('display_name', $current_post->post_author);
-            }
-        }
-        // Featured Image: {featured_image}
-        elseif ($tag === 'featured_image') {
-            if ($current_post) {
-                $image_id = get_post_thumbnail_id($current_post->ID);
-                if ($image_id) {
-                    $value = wp_get_attachment_image_url($image_id, 'full');
-                }
-            }
-        }
-        // Direct ACF field (without prefix): {field_name}
-        else {
-            // Try as ACF field first
-            if (function_exists('get_field')) {
-                $field_value = get_field($tag);
-                if ($field_value !== false && $field_value !== null) {
-                    if (is_array($field_value)) {
-                        if (isset($field_value['url'])) {
-                            $value = $field_value['url'];
-                        } else {
-                            $value = implode(', ', $field_value);
-                        }
-                    } else {
-                        $value = $field_value;
-                    }
-                }
-            }
-            
-            // If no ACF value, try post meta
-            if (empty($value) && $current_post) {
-                $value = get_post_meta($current_post->ID, $tag, true);
-            }
-        }
-        
-        return $value !== '' ? $value : $matches[0]; // Return original tag if no value found
-    }, $content);
-    
-    return $content;
-}
+// Allow SVG uploads.
+add_filter('upload_mimes', function($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    $mimes['svgz'] = 'image/svg+xml';
+    return $mimes;
+});
 
-// Filter Divi code module output - Try multiple hooks for compatibility
-add_filter('et_pb_module_content', 'dt_process_merge_tags', 10, 1);
-add_filter('et_module_shortcode_output', 'dt_process_merge_tags', 10, 1);
-add_filter('et_builder_render_layout_content', 'dt_process_merge_tags', 10, 1);
-
-// Process shortcodes in Divi code modules
-add_filter('et_pb_module_content', 'do_shortcode', 11, 1);
-add_filter('et_module_shortcode_output', 'do_shortcode', 11, 1);
-
-// Filter the_content for code modules (Divi 5 compatibility)
-add_filter('the_content', function($content) {
-    // Only process if we're in a Divi context
-    if (function_exists('et_is_builder_plugin_active') || defined('ET_BUILDER_PLUGIN_ACTIVE')) {
-        $content = dt_process_merge_tags($content);
-        $content = do_shortcode($content);
+// Store a URL meta key for Divi custom meta use (ACF image fields save IDs).
+add_action('acf/save_post', function($post_id) {
+    if (!function_exists('get_field')) {
+        return;
     }
-    return $content;
+
+    if (get_post_type($post_id) !== 'page') {
+        return;
+    }
+
+    $group = get_field('page_content', $post_id);
+    if (!is_array($group)) {
+        return;
+    }
+
+    $image_url = isset($group['hero_background_image']) ? $group['hero_background_image'] : '';
+    if (is_array($image_url) && isset($image_url['url'])) {
+        $image_url = $image_url['url'];
+    }
+
+    if (is_string($image_url) && $image_url !== '') {
+        update_post_meta($post_id, 'page_content_hero_background_image_url', $image_url);
+    } else {
+        delete_post_meta($post_id, 'page_content_hero_background_image_url');
+    }
 }, 20);
-
-// Alternative: Hook into Divi's code module shortcode rendering
-add_filter('et_pb_code_content', 'dt_process_merge_tags', 10, 1);
-add_filter('et_pb_code_content', 'do_shortcode', 11, 1);
-
-// Divi 5 specific hook
-add_filter('et_builder_module_content', function($content, $props, $attrs, $render_slug) {
-    if ($render_slug === 'et_pb_code') {
-        $content = dt_process_merge_tags($content);
-        $content = do_shortcode($content);
-    }
-    return $content;
-}, 10, 4);
 
 // Inject ACF data into page for JavaScript access
 add_action('wp_footer', function() {
@@ -889,9 +876,11 @@ function dt_ajax_get_acf_data() {
 require_once get_stylesheet_directory() . '/inc/marquee-carousel.php';
 
 /**
- * Include Divi modules.
+ * Include Divi 5 Client Logos module extension.
  */
-require_once get_stylesheet_directory() . '/inc/divi-modules/client-logos-marquee.php';
+require_once get_stylesheet_directory() . '/inc/divi-extensions/client-logos/client-logos-extension.php';
+require_once get_stylesheet_directory() . '/inc/divi-extensions/halt-advanced-tabs/halt-advanced-tabs-extension.php';
+
 
 /**
  * Include RoleCall by Halt - Tracker RMS Integration
