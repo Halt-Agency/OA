@@ -1,0 +1,91 @@
+{
+    "key": "group_posts",
+    "title": "Post Fields",
+    "fields": [
+        {
+            "key": "field_post_image",
+            "label": "Image",
+            "name": "post_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Featured image for the post\nDivi key: post_image",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg,jpeg,png,svg,gif,webp"
+        },
+        {
+            "key": "field_post_content",
+            "label": "Content",
+            "name": "post_content",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Main content for the post\nDivi key: post_content",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_post_excerpt",
+            "label": "Excerpt",
+            "name": "post_excerpt",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Add a short excerpt of the post here.\nDivi key: post_excerpt",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for the posts (Resources)",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1738505000
+}

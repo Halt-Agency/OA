@@ -36,3 +36,7 @@ Primary Branch: main
   );
   z-index: 2;
 }
+
+.dipi_testimonial_0-popup[id^="dipi-review-popup-0-"] {
+  border-radius: 20px !important;
+}

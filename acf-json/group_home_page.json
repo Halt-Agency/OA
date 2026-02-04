@@ -1264,12 +1264,52 @@
                     "selected": 0
                 },
                 {
-                    "key": "field_home_insights_heading",
-                    "label": "Heading",
-                    "name": "insights_heading",
+                    "key": "field_home_insights_heading_prefix",
+                    "label": "Insights Heading Prefix",
+                    "name": "insights_heading_prefix",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "Divi key: page_content_insights_heading",
+                    "instructions": "Divi key: page_content_insights_heading_prefix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_home_insights_heading_emphasis",
+                    "label": "Insights Heading Emphasis",
+                    "name": "insights_heading_emphasis",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Optional emphasized word or phrase.\nDivi key: page_content_insights_heading_emphasis",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_home_insights_heading_suffix",
+                    "label": "Insights Heading Suffix",
+                    "name": "insights_heading_suffix",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_insights_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
