@@ -1,0 +1,270 @@
+.squiggle-right-top {
+  position: relative;
+  overflow: visible !important;
+}
+
+.squiggle-right-top::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  transform: translateX(clamp(10px, 50%, 40px));
+  top: 20%; /* adjust */
+  height: clamp(150px, 15vw, 201px);;
+  aspect-ratio: 34.443 / 221.238; /* from your SVG */
+  width: auto;
+  background: url("http://oa2.local/wp-content/uploads/2026/01/Group-416.svg") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.dot-grid-blue-middle-left {
+  position: relative;
+  overflow: visible;
+}
+
+.dot-grid-blue-middle-left::before {
+  content: "";
+  position: absolute;
+  left: 99%; /* adjust */
+  top: 20%; /* adjust */
+  height: 220px;
+  aspect-ratio: 34.443 / 221.238; /* from your SVG */
+  width: auto;
+  background: url("http://oa2.local/wp-content/uploads/2026/01/Group-416.svg") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.dot-grid-pink-middle-left {
+  position: relative;
+  overflow: visible !important;
+}
+
+.dot-grid-pink-middle-left::before {
+  content: "";
+  position: absolute;
+  left: -10px; /* adjust */
+  top: 30%; /* adjust */
+  height: clamp(150px, 15vw, 201px);
+  aspect-ratio: 55.79 / 201.08;
+  width: auto;
+  background: url("http://oa2.local/wp-content/uploads/2026/02/pink-dot-grid.png") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.dot-grid-pink-bottom-right {
+  position: relative;
+  overflow: visible;
+}
+
+.dot-grid-pink-bottom-right::after {
+  content: "";
+  position: absolute;
+  right: -10%;
+  bottom: 2%;
+  height: 166.79px;
+  aspect-ratio: 173.15 / 166.79;
+  width: auto;
+  background: url("http://oa2.local/wp-content/uploads/2026/02/dot-grid-pink.png") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.dot-grid-purple-bottom-right {
+  position: relative;
+  overflow: visible;
+}
+
+.dot-grid-purple-bottom-right::after {
+  content: "";
+  position: absolute;
+  right: -10%;
+  bottom: -2%;
+  height: 166.79px;
+  aspect-ratio: 173.15 / 166.79;
+  width: auto;
+  background: url("http://oa2.local/wp-content/uploads/2026/02/Group-498-150x150.png") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.dot-burst-blue-bottom-right {
+  position: relative;
+  overflow: visible;
+}
+
+.dot-burst-blue-bottom-right::after {
+  content: "";
+  position: absolute;
+  left: 99%; /* adjust */
+  top: 20%; /* adjust */
+  height: 220px;
+  aspect-ratio: 34.443 / 221.238; /* from your SVG */
+  width: auto;
+  background: url("http://oa2.local/wp-content/uploads/2026/01/Group-416.svg") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.dot-burst-pink-bottom-right {
+  position: relative;
+  overflow: visible;
+}
+
+.dot-burst-pink-bottom-right::after {
+  content: "";
+  position: absolute;
+  left: 99%; /* adjust */
+  top: 20%; /* adjust */
+  height: 166.79px;
+  aspect-ratio: 173.15 / 166.79;
+  width: auto;
+  background: url("http://oa2.local/wp-content/uploads/2026/01/Group-416.svg") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.squiggle-blue-top-left {
+  position: relative;
+  overflow: visible;
+}
+.squiggle-blue-top-left img {
+  position: relative;
+}
+
+.squiggle-blue-top-left::before {
+  content: "";
+  position: absolute;
+  left: -2.5%; /* adjust */
+  top: 10%; /* adjust */
+  height: 100px;
+  aspect-ratio: 95.67 / 20.97;
+  width: auto;
+  background: url("http://oa2.local/wp-content/uploads/2026/02/squiggle-left.png") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.burst-blue-top-left {
+  position: relative;
+  overflow: visible;
+}
+
+.burst-blue-top-left::before {
+  content: "";
+  position: absolute;
+  left: -8%; /* adjust */
+  top: 00%; /* adjust */
+  height: 83.9px;
+  aspect-ratio: 78.36 / 83.9;
+  width: auto;
+  background: url("http://oa2.local/wp-content/uploads/2026/02/Group-497.png") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.fan-blue-top-left {
+  position: relative;
+  overflow: visible;
+}
+
+.fan-blue-top-left::before {
+  content: "";
+  position: absolute;
+  left: 99%; /* adjust */
+  top: 20%; /* adjust */
+  height: 83.9px;
+  aspect-ratio: 78.36 / 83.9;
+  width: auto;
+  background: url("http://oa2.local/wp-content/uploads/2026/01/Group-416.svg") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.squiggle-pink-bottom-right {
+  position: relative;
+  overflow: visible;
+}
+
+.squiggle-pink-bottom-right::after {
+  content: "";
+  position: absolute;
+  left: 99%; /* adjust */
+  top: 20%; /* adjust */
+  height: 223.05px;
+  aspect-ratio: 25.88 / 223.05;
+  width: auto;
+  background: url("http://oa2.local/wp-content/uploads/2026/01/Group-416.svg") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.burst-white-top-right {
+  position: relative;
+  overflow: visible;
+}
+
+.burst-white-top-right::after {
+  content: "";
+  position: absolute;
+  left: 99%; /* adjust */
+  top: 20%; /* adjust */
+  height: 104.19px;
+  aspect-ratio: 80 / 104.19;
+  width: auto;
+  background: url("http://oa2.local/wp-content/uploads/2026/01/Group-416.svg") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.dot-burst-background {
+  position: relative;
+  overflow: visible;
+}
+
+.dot-burst-background::before {
+  content: "";
+  position: absolute;
+  bottom: 10%;
+  left: -5%;
+  height: 230px;
+  aspect-ratio: 1 / 1;
+  width: auto;
+  background: url("http://oa2.local/wp-content/uploads/2026/02/dot-group-pink.png") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dot-burst-background::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: -3%;
+  height: 330px;
+  aspect-ratio: 1 / 1;
+  width: auto;
+  background: url("http://oa2.local/wp-content/uploads/2026/02/dot-circle-blue.png") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dot-burst-background > .et_pb_row,
+.dot-burst-background > .et_pb_module,
+.dot-burst-background > .et_pb_row * {
+  z-index: 1;
+}

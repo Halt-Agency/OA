@@ -24,7 +24,7 @@
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "Divi key: page_content",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -128,7 +128,7 @@
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "Divi key: page_content",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -397,7 +397,7 @@
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "Divi key: page_content",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -408,46 +408,6 @@
                     "placement": "left",
                     "endpoint": 0,
                     "selected": 0
-                },
-                {
-                    "key": "field_home_clients_marquee_heading",
-                    "label": "Heading",
-                    "name": "clients_marquee_heading",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Divi key: page_content_clients_marquee_heading",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_home_clients_marquee_subheading",
-                    "label": "Subheading",
-                    "name": "clients_marquee_subheading",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Divi key: page_content_clients_marquee_subheading",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
                 },
                 {
                     "key": "field_home_clients_marquee_use_all",
@@ -510,7 +470,7 @@
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "Divi key: page_content",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -521,6 +481,26 @@
                     "placement": "left",
                     "endpoint": 0,
                     "selected": 0
+                },
+                {
+                    "key": "field_home_solutions_kicker",
+                    "label": "Solutions Kicker",
+                    "name": "solutions_kicker",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_solutions_kicker",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 },
                 {
                     "key": "field_home_solutions_heading",
@@ -541,26 +521,6 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
-                },
-                {
-                    "key": "field_home_solutions_copy",
-                    "label": "Intro Copy",
-                    "name": "solutions_copy",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "Divi key: page_content_solutions_copy",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": 3,
-                    "new_lines": "wpautop"
                 },
                 {
                     "key": "field_home_solutions_primary",
@@ -711,7 +671,7 @@
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "Divi key: page_content",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -724,12 +684,12 @@
                     "selected": 0
                 },
                 {
-                    "key": "field_home_sectors_heading",
-                    "label": "Heading",
-                    "name": "sectors_heading",
+                    "key": "field_home_sectors_heading_prefix",
+                    "label": "Sectors Heading Prefix",
+                    "name": "sectors_heading_prefix",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "Divi key: page_content_sectors_heading",
+                    "instructions": "Divi key: page_content_sectors_heading_prefix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -744,12 +704,12 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_home_sectors_copy",
-                    "label": "Intro Copy",
-                    "name": "sectors_copy",
+                    "key": "field_home_sectors_heading_emphasis",
+                    "label": "Sectors Heading Emphasis",
+                    "name": "sectors_heading_emphasis",
                     "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "Divi key: page_content_sectors_copy",
+                    "type": "text",
+                    "instructions": "Optional emphasized word or phrase.\nDivi key: page_content_sectors_heading_emphasis",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -759,9 +719,29 @@
                     },
                     "default_value": "",
                     "placeholder": "",
-                    "maxlength": "",
-                    "rows": 3,
-                    "new_lines": "wpautop"
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_home_sectors_heading_suffix",
+                    "label": "Sectors Heading Suffix",
+                    "name": "sectors_heading_suffix",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_sectors_heading_suffix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 },
                 {
                     "key": "field_home_sectors",
@@ -807,11 +787,11 @@
                         },
                         {
                             "key": "field_home_sector_intro",
-                            "label": "Sector Intro",
-                            "name": "sector_intro",
+                            "label": "Sector Copy",
+                            "name": "sector_copy",
                             "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "Divi key: page_content_sectors_0_sector_intro",
+                            "type": "wysiwyg",
+                            "instructions": "Divi key: page_content_sectors_0_sector_copy",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -821,55 +801,11 @@
                             },
                             "default_value": "",
                             "placeholder": "",
-                            "maxlength": "",
-                            "rows": 4,
-                            "new_lines": "wpautop",
-                            "parent_repeater": "field_home_sectors"
-                        },
-                        {
-                            "key": "field_home_sector_roles",
-                            "label": "Sector Role List",
-                            "name": "sector_roles",
-                            "aria-label": "",
-                            "type": "repeater",
-                            "instructions": "Divi key: page_content_sectors_0_sector_roles",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "collapsed": "",
-                            "min": 0,
-                            "max": 0,
-                            "layout": "row",
-                            "button_label": "Add Role",
-                            "rows_per_page": 20,
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 0,
                             "parent_repeater": "field_home_sectors",
-                            "sub_fields": [
-                                {
-                                    "key": "field_home_sector_role",
-                                    "label": "Role",
-                                    "name": "role",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "Divi key: page_content_sectors_0_sector_roles_0_role",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": "",
-                                    "parent_repeater": "field_home_sector_roles"
-                                }
-                            ]
+                            "delay": 0
                         },
                         {
                             "key": "field_home_sector_buttons",
@@ -1006,7 +942,7 @@
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "Divi key: page_content",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1019,12 +955,52 @@
                     "selected": 0
                 },
                 {
-                    "key": "field_home_jobs_cta_heading",
-                    "label": "Heading",
-                    "name": "jobs_cta_heading",
+                    "key": "field_home_jobs_cta_heading_prefix",
+                    "label": "Jobs CTA Heading Prefix",
+                    "name": "jobs_cta_heading_prefix",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "Divi key: page_content_jobs_cta_heading",
+                    "instructions": "Divi key: page_content_jobs_cta_heading_prefix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_home_jobs_cta_heading_emphasis",
+                    "label": "Jobs CTA Heading Emphasis",
+                    "name": "jobs_cta_heading_emphasis",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Optional emphasized word or phrase.\nDivi key: page_content_jobs_cta_heading_emphasis",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_home_jobs_cta_heading_suffix",
+                    "label": "Jobs CTA Heading Suffix",
+                    "name": "jobs_cta_heading_suffix",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_jobs_cta_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1059,6 +1035,26 @@
                     "new_lines": "wpautop"
                 },
                 {
+                    "key": "field_home_jobs_cta_button_text",
+                    "label": "Jobs CTA Button Text",
+                    "name": "jobs_cta_button_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_jobs_cta_button_text",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_home_jobs_cta_button",
                     "label": "Button",
                     "name": "jobs_cta_button",
@@ -1080,7 +1076,7 @@
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "Divi key: page_content",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1113,145 +1109,12 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_home_testimonials",
-                    "label": "Testimonials",
-                    "name": "testimonials",
-                    "aria-label": "",
-                    "type": "repeater",
-                    "instructions": "Divi key: page_content_testimonials",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "collapsed": "field_home_testimonial_name",
-                    "min": 0,
-                    "max": 0,
-                    "layout": "row",
-                    "button_label": "Add Testimonial",
-                    "rows_per_page": 20,
-                    "sub_fields": [
-                        {
-                            "key": "field_home_testimonial_quote",
-                            "label": "Quote",
-                            "name": "quote",
-                            "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "Divi key: page_content_testimonials_0_quote",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": 4,
-                            "new_lines": "wpautop",
-                            "parent_repeater": "field_home_testimonials"
-                        },
-                        {
-                            "key": "field_home_testimonial_name",
-                            "label": "Name",
-                            "name": "name",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Divi key: page_content_testimonials_0_name",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": "",
-                            "parent_repeater": "field_home_testimonials"
-                        },
-                        {
-                            "key": "field_home_testimonial_role",
-                            "label": "Role",
-                            "name": "role",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Divi key: page_content_testimonials_0_role",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": "",
-                            "parent_repeater": "field_home_testimonials"
-                        },
-                        {
-                            "key": "field_home_testimonial_company",
-                            "label": "Company",
-                            "name": "company",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Divi key: page_content_testimonials_0_company",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": "",
-                            "parent_repeater": "field_home_testimonials"
-                        },
-                        {
-                            "key": "field_home_testimonial_photo",
-                            "label": "Photo",
-                            "name": "photo",
-                            "aria-label": "",
-                            "type": "image",
-                            "instructions": "Divi key: page_content_testimonials_0_photo",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "url",
-                            "preview_size": "medium",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": "",
-                            "parent_repeater": "field_home_testimonials"
-                        }
-                    ]
-                },
-                {
                     "key": "field_home_tab_insights",
                     "label": "Insights Section",
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "Divi key: page_content",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1324,6 +1187,26 @@
                     "maxlength": ""
                 },
                 {
+                    "key": "field_home_insights_button_text",
+                    "label": "Button Text",
+                    "name": "insights_button_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_insights_button_text",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_home_insights_button",
                     "label": "Button",
                     "name": "insights_button",
@@ -1340,105 +1223,12 @@
                     "return_format": "array"
                 },
                 {
-                    "key": "field_home_insights_source",
-                    "label": "Posts Source",
-                    "name": "insights_source",
-                    "aria-label": "",
-                    "type": "select",
-                    "instructions": "Divi key: page_content_insights_source",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "latest": "Latest posts",
-                        "manual": "Manual selection"
-                    },
-                    "default_value": "latest",
-                    "return_format": "value",
-                    "multiple": 0,
-                    "allow_null": 0,
-                    "ui": 0,
-                    "ajax": 0,
-                    "placeholder": "",
-                    "create_options": 0,
-                    "save_options": 0
-                },
-                {
-                    "key": "field_home_insights_count",
-                    "label": "Latest Posts Count",
-                    "name": "insights_count",
-                    "aria-label": "",
-                    "type": "number",
-                    "instructions": "Divi key: page_content_insights_count",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_home_insights_source",
-                                "operator": "==",
-                                "value": "latest"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": 3,
-                    "min": 1,
-                    "max": 12,
-                    "step": 1,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_home_insights_posts",
-                    "label": "Posts",
-                    "name": "insights_posts",
-                    "aria-label": "",
-                    "type": "relationship",
-                    "instructions": "Select posts to feature.\nDivi key: page_content_insights_posts",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_home_insights_source",
-                                "operator": "==",
-                                "value": "manual"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [
-                        "post"
-                    ],
-                    "taxonomy": "",
-                    "filters": [
-                        "search"
-                    ],
-                    "elements": "",
-                    "min": "",
-                    "max": "",
-                    "return_format": "id",
-                    "bidirectional_target": []
-                },
-                {
                     "key": "field_home_tab_conversation",
                     "label": "Start the Conversation Section",
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
-                    "instructions": "Divi key: page_content",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1572,84 +1362,6 @@
                             "parent_repeater": "field_home_conversation_cards"
                         }
                     ]
-                },
-                {
-                    "key": "field_home_tab_newsletter",
-                    "label": "Newsletter Section",
-                    "name": "",
-                    "aria-label": "",
-                    "type": "tab",
-                    "instructions": "Divi key: page_content",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "placement": "left",
-                    "endpoint": 0,
-                    "selected": 0
-                },
-                {
-                    "key": "field_home_newsletter_heading",
-                    "label": "Heading",
-                    "name": "newsletter_heading",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Divi key: page_content_newsletter_heading",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_home_newsletter_copy",
-                    "label": "Copy",
-                    "name": "newsletter_copy",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "Divi key: page_content_newsletter_copy",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": 3,
-                    "new_lines": "wpautop"
-                },
-                {
-                    "key": "field_home_newsletter_form_shortcode",
-                    "label": "Form Shortcode",
-                    "name": "newsletter_form_shortcode",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Paste the form shortcode or embed tag.\nDivi key: page_content_newsletter_form_shortcode",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
                 }
             ]
         }
@@ -1664,7 +1376,7 @@
         ]
     ],
     "menu_order": 1,
-    "position": "side",
+    "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -1675,5 +1387,5 @@
     "description": "Fields for the home page",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1769608947
+    "modified": 1770816966
 }

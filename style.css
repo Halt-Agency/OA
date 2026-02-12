@@ -14,13 +14,12 @@ Primary Branch: main
 ------------------------------------------------------- */
 
 /* Image gradient overlay helper (Divi image module or any element) */
-.oa-image-gradient,
-.oa-image-gradient .et_pb_image_wrap {
+.oa-image-gradient .img {
   position: relative;
   overflow: hidden;
 }
 
-.oa-image-gradient .et_pb_image_wrap::after,
+.oa-image-gradient img::after,
 .oa-image-gradient::after {
   content: "";
   position: absolute;

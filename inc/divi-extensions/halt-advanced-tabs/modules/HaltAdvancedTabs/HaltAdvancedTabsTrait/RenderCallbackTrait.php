@@ -95,17 +95,19 @@ trait RenderCallbackTrait {
                 'children'          => sprintf(
                     '.%1$s{display:grid;grid-template-columns:minmax(220px,320px) 1fr;gap:24px;align-items:stretch;}' .
                     '.%1$s .halt-tabs__list{display:flex;flex-direction:column;gap:16px;background:var(--halt-tabs-list-bg, transparent);border:1px solid var(--halt-tabs-list-border, transparent);border-radius:16px;padding:16px;}' .
+                    '.%1$s .halt-tabs__nav,.%1$s .halt-tabs__nav-label{display:none;}' .
                     '.%1$s .halt-tabs__tab{background:var(--halt-tabs-tab-bg, rgba(0,0,0,.15));border-radius:14px;padding:16px 18px;cursor:pointer;transition:all .2s ease;border:1px solid transparent;text-align:left;font-family:"Zalando Sans SemiExpanded", sans-serif;font-size:22px;font-weight:600;color:#fff;}' .
                     '.%1$s .halt-tabs__tab.is-active{background:var(--halt-tabs-tab-bg-active, #7e5df6);border-color:rgba(255,255,255,.35);}' .
                     '.%1$s .halt-tabs__panels{height:100%%;}' .
-                    '.%1$s .halt-tabs__panel{display:none;background:var(--halt-tabs-panel-bg, rgba(0,0,0,.2));border:1px solid var(--halt-tabs-panel-border, transparent);border-radius:18px;padding:24px;color:#fff;min-height:100%%;flex-direction:column;}' .
+                    '.%1$s .halt-tabs__panel{display:none;background:var(--halt-tabs-panel-bg, rgba(0,0,0,.2));border:1px solid var(--halt-tabs-panel-border, transparent);border-radius:18px;padding:24px;color:#fff;min-height:100%%;flex-direction:column;justify-content:space-between;}' .
                     '.%1$s .halt-tabs__panel.is-active{display:flex;height:100%%;}' .
                     '.%1$s .halt-tabs__panel h3{margin:0 0 12px;font-family:"Zalando Sans SemiExpanded", sans-serif;font-size:22px;font-weight:600;color:#fff;}' .
                     '.%1$s .halt-tabs__content{line-height:1.6;font-family:"Poppins", sans-serif;font-size:16px;font-weight:400;color:#fff;}' .
-                    '.%1$s .halt-tabs__buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:auto;padding-top:20px;}' .
+                    '.%1$s .halt-tabs__buttons{display:flex;flex-wrap:wrap;gap:12px;}' .
                     '.%1$s .halt-tabs__button{display:inline-flex;align-items:center;justify-content:center;padding:15px 25px;border-radius:10px;border:1px solid #8467FF;color:#fff;text-decoration:none;font-family:"Poppins", sans-serif;font-size:16px;font-weight:600;background:transparent;transition:background-color .2s ease,color .2s ease,border-color .2s ease;}' .
                     '.%1$s .halt-tabs__button:hover{color:#8467FF;background:rgba(255,255,255,0.1);}' .
-                    '@media (max-width:980px){.%1$s{grid-template-columns:1fr;}}',
+                    '/* @media (max-width:980px){.%1$s{grid-template-columns:1fr;}} */' .
+                    '@media (max-width:980px){.%1$s{grid-template-columns:1fr;}.%1$s .halt-tabs__list-wrap{display:flex;align-items:center;justify-content:center;gap:10px;width:100%%;min-width:0}.%1$s .halt-tabs__nav{border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;border-radius:999px;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 auto}.%1$s .halt-tabs__nav:disabled{opacity:.4;cursor:default}.%1$s .halt-tabs__nav-label{display:inline-flex;align-items:center;justify-content:center;background:var(--halt-tabs-tab-bg-active, #7e5df6);border:1px solid rgba(255,255,255,.35);border-radius:14px;padding:12px 18px;font-family:"Zalando Sans SemiExpanded", sans-serif;font-size:18px;font-weight:600;color:#fff;max-width:70%%;text-align:center}.%1$s .halt-tabs__list{display:block;position:absolute;left:-9999px;top:-9999px;height:0;overflow:hidden;visibility:hidden}.%1$s .halt-tabs__panels{height:auto}.%1$s .halt-tabs__panel{min-height:auto}.%1$s .halt-tabs__panel.is-active{height:auto}}',
                     esc_attr( $uid )
                 ),
             ]
@@ -168,16 +170,30 @@ trait RenderCallbackTrait {
                     'childrenSanitizer' => 'et_core_esc_previously',
                     'children'          => HTMLUtility::render(
                         [
-                            'tag'               => 'h3',
+                            'tag'               => 'div',
+                            'attributes'        => [ 'class' => 'halt-tabs__panel-body' ],
                             'childrenSanitizer' => 'et_core_esc_previously',
-                            'children'          => esc_html( $tab['title'] ),
+                            'children'          => HTMLUtility::render(
+                                [
+                                    'tag'               => 'h3',
+                                    'childrenSanitizer' => 'et_core_esc_previously',
+                                    'children'          => esc_html( $tab['title'] ),
+                                ]
+                            ) . $panel_content,
                         ]
-                    ) . $panel_content . ( $buttons_html !== '' ? HTMLUtility::render(
+                    ) . ( $buttons_html !== '' ? HTMLUtility::render(
                         [
                             'tag'               => 'div',
-                            'attributes'        => [ 'class' => 'halt-tabs__buttons' ],
+                            'attributes'        => [ 'class' => 'halt-tabs__panel-actions' ],
                             'childrenSanitizer' => 'et_core_esc_previously',
-                            'children'          => $buttons_html,
+                            'children'          => HTMLUtility::render(
+                                [
+                                    'tag'               => 'div',
+                                    'attributes'        => [ 'class' => 'halt-tabs__buttons' ],
+                                    'childrenSanitizer' => 'et_core_esc_previously',
+                                    'children'          => $buttons_html,
+                                ]
+                            ),
                         ]
                     ) : '' ),
                 ]
@@ -189,7 +205,7 @@ trait RenderCallbackTrait {
                 'tag'               => 'script',
                 'childrenSanitizer' => 'et_core_esc_previously',
                 'children'          => sprintf(
-                    '(function(){var root=document.querySelector(".%1$s");if(!root){return;}var tabs=root.querySelectorAll(".halt-tabs__tab");var panels=root.querySelectorAll(".halt-tabs__panel");tabs.forEach(function(tab){tab.addEventListener("click",function(){var id=tab.getAttribute("data-tab");tabs.forEach(function(t){t.classList.remove("is-active")});panels.forEach(function(p){p.classList.remove("is-active")});tab.classList.add("is-active");root.querySelector(".halt-tabs__panel[data-tab=\""+id+"\"]").classList.add("is-active")})});})();',
+                    '(function(){var root=document.querySelector(".%1$s");if(!root){return;}var tabs=Array.prototype.slice.call(root.querySelectorAll(".halt-tabs__tab"));var panels=Array.prototype.slice.call(root.querySelectorAll(".halt-tabs__panel"));var panelsWrap=root.querySelector(".halt-tabs__panels");var label=root.querySelector(".halt-tabs__nav-label");var wrap=root.querySelector(".halt-tabs__list-wrap");var prev=root.querySelector(".halt-tabs__nav--prev");var next=root.querySelector(".halt-tabs__nav--next");var isResponsive=function(){return window.innerWidth<=980;};var setPanelsHeight=function(){if(!panelsWrap){return;}if(!isResponsive()){panelsWrap.style.minHeight="";return;}panelsWrap.style.minHeight="";var maxHeight=0;var activePanel=root.querySelector(".halt-tabs__panel.is-active");panels.forEach(function(panel){panel.classList.add("is-active");var h=panel.scrollHeight;maxHeight=Math.max(maxHeight,h);panel.classList.remove("is-active");});if(activePanel){activePanel.classList.add("is-active");}if(maxHeight>0){panelsWrap.style.minHeight=maxHeight+"px";}};var setLabelWidth=function(){if(!label||tabs.length===0){return;}var maxWidth=0;tabs.forEach(function(tab){var w=tab.scrollWidth;maxWidth=Math.max(maxWidth,w);});if(maxWidth>0){var available=maxWidth; if(wrap&&prev&&next){var wrapWidth=wrap.clientWidth||0;var navWidth=(prev.offsetWidth||0)+(next.offsetWidth||0);var gap=10;available=Math.max(0,wrapWidth-navWidth-(gap*2));}var finalWidth=Math.min(maxWidth,available||maxWidth);label.style.minWidth=finalWidth+"px";label.style.maxWidth=finalWidth+"px";}};var updateLabel=function(tab){if(label&&tab){label.textContent=tab.textContent||"";}};var activateTab=function(tab){if(!tab){return;}var idx=tabs.indexOf(tab);if(idx<0){return;}tabs.forEach(function(t){t.classList.remove("is-active")});panels.forEach(function(p){p.classList.remove("is-active")});tab.classList.add("is-active");if(panels[idx]){panels[idx].classList.add("is-active");}updateLabel(tab);};tabs.forEach(function(tab){tab.addEventListener("click",function(){activateTab(tab)});});if(prev&&next){prev.addEventListener("click",function(){var current=root.querySelector(".halt-tabs__tab.is-active")||tabs[0];var idx=tabs.indexOf(current);var nextTab=tabs[Math.max(0,idx-1)];activateTab(nextTab);});next.addEventListener("click",function(){var current=root.querySelector(".halt-tabs__tab.is-active")||tabs[0];var idx=tabs.indexOf(current);var nextTab=tabs[Math.min(tabs.length-1,idx+1)];activateTab(nextTab);});}updateLabel(root.querySelector(".halt-tabs__tab.is-active")||tabs[0]);setPanelsHeight();setLabelWidth();window.addEventListener("resize",function(){setPanelsHeight();setLabelWidth();});})();',
                     esc_attr( $uid )
                 ),
             ]
@@ -206,9 +222,42 @@ trait RenderCallbackTrait {
                 'children'          => $style . HTMLUtility::render(
                     [
                         'tag'               => 'div',
-                        'attributes'        => [ 'class' => 'halt-tabs__list' ],
+                        'attributes'        => [ 'class' => 'halt-tabs__list-wrap' ],
                         'childrenSanitizer' => 'et_core_esc_previously',
-                        'children'          => $tab_buttons,
+                        'children'          => HTMLUtility::render(
+                            [
+                                'tag'        => 'button',
+                                'attributes' => [
+                                    'class' => 'halt-tabs__nav halt-tabs__nav--prev',
+                                    'type'  => 'button',
+                                    'aria-label' => 'Previous tabs',
+                                ],
+                                'children' => '&#8249;',
+                            ]
+                        ) . HTMLUtility::render(
+                            [
+                                'tag'        => 'div',
+                                'attributes' => [ 'class' => 'halt-tabs__nav-label' ],
+                                'children'   => '',
+                            ]
+                        ) . HTMLUtility::render(
+                            [
+                                'tag'               => 'div',
+                                'attributes'        => [ 'class' => 'halt-tabs__list' ],
+                                'childrenSanitizer' => 'et_core_esc_previously',
+                                'children'          => $tab_buttons,
+                            ]
+                        ) . HTMLUtility::render(
+                            [
+                                'tag'        => 'button',
+                                'attributes' => [
+                                    'class' => 'halt-tabs__nav halt-tabs__nav--next',
+                                    'type'  => 'button',
+                                    'aria-label' => 'Next tabs',
+                                ],
+                                'children' => '&#8250;',
+                            ]
+                        ),
                     ]
                 ) . HTMLUtility::render(
                     [

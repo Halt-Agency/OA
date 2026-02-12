@@ -163,7 +163,8 @@ trait RenderCallbackTrait {
                     '%4$s' .
                     '%5$s' .
                     '@keyframes %1$s-scroll{0%%{transform:translateX(0);}100%%{transform:translateX(-50%%);}}' .
-                    '@media (max-width:768px){.%1$s .marquee-item{width:clamp(70px, 24vw, 120px);padding:0 8px}.%1$s .marquee-item img{max-height:60px}.%1$s .marquee-track,.%1$s .marquee-track-duplicate{gap:20px;}}',
+                    '@media (max-width:980px){.%1$s .marquee-item{width:clamp(120px, 20vw, 210px);padding:0 10px}.%1$s .marquee-item img{max-height:80px}.%1$s .marquee-track,.%1$s .marquee-track-duplicate{gap:24px;}}' .
+                    '@media (max-width:768px){.%1$s .marquee-item{width:clamp(90px, 25vw, 130px);padding:0 2px}.%1$s .marquee-item img{max-height:90px}.%1$s .marquee-track,.%1$s .marquee-track-duplicate{gap:4px;}}',
                     esc_attr( $uid ),
                     esc_attr( $speed ),
                     esc_attr( $direction_css ),
