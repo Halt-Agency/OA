@@ -37,6 +37,78 @@ add_action('wp_footer', function() {
         }
     }
     
+    // Build client logo dataset for JS-driven carousels
+    $client_logos = [];
+    if (post_type_exists('clients')) {
+        $logo_query = new WP_Query([
+            'post_type'      => 'clients',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            'orderby'        => [
+                'menu_order' => 'ASC',
+                'title'      => 'ASC',
+            ],
+        ]);
+
+        if ($logo_query->have_posts()) {
+            while ($logo_query->have_posts()) {
+                $logo_query->the_post();
+                $post_id_item = get_the_ID();
+                $logo_white = function_exists('get_field') ? get_field('client_logo', $post_id_item) : null;
+                $logo_colour = function_exists('get_field') ? get_field('client_logo_colour', $post_id_item) : null;
+
+                $white_url = '';
+                $white_alt = '';
+                $white_title = '';
+                if (is_array($logo_white) && isset($logo_white['url'])) {
+                    $white_url = $logo_white['url'];
+                    $white_alt = $logo_white['alt'] ?? '';
+                    $white_title = $logo_white['title'] ?? '';
+                } elseif (is_numeric($logo_white)) {
+                    $white_url = wp_get_attachment_image_url((int) $logo_white, 'full') ?: '';
+                    $white_alt = get_post_meta((int) $logo_white, '_wp_attachment_image_alt', true);
+                    $white_title = get_the_title((int) $logo_white);
+                }
+
+                $colour_url = '';
+                $colour_alt = '';
+                $colour_title = '';
+                if (is_array($logo_colour) && isset($logo_colour['url'])) {
+                    $colour_url = $logo_colour['url'];
+                    $colour_alt = $logo_colour['alt'] ?? '';
+                    $colour_title = $logo_colour['title'] ?? '';
+                } elseif (is_numeric($logo_colour)) {
+                    $colour_url = wp_get_attachment_image_url((int) $logo_colour, 'full') ?: '';
+                    $colour_alt = get_post_meta((int) $logo_colour, '_wp_attachment_image_alt', true);
+                    $colour_title = get_the_title((int) $logo_colour);
+                }
+
+                if ($white_url === '' && $colour_url === '') {
+                    continue;
+                }
+
+                $terms = [];
+                $term_objects = get_the_terms($post_id_item, 'client_category');
+                if (is_array($term_objects)) {
+                    foreach ($term_objects as $term) {
+                        if (!empty($term->slug)) {
+                            $terms[] = $term->slug;
+                        }
+                    }
+                }
+
+                $client_logos[] = [
+                    'white_url'  => $white_url,
+                    'colour_url' => $colour_url,
+                    'alt'        => $white_alt !== '' ? $white_alt : $colour_alt,
+                    'title'      => $white_title !== '' ? $white_title : $colour_title,
+                    'terms'      => $terms,
+                ];
+            }
+            wp_reset_postdata();
+        }
+    }
+
     // Convert false to empty array for JSON encoding
     if ($acf_data === false) {
         $acf_data = array();
@@ -45,6 +117,7 @@ add_action('wp_footer', function() {
     // Always output the data (even if empty) so JavaScript knows it's available
     echo '<script type="text/javascript">';
     echo 'window.dtACFData = ' . json_encode($acf_data) . ';';
+    echo 'window.oaClientLogos = ' . json_encode($client_logos) . ';';
     echo 'window.dtPostId = ' . intval($post_id) . ';';
     echo 'window.dtAjaxUrl = "' . admin_url('admin-ajax.php') . '";';
     // Add debug info in development

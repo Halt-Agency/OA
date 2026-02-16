@@ -26,12 +26,12 @@
 .dot-grid-blue-middle-left::before {
   content: "";
   position: absolute;
-  left: 99%; /* adjust */
-  top: 20%; /* adjust */
-  height: 220px;
-  aspect-ratio: 34.443 / 221.238; /* from your SVG */
+  left: -5%; /* adjust */
+  top: 15%; /* adjust */
+  height: 40%;
+  aspect-ratio: 42.35 / 152.62; /* from your SVG */
   width: auto;
-  background: url("http://oa2.local/wp-content/uploads/2026/01/Group-416.svg") no-repeat;
+  background: url("http://oa2.local/wp-content/uploads/2026/02/dor-grid-blue.png") no-repeat;
   background-size: contain;
   pointer-events: none;
   z-index: 5;

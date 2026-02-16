@@ -39,3 +39,7 @@ Primary Branch: main
 .dipi_testimonial_0-popup[id^="dipi-review-popup-0-"] {
   border-radius: 20px !important;
 }
+
+[id^="icon-"] {
+  cursor: default;
+}

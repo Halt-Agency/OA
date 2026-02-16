@@ -1,0 +1,183 @@
+.oa-adv-tabs {
+  --oa-tabs-list-bg: transparent;
+  --oa-tabs-list-border: transparent;
+  --oa-tabs-panel-bg: rgba(0, 0, 0, 0.2);
+  --oa-tabs-panel-border: transparent;
+  --oa-tabs-tab-bg: rgba(0, 0, 0, 0.15);
+  --oa-tabs-tab-bg-active: #7e5df6;
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.oa-adv-tabs .oa-adv-tabs__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--oa-tabs-list-bg);
+  border: 1px solid var(--oa-tabs-list-border);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.oa-adv-tabs .oa-adv-tabs__nav,
+.oa-adv-tabs .oa-adv-tabs__nav-label {
+  display: none;
+}
+
+.oa-adv-tabs .oa-adv-tabs__tab {
+  background: var(--oa-tabs-tab-bg);
+  border-radius: 14px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  text-align: left;
+  font-family: "Zalando Sans SemiExpanded", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.oa-adv-tabs .oa-adv-tabs__tab.is-active {
+  background: var(--oa-tabs-tab-bg-active);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.oa-adv-tabs .oa-adv-tabs__panels {
+  height: 100%;
+}
+
+.oa-adv-tabs .oa-adv-tabs__panel {
+  display: none;
+  background: var(--oa-tabs-panel-bg);
+  border: 1px solid var(--oa-tabs-panel-border);
+  border-radius: 18px;
+  padding: 24px;
+  color: #fff;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.oa-adv-tabs .oa-adv-tabs__panel.is-active {
+  display: flex;
+  height: 100%;
+}
+
+.oa-adv-tabs .oa-adv-tabs__panel h3 {
+  margin: 0 0 12px;
+  font-family: "Zalando Sans SemiExpanded", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.oa-adv-tabs .oa-adv-tabs__content {
+  line-height: 1.6;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.oa-adv-tabs .oa-adv-tabs__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.oa-adv-tabs .oa-adv-tabs__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 25px;
+  border-radius: 10px;
+  border: 1px solid #8467ff;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  background: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.oa-adv-tabs .oa-adv-tabs__button:hover {
+  color: #8467ff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 980px) {
+  .oa-adv-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .oa-adv-tabs .oa-adv-tabs__list-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .oa-adv-tabs .oa-adv-tabs__nav {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border-radius: 999px;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex: 0 0 auto;
+  }
+
+  .oa-adv-tabs .oa-adv-tabs__nav:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  .oa-adv-tabs .oa-adv-tabs__nav-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--oa-tabs-tab-bg-active);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 14px;
+    padding: 12px 18px;
+    font-family: "Zalando Sans SemiExpanded", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    max-width: 70%;
+    text-align: center;
+  }
+
+  .oa-adv-tabs .oa-adv-tabs__list {
+    display: block;
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+
+  .oa-adv-tabs .oa-adv-tabs__panels {
+    height: auto;
+  }
+
+  .oa-adv-tabs .oa-adv-tabs__panel {
+    min-height: auto;
+  }
+
+  .oa-adv-tabs .oa-adv-tabs__panel.is-active {
+    height: auto;
+  }
+}

@@ -1,0 +1,99 @@
+.oa-client-carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 40px 0;
+}
+
+.oa-client-carousel .oa-marquee-wrapper {
+  display: flex;
+  width: max-content;
+  animation: oa-marquee-scroll var(--oa-marquee-duration, 30s) linear infinite;
+  animation-direction: var(--oa-marquee-direction, normal);
+}
+
+.oa-client-carousel .oa-marquee-wrapper:hover {
+  animation-play-state: paused;
+}
+
+.oa-client-carousel .oa-marquee-track,
+.oa-client-carousel .oa-marquee-track-duplicate {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+}
+
+.oa-client-carousel .oa-marquee-item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  box-sizing: border-box;
+  width: clamp(90px, 12vw, 160px);
+}
+
+.oa-client-carousel .oa-marquee-item img {
+  width: 100%;
+  max-width: 100%;
+  max-height: 80px;
+  height: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.oa-client-carousel:not(.is-colour) .oa-marquee-item img {
+  filter: grayscale(100%);
+  opacity: 0.7;
+}
+
+.oa-client-carousel:not(.is-colour) .oa-marquee-item img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.oa-client-carousel.is-colour .oa-marquee-item img:hover {
+  transform: scale(1.05);
+}
+
+@keyframes oa-marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 980px) {
+  .oa-client-carousel .oa-marquee-item {
+    width: clamp(120px, 20vw, 210px);
+    padding: 0 10px;
+  }
+
+  .oa-client-carousel .oa-marquee-item img {
+    max-height: 80px;
+  }
+
+  .oa-client-carousel .oa-marquee-track,
+  .oa-client-carousel .oa-marquee-track-duplicate {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .oa-client-carousel .oa-marquee-item {
+    width: clamp(90px, 25vw, 130px);
+    padding: 0 2px;
+  }
+
+  .oa-client-carousel .oa-marquee-item img {
+    max-height: 90px;
+  }
+
+  .oa-client-carousel .oa-marquee-track,
+  .oa-client-carousel .oa-marquee-track-duplicate {
+    gap: 4px;
+  }
+}
