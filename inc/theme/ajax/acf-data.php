@@ -109,6 +109,62 @@ add_action('wp_footer', function() {
         }
     }
 
+    // Build team carousel dataset for About page team members
+    $team_carousel = [];
+    $team_member_ids = [];
+    if (isset($acf_data['page_content']) && is_array($acf_data['page_content'])) {
+        $page_content = $acf_data['page_content'];
+        $use_all = isset($page_content['team_use_all']) ? (bool) $page_content['team_use_all'] : true;
+        if ($use_all) {
+            $team_query = new WP_Query([
+                'post_type'      => 'team_members',
+                'post_status'    => 'publish',
+                'posts_per_page' => -1,
+                'orderby'        => [
+                    'menu_order' => 'ASC',
+                    'title'      => 'ASC',
+                ],
+            ]);
+            if ($team_query->have_posts()) {
+                while ($team_query->have_posts()) {
+                    $team_query->the_post();
+                    $team_member_ids[] = get_the_ID();
+                }
+                wp_reset_postdata();
+            }
+        } elseif (!empty($page_content['team_members']) && is_array($page_content['team_members'])) {
+            $team_member_ids = array_map('intval', $page_content['team_members']);
+        }
+    }
+
+    foreach ($team_member_ids as $member_id) {
+        $first_name = function_exists('get_field') ? (string) get_field('first_name', $member_id) : '';
+        $last_name = function_exists('get_field') ? (string) get_field('last_name', $member_id) : '';
+        $job_title = function_exists('get_field') ? (string) get_field('job_title', $member_id) : '';
+        $profile_image = function_exists('get_field') ? get_field('profile_image', $member_id) : '';
+
+        if (is_array($profile_image) && isset($profile_image['url'])) {
+            $image_url = $profile_image['url'];
+        } elseif (is_numeric($profile_image)) {
+            $image_url = wp_get_attachment_image_url((int) $profile_image, 'full') ?: '';
+        } else {
+            $image_url = is_string($profile_image) ? $profile_image : '';
+        }
+
+        $name = trim($first_name . ' ' . $last_name);
+        if ($name === '') {
+            $name = get_the_title($member_id);
+        }
+
+        $team_carousel[] = [
+            'id'        => $member_id,
+            'name'      => $name,
+            'job_title' => $job_title,
+            'image'     => $image_url,
+            'link'      => get_permalink($member_id),
+        ];
+    }
+
     // Convert false to empty array for JSON encoding
     if ($acf_data === false) {
         $acf_data = array();
@@ -118,6 +174,7 @@ add_action('wp_footer', function() {
     echo '<script type="text/javascript">';
     echo 'window.dtACFData = ' . json_encode($acf_data) . ';';
     echo 'window.oaClientLogos = ' . json_encode($client_logos) . ';';
+    echo 'window.oaTeamCarousel = ' . json_encode($team_carousel) . ';';
     echo 'window.dtPostId = ' . intval($post_id) . ';';
     echo 'window.dtAjaxUrl = "' . admin_url('admin-ajax.php') . '";';
     // Add debug info in development

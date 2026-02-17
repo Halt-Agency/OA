@@ -410,7 +410,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array"
+                            "return_format": "url"
                         }
                     ]
                 },
@@ -563,7 +563,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array"
+                            "return_format": "url"
                         }
                     ]
                 },
@@ -741,7 +741,7 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "return_format": "array"
+                                            "return_format": "url"
                                         }
                                     ]
                                 },
@@ -792,7 +792,7 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "return_format": "array"
+                                            "return_format": "url"
                                         }
                                     ]
                                 }
@@ -867,7 +867,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_location_buckinghamshire_tab_clients",
@@ -1042,7 +1042,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_location_buckinghamshire_experts_use_all",
@@ -1182,7 +1182,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_location_buckinghamshire_insights_source",
@@ -1395,7 +1395,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array"
+                            "return_format": "url"
                         }
                     ]
                 }
@@ -1420,5 +1420,5 @@
     "active": true,
     "description": "Fields for the Buckinghamshire page",
     "show_in_rest": 0,
-    "modified": 1769608947
+    "modified": 1771246445
 }

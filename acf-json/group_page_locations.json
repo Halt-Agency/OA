@@ -337,7 +337,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array"
+                            "return_format": "url"
                         },
                         {
                             "key": "field_locations_featured_card_photo",
@@ -528,7 +528,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array"
+                            "return_format": "url"
                         }
                     ]
                 }
@@ -553,5 +553,5 @@
     "active": true,
     "description": "Fields for the Locations page",
     "show_in_rest": 0,
-    "modified": 1769608947
+    "modified": 1771246445
 }

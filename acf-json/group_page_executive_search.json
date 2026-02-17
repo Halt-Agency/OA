@@ -371,7 +371,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_solution_executive_search_more_cards",
@@ -444,7 +444,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array"
+                            "return_format": "url"
                         }
                     ]
                 },
@@ -741,7 +741,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_solution_executive_search_experts_use_all",
@@ -900,7 +900,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_solution_executive_search_tab_other_solutions",
@@ -1114,7 +1114,7 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "return_format": "array"
+                                            "return_format": "url"
                                         }
                                     ]
                                 },
@@ -1165,7 +1165,7 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "return_format": "array"
+                                            "return_format": "url"
                                         }
                                     ]
                                 }
@@ -1259,7 +1259,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_solution_executive_search_insights_source",
@@ -1368,5 +1368,5 @@
     "active": true,
     "description": "Fields for the Executive Search page",
     "show_in_rest": 0,
-    "modified": 1769608947
+    "modified": 1771246445
 }

@@ -4,83 +4,121 @@
 
     function initMapTooltips() {
         var icons = document.querySelectorAll('[id^="icon-"]');
-        if (!icons.length) {
+        var buttons = document.querySelectorAll('.map-tooltip-button[data-tooltip]');
+        if (!icons.length && !buttons.length) {
             return;
         }
 
-        var tooltipMap = {};
-        var groupMap = {};
+        var tooltipBySuffix = {};
+        var buttonBySuffix = {};
+        var iconBySuffix = {};
+
+        function toSuffix(value) {
+            return String(value || '').toLowerCase().replace(/\s+/g, '-');
+        }
+
         icons.forEach(function(icon) {
             var suffix = icon.id.replace(/^icon-/, '');
             var tooltipId = 'tooltip-' + suffix;
             var tooltip = document.getElementById(tooltipId);
-            var group = icon.closest('[id^="group-"]') || document.getElementById('group-' + suffix);
             if (tooltip) {
-                tooltipMap[icon.id] = tooltip;
-                groupMap[icon.id] = group || null;
+                tooltipBySuffix[suffix] = tooltip;
+                iconBySuffix[suffix] = icon;
                 tooltip.style.display = 'none';
                 tooltip.setAttribute('aria-hidden', 'true');
             }
         });
 
-        function hideAll() {
-            Object.keys(tooltipMap).forEach(function(key) {
-                var tip = tooltipMap[key];
-                tip.style.display = 'none';
-                tip.setAttribute('aria-hidden', 'true');
+        buttons.forEach(function(button) {
+            var suffix = toSuffix(button.getAttribute('data-tooltip'));
+            if (!suffix) {
+                return;
+            }
+            buttonBySuffix[suffix] = button;
+            button.setAttribute('aria-pressed', 'false');
+        });
+
+        function deactivateButtons() {
+            Object.keys(buttonBySuffix).forEach(function(key) {
+                var btn = buttonBySuffix[key];
+                btn.classList.remove('is-active');
+                btn.setAttribute('aria-pressed', 'false');
             });
         }
 
-        function showFor(iconId) {
+        function deactivateIcons() {
+            Object.keys(iconBySuffix).forEach(function(key) {
+                var icon = iconBySuffix[key];
+                icon.classList.remove('is-active');
+            });
+        }
+
+        function hideAll() {
+            Object.keys(tooltipBySuffix).forEach(function(key) {
+                var tip = tooltipBySuffix[key];
+                tip.style.display = 'none';
+                tip.setAttribute('aria-hidden', 'true');
+            });
+            deactivateButtons();
+            deactivateIcons();
+        }
+
+        function showForSuffix(suffix) {
             hideAll();
-            var tip = tooltipMap[iconId];
+            var tip = tooltipBySuffix[suffix];
             if (tip) {
                 tip.style.display = 'block';
                 tip.setAttribute('aria-hidden', 'false');
             }
+            var btn = buttonBySuffix[suffix];
+            if (btn) {
+                btn.classList.add('is-active');
+                btn.setAttribute('aria-pressed', 'true');
+            }
+            var icon = iconBySuffix[suffix];
+            if (icon) {
+                icon.classList.add('is-active');
+            }
         }
 
         icons.forEach(function(icon) {
-            if (!tooltipMap[icon.id]) {
+            var suffix = icon.id.replace(/^icon-/, '');
+            if (!tooltipBySuffix[suffix]) {
                 return;
             }
-
-            icon.addEventListener('mouseenter', function() {
-                showFor(icon.id);
-            });
-            icon.addEventListener('focus', function() {
-                showFor(icon.id);
-            });
             icon.addEventListener('click', function(event) {
                 event.preventDefault();
-                var tip = tooltipMap[icon.id];
+                var tip = tooltipBySuffix[suffix];
                 if (!tip) {
                     return;
                 }
                 var isHidden = tip.getAttribute('aria-hidden') === 'true';
                 if (isHidden) {
-                    showFor(icon.id);
+                    showForSuffix(suffix);
                 } else {
                     hideAll();
                 }
             });
+        });
 
-            var tip = tooltipMap[icon.id];
-            if (tip) {
-                tip.addEventListener('mouseleave', function() {
+        buttons.forEach(function(button) {
+            var suffix = toSuffix(button.getAttribute('data-tooltip'));
+            if (!tooltipBySuffix[suffix]) {
+                return;
+            }
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                var tip = tooltipBySuffix[suffix];
+                if (!tip) {
+                    return;
+                }
+                var isHidden = tip.getAttribute('aria-hidden') === 'true';
+                if (isHidden) {
+                    showForSuffix(suffix);
+                } else {
                     hideAll();
-                });
-            }
-
-            var group = groupMap[icon.id];
-            if (group) {
-                group.addEventListener('mouseleave', hideAll);
-                group.addEventListener('focusout', function(event) {
-                    if (!group.contains(event.relatedTarget)) {
-                        hideAll();
-                    }
-                });
-            }
+                }
+            });
         });
 
         document.addEventListener('click', function(event) {
@@ -88,9 +126,10 @@
             if (!target) {
                 return;
             }
+            var button = target.closest && target.closest('.map-tooltip-button');
             var icon = target.closest && target.closest('[id^="icon-"]');
-            var group = target.closest && target.closest('[id^="group-"]');
-            if (!icon && !group) {
+            var tooltip = target.closest && target.closest('[id^="tooltip-"]');
+            if (!button && !icon && !tooltip) {
                 hideAll();
             }
         });

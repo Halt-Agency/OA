@@ -403,7 +403,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_more_on_boarding_and_training_tab_request",
@@ -651,7 +651,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_more_on_boarding_and_training_experts_use_all",
@@ -810,7 +810,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 }
             ]
         }
@@ -833,5 +833,5 @@
     "active": true,
     "description": "Fields for the On-Boarding & Training page",
     "show_in_rest": 0,
-    "modified": 1769608947
+    "modified": 1771246445
 }

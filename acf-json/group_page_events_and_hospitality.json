@@ -464,7 +464,7 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "return_format": "array"
+                                            "return_format": "url"
                                         }
                                     ]
                                 },
@@ -515,7 +515,7 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "return_format": "array"
+                                            "return_format": "url"
                                         }
                                     ]
                                 }
@@ -590,7 +590,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_specialism_events_and_hospitality_tab_clients",
@@ -746,7 +746,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_specialism_events_and_hospitality_locations_map_image",
@@ -844,7 +844,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_specialism_events_and_hospitality_experts_use_all",
@@ -1218,7 +1218,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_specialism_events_and_hospitality_insights_source",
@@ -1431,7 +1431,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array"
+                            "return_format": "url"
                         }
                     ]
                 }
@@ -1456,5 +1456,5 @@
     "active": true,
     "description": "Fields for the Events & Hospitality page",
     "show_in_rest": 0,
-    "modified": 1769608947
+    "modified": 1771246445
 }

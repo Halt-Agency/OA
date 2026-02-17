@@ -331,7 +331,7 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "return_format": "array"
+                                    "return_format": "url"
                                 }
                             ]
                         },
@@ -385,7 +385,7 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "return_format": "array"
+                                    "return_format": "url"
                                 }
                             ]
                         }
@@ -599,7 +599,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array",
+                            "return_format": "url",
                             "parent_repeater": "field_home_solutions_primary"
                         }
                     ]
@@ -660,7 +660,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array",
+                            "return_format": "url",
                             "parent_repeater": "field_home_solutions_secondary"
                         }
                     ]
@@ -874,7 +874,7 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "return_format": "array"
+                                            "return_format": "url"
                                         }
                                     ]
                                 },
@@ -928,7 +928,7 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "return_format": "array"
+                                            "return_format": "url"
                                         }
                                     ]
                                 }
@@ -1068,7 +1068,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_home_tab_testimonials",
@@ -1220,7 +1220,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_home_tab_conversation",
@@ -1358,7 +1358,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array",
+                            "return_format": "url",
                             "parent_repeater": "field_home_conversation_cards"
                         }
                     ]
@@ -1387,5 +1387,5 @@
     "description": "Fields for the home page",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1770816966
+    "modified": 1771246445
 }

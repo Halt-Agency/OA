@@ -138,5 +138,26 @@ function dt_enqueue_assets() {
             true
         );
     }
+
+    $team_carousel_css_path = get_stylesheet_directory() . '/assets/css/team-carousel.css';
+    if (file_exists($team_carousel_css_path)) {
+        wp_enqueue_style(
+            'child-team-carousel',
+            get_stylesheet_directory_uri() . '/assets/css/team-carousel.css',
+            ['child-style'],
+            filemtime($team_carousel_css_path)
+        );
+    }
+
+    $team_carousel_js_path = get_stylesheet_directory() . '/assets/js/team-carousel.js';
+    if (file_exists($team_carousel_js_path)) {
+        wp_enqueue_script(
+            'child-team-carousel',
+            get_stylesheet_directory_uri() . '/assets/js/team-carousel.js',
+            [],
+            filemtime($team_carousel_js_path),
+            true
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'dt_enqueue_assets');

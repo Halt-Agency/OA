@@ -285,7 +285,7 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "return_format": "array"
+                                    "return_format": "url"
                                 }
                             ]
                         },
@@ -339,7 +339,7 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "return_format": "array"
+                                    "return_format": "url"
                                 }
                             ]
                         }
@@ -784,7 +784,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array",
+                            "return_format": "url",
                             "parent_repeater": "field_about_awards_logos"
                         }
                     ]
@@ -881,7 +881,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_about_uk_map_image",
@@ -1796,7 +1796,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_about_team_use_all",
@@ -2017,7 +2017,8 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "return_format": "array"
+                                    "return_format": "url",
+                                    "allow_in_bindings": 1
                                 }
                             ]
                         },
@@ -2071,7 +2072,7 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "return_format": "array"
+                                    "return_format": "url"
                                 }
                             ]
                         }
@@ -2189,7 +2190,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_about_internal_news_source",
@@ -2420,7 +2421,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array",
+                            "return_format": "url",
                             "parent_repeater": "field_about_conversation_cards"
                         }
                     ]
@@ -2449,5 +2450,5 @@
     "description": "Fields for the about page",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1770909323
+    "modified": 1771246171
 }

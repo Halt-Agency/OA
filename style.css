@@ -43,3 +43,47 @@ Primary Branch: main
 [id^="icon-"] {
   cursor: default;
 }
+/* Map tooltip buttons */
+.map-tooltip-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.map-tooltip-button {
+  background: transparent;
+  border: 1.5px solid #8467ff;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 35px;
+  text-align: center;
+  width: 100%;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.map-tooltip-button:hover,
+.map-tooltip-button.is-active {
+  background: rgba(132, 103, 255, 0.05);
+  color: #8467ff;
+}
+
+[id^="icon-"].is-active {
+  color: #8467ff;
+}
+
+[id^="icon-"].is-active svg,
+[id^="icon-"].is-active svg path {
+  fill: #8467ff;
+}
+
+[id^="icon-"].is-active .et-pb-icon {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+[id^="icon-"].is-active .et-pb-icon::before {
+  color: rgba(255, 255, 255, 0.5) !important;
+}

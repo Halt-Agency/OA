@@ -394,7 +394,7 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "return_format": "array"
+                                            "return_format": "url"
                                         }
                                     ]
                                 },
@@ -445,7 +445,7 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "return_format": "array"
+                                            "return_format": "url"
                                         }
                                     ]
                                 }
@@ -578,7 +578,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array"
+                            "return_format": "url"
                         }
                     ]
                 }
@@ -603,5 +603,5 @@
     "active": true,
     "description": "Fields for the Specialisms page",
     "show_in_rest": 0,
-    "modified": 1769608947
+    "modified": 1771246445
 }

@@ -316,7 +316,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "url"
                 },
                 {
                     "key": "field_contact_locations",
@@ -579,7 +579,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array"
+                            "return_format": "url"
                         }
                     ]
                 }
@@ -604,5 +604,5 @@
     "active": true,
     "description": "Fields for the Contact page",
     "show_in_rest": 0,
-    "modified": 1769608947
+    "modified": 1771246445
 }
