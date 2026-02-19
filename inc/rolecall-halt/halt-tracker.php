@@ -102,8 +102,11 @@ final class Halt_Tracker_Plugin {
         add_action( 'rest_api_init', [ $this, 'register_rest_routes' ] );
         add_action( 'et_pb_contact_form_submit', [ $this, 'handle_divi_submission' ], 10, 2 );
         add_action( self::PROCESS_HOOK, [ $this, 'process_queue' ] );
+        add_filter( 'post_row_actions', [ $this, 'add_internal_job_duplicate_row_action' ], 10, 2 );
+        add_action( 'admin_action_halt_duplicate_internal_job', [ $this, 'handle_duplicate_internal_job' ] );
         
         add_action( 'init', [ $this, 'register_job_post_type' ] );
+        add_action( 'init', [ $this, 'register_internal_job_post_type' ] );
         add_action( 'halt_tracker_sync_jobs', [ $this, 'sync_jobs_from_tracker' ] );
     }
 
@@ -122,6 +125,7 @@ final class Halt_Tracker_Plugin {
         }
         // Flush rewrite rules for custom post type
         $plugin->register_job_post_type();
+        $plugin->register_internal_job_post_type();
         flush_rewrite_rules();
     }
 
@@ -1636,6 +1640,118 @@ final class Halt_Tracker_Plugin {
             'supports'           => [ 'title', 'editor', 'excerpt', 'custom-fields' ],
             'rewrite'            => [ 'slug' => 'jobs' ],
         ] );
+    }
+
+    /**
+     * Register custom post type for internal jobs.
+     */
+    public function register_internal_job_post_type() {
+        register_post_type( 'internal_job', [
+            'labels' => [
+                'name'               => __( 'Internal Jobs', 'halt-tracker' ),
+                'singular_name'      => __( 'Internal Job', 'halt-tracker' ),
+                'add_new'            => __( 'Add New Internal Job', 'halt-tracker' ),
+                'add_new_item'       => __( 'Add New Internal Job', 'halt-tracker' ),
+                'edit_item'          => __( 'Edit Internal Job', 'halt-tracker' ),
+                'new_item'           => __( 'New Internal Job', 'halt-tracker' ),
+                'view_item'          => __( 'View Internal Job', 'halt-tracker' ),
+                'search_items'       => __( 'Search Internal Jobs', 'halt-tracker' ),
+                'not_found'          => __( 'No internal jobs found', 'halt-tracker' ),
+                'not_found_in_trash' => __( 'No internal jobs found in trash', 'halt-tracker' ),
+            ],
+            'public'             => true,
+            'has_archive'        => false,
+            'show_in_rest'       => true,
+            'menu_icon'          => 'dashicons-businessperson',
+            'show_in_menu'       => 'edit.php?post_type=oa_job',
+            'supports'           => [ 'title', 'custom-fields' ],
+            'rewrite'            => [ 'slug' => 'internal-jobs' ],
+        ] );
+    }
+
+    /**
+     * Add duplicate action to Internal Jobs row actions.
+     */
+    public function add_internal_job_duplicate_row_action( $actions, $post ) {
+        if ( ! $post instanceof \WP_Post || 'internal_job' !== $post->post_type ) {
+            return $actions;
+        }
+
+        if ( ! current_user_can( 'edit_post', $post->ID ) ) {
+            return $actions;
+        }
+
+        $url = wp_nonce_url(
+            admin_url( 'admin.php?action=halt_duplicate_internal_job&post=' . $post->ID ),
+            'halt_duplicate_internal_job_' . $post->ID
+        );
+
+        $actions['halt_duplicate_internal_job'] = '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Duplicate', 'halt-tracker' ) . '</a>';
+
+        return $actions;
+    }
+
+    /**
+     * Handle Internal Job duplication request.
+     */
+    public function handle_duplicate_internal_job() {
+        if ( ! is_admin() ) {
+            wp_die( esc_html__( 'Invalid request.', 'halt-tracker' ) );
+        }
+
+        $source_id = isset( $_GET['post'] ) ? absint( $_GET['post'] ) : 0;
+        if ( ! $source_id ) {
+            wp_die( esc_html__( 'Missing source post.', 'halt-tracker' ) );
+        }
+
+        check_admin_referer( 'halt_duplicate_internal_job_' . $source_id );
+
+        $source_post = get_post( $source_id );
+        if ( ! $source_post || 'internal_job' !== $source_post->post_type ) {
+            wp_die( esc_html__( 'Invalid source post.', 'halt-tracker' ) );
+        }
+
+        if ( ! current_user_can( 'edit_post', $source_id ) ) {
+            wp_die( esc_html__( 'Insufficient permissions.', 'halt-tracker' ) );
+        }
+
+        $new_post_id = wp_insert_post(
+            [
+                'post_type'    => 'internal_job',
+                'post_status'  => 'draft',
+                'post_title'   => $source_post->post_title . ' (Copy)',
+                'post_content' => $source_post->post_content,
+                'post_excerpt' => $source_post->post_excerpt,
+                'post_parent'  => $source_post->post_parent,
+                'menu_order'   => $source_post->menu_order,
+            ],
+            true
+        );
+
+        if ( is_wp_error( $new_post_id ) ) {
+            wp_die( esc_html( $new_post_id->get_error_message() ) );
+        }
+
+        $meta = get_post_meta( $source_id );
+        foreach ( $meta as $meta_key => $values ) {
+            if ( in_array( $meta_key, [ '_edit_lock', '_edit_last' ], true ) ) {
+                continue;
+            }
+            foreach ( $values as $value ) {
+                add_post_meta( $new_post_id, $meta_key, maybe_unserialize( $value ) );
+            }
+        }
+
+        $taxonomies = get_object_taxonomies( 'internal_job', 'names' );
+        foreach ( $taxonomies as $taxonomy ) {
+            $terms = wp_get_object_terms( $source_id, $taxonomy, [ 'fields' => 'ids' ] );
+            if ( ! is_wp_error( $terms ) ) {
+                wp_set_object_terms( $new_post_id, $terms, $taxonomy );
+            }
+        }
+
+        wp_safe_redirect( admin_url( 'post.php?post=' . $new_post_id . '&action=edit' ) );
+        exit;
     }
 
     /**

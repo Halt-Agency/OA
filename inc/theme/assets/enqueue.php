@@ -42,18 +42,6 @@ function dt_enqueue_assets() {
         );
     }
 
-    // Custom JS script
-    $custom_js_path = get_stylesheet_directory() . '/custom.js';
-    if (file_exists($custom_js_path)) {
-        wp_enqueue_script(
-            'custom-scripts',
-            get_stylesheet_directory_uri() . '/custom.js',
-            ['jquery'], 
-            filemtime($custom_js_path),
-            true
-        );
-    }
-
     $number_animation_js_path = get_stylesheet_directory() . '/assets/js/number-animation.js';
     if (file_exists($number_animation_js_path)) {
         wp_enqueue_script(
@@ -61,6 +49,28 @@ function dt_enqueue_assets() {
             get_stylesheet_directory_uri() . '/assets/js/number-animation.js',
             [],
             filemtime($number_animation_js_path),
+            true
+        );
+    }
+
+    $text_limit_js_path = get_stylesheet_directory() . '/assets/js/text-limit.js';
+    if (file_exists($text_limit_js_path)) {
+        wp_enqueue_script(
+            'child-text-limit',
+            get_stylesheet_directory_uri() . '/assets/js/text-limit.js',
+            [],
+            filemtime($text_limit_js_path),
+            true
+        );
+    }
+
+    $internal_jobs_visibility_js_path = get_stylesheet_directory() . '/assets/js/internal-jobs-visibility.js';
+    if (file_exists($internal_jobs_visibility_js_path)) {
+        wp_enqueue_script(
+            'child-internal-jobs-visibility',
+            get_stylesheet_directory_uri() . '/assets/js/internal-jobs-visibility.js',
+            [],
+            filemtime($internal_jobs_visibility_js_path),
             true
         );
     }

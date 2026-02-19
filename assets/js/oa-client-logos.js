@@ -1,4 +1,24 @@
 (function () {
+  function populateTrack(track, items, repeatCount) {
+    track.innerHTML = '';
+    for (let i = 0; i < repeatCount; i += 1) {
+      items.forEach(function (item) {
+        const itemEl = document.createElement('div');
+        itemEl.className = 'oa-marquee-item';
+
+        const img = document.createElement('img');
+        img.src = item.url;
+        img.alt = item.alt || '';
+        if (item.title) {
+          img.title = item.title;
+        }
+
+        itemEl.appendChild(img);
+        track.appendChild(itemEl);
+      });
+    }
+  }
+
   function buildCarousel(container, items, variant) {
     const wrapper = document.createElement('div');
     wrapper.className = 'oa-marquee-wrapper';
@@ -9,26 +29,6 @@
     const duplicate = document.createElement('div');
     duplicate.className = 'oa-marquee-track oa-marquee-track-duplicate';
 
-    const createItem = function (item) {
-      const itemEl = document.createElement('div');
-      itemEl.className = 'oa-marquee-item';
-
-      const img = document.createElement('img');
-      img.src = item.url;
-      img.alt = item.alt || '';
-      if (item.title) {
-        img.title = item.title;
-      }
-
-      itemEl.appendChild(img);
-      return itemEl;
-    };
-
-    items.forEach(function (item) {
-      track.appendChild(createItem(item));
-      duplicate.appendChild(createItem(item));
-    });
-
     wrapper.appendChild(track);
     wrapper.appendChild(duplicate);
 
@@ -37,7 +37,20 @@
     container.classList.add('oa-client-carousel');
     if (variant === 'colour') {
       container.classList.add('is-colour');
+    } else {
+      container.classList.remove('is-colour');
     }
+
+    // Ensure each half-track is wide enough to avoid visible gaps.
+    populateTrack(track, items, 1);
+    const baseWidth = track.scrollWidth || 0;
+    const containerWidth = container.clientWidth || 0;
+    const minTargetWidth = containerWidth * 1.2;
+    const repeatCount =
+      baseWidth > 0 ? Math.max(1, Math.ceil(minTargetWidth / baseWidth)) : 1;
+
+    populateTrack(track, items, repeatCount);
+    populateTrack(duplicate, items, repeatCount);
   }
 
   function initContainer(container) {
@@ -105,5 +118,15 @@
       '.client-carousel-white, .client-carousel-colour'
     );
     containers.forEach(initContainer);
+
+    let resizeTimeout = null;
+    window.addEventListener('resize', function () {
+      if (resizeTimeout) {
+        window.clearTimeout(resizeTimeout);
+      }
+      resizeTimeout = window.setTimeout(function () {
+        containers.forEach(initContainer);
+      }, 150);
+    });
   });
 })();

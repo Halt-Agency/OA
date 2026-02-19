@@ -499,11 +499,11 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_work_for_us_opportunities_use_all",
-                    "label": "Use All OA Jobs",
-                    "name": "opportunities_use_all",
-                    "type": "true_false",
-                    "instructions": "If enabled, the section uses all OA Job posts and their menu order.\nDivi key: page_content_opportunities_use_all",
+                    "key": "field_work_for_us_opportunities_no_jobs_text",
+                    "label": "No Jobs Text",
+                    "name": "opportunities_no_jobs_text",
+                    "type": "textarea",
+                    "instructions": "Displayed when there are no internal job posts.\nDivi key: page_content_opportunities_no_jobs_text",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -511,44 +511,11 @@
                         "class": "",
                         "id": ""
                     },
-                    "message": "",
-                    "default_value": 1,
-                    "ui": 1,
-                    "ui_on_text": "All OA Jobs",
-                    "ui_off_text": "Manual Select"
-                },
-                {
-                    "key": "field_work_for_us_opportunities_jobs",
-                    "label": "OA Jobs",
-                    "name": "opportunities_jobs",
-                    "type": "relationship",
-                    "instructions": "Select OA Job posts to include when Manual Select is chosen.\nDivi key: page_content_opportunities_jobs",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_work_for_us_opportunities_use_all",
-                                "operator": "==",
-                                "value": "0"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [
-                        "oa_job"
-                    ],
-                    "taxonomy": "",
-                    "filters": [
-                        "search"
-                    ],
-                    "elements": "",
-                    "min": "",
-                    "max": "",
-                    "return_format": "id"
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 3,
+                    "new_lines": "wpautop"
                 },
                 {
                     "key": "field_work_for_us_tab_internal_news",

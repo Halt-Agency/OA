@@ -1,0 +1,138 @@
+{
+    "key": "group_internal_jobs",
+    "title": "Internal Job Fields",
+    "fields": [
+        {
+            "key": "field_internal_job_title",
+            "label": "Job Title",
+            "name": "job_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Divi key: job_title",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_internal_job_contract_type",
+            "label": "Contract Type",
+            "name": "contract_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Divi key: contract_type",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "full_time": "Full Time",
+                "part_time": "Part Time"
+            },
+            "default_value": false,
+            "return_format": "label",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_internal_job_location",
+            "label": "Location",
+            "name": "location",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Divi key: location",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_internal_job_consultant",
+            "label": "Consultant",
+            "name": "consultant",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Divi key: consultant",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "team_members"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": 1,
+            "return_format": "id"
+        },
+        {
+            "key": "field_internal_job_description",
+            "label": "Job Description",
+            "name": "job_description",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Divi key: job_description",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "internal_job"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for the Internal Jobs post type",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1771329600
+}

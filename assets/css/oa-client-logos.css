@@ -1,4 +1,5 @@
 .oa-client-carousel {
+  --oa-logo-gap: 100px;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -7,6 +8,7 @@
 
 .oa-client-carousel .oa-marquee-wrapper {
   display: flex;
+  column-gap: var(--oa-logo-gap);
   width: max-content;
   animation: oa-marquee-scroll var(--oa-marquee-duration, 30s) linear infinite;
   animation-direction: var(--oa-marquee-direction, normal);
@@ -19,7 +21,7 @@
 .oa-client-carousel .oa-marquee-track,
 .oa-client-carousel .oa-marquee-track-duplicate {
   display: flex;
-  gap: 30px;
+  gap: var(--oa-logo-gap);
   width: max-content;
 }
 
@@ -28,16 +30,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 10px;
+  padding: 0;
   box-sizing: border-box;
-  width: clamp(90px, 12vw, 160px);
+  width: auto;
 }
 
 .oa-client-carousel .oa-marquee-item img {
-  width: 100%;
-  max-width: 100%;
-  max-height: 80px;
-  height: auto;
+  width: auto;
+  max-width: none;
+  height: clamp(135px, 13.5vw, 180px);
+  max-height: 85px;
   object-fit: contain;
   transition: all 0.3s ease;
 }
@@ -67,33 +69,49 @@
 }
 
 @media (max-width: 980px) {
+  .oa-client-carousel {
+    --oa-logo-gap: 60px;
+  }
+
   .oa-client-carousel .oa-marquee-item {
-    width: clamp(120px, 20vw, 210px);
-    padding: 0 10px;
+    width: auto;
+    padding: 0;
   }
 
   .oa-client-carousel .oa-marquee-item img {
-    max-height: 80px;
+    height: clamp(150px, 21vw, 195px);
+    max-height: 85px;
   }
 
-  .oa-client-carousel .oa-marquee-track,
-  .oa-client-carousel .oa-marquee-track-duplicate {
-    gap: 24px;
-  }
 }
 
 @media (max-width: 768px) {
-  .oa-client-carousel .oa-marquee-item {
-    width: clamp(90px, 25vw, 130px);
-    padding: 0 2px;
+  .oa-client-carousel {
+    --oa-logo-gap: 40px;
   }
 
-  .oa-client-carousel .oa-marquee-item img {
-    max-height: 90px;
+  .client-carousel-colour,
+  .client-carousel-white {
+    --oa-marquee-duration: 10s !important;
+  }
+
+  .oa-client-carousel .oa-marquee-wrapper {
+    column-gap: 40px !important;
   }
 
   .oa-client-carousel .oa-marquee-track,
   .oa-client-carousel .oa-marquee-track-duplicate {
-    gap: 4px;
+    gap: 40px !important;
   }
+
+  .oa-client-carousel .oa-marquee-item {
+    width: auto;
+    padding: 0;
+  }
+
+  .oa-client-carousel .oa-marquee-item img {
+    height: clamp(123px, 27vw, 165px);
+    max-height: 85px;
+  }
+
 }

@@ -93,11 +93,68 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_candidates_intro_heading",
-                    "label": "Intro Heading",
-                    "name": "intro_heading",
+                    "key": "field_candidates_intro_heading_prefix",
+                    "label": "Intro Heading Prefix",
+                    "name": "intro_heading_prefix",
                     "type": "text",
-                    "instructions": "Divi key: page_content_intro_heading",
+                    "instructions": "Text before the underlined word or phrase.\nDivi key: page_content_intro_heading_prefix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_candidates_intro_heading_emphasis",
+                    "label": "Intro Heading Emphasis",
+                    "name": "intro_heading_emphasis",
+                    "type": "text",
+                    "instructions": "Underlined word or phrase.\nDivi key: page_content_intro_heading_emphasis",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_candidates_intro_heading_suffix",
+                    "label": "Intro Heading Suffix",
+                    "name": "intro_heading_suffix",
+                    "type": "text",
+                    "instructions": "Text after the underlined word or phrase.\nDivi key: page_content_intro_heading_suffix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_candidates_intro_callout_heading",
+                    "label": "Intro Callout Heading",
+                    "name": "intro_callout_heading",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_intro_callout_heading",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -153,44 +210,6 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": ""
-                },
-                {
-                    "key": "field_candidates_intro_callout_heading",
-                    "label": "Intro Callout Heading",
-                    "name": "intro_callout_heading",
-                    "type": "text",
-                    "instructions": "Divi key: page_content_intro_callout_heading",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_candidates_intro_callout_copy",
-                    "label": "Intro Callout Copy",
-                    "name": "intro_callout_copy",
-                    "type": "textarea",
-                    "instructions": "Divi key: page_content_intro_callout_copy",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": 4,
-                    "new_lines": "wpautop"
                 },
                 {
                     "key": "field_candidates_tab_industries",
