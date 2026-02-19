@@ -228,11 +228,49 @@
                     "endpoint": 0
                 },
                 {
-                    "key": "field_candidates_industries_heading",
-                    "label": "Heading",
-                    "name": "industries_heading",
+                    "key": "field_candidates_industries_heading_prefix",
+                    "label": "Heading Prefix",
+                    "name": "industries_heading_prefix",
                     "type": "text",
-                    "instructions": "Divi key: page_content_industries_heading",
+                    "instructions": "Text before the underlined word or phrase.\nDivi key: page_content_industries_heading_prefix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_candidates_industries_heading_emphasis",
+                    "label": "Heading Emphasis",
+                    "name": "industries_heading_emphasis",
+                    "type": "text",
+                    "instructions": "Underlined word or phrase.\nDivi key: page_content_industries_heading_emphasis",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_candidates_industries_heading_suffix",
+                    "label": "Heading Suffix",
+                    "name": "industries_heading_suffix",
+                    "type": "text",
+                    "instructions": "Text after the underlined word or phrase.\nDivi key: page_content_industries_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -521,8 +559,27 @@
                     "new_lines": "wpautop"
                 },
                 {
+                    "key": "field_candidates_job_cta_button_text",
+                    "label": "Button Text",
+                    "name": "job_cta_button_text",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_job_cta_button_text",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_candidates_job_cta_button",
-                    "label": "Button",
+                    "label": "Button Link",
                     "name": "job_cta_button",
                     "type": "link",
                     "instructions": "Divi key: page_content_job_cta_button",
