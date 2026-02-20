@@ -1,0 +1,167 @@
+{
+    "key": "group_uk_coverage_contacts_options",
+    "title": "UK Coverage Contacts",
+    "fields": [
+        {
+            "key": "field_uk_coverage_contacts_group",
+            "label": "Global UK Coverage Contacts",
+            "name": "uk_coverage_contacts",
+            "type": "group",
+            "instructions": "Select one point of contact per location. These can auto-populate page UK Coverage map cards.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_uk_coverage_contacts_bedfordshire",
+                    "label": "Bedfordshire Contact",
+                    "name": "bedfordshire",
+                    "type": "relationship",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "team_members"
+                    ],
+                    "taxonomy": "",
+                    "filters": [
+                        "search"
+                    ],
+                    "elements": "",
+                    "min": "",
+                    "max": 1,
+                    "return_format": "id"
+                },
+                {
+                    "key": "field_uk_coverage_contacts_buckinghamshire",
+                    "label": "Buckinghamshire Contact",
+                    "name": "buckinghamshire",
+                    "type": "relationship",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "team_members"
+                    ],
+                    "taxonomy": "",
+                    "filters": [
+                        "search"
+                    ],
+                    "elements": "",
+                    "min": "",
+                    "max": 1,
+                    "return_format": "id"
+                },
+                {
+                    "key": "field_uk_coverage_contacts_cambridgeshire",
+                    "label": "Cambridgeshire Contact",
+                    "name": "cambridgeshire",
+                    "type": "relationship",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "team_members"
+                    ],
+                    "taxonomy": "",
+                    "filters": [
+                        "search"
+                    ],
+                    "elements": "",
+                    "min": "",
+                    "max": 1,
+                    "return_format": "id"
+                },
+                {
+                    "key": "field_uk_coverage_contacts_hertfordshire",
+                    "label": "Hertfordshire Contact",
+                    "name": "hertfordshire",
+                    "type": "relationship",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "team_members"
+                    ],
+                    "taxonomy": "",
+                    "filters": [
+                        "search"
+                    ],
+                    "elements": "",
+                    "min": "",
+                    "max": 1,
+                    "return_format": "id"
+                },
+                {
+                    "key": "field_uk_coverage_contacts_north_london",
+                    "label": "North London Contact",
+                    "name": "north_london",
+                    "type": "relationship",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "team_members"
+                    ],
+                    "taxonomy": "",
+                    "filters": [
+                        "search"
+                    ],
+                    "elements": "",
+                    "min": "",
+                    "max": 1,
+                    "return_format": "id"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "uk-coverage-contacts"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Global UK coverage point-of-contact team members.",
+    "show_in_rest": 0,
+    "modified": 1771335000
+}

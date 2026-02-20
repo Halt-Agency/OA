@@ -808,6 +808,26 @@
                     "selected": 0
                 },
                 {
+                    "key": "field_about_uk_use_global_settings",
+                    "label": "Use Global UK Coverage Contacts",
+                    "name": "uk_use_global_settings",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "If enabled, location contacts are auto-populated from Team Members > UK Coverage Contacts.\nDivi key: page_content_uk_use_global_settings",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 1,
+                    "ui_on_text": "Global",
+                    "ui_off_text": "Per Page"
+                },
+                {
                     "key": "field_about_uk_heading",
                     "label": "Heading",
                     "name": "uk_heading",

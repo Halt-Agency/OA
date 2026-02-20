@@ -1,6 +1,7 @@
 <?php
 require_once get_stylesheet_directory() . '/inc/theme/assets/enqueue.php';
 require_once get_stylesheet_directory() . '/inc/theme/acf/json.php';
+require_once get_stylesheet_directory() . '/inc/theme/acf/options.php';
 require_once get_stylesheet_directory() . '/inc/theme/admin/ui.php';
 require_once get_stylesheet_directory() . '/inc/theme/cpt/clients.php';
 require_once get_stylesheet_directory() . '/inc/theme/cpt/events.php';
