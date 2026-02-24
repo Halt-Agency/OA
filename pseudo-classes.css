@@ -181,12 +181,12 @@
 .fan-blue-top-left::before {
   content: "";
   position: absolute;
-  left: 99%; /* adjust */
-  top: 20%; /* adjust */
+  left: -8%; /* adjust */
+  top: 0%; /* adjust */
   height: 83.9px;
-  aspect-ratio: 78.36 / 83.9;
+  aspect-ratio: 1 / 1;
   width: auto;
-  background: url("http://oa2.local/wp-content/uploads/2026/01/Group-416.svg") no-repeat;
+  background: url("http://oa2.local/wp-content/uploads/2026/02/blue-burst-top-left.png") no-repeat;
   background-size: contain;
   pointer-events: none;
   z-index: 5;
@@ -200,12 +200,12 @@
 .squiggle-pink-bottom-right::after {
   content: "";
   position: absolute;
-  left: 99%; /* adjust */
-  top: 20%; /* adjust */
-  height: 223.05px;
+  right: -2%; /* adjust */
+  bottom: 0%; /* adjust */
+  height: 70%;
   aspect-ratio: 25.88 / 223.05;
   width: auto;
-  background: url("http://oa2.local/wp-content/uploads/2026/01/Group-416.svg") no-repeat;
+  background: url("http://oa2.local/wp-content/uploads/2026/02/pink-zag.png") no-repeat;
   background-size: contain;
   pointer-events: none;
   z-index: 5;
@@ -219,15 +219,15 @@
 .burst-white-top-right::after {
   content: "";
   position: absolute;
-  left: 99%; /* adjust */
-  top: 20%; /* adjust */
-  height: 104.19px;
+  right: -2%; /* adjust */
+  top: -10%; /* adjust */
+  height: 90px;
   aspect-ratio: 80 / 104.19;
   width: auto;
-  background: url("http://oa2.local/wp-content/uploads/2026/01/Group-416.svg") no-repeat;
+  background: url("http://oa2.local/wp-content/uploads/2026/02/white-burst.png") no-repeat;
   background-size: contain;
   pointer-events: none;
-  z-index: 5;
+  z-index: 999;
 }
 
 .dot-burst-background {

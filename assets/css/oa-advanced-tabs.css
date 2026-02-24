@@ -15,14 +15,18 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  background: var(--oa-tabs-list-bg);
-  border: 1px solid var(--oa-tabs-list-border);
+  background: #23144a !important;
+  border: 1px solid #8467ff !important;
   border-radius: 16px;
-  padding: 16px;
+  padding: 1.5rem 1rem !important;
 }
 
 .oa-adv-tabs .oa-adv-tabs__nav,
 .oa-adv-tabs .oa-adv-tabs__nav-label {
+  display: none;
+}
+
+.oa-adv-tabs .oa-adv-tabs__panel-nav {
   display: none;
 }
 
@@ -51,10 +55,10 @@
 
 .oa-adv-tabs .oa-adv-tabs__panel {
   display: none;
-  background: var(--oa-tabs-panel-bg);
-  border: 1px solid var(--oa-tabs-panel-border);
+  background: #23144a !important;
+  border: 1px solid #8467ff !important;
   border-radius: 18px;
-  padding: 24px;
+  padding: 2rem 1.5rem !important;
   color: #fff;
   min-height: 100%;
   flex-direction: column;
@@ -80,6 +84,25 @@
   font-size: 16px;
   font-weight: 400;
   color: #fff;
+}
+
+.oa-adv-tabs .oa-adv-tabs__roles {
+  margin: 14px 0 0;
+  padding-left: 24px;
+  list-style: disc;
+  display: grid;
+  gap: 6px;
+}
+
+.oa-adv-tabs .oa-adv-tabs__role {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #fff;
+}
+
+.oa-adv-tabs .oa-adv-tabs__role::marker {
+  color: #8467ff;
 }
 
 .oa-adv-tabs .oa-adv-tabs__buttons {
@@ -116,12 +139,17 @@
   }
 
   .oa-adv-tabs .oa-adv-tabs__list-wrap {
-    display: flex;
+    display: none;
+  }
+
+  .oa-adv-tabs .oa-adv-tabs__panel-nav {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
-    width: 100%;
-    min-width: 0;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    z-index: 2;
   }
 
   .oa-adv-tabs .oa-adv-tabs__nav {
@@ -131,6 +159,9 @@
     border-radius: 999px;
     width: 36px;
     height: 36px;
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -141,22 +172,6 @@
   .oa-adv-tabs .oa-adv-tabs__nav:disabled {
     opacity: 0.4;
     cursor: default;
-  }
-
-  .oa-adv-tabs .oa-adv-tabs__nav-label {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--oa-tabs-tab-bg-active);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 14px;
-    padding: 12px 18px;
-    font-family: "Zalando Sans SemiExpanded", sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: #fff;
-    max-width: 70%;
-    text-align: center;
   }
 
   .oa-adv-tabs .oa-adv-tabs__list {
@@ -175,6 +190,12 @@
 
   .oa-adv-tabs .oa-adv-tabs__panel {
     min-height: auto;
+    position: relative;
+  }
+
+  .oa-adv-tabs .oa-adv-tabs__panel h3 {
+    padding-right: 96px;
+    min-height: 36px;
   }
 
   .oa-adv-tabs .oa-adv-tabs__panel.is-active {

@@ -286,10 +286,10 @@
                 },
                 {
                     "key": "field_candidates_industries",
-                    "label": "Industries",
-                    "name": "industries",
+                    "label": "Sectors",
+                    "name": "sectors",
                     "type": "repeater",
-                    "instructions": "Each industry renders as a left tab with content on the right.\nDivi key: page_content_industries",
+                    "instructions": "Each industry renders as a left tab with content on the right.\nDivi key: page_content_sectors",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -306,10 +306,10 @@
                     "sub_fields": [
                         {
                             "key": "field_candidates_industry_name",
-                            "label": "Industry Name",
-                            "name": "industry_name",
+                            "label": "Sector Name",
+                            "name": "sector_name",
                             "type": "text",
-                            "instructions": "Divi key: page_content_industries_0_industry_name",
+                            "instructions": "Divi key: page_content_sectors_0_sector_name",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -325,10 +325,10 @@
                         },
                         {
                             "key": "field_candidates_industry_intro",
-                            "label": "Industry Intro",
-                            "name": "industry_intro",
+                            "label": "Sector Copy",
+                            "name": "sector_copy",
                             "type": "textarea",
-                            "instructions": "Divi key: page_content_industries_0_industry_intro",
+                            "instructions": "Divi key: page_content_sectors_0_sector_copy",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -347,7 +347,7 @@
                             "label": "Industry Role List",
                             "name": "industry_roles",
                             "type": "repeater",
-                            "instructions": "Divi key: page_content_industries_0_industry_roles",
+                            "instructions": "Divi key: page_content_sectors_0_industry_roles",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -367,7 +367,7 @@
                                     "label": "Role",
                                     "name": "role",
                                     "type": "text",
-                                    "instructions": "Divi key: page_content_industries_0_industry_roles_0_role",
+                                    "instructions": "Divi key: page_content_sectors_0_industry_roles_0_role",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -382,13 +382,30 @@
                                     "maxlength": ""
                                 }
                             ]
-                        },
+                        }
+                    ]
+                },
+                {
+                    "key": "field_candidates_sector_buttons",
+                    "label": "Buttons",
+                    "name": "sector_buttons",
+                    "type": "group",
+                    "instructions": "Shared buttons for all tabs in this section.\nDivi key: page_content_sector_buttons",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "row",
+                    "sub_fields": [
                         {
-                            "key": "field_candidates_industry_buttons",
-                            "label": "Buttons",
-                            "name": "industry_buttons",
+                            "key": "field_candidates_sector_button_1",
+                            "label": "Button 1",
+                            "name": "button_1",
                             "type": "group",
-                            "instructions": "Divi key: page_content_industries_0_industry_buttons",
+                            "instructions": "Divi key: page_content_sector_buttons_button_1",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -399,11 +416,11 @@
                             "layout": "row",
                             "sub_fields": [
                                 {
-                                    "key": "field_candidates_industry_button_1",
-                                    "label": "Button 1",
-                                    "name": "button_1",
-                                    "type": "group",
-                                    "instructions": "Divi key: page_content_industries_0_industry_buttons_button_1",
+                                    "key": "field_candidates_sector_button_1_text",
+                                    "label": "Button 1 Text",
+                                    "name": "button_1_text",
+                                    "type": "text",
+                                    "instructions": "Divi key: page_content_sector_buttons_button_1_button_1_text",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -411,50 +428,18 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "layout": "row",
-                                    "sub_fields": [
-                                        {
-                                            "key": "field_candidates_industry_button_1_text",
-                                            "label": "Button 1 Text",
-                                            "name": "button_1_text",
-                                            "type": "text",
-                                            "instructions": "Divi key: page_content_industries_0_industry_buttons_button_1_button_1_text",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "prepend": "",
-                                            "append": "",
-                                            "maxlength": ""
-                                        },
-                                        {
-                                            "key": "field_candidates_industry_button_1_link",
-                                            "label": "Button 1 Link",
-                                            "name": "button_1_link",
-                                            "type": "link",
-                                            "instructions": "Divi key: page_content_industries_0_industry_buttons_button_1_button_1_link",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "return_format": "url"
-                                        }
-                                    ]
+                                    "default_value": "Search Opportunities",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
                                 },
                                 {
-                                    "key": "field_candidates_industry_button_2",
-                                    "label": "Button 2",
-                                    "name": "button_2",
-                                    "type": "group",
-                                    "instructions": "Divi key: page_content_industries_0_industry_buttons_button_2",
+                                    "key": "field_candidates_sector_button_1_link",
+                                    "label": "Button 1 Link",
+                                    "name": "button_1_link",
+                                    "type": "link",
+                                    "instructions": "Divi key: page_content_sector_buttons_button_1_button_1_link",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -462,43 +447,58 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "layout": "row",
-                                    "sub_fields": [
-                                        {
-                                            "key": "field_candidates_industry_button_2_text",
-                                            "label": "Button 2 Text",
-                                            "name": "button_2_text",
-                                            "type": "text",
-                                            "instructions": "Divi key: page_content_industries_0_industry_buttons_button_2_button_2_text",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "prepend": "",
-                                            "append": "",
-                                            "maxlength": ""
-                                        },
-                                        {
-                                            "key": "field_candidates_industry_button_2_link",
-                                            "label": "Button 2 Link",
-                                            "name": "button_2_link",
-                                            "type": "link",
-                                            "instructions": "Divi key: page_content_industries_0_industry_buttons_button_2_button_2_link",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "return_format": "url"
-                                        }
-                                    ]
+                                    "return_format": "array"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_candidates_sector_button_2",
+                            "label": "Button 2",
+                            "name": "button_2",
+                            "type": "group",
+                            "instructions": "Divi key: page_content_sector_buttons_button_2",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "row",
+                            "sub_fields": [
+                                {
+                                    "key": "field_candidates_sector_button_2_text",
+                                    "label": "Button 2 Text",
+                                    "name": "button_2_text",
+                                    "type": "text",
+                                    "instructions": "Divi key: page_content_sector_buttons_button_2_button_2_text",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "Send Us A Brief",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_candidates_sector_button_2_link",
+                                    "label": "Button 2 Link",
+                                    "name": "button_2_link",
+                                    "type": "link",
+                                    "instructions": "Divi key: page_content_sector_buttons_button_2_button_2_link",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array"
                                 }
                             ]
                         }
@@ -626,85 +626,6 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
-                },
-                {
-                    "key": "field_candidates_reviews",
-                    "label": "Reviews",
-                    "name": "reviews",
-                    "type": "repeater",
-                    "instructions": "Divi key: page_content_reviews",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "collapsed": "field_candidates_review_name",
-                    "min": 0,
-                    "max": 0,
-                    "layout": "row",
-                    "button_label": "Add Review",
-                    "rows_per_page": 20,
-                    "sub_fields": [
-                        {
-                            "key": "field_candidates_review_quote",
-                            "label": "Quote",
-                            "name": "quote",
-                            "type": "textarea",
-                            "instructions": "Divi key: page_content_reviews_0_quote",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": 4,
-                            "new_lines": "wpautop"
-                        },
-                        {
-                            "key": "field_candidates_review_name",
-                            "label": "Name",
-                            "name": "name",
-                            "type": "text",
-                            "instructions": "Divi key: page_content_reviews_0_name",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_candidates_review_role",
-                            "label": "Role",
-                            "name": "role",
-                            "type": "text",
-                            "instructions": "Divi key: page_content_reviews_0_role",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        }
-                    ]
                 },
                 {
                     "key": "field_candidates_tab_journey",
@@ -1262,25 +1183,6 @@
                     "endpoint": 0
                 },
                 {
-                    "key": "field_candidates_uk_use_global_settings",
-                    "label": "Use Global UK Coverage Contacts",
-                    "name": "uk_use_global_settings",
-                    "type": "true_false",
-                    "instructions": "If enabled, location contacts are auto-populated from Team Members > UK Coverage Contacts.\nDivi key: page_content_uk_use_global_settings",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 1,
-                    "ui": 1,
-                    "ui_on_text": "Global",
-                    "ui_off_text": "Per Page"
-                },
-                {
                     "key": "field_candidates_uk_heading",
                     "label": "Heading",
                     "name": "uk_heading",
@@ -1319,40 +1221,6 @@
                     "delay": 0
                 },
                 {
-                    "key": "field_candidates_uk_button_text",
-                    "label": "Button Text",
-                    "name": "uk_button_text",
-                    "type": "text",
-                    "instructions": "Divi key: page_content_uk_button_text",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_candidates_uk_button",
-                    "label": "Button",
-                    "name": "uk_button",
-                    "type": "link",
-                    "instructions": "Divi key: page_content_uk_button",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "url"
-                },
-                {
                     "key": "field_candidates_uk_map_image",
                     "label": "Map Image",
                     "name": "uk_map_image",
@@ -1375,543 +1243,6 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": ""
-                },
-                {
-                    "key": "field_candidates_uk_map_card",
-                    "label": "Map Card",
-                    "name": "uk_map_card",
-                    "type": "group",
-                    "instructions": "Divi key: page_content_uk_map_card",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_candidates_uk_map_card_bedfordshire",
-                            "label": "Bedfordshire",
-                            "name": "bedfordshire",
-                            "type": "group",
-                            "instructions": "Divi key: page_content_uk_map_card_bedfordshire",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_candidates_uk_map_card_bedfordshire_team_member",
-                                    "label": "Team Member",
-                                    "name": "team_member",
-                                    "type": "relationship",
-                                    "instructions": "Divi key: page_content_uk_map_card_bedfordshire_team_member",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "post_type": [
-                                        "team_members"
-                                    ],
-                                    "taxonomy": "",
-                                    "filters": [
-                                        "search"
-                                    ],
-                                    "elements": "",
-                                    "min": "",
-                                    "max": 1,
-                                    "return_format": "id",
-                                    "bidirectional_target": []
-                                },
-                                {
-                                    "key": "field_candidates_uk_map_card_bedfordshire_team_member_image",
-                                    "label": "Team Member Image",
-                                    "name": "team_member_image",
-                                    "type": "image",
-                                    "instructions": "Auto-filled from team member profile image.\nDivi key: page_content_uk_map_card_bedfordshire_team_member_image",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "url",
-                                    "preview_size": "medium",
-                                    "library": "all",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": ""
-                                },
-                                {
-                                    "key": "field_candidates_uk_map_card_bedfordshire_team_member_name",
-                                    "label": "Team Member Name",
-                                    "name": "team_member_name",
-                                    "type": "text",
-                                    "instructions": "Auto-filled from team member name.\nDivi key: page_content_uk_map_card_bedfordshire_team_member_name",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_candidates_uk_map_card_bedfordshire_team_member_email",
-                                    "label": "Team Member Email",
-                                    "name": "team_member_email",
-                                    "type": "email",
-                                    "instructions": "Auto-filled from team member email.\nDivi key: page_content_uk_map_card_bedfordshire_team_member_email",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": ""
-                                }
-                            ]
-                        },
-                        {
-                            "key": "field_candidates_uk_map_card_buckinghamshire",
-                            "label": "Buckinghamshire",
-                            "name": "buckinghamshire",
-                            "type": "group",
-                            "instructions": "Divi key: page_content_uk_map_card_buckinghamshire",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_candidates_uk_map_card_buckinghamshire_team_member",
-                                    "label": "Team Member",
-                                    "name": "team_member",
-                                    "type": "relationship",
-                                    "instructions": "Divi key: page_content_uk_map_card_buckinghamshire_team_member",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "post_type": [
-                                        "team_members"
-                                    ],
-                                    "taxonomy": "",
-                                    "filters": [
-                                        "search"
-                                    ],
-                                    "elements": "",
-                                    "min": "",
-                                    "max": 1,
-                                    "return_format": "id",
-                                    "bidirectional_target": []
-                                },
-                                {
-                                    "key": "field_candidates_uk_map_card_buckinghamshire_team_member_image",
-                                    "label": "Team Member Image",
-                                    "name": "team_member_image",
-                                    "type": "image",
-                                    "instructions": "Auto-filled from team member profile image.\nDivi key: page_content_uk_map_card_buckinghamshire_team_member_image",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "url",
-                                    "preview_size": "medium",
-                                    "library": "all",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": ""
-                                },
-                                {
-                                    "key": "field_candidates_uk_map_card_buckinghamshire_team_member_name",
-                                    "label": "Team Member Name",
-                                    "name": "team_member_name",
-                                    "type": "text",
-                                    "instructions": "Auto-filled from team member name.\nDivi key: page_content_uk_map_card_buckinghamshire_team_member_name",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_candidates_uk_map_card_buckinghamshire_team_member_email",
-                                    "label": "Team Member Email",
-                                    "name": "team_member_email",
-                                    "type": "email",
-                                    "instructions": "Auto-filled from team member email.\nDivi key: page_content_uk_map_card_buckinghamshire_team_member_email",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": ""
-                                }
-                            ]
-                        },
-                        {
-                            "key": "field_candidates_uk_map_card_cambridgeshire",
-                            "label": "Cambridgeshire",
-                            "name": "cambridgeshire",
-                            "type": "group",
-                            "instructions": "Divi key: page_content_uk_map_card_cambridgeshire",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_candidates_uk_map_card_cambridgeshire_team_member",
-                                    "label": "Team Member",
-                                    "name": "team_member",
-                                    "type": "relationship",
-                                    "instructions": "Divi key: page_content_uk_map_card_cambridgeshire_team_member",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "post_type": [
-                                        "team_members"
-                                    ],
-                                    "taxonomy": "",
-                                    "filters": [
-                                        "search"
-                                    ],
-                                    "elements": "",
-                                    "min": "",
-                                    "max": 1,
-                                    "return_format": "id",
-                                    "bidirectional_target": []
-                                },
-                                {
-                                    "key": "field_candidates_uk_map_card_cambridgeshire_team_member_image",
-                                    "label": "Team Member Image",
-                                    "name": "team_member_image",
-                                    "type": "image",
-                                    "instructions": "Auto-filled from team member profile image.\nDivi key: page_content_uk_map_card_cambridgeshire_team_member_image",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "url",
-                                    "preview_size": "medium",
-                                    "library": "all",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": ""
-                                },
-                                {
-                                    "key": "field_candidates_uk_map_card_cambridgeshire_team_member_name",
-                                    "label": "Team Member Name",
-                                    "name": "team_member_name",
-                                    "type": "text",
-                                    "instructions": "Auto-filled from team member name.\nDivi key: page_content_uk_map_card_cambridgeshire_team_member_name",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_candidates_uk_map_card_cambridgeshire_team_member_email",
-                                    "label": "Team Member Email",
-                                    "name": "team_member_email",
-                                    "type": "email",
-                                    "instructions": "Auto-filled from team member email.\nDivi key: page_content_uk_map_card_cambridgeshire_team_member_email",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": ""
-                                }
-                            ]
-                        },
-                        {
-                            "key": "field_candidates_uk_map_card_hertfordshire",
-                            "label": "Hertfordshire",
-                            "name": "hertfordshire",
-                            "type": "group",
-                            "instructions": "Divi key: page_content_uk_map_card_hertfordshire",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_candidates_uk_map_card_hertfordshire_team_member",
-                                    "label": "Team Member",
-                                    "name": "team_member",
-                                    "type": "relationship",
-                                    "instructions": "Divi key: page_content_uk_map_card_hertfordshire_team_member",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "post_type": [
-                                        "team_members"
-                                    ],
-                                    "taxonomy": "",
-                                    "filters": [
-                                        "search"
-                                    ],
-                                    "elements": "",
-                                    "min": "",
-                                    "max": 1,
-                                    "return_format": "id",
-                                    "bidirectional_target": []
-                                },
-                                {
-                                    "key": "field_candidates_uk_map_card_hertfordshire_team_member_image",
-                                    "label": "Team Member Image",
-                                    "name": "team_member_image",
-                                    "type": "image",
-                                    "instructions": "Auto-filled from team member profile image.\nDivi key: page_content_uk_map_card_hertfordshire_team_member_image",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "url",
-                                    "preview_size": "medium",
-                                    "library": "all",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": ""
-                                },
-                                {
-                                    "key": "field_candidates_uk_map_card_hertfordshire_team_member_name",
-                                    "label": "Team Member Name",
-                                    "name": "team_member_name",
-                                    "type": "text",
-                                    "instructions": "Auto-filled from team member name.\nDivi key: page_content_uk_map_card_hertfordshire_team_member_name",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_candidates_uk_map_card_hertfordshire_team_member_email",
-                                    "label": "Team Member Email",
-                                    "name": "team_member_email",
-                                    "type": "email",
-                                    "instructions": "Auto-filled from team member email.\nDivi key: page_content_uk_map_card_hertfordshire_team_member_email",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": ""
-                                }
-                            ]
-                        },
-                        {
-                            "key": "field_candidates_uk_map_card_north_london",
-                            "label": "North London",
-                            "name": "north_london",
-                            "type": "group",
-                            "instructions": "Divi key: page_content_uk_map_card_north_london",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_candidates_uk_map_card_north_london_team_member",
-                                    "label": "Team Member",
-                                    "name": "team_member",
-                                    "type": "relationship",
-                                    "instructions": "Divi key: page_content_uk_map_card_north_london_team_member",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "post_type": [
-                                        "team_members"
-                                    ],
-                                    "taxonomy": "",
-                                    "filters": [
-                                        "search"
-                                    ],
-                                    "elements": "",
-                                    "min": "",
-                                    "max": 1,
-                                    "return_format": "id",
-                                    "bidirectional_target": []
-                                },
-                                {
-                                    "key": "field_candidates_uk_map_card_north_london_team_member_image",
-                                    "label": "Team Member Image",
-                                    "name": "team_member_image",
-                                    "type": "image",
-                                    "instructions": "Auto-filled from team member profile image.\nDivi key: page_content_uk_map_card_north_london_team_member_image",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "url",
-                                    "preview_size": "medium",
-                                    "library": "all",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": ""
-                                },
-                                {
-                                    "key": "field_candidates_uk_map_card_north_london_team_member_name",
-                                    "label": "Team Member Name",
-                                    "name": "team_member_name",
-                                    "type": "text",
-                                    "instructions": "Auto-filled from team member name.\nDivi key: page_content_uk_map_card_north_london_team_member_name",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_candidates_uk_map_card_north_london_team_member_email",
-                                    "label": "Team Member Email",
-                                    "name": "team_member_email",
-                                    "type": "email",
-                                    "instructions": "Auto-filled from team member email.\nDivi key: page_content_uk_map_card_north_london_team_member_email",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": ""
-                                }
-                            ]
-                        }
-                    ]
                 },
                 {
                     "key": "field_candidates_tab_insights",
@@ -1987,8 +1318,27 @@
                     "maxlength": ""
                 },
                 {
+                    "key": "field_candidates_insights_button_text",
+                    "label": "Button Text",
+                    "name": "insights_button_text",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_insights_button_text",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_candidates_insights_button",
-                    "label": "Button",
+                    "label": "Button Link",
                     "name": "insights_button",
                     "type": "link",
                     "instructions": "Divi key: page_content_insights_button",
@@ -2103,11 +1453,49 @@
                     "endpoint": 0
                 },
                 {
-                    "key": "field_candidates_final_heading",
-                    "label": "Heading",
-                    "name": "final_heading",
+                    "key": "field_candidates_final_heading_prefix",
+                    "label": "Heading Prefix",
+                    "name": "final_heading_prefix",
                     "type": "text",
-                    "instructions": "Divi key: page_content_final_heading",
+                    "instructions": "Text before the underlined word or phrase.\nDivi key: page_content_final_heading_prefix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_candidates_final_heading_emphasis",
+                    "label": "Heading Emphasis",
+                    "name": "final_heading_emphasis",
+                    "type": "text",
+                    "instructions": "Underlined word or phrase.\nDivi key: page_content_final_heading_emphasis",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_candidates_final_heading_suffix",
+                    "label": "Heading Suffix",
+                    "name": "final_heading_suffix",
+                    "type": "text",
+                    "instructions": "Text after the underlined word or phrase.\nDivi key: page_content_final_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {

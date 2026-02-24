@@ -42,6 +42,16 @@ function dt_enqueue_assets() {
         );
     }
 
+    $map_tooltips_css_path = get_stylesheet_directory() . '/assets/css/map-tooltips.css';
+    if (file_exists($map_tooltips_css_path)) {
+        wp_enqueue_style(
+            'child-map-tooltips',
+            get_stylesheet_directory_uri() . '/assets/css/map-tooltips.css',
+            ['child-style'],
+            filemtime($map_tooltips_css_path)
+        );
+    }
+
     $number_animation_js_path = get_stylesheet_directory() . '/assets/js/number-animation.js';
     if (file_exists($number_animation_js_path)) {
         wp_enqueue_script(
@@ -75,13 +85,46 @@ function dt_enqueue_assets() {
         );
     }
 
-    $map_tooltips_js_path = get_stylesheet_directory() . '/assets/js/map-tooltips.js';
-    if (file_exists($map_tooltips_js_path)) {
+    $map_tooltips_common_js_path = get_stylesheet_directory() . '/assets/js/map-tooltips/common.js';
+    if (file_exists($map_tooltips_common_js_path)) {
         wp_enqueue_script(
-            'child-map-tooltips',
-            get_stylesheet_directory_uri() . '/assets/js/map-tooltips.js',
+            'child-map-tooltips-common',
+            get_stylesheet_directory_uri() . '/assets/js/map-tooltips/common.js',
             [],
-            filemtime($map_tooltips_js_path),
+            filemtime($map_tooltips_common_js_path),
+            true
+        );
+    }
+
+    $map_tooltips_legacy_js_path = get_stylesheet_directory() . '/assets/js/map-tooltips/legacy-icon-tooltips.js';
+    if (file_exists($map_tooltips_legacy_js_path)) {
+        wp_enqueue_script(
+            'child-map-tooltips-legacy',
+            get_stylesheet_directory_uri() . '/assets/js/map-tooltips/legacy-icon-tooltips.js',
+            ['child-map-tooltips-common'],
+            filemtime($map_tooltips_legacy_js_path),
+            true
+        );
+    }
+
+    $map_tooltips_dynamic_js_path = get_stylesheet_directory() . '/assets/js/map-tooltips/dynamic-cards.js';
+    if (file_exists($map_tooltips_dynamic_js_path)) {
+        wp_enqueue_script(
+            'child-map-tooltips-dynamic',
+            get_stylesheet_directory_uri() . '/assets/js/map-tooltips/dynamic-cards.js',
+            ['child-map-tooltips-common'],
+            filemtime($map_tooltips_dynamic_js_path),
+            true
+        );
+    }
+
+    $map_tooltips_bootstrap_js_path = get_stylesheet_directory() . '/assets/js/map-tooltips.js';
+    if (file_exists($map_tooltips_bootstrap_js_path)) {
+        wp_enqueue_script(
+            'child-map-tooltips-bootstrap',
+            get_stylesheet_directory_uri() . '/assets/js/map-tooltips.js',
+            ['child-map-tooltips-legacy', 'child-map-tooltips-dynamic'],
+            filemtime($map_tooltips_bootstrap_js_path),
             true
         );
     }

@@ -165,6 +165,68 @@ add_action('wp_footer', function() {
         ];
     }
 
+    // Build global UK coverage contacts dataset for map tooltips.
+    $uk_coverage_contacts = [];
+    $uk_location_meta = [
+        'bedfordshire'   => ['title' => 'Bedfordshire', 'link' => '/locations/bedfordshire'],
+        'buckinghamshire'=> ['title' => 'Buckinghamshire', 'link' => '/locations/buckinghamshire'],
+        'cambridgeshire' => ['title' => 'Cambridgeshire', 'link' => '/locations/cambridgeshire'],
+        'hertfordshire'  => ['title' => 'Hertfordshire', 'link' => '/locations/hertfordshire'],
+        'north_london'   => ['title' => 'North London', 'link' => '/locations/north-london'],
+    ];
+
+    $global_contacts = get_field('field_uk_coverage_contacts_group', 'option');
+    if (!is_array($global_contacts)) {
+        $global_contacts = get_field('uk_coverage_contacts', 'option');
+    }
+    if (!is_array($global_contacts)) {
+        $global_contacts = [];
+    }
+
+    foreach ($uk_location_meta as $location_key => $meta) {
+        $team_member_value = $global_contacts[$location_key] ?? 0;
+        if (is_array($team_member_value)) {
+            $team_member_value = $team_member_value[0] ?? 0;
+        } elseif (is_object($team_member_value) && isset($team_member_value->ID)) {
+            $team_member_value = (int) $team_member_value->ID;
+        }
+
+        $team_member_id = is_numeric($team_member_value) ? (int) $team_member_value : 0;
+        $name = '';
+        $email = '';
+        $image_url = '';
+
+        if ($team_member_id > 0) {
+            $first_name = (string) get_field('first_name', $team_member_id);
+            $last_name = (string) get_field('last_name', $team_member_id);
+            $email = (string) get_field('email', $team_member_id);
+            $name = trim($first_name . ' ' . $last_name);
+            if ($name === '') {
+                $name = get_the_title($team_member_id);
+            }
+
+            $profile_image = get_field('profile_image', $team_member_id, false);
+            if (is_array($profile_image) && isset($profile_image['url'])) {
+                $image_url = (string) $profile_image['url'];
+            } elseif (is_array($profile_image) && isset($profile_image['ID'])) {
+                $image_url = wp_get_attachment_image_url((int) $profile_image['ID'], 'full') ?: '';
+            } elseif (is_numeric($profile_image)) {
+                $image_url = wp_get_attachment_image_url((int) $profile_image, 'full') ?: '';
+            } elseif (is_string($profile_image)) {
+                $image_url = $profile_image;
+            }
+        }
+
+        $uk_coverage_contacts[$location_key] = [
+            'location_title'    => $meta['title'],
+            'link_url'          => $meta['link'],
+            'link_text'         => 'Find out more',
+            'team_member_name'  => $name,
+            'team_member_email' => $email,
+            'team_member_image' => $image_url,
+        ];
+    }
+
     // Convert false to empty array for JSON encoding
     if ($acf_data === false) {
         $acf_data = array();
@@ -175,6 +237,7 @@ add_action('wp_footer', function() {
     echo 'window.dtACFData = ' . json_encode($acf_data) . ';';
     echo 'window.oaClientLogos = ' . json_encode($client_logos) . ';';
     echo 'window.oaTeamCarousel = ' . json_encode($team_carousel) . ';';
+    echo 'window.oaUkCoverageContacts = ' . json_encode($uk_coverage_contacts) . ';';
     echo 'window.dtPostId = ' . intval($post_id) . ';';
     echo 'window.dtAjaxUrl = "' . admin_url('admin-ajax.php') . '";';
     // Add debug info in development

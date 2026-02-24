@@ -112,25 +112,6 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_clients_intro_copy",
-                    "label": "Intro Copy",
-                    "name": "intro_copy",
-                    "type": "wysiwyg",
-                    "instructions": "Divi key: page_content_intro_copy",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
-                    "delay": 0
-                },
-                {
                     "key": "field_clients_intro_emphasis_prefix",
                     "label": "Intro Emphasis Prefix",
                     "name": "intro_emphasis_prefix",
@@ -188,6 +169,25 @@
                     "maxlength": ""
                 },
                 {
+                    "key": "field_clients_intro_copy",
+                    "label": "Intro Copy",
+                    "name": "intro_copy",
+                    "type": "wysiwyg",
+                    "instructions": "Divi key: page_content_intro_copy",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0
+                },
+                {
                     "key": "field_clients_intro_image",
                     "label": "Intro Image",
                     "name": "intro_image",
@@ -228,11 +228,49 @@
                     "endpoint": 0
                 },
                 {
-                    "key": "field_clients_services_heading",
-                    "label": "Heading",
-                    "name": "services_heading",
+                    "key": "field_clients_services_heading_prefix",
+                    "label": "Heading Prefix",
+                    "name": "services_heading_prefix",
                     "type": "text",
-                    "instructions": "Divi key: page_content_services_heading",
+                    "instructions": "Text before the underlined word or phrase.\nDivi key: page_content_services_heading_prefix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_clients_services_heading_emphasis",
+                    "label": "Heading Emphasis",
+                    "name": "services_heading_emphasis",
+                    "type": "text",
+                    "instructions": "Underlined word or phrase.\nDivi key: page_content_services_heading_emphasis",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_clients_services_heading_suffix",
+                    "label": "Heading Suffix",
+                    "name": "services_heading_suffix",
+                    "type": "text",
+                    "instructions": "Text after the underlined word or phrase.\nDivi key: page_content_services_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -442,11 +480,49 @@
                     "endpoint": 0
                 },
                 {
-                    "key": "field_clients_sectors_heading",
-                    "label": "Heading",
-                    "name": "sectors_heading",
+                    "key": "field_clients_sectors_heading_prefix",
+                    "label": "Heading Prefix",
+                    "name": "sectors_heading_prefix",
                     "type": "text",
-                    "instructions": "Divi key: page_content_sectors_heading",
+                    "instructions": "Text before the underlined word or phrase.\nDivi key: page_content_sectors_heading_prefix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_clients_sectors_heading_emphasis",
+                    "label": "Heading Emphasis",
+                    "name": "sectors_heading_emphasis",
+                    "type": "text",
+                    "instructions": "Underlined word or phrase.\nDivi key: page_content_sectors_heading_emphasis",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_clients_sectors_heading_suffix",
+                    "label": "Heading Suffix",
+                    "name": "sectors_heading_suffix",
+                    "type": "text",
+                    "instructions": "Text after the underlined word or phrase.\nDivi key: page_content_sectors_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -771,11 +847,49 @@
                     "endpoint": 0
                 },
                 {
-                    "key": "field_clients_trusted_by_heading",
-                    "label": "Heading",
-                    "name": "trusted_by_heading",
+                    "key": "field_clients_trusted_by_heading_prefix",
+                    "label": "Heading Prefix",
+                    "name": "trusted_by_heading_prefix",
                     "type": "text",
-                    "instructions": "Divi key: page_content_trusted_by_heading",
+                    "instructions": "Text before the underlined word or phrase.\nDivi key: page_content_trusted_by_heading_prefix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_clients_trusted_by_heading_emphasis",
+                    "label": "Heading Emphasis",
+                    "name": "trusted_by_heading_emphasis",
+                    "type": "text",
+                    "instructions": "Underlined word or phrase.\nDivi key: page_content_trusted_by_heading_emphasis",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_clients_trusted_by_heading_suffix",
+                    "label": "Heading Suffix",
+                    "name": "trusted_by_heading_suffix",
+                    "type": "text",
+                    "instructions": "Text after the underlined word or phrase.\nDivi key: page_content_trusted_by_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1016,50 +1130,11 @@
                     "delay": 0
                 },
                 {
-                    "key": "field_clients_uk_button",
-                    "label": "Button",
-                    "name": "uk_button",
-                    "type": "link",
-                    "instructions": "Divi key: page_content_uk_button",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "url"
-                },
-                {
                     "key": "field_clients_uk_map_image",
                     "label": "Map Image",
                     "name": "uk_map_image",
                     "type": "image",
                     "instructions": "Divi key: page_content_uk_map_image",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "url",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                },
-                {
-                    "key": "field_clients_uk_card_image",
-                    "label": "Inset Card Image",
-                    "name": "uk_card_image",
-                    "type": "image",
-                    "instructions": "Optional inset card image.\nDivi key: page_content_uk_card_image",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1370,11 +1445,49 @@
                     "endpoint": 0
                 },
                 {
-                    "key": "field_clients_final_heading",
-                    "label": "Heading",
-                    "name": "final_heading",
+                    "key": "field_clients_final_heading_prefix",
+                    "label": "Heading Prefix",
+                    "name": "final_heading_prefix",
                     "type": "text",
-                    "instructions": "Divi key: page_content_final_heading",
+                    "instructions": "Text before the underlined word or phrase.\nDivi key: page_content_final_heading_prefix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_clients_final_heading_emphasis",
+                    "label": "Heading Emphasis",
+                    "name": "final_heading_emphasis",
+                    "type": "text",
+                    "instructions": "Underlined word or phrase.\nDivi key: page_content_final_heading_emphasis",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_clients_final_heading_suffix",
+                    "label": "Heading Suffix",
+                    "name": "final_heading_suffix",
+                    "type": "text",
+                    "instructions": "Text after the underlined word or phrase.\nDivi key: page_content_final_heading_suffix",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
