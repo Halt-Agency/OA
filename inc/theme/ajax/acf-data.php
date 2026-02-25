@@ -37,8 +37,63 @@ add_action('wp_footer', function() {
         }
     }
     
+    $build_client_logo_entry = static function($post_id_item) {
+        $logo_white = function_exists('get_field') ? get_field('client_logo', $post_id_item) : null;
+        $logo_colour = function_exists('get_field') ? get_field('client_logo_colour', $post_id_item) : null;
+
+        $white_url = '';
+        $white_alt = '';
+        $white_title = '';
+        if (is_array($logo_white) && isset($logo_white['url'])) {
+            $white_url = $logo_white['url'];
+            $white_alt = $logo_white['alt'] ?? '';
+            $white_title = $logo_white['title'] ?? '';
+        } elseif (is_numeric($logo_white)) {
+            $white_url = wp_get_attachment_image_url((int) $logo_white, 'full') ?: '';
+            $white_alt = get_post_meta((int) $logo_white, '_wp_attachment_image_alt', true);
+            $white_title = get_the_title((int) $logo_white);
+        }
+
+        $colour_url = '';
+        $colour_alt = '';
+        $colour_title = '';
+        if (is_array($logo_colour) && isset($logo_colour['url'])) {
+            $colour_url = $logo_colour['url'];
+            $colour_alt = $logo_colour['alt'] ?? '';
+            $colour_title = $logo_colour['title'] ?? '';
+        } elseif (is_numeric($logo_colour)) {
+            $colour_url = wp_get_attachment_image_url((int) $logo_colour, 'full') ?: '';
+            $colour_alt = get_post_meta((int) $logo_colour, '_wp_attachment_image_alt', true);
+            $colour_title = get_the_title((int) $logo_colour);
+        }
+
+        if ($white_url === '' && $colour_url === '') {
+            return null;
+        }
+
+        $terms = [];
+        $term_objects = get_the_terms($post_id_item, 'client_category');
+        if (is_array($term_objects)) {
+            foreach ($term_objects as $term) {
+                if (!empty($term->slug)) {
+                    $terms[] = $term->slug;
+                }
+            }
+        }
+
+        return [
+            'white_url'  => $white_url,
+            'colour_url' => $colour_url,
+            'alt'        => $white_alt !== '' ? $white_alt : $colour_alt,
+            'title'      => $white_title !== '' ? $white_title : $colour_title,
+            'terms'      => $terms,
+        ];
+    };
+
     // Build client logo dataset for JS-driven carousels
     $client_logos = [];
+    $trusted_by_logos = [];
+    $trusted_by_logo_variant = 'white';
     if (post_type_exists('clients')) {
         $logo_query = new WP_Query([
             'post_type'      => 'clients',
@@ -54,64 +109,59 @@ add_action('wp_footer', function() {
             while ($logo_query->have_posts()) {
                 $logo_query->the_post();
                 $post_id_item = get_the_ID();
-                $logo_white = function_exists('get_field') ? get_field('client_logo', $post_id_item) : null;
-                $logo_colour = function_exists('get_field') ? get_field('client_logo_colour', $post_id_item) : null;
-
-                $white_url = '';
-                $white_alt = '';
-                $white_title = '';
-                if (is_array($logo_white) && isset($logo_white['url'])) {
-                    $white_url = $logo_white['url'];
-                    $white_alt = $logo_white['alt'] ?? '';
-                    $white_title = $logo_white['title'] ?? '';
-                } elseif (is_numeric($logo_white)) {
-                    $white_url = wp_get_attachment_image_url((int) $logo_white, 'full') ?: '';
-                    $white_alt = get_post_meta((int) $logo_white, '_wp_attachment_image_alt', true);
-                    $white_title = get_the_title((int) $logo_white);
+                $logo_entry = $build_client_logo_entry($post_id_item);
+                if ($logo_entry) {
+                    $client_logos[] = $logo_entry;
                 }
-
-                $colour_url = '';
-                $colour_alt = '';
-                $colour_title = '';
-                if (is_array($logo_colour) && isset($logo_colour['url'])) {
-                    $colour_url = $logo_colour['url'];
-                    $colour_alt = $logo_colour['alt'] ?? '';
-                    $colour_title = $logo_colour['title'] ?? '';
-                } elseif (is_numeric($logo_colour)) {
-                    $colour_url = wp_get_attachment_image_url((int) $logo_colour, 'full') ?: '';
-                    $colour_alt = get_post_meta((int) $logo_colour, '_wp_attachment_image_alt', true);
-                    $colour_title = get_the_title((int) $logo_colour);
-                }
-
-                if ($white_url === '' && $colour_url === '') {
-                    continue;
-                }
-
-                $terms = [];
-                $term_objects = get_the_terms($post_id_item, 'client_category');
-                if (is_array($term_objects)) {
-                    foreach ($term_objects as $term) {
-                        if (!empty($term->slug)) {
-                            $terms[] = $term->slug;
-                        }
-                    }
-                }
-
-                $client_logos[] = [
-                    'white_url'  => $white_url,
-                    'colour_url' => $colour_url,
-                    'alt'        => $white_alt !== '' ? $white_alt : $colour_alt,
-                    'title'      => $white_title !== '' ? $white_title : $colour_title,
-                    'terms'      => $terms,
-                ];
             }
             wp_reset_postdata();
         }
+
+        // Build page-level Trusted By dataset from ACF selection.
+        $trusted_by_ids = [];
+        if (isset($acf_data['page_content']) && is_array($acf_data['page_content'])) {
+            $page_content = $acf_data['page_content'];
+            $use_all = isset($page_content['trusted_by_use_all']) ? (bool) $page_content['trusted_by_use_all'] : true;
+            $trusted_by_logo_variant = !empty($page_content['trusted_by_use_colour_logos']) ? 'colour' : 'white';
+
+            if ($use_all) {
+                $trusted_by_query = new WP_Query([
+                    'post_type'      => 'clients',
+                    'post_status'    => 'publish',
+                    'posts_per_page' => -1,
+                    'orderby'        => [
+                        'menu_order' => 'ASC',
+                        'title'      => 'ASC',
+                    ],
+                ]);
+
+                if ($trusted_by_query->have_posts()) {
+                    while ($trusted_by_query->have_posts()) {
+                        $trusted_by_query->the_post();
+                        $trusted_by_ids[] = get_the_ID();
+                    }
+                    wp_reset_postdata();
+                }
+            } elseif (!empty($page_content['trusted_by_clients']) && is_array($page_content['trusted_by_clients'])) {
+                $trusted_by_ids = array_values(array_filter(array_map('intval', $page_content['trusted_by_clients'])));
+            }
+        }
+
+        foreach ($trusted_by_ids as $trusted_by_id) {
+            $logo_entry = $build_client_logo_entry($trusted_by_id);
+            if ($logo_entry) {
+                $trusted_by_logos[] = $logo_entry;
+            }
+        }
     }
 
-    // Build team carousel dataset for About page team members
+    // Build team carousel/directory datasets for selected team members.
     $team_carousel = [];
+    $team_directory_members = [];
+    $team_directory_locations = [];
+    $team_directory_sectors = [];
     $team_member_ids = [];
+    $page_content = [];
     if (isset($acf_data['page_content']) && is_array($acf_data['page_content'])) {
         $page_content = $acf_data['page_content'];
         $use_all = isset($page_content['team_use_all']) ? (bool) $page_content['team_use_all'] : true;
@@ -162,6 +212,161 @@ add_action('wp_footer', function() {
             'job_title' => $job_title,
             'image'     => $image_url,
             'link'      => get_permalink($member_id),
+        ];
+
+        $locations = [];
+        $location_terms = get_the_terms($member_id, 'location');
+        if (is_array($location_terms)) {
+            foreach ($location_terms as $term) {
+                if (empty($term->slug)) {
+                    continue;
+                }
+                $locations[] = [
+                    'slug'  => (string) $term->slug,
+                    'label' => (string) $term->name,
+                ];
+                $team_directory_locations[$term->slug] = (string) $term->name;
+            }
+        }
+
+        $sectors = [];
+        $sector_terms = get_the_terms($member_id, 'specialism');
+        if (is_array($sector_terms)) {
+            foreach ($sector_terms as $term) {
+                if (empty($term->slug)) {
+                    continue;
+                }
+                $sectors[] = [
+                    'slug'  => (string) $term->slug,
+                    'label' => (string) $term->name,
+                ];
+                $team_directory_sectors[$term->slug] = (string) $term->name;
+            }
+        }
+
+        $team_directory_members[] = [
+            'id'        => $member_id,
+            'name'      => $name,
+            'job_title' => $job_title,
+            'image'     => $image_url,
+            'link'      => get_permalink($member_id),
+            'locations' => $locations,
+            'sectors'   => $sectors,
+        ];
+    }
+
+    $team_directory_location_options = [];
+    foreach ($team_directory_locations as $slug => $label) {
+        $team_directory_location_options[] = [
+            'slug'  => (string) $slug,
+            'label' => (string) $label,
+        ];
+    }
+    usort($team_directory_location_options, static function ($a, $b) {
+        return strcasecmp((string) $a['label'], (string) $b['label']);
+    });
+
+    $team_directory_sector_options = [];
+    foreach ($team_directory_sectors as $slug => $label) {
+        $team_directory_sector_options[] = [
+            'slug'  => (string) $slug,
+            'label' => (string) $label,
+        ];
+    }
+    usort($team_directory_sector_options, static function ($a, $b) {
+        return strcasecmp((string) $a['label'], (string) $b['label']);
+    });
+
+    $team_directory_settings = [
+        'heading'                      => isset($page_content['directory_heading']) && $page_content['directory_heading'] !== '' ? (string) $page_content['directory_heading'] : 'Search the team',
+        'placeholder_name'             => isset($page_content['search_placeholder_name']) && $page_content['search_placeholder_name'] !== '' ? (string) $page_content['search_placeholder_name'] : 'Name/Job Title',
+        'placeholder_location'         => isset($page_content['search_placeholder_location']) && $page_content['search_placeholder_location'] !== '' ? (string) $page_content['search_placeholder_location'] : 'Location',
+        'placeholder_sector'           => isset($page_content['search_placeholder_sector']) && $page_content['search_placeholder_sector'] !== '' ? (string) $page_content['search_placeholder_sector'] : 'Select Sector',
+        'search_button_text'           => isset($page_content['search_button_text']) && $page_content['search_button_text'] !== '' ? (string) $page_content['search_button_text'] : 'Search',
+        'empty_state_text'             => isset($page_content['empty_state_text']) && $page_content['empty_state_text'] !== '' ? (string) $page_content['empty_state_text'] : 'No team members found.',
+        'pagination_prev_text'         => isset($page_content['pagination_prev_text']) && $page_content['pagination_prev_text'] !== '' ? (string) $page_content['pagination_prev_text'] : 'Previous',
+        'pagination_next_text'         => isset($page_content['pagination_next_text']) && $page_content['pagination_next_text'] !== '' ? (string) $page_content['pagination_next_text'] : 'Next',
+        'cards_per_page'               => 16,
+    ];
+
+    $team_directory = [
+        'members'  => $team_directory_members,
+        'filters'  => [
+            'locations' => $team_directory_location_options,
+            'sectors'   => $team_directory_sector_options,
+        ],
+        'settings' => $team_directory_settings,
+    ];
+
+    // Build single team member profile stack dataset.
+    $team_member_profile_stack = [];
+    $team_member_get_to_know = [];
+    if ($post_id && get_post_type($post_id) === 'team_members') {
+        $profile_image = get_field('profile_image', $post_id);
+        $profile_image_url = '';
+        if (is_array($profile_image) && isset($profile_image['url'])) {
+            $profile_image_url = (string) $profile_image['url'];
+        } elseif (is_numeric($profile_image)) {
+            $profile_image_url = wp_get_attachment_image_url((int) $profile_image, 'full') ?: '';
+        } elseif (is_string($profile_image)) {
+            $profile_image_url = $profile_image;
+        }
+
+        $first_name = (string) get_field('first_name', $post_id);
+        $last_name = (string) get_field('last_name', $post_id);
+        $full_name = trim($first_name . ' ' . $last_name);
+        if ($full_name === '') {
+            $full_name = get_the_title($post_id);
+        }
+
+        $job_title = (string) get_field('job_title', $post_id);
+
+        $specialisms = [];
+        $specialism_terms = get_the_terms($post_id, 'specialism');
+        if (is_array($specialism_terms)) {
+            foreach ($specialism_terms as $term) {
+                if (!empty($term->name)) {
+                    $term_link = get_term_link($term);
+                    $specialisms[] = [
+                        'label' => (string) $term->name,
+                        'url'   => is_wp_error($term_link) ? '' : (string) $term_link,
+                    ];
+                }
+            }
+        }
+
+        $solutions = [];
+        $solution_terms = get_the_terms($post_id, 'solution');
+        if (is_array($solution_terms)) {
+            foreach ($solution_terms as $term) {
+                if (!empty($term->name)) {
+                    $term_link = get_term_link($term);
+                    $solutions[] = [
+                        'label' => (string) $term->name,
+                        'url'   => is_wp_error($term_link) ? '' : (string) $term_link,
+                    ];
+                }
+            }
+        }
+
+        $team_member_profile_stack = [
+            'image'                 => $profile_image_url,
+            'name'                  => $full_name,
+            'job_title'             => $job_title,
+            'specialisms_heading'   => 'Specialisms',
+            'solutions_heading'     => 'Solutions',
+            'specialisms'           => $specialisms,
+            'solutions'             => $solutions,
+        ];
+
+        $get_to_know_heading = (string) get_field('get_to_know_heading', 'option');
+        if ($get_to_know_heading === '') {
+            $get_to_know_heading = 'Get to know';
+        }
+
+        $team_member_get_to_know = [
+            'heading'    => $get_to_know_heading,
+            'first_name' => $first_name !== '' ? $first_name : $full_name,
         ];
     }
 
@@ -236,7 +441,12 @@ add_action('wp_footer', function() {
     echo '<script type="text/javascript">';
     echo 'window.dtACFData = ' . json_encode($acf_data) . ';';
     echo 'window.oaClientLogos = ' . json_encode($client_logos) . ';';
+    echo 'window.oaTrustedByLogos = ' . json_encode($trusted_by_logos) . ';';
+    echo 'window.oaTrustedByLogoVariant = ' . json_encode($trusted_by_logo_variant) . ';';
     echo 'window.oaTeamCarousel = ' . json_encode($team_carousel) . ';';
+    echo 'window.oaTeamDirectory = ' . json_encode($team_directory) . ';';
+    echo 'window.oaTeamMemberProfileStack = ' . json_encode($team_member_profile_stack) . ';';
+    echo 'window.oaTeamMemberGetToKnow = ' . json_encode($team_member_get_to_know) . ';';
     echo 'window.oaUkCoverageContacts = ' . json_encode($uk_coverage_contacts) . ';';
     echo 'window.dtPostId = ' . intval($post_id) . ';';
     echo 'window.dtAjaxUrl = "' . admin_url('admin-ajax.php') . '";';

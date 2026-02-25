@@ -1,0 +1,281 @@
+{
+    "key": "group_team_member_template_globals_mirror",
+    "title": "Team Template Globals (Mirror)",
+    "fields": [
+        {
+            "key": "field_team_mirror_tab_globals",
+            "label": "Global Template Content",
+            "name": "",
+            "type": "tab",
+            "instructions": "Synced from Team Page Globals options page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_team_mirror_landing_heading",
+            "label": "Landing Heading",
+            "name": "landing_heading",
+            "type": "text",
+            "instructions": "Synced from Team Page Globals.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_mirror_get_to_know_heading",
+            "label": "Get to Know Heading",
+            "name": "get_to_know_heading",
+            "type": "text",
+            "instructions": "Synced from Team Page Globals.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_mirror_role_at_oa_heading",
+            "label": "Role at OA Heading",
+            "name": "role_at_oa_heading",
+            "type": "text",
+            "instructions": "Synced from Team Page Globals.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_mirror_why_oa_heading",
+            "label": "Why OA Heading",
+            "name": "why_oa_heading",
+            "type": "text",
+            "instructions": "Synced from Team Page Globals.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_mirror_biggest_work_win_heading",
+            "label": "Biggest Work Win Heading",
+            "name": "biggest_work_win_heading",
+            "type": "text",
+            "instructions": "Synced from Team Page Globals.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_mirror_office_reputation_heading",
+            "label": "Office Reputation Heading",
+            "name": "office_reputation_heading",
+            "type": "text",
+            "instructions": "Synced from Team Page Globals.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_mirror_back_to_team_button_text",
+            "label": "Back to Team Button Text",
+            "name": "back_to_team_button_text",
+            "type": "text",
+            "instructions": "Synced from Team Page Globals.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_mirror_roles_im_hiring_for_text",
+            "label": "Roles I\u2019m Hiring For Text",
+            "name": "roles_im_hiring_for_text",
+            "type": "text",
+            "instructions": "Synced from Team Page Globals.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_mirror_view_all_jobs_button_text",
+            "label": "View All Jobs Button Text",
+            "name": "view_all_jobs_button_text",
+            "type": "text",
+            "instructions": "Synced from Team Page Globals.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_mirror_view_all_jobs_button_link",
+            "label": "View All Jobs Button Link",
+            "name": "view_all_jobs_button_link",
+            "type": "url",
+            "instructions": "Synced from Team Page Globals.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_team_mirror_insights_heading_prefix",
+            "label": "Insights Heading Prefix",
+            "name": "insights_heading_prefix",
+            "type": "text",
+            "instructions": "Synced from Team Page Globals.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_mirror_insights_heading_emphasis",
+            "label": "Insights Heading Emphasis",
+            "name": "insights_heading_emphasis",
+            "type": "text",
+            "instructions": "Synced from Team Page Globals.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_mirror_insights_heading_suffix",
+            "label": "Insights Heading Suffix",
+            "name": "insights_heading_suffix",
+            "type": "text",
+            "instructions": "Synced from Team Page Globals.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_mirror_insights_button_text",
+            "label": "Insights Button Text",
+            "name": "insights_button_text",
+            "type": "text",
+            "instructions": "Synced from Team Page Globals.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_mirror_insights_button_link",
+            "label": "Insights Button Link",
+            "name": "insights_button_link",
+            "type": "url",
+            "instructions": "Synced from Team Page Globals.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "team_members"
+            }
+        ]
+    ],
+    "menu_order": 90,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Mirrors Team Page Globals onto team member posts for Divi dynamic picker compatibility.",
+    "show_in_rest": 0,
+    "modified": 1771951800
+}

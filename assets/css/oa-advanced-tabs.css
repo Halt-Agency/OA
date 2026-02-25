@@ -86,12 +86,21 @@
   color: #fff;
 }
 
+.oa-adv-tabs .oa-adv-tabs__section-heading {
+  margin: 28px 0 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #8467ff;
+}
+
 .oa-adv-tabs .oa-adv-tabs__roles {
   margin: 14px 0 0;
   padding-left: 24px;
   list-style: disc;
   display: grid;
-  gap: 6px;
+  gap: 14px;
 }
 
 .oa-adv-tabs .oa-adv-tabs__role {

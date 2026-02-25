@@ -1,0 +1,390 @@
+{
+    "key": "group_team_page_globals_options",
+    "title": "Team Page Globals",
+    "fields": [
+        {
+            "key": "field_team_globals_tab_primary_headings",
+            "label": "Main Headings",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_team_globals_landing_heading",
+            "label": "Landing Heading",
+            "name": "landing_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Global options key: landing_heading\nDivi key: landing_heading",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_globals_get_to_know_heading",
+            "label": "Get to Know Heading",
+            "name": "get_to_know_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Global options key: get_to_know_heading\nDivi key: get_to_know_heading",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_globals_tab_qna_headings",
+            "label": "Q&A Headings",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_team_globals_role_at_oa_heading",
+            "label": "Role at OA Heading",
+            "name": "role_at_oa_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Heading for team member answer field `role_at_oa`.\nDivi key: role_at_oa_heading",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "What is your role at OA?",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_globals_why_oa_heading",
+            "label": "Why OA Heading",
+            "name": "why_oa_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Heading for team member answer field `why_oa`.\nDivi key: why_oa_heading",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Why did you choose OA?",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_globals_biggest_work_win_heading",
+            "label": "Biggest Work Win Heading",
+            "name": "biggest_work_win_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Heading for team member answer field `biggest_work_win`.\nDivi key: biggest_work_win_heading",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "What is your biggest work win?",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_globals_office_reputation_heading",
+            "label": "Office Reputation Heading",
+            "name": "office_reputation_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Heading for team member answer field `office_reputation`.\nDivi key: office_reputation_heading",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Office reputation",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_globals_tab_navigation",
+            "label": "Navigation & Buttons",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_team_globals_back_to_team_button_text",
+            "label": "Back to Team Button Text",
+            "name": "back_to_team_button_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Global options key: back_to_team_button_text\nDivi key: back_to_team_button_text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Back to team",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_globals_roles_im_hiring_for_text",
+            "label": "Roles I\u2019m Hiring For Text",
+            "name": "roles_im_hiring_for_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Global options key: roles_im_hiring_for_text\nDivi key: roles_im_hiring_for_text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Roles I\u2019m hiring for",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_globals_view_all_jobs_button_text",
+            "label": "View All Jobs Button Text",
+            "name": "view_all_jobs_button_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Global options key: view_all_jobs_button_text\nDivi key: view_all_jobs_button_text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "View all jobs",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_globals_view_all_jobs_button_link",
+            "label": "View All Jobs Button Link",
+            "name": "view_all_jobs_button_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Global options key: view_all_jobs_button_link\nDivi key: view_all_jobs_button_link",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url"
+        },
+        {
+            "key": "field_team_globals_tab_insights",
+            "label": "Insights",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_team_globals_insights_heading_prefix",
+            "label": "Insights Heading Prefix",
+            "name": "insights_heading_prefix",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Global options key: insights_heading_prefix\nDivi key: insights_heading_prefix",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_globals_insights_heading_emphasis",
+            "label": "Insights Heading Emphasis",
+            "name": "insights_heading_emphasis",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Global options key: insights_heading_emphasis\nDivi key: insights_heading_emphasis",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_globals_insights_heading_suffix",
+            "label": "Insights Heading Suffix",
+            "name": "insights_heading_suffix",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Global options key: insights_heading_suffix\nDivi key: insights_heading_suffix",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_globals_insights_button_text",
+            "label": "Insights Button Text",
+            "name": "insights_button_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Global options key: insights_button_text\nDivi key: insights_button_text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_team_globals_insights_button_link",
+            "label": "Insights Button Link",
+            "name": "insights_button_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Global options key: insights_button_link\nDivi key: insights_button_link",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "team-page-globals"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Global content fields for team archive and team member templates.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1772030624
+}

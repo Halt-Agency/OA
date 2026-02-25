@@ -1,0 +1,809 @@
+{
+    "key": "group_page_meet_the_team",
+    "title": "Meet The Team Page",
+    "fields": [
+        {
+            "key": "field_meet_team_page_content",
+            "label": "Page Content",
+            "name": "page_content",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "Divi key: page_content",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_meet_team_tab_hero",
+                    "label": "Hero Section",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "left",
+                    "endpoint": 0,
+                    "selected": 0
+                },
+                {
+                    "key": "field_meet_team_hero_background_image",
+                    "label": "Hero Background Image",
+                    "name": "hero_background_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Divi key: page_content_hero_background_image",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_meet_team_tab_intro",
+                    "label": "Intro Section",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "left",
+                    "endpoint": 0,
+                    "selected": 0
+                },
+                {
+                    "key": "field_meet_team_intro_kicker",
+                    "label": "Kicker",
+                    "name": "intro_kicker",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_intro_kicker",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_meet_team_intro_heading_prefix",
+                    "label": "Heading Prefix",
+                    "name": "intro_heading_prefix",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Text before the underlined word or phrase.\nDivi key: page_content_intro_heading_prefix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_meet_team_intro_heading_emphasis",
+                    "label": "Heading Emphasis",
+                    "name": "intro_heading_emphasis",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Underlined word or phrase.\nDivi key: page_content_intro_heading_emphasis",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_meet_team_intro_heading_suffix",
+                    "label": "Heading Suffix",
+                    "name": "intro_heading_suffix",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Text after the underlined word or phrase.\nDivi key: page_content_intro_heading_suffix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_meet_team_intro_lead_copy",
+                    "label": "Lead Copy",
+                    "name": "intro_lead_copy",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Divi key: page_content_intro_lead_copy",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 4,
+                    "new_lines": "wpautop"
+                },
+                {
+                    "key": "field_meet_team_intro_copy",
+                    "label": "Body Copy",
+                    "name": "intro_copy",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Divi key: page_content_intro_copy",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 6,
+                    "new_lines": "wpautop"
+                },
+                {
+                    "key": "field_meet_team_intro_image",
+                    "label": "Intro Image",
+                    "name": "intro_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Divi key: page_content_intro_image",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_meet_team_tab_directory",
+                    "label": "Team Directory Section",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "left",
+                    "endpoint": 0,
+                    "selected": 0
+                },
+                {
+                    "key": "field_meet_team_directory_heading",
+                    "label": "Section Heading",
+                    "name": "directory_heading",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_directory_heading",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Search the team",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_meet_team_team_use_all",
+                    "label": "Use All Team Members",
+                    "name": "team_use_all",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "If enabled, the directory uses all Team Members posts and their menu order.\nDivi key: page_content_team_use_all",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 1,
+                    "ui_on_text": "All Team Members",
+                    "ui_off_text": "Manual Select"
+                },
+                {
+                    "key": "field_meet_team_team_members",
+                    "label": "Team Members",
+                    "name": "team_members",
+                    "aria-label": "",
+                    "type": "relationship",
+                    "instructions": "Select team members to include when Manual Select is chosen.\nDivi key: page_content_team_members",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_meet_team_team_use_all",
+                                "operator": "==",
+                                "value": "0"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "team_members"
+                    ],
+                    "taxonomy": "",
+                    "filters": [
+                        "search"
+                    ],
+                    "elements": "",
+                    "min": "",
+                    "max": "",
+                    "return_format": "id",
+                    "bidirectional_target": []
+                },
+                {
+                    "key": "field_meet_team_search_placeholder_name",
+                    "label": "Name\/Job Placeholder",
+                    "name": "search_placeholder_name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_search_placeholder_name",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Name\/Job title",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_meet_team_search_placeholder_location",
+                    "label": "Location Placeholder",
+                    "name": "search_placeholder_location",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_search_placeholder_location",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Location",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_meet_team_search_placeholder_sector",
+                    "label": "Sector Placeholder",
+                    "name": "search_placeholder_sector",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_search_placeholder_sector",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Select Sector",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_meet_team_search_button_text",
+                    "label": "Search Button Text",
+                    "name": "search_button_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_search_button_text",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Search",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_meet_team_empty_state_text",
+                    "label": "Empty State Text",
+                    "name": "empty_state_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_empty_state_text",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "No team members found.",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_meet_team_pagination_prev_text",
+                    "label": "Pagination Previous Text",
+                    "name": "pagination_prev_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_pagination_prev_text",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Previous",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_meet_team_pagination_next_text",
+                    "label": "Pagination Next Text",
+                    "name": "pagination_next_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_pagination_next_text",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Next",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_meet_team_tab_career_cta",
+                    "label": "Career CTA Section",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "left",
+                    "endpoint": 0,
+                    "selected": 0
+                },
+                {
+                    "key": "field_meet_team_career_heading",
+                    "label": "Heading",
+                    "name": "career_heading",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_career_heading",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_meet_team_career_copy",
+                    "label": "Copy",
+                    "name": "career_copy",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Divi key: page_content_career_copy",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 3,
+                    "new_lines": "wpautop"
+                },
+                {
+                    "key": "field_meet_team_career_buttons",
+                    "label": "Buttons",
+                    "name": "career_buttons",
+                    "aria-label": "",
+                    "type": "group",
+                    "instructions": "Divi key: page_content_career_buttons",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_meet_team_career_button_1",
+                            "label": "Button 1",
+                            "name": "button_1",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "Divi key: page_content_career_buttons_button_1",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "row",
+                            "sub_fields": [
+                                {
+                                    "key": "field_meet_team_career_button_1_text",
+                                    "label": "Button 1 Text",
+                                    "name": "button_1_text",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Divi key: page_content_career_buttons_button_1_button_1_text",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_meet_team_career_button_1_link",
+                                    "label": "Button 1 Link",
+                                    "name": "button_1_link",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "Divi key: page_content_career_buttons_button_1_button_1_link",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "url"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_meet_team_career_button_2",
+                            "label": "Button 2",
+                            "name": "button_2",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "Divi key: page_content_career_buttons_button_2",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "row",
+                            "sub_fields": [
+                                {
+                                    "key": "field_meet_team_career_button_2_text",
+                                    "label": "Button 2 Text",
+                                    "name": "button_2_text",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Divi key: page_content_career_buttons_button_2_button_2_text",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_meet_team_career_button_2_link",
+                                    "label": "Button 2 Link",
+                                    "name": "button_2_link",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "Divi key: page_content_career_buttons_button_2_button_2_link",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "url"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "field_meet_team_tab_final_cta",
+                    "label": "Final CTA Section",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "left",
+                    "endpoint": 0,
+                    "selected": 0
+                },
+                {
+                    "key": "field_meet_team_conversation_heading",
+                    "label": "Heading",
+                    "name": "conversation_heading",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_conversation_heading",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_meet_team_conversation_cards",
+                    "label": "Cards",
+                    "name": "conversation_cards",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Divi key: page_content_conversation_cards",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "row",
+                    "button_label": "Add Card",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_meet_team_conversation_card_title",
+                            "label": "Title",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Divi key: page_content_conversation_cards_0_title",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "parent_repeater": "field_meet_team_conversation_cards"
+                        },
+                        {
+                            "key": "field_meet_team_conversation_card_copy",
+                            "label": "Copy",
+                            "name": "copy",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "Divi key: page_content_conversation_cards_0_copy",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "rows": 4,
+                            "new_lines": "wpautop",
+                            "parent_repeater": "field_meet_team_conversation_cards"
+                        },
+                        {
+                            "key": "field_meet_team_conversation_card_button_text",
+                            "label": "Button Text",
+                            "name": "button_text",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Divi key: page_content_conversation_cards_0_button_text",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "parent_repeater": "field_meet_team_conversation_cards"
+                        },
+                        {
+                            "key": "field_meet_team_conversation_card_button_link",
+                            "label": "Button Link",
+                            "name": "button_link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "Divi key: page_content_conversation_cards_0_button_link",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "url",
+                            "parent_repeater": "field_meet_team_conversation_cards"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "3358"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": true,
+    "description": "Fields for the Meet the Team page.",
+    "show_in_rest": 0,
+    "modified": 1771939200
+}

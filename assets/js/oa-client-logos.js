@@ -54,12 +54,23 @@
   }
 
   function initContainer(container) {
-    const data = window.oaClientLogos || [];
+    const source = (container.dataset.source || 'global').toLowerCase();
+    const data =
+      source === 'trusted-by'
+        ? (window.oaTrustedByLogos || [])
+        : (window.oaClientLogos || []);
     if (!Array.isArray(data) || data.length === 0) {
       return;
     }
 
-    const variant = container.classList.contains('client-carousel-colour') ? 'colour' : 'white';
+    const requestedVariant = (container.dataset.variant || '').toLowerCase();
+    const trustedByVariant = (window.oaTrustedByLogoVariant || '').toLowerCase();
+    const variant =
+      requestedVariant === 'white' || requestedVariant === 'colour'
+        ? requestedVariant
+        : (source === 'trusted-by' && (trustedByVariant === 'white' || trustedByVariant === 'colour'))
+          ? trustedByVariant
+          : (container.classList.contains('client-carousel-colour') ? 'colour' : 'white');
     const speed = parseFloat(container.dataset.speed) || 30;
     const direction = container.dataset.direction === 'right' ? 'reverse' : 'normal';
     const grayscale = container.dataset.grayscale === 'false' ? false : true;
@@ -115,7 +126,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     const containers = document.querySelectorAll(
-      '.client-carousel-white, .client-carousel-colour'
+      '.client-carousel-white, .client-carousel-colour, .client-carousel-trusted-by'
     );
     containers.forEach(initContainer);
 

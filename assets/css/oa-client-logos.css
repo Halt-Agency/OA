@@ -39,7 +39,7 @@
   width: auto;
   max-width: none;
   height: clamp(135px, 13.5vw, 180px);
-  max-height: 85px;
+  max-height: 145px;
   object-fit: contain;
   transition: all 0.3s ease;
 }
@@ -80,7 +80,7 @@
 
   .oa-client-carousel .oa-marquee-item img {
     height: clamp(150px, 21vw, 195px);
-    max-height: 85px;
+    max-height: 145px;
   }
 
 }
@@ -111,7 +111,7 @@
 
   .oa-client-carousel .oa-marquee-item img {
     height: clamp(123px, 27vw, 165px);
-    max-height: 85px;
+    max-height: 145px;
   }
 
 }

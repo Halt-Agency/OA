@@ -1,0 +1,129 @@
+.oa-sectors-carousel {
+  --oa-sectors-gap: 24px;
+  --oa-sectors-card-bg: #23144A;
+  --oa-sectors-card-radius: 20px;
+  --oa-sectors-title-size: 22px;
+  --oa-sectors-title-weight: 600;
+  --oa-sectors-media-radius: 14px;
+  --oa-sectors-visible: 2.5;
+  --oa-sectors-left-offset: 5vw;
+  --oa-sectors-nav-right-offset: 5vw;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.oa-sectors-carousel__header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 var(--oa-sectors-nav-right-offset) 0 0;
+}
+
+.oa-sectors-carousel__controls {
+  display: inline-flex;
+  gap: 12px;
+}
+
+.oa-sectors-carousel__nav {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: #fff;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.oa-sectors-carousel__nav:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.oa-sectors-carousel__icon {
+  width: 18px;
+  height: 18px;
+  fill: #fff;
+  display: block;
+}
+
+.oa-sectors-carousel__nav--prev .oa-sectors-carousel__icon {
+  transform: rotate(180deg);
+}
+
+.oa-sectors-carousel__frame {
+  width: 100%;
+  padding: 0 0 8px 0;
+}
+
+.oa-sectors-carousel__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.oa-sectors-carousel__track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - (var(--oa-sectors-gap) * 2)) / var(--oa-sectors-visible));
+  gap: var(--oa-sectors-gap);
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+
+.oa-sectors-carousel__card {
+  background: var(--oa-sectors-card-bg);
+  border-radius: var(--oa-sectors-card-radius);
+  padding: 16px;
+  height: 100%;
+}
+
+.oa-sectors-carousel__link {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.oa-sectors-carousel__media {
+  border-radius: var(--oa-sectors-media-radius);
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 356 / 200;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.oa-sectors-carousel__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.oa-sectors-carousel__title {
+  margin: 0;
+  font-family: "Zalando Sans SemiExpanded", sans-serif;
+  font-size: var(--oa-sectors-title-size);
+  font-weight: var(--oa-sectors-title-weight);
+  color: #fff;
+}
+
+@media (max-width: 980px) {
+  .oa-sectors-carousel {
+    --oa-sectors-visible: 1.6;
+    --oa-sectors-gap: 18px;
+    --oa-sectors-left-offset: 5vw;
+    --oa-sectors-nav-right-offset: 5vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .oa-sectors-carousel {
+    --oa-sectors-visible: 1.1;
+    --oa-sectors-gap: 16px;
+  }
+}

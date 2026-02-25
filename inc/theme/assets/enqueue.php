@@ -192,6 +192,17 @@ function dt_enqueue_assets() {
         );
     }
 
+    $oa_advanced_tabs_solutions_js_path = get_stylesheet_directory() . '/assets/js/oa-advanced-tabs-solutions.js';
+    if (file_exists($oa_advanced_tabs_solutions_js_path)) {
+        wp_enqueue_script(
+            'child-oa-advanced-tabs-solutions',
+            get_stylesheet_directory_uri() . '/assets/js/oa-advanced-tabs-solutions.js',
+            [],
+            filemtime($oa_advanced_tabs_solutions_js_path),
+            true
+        );
+    }
+
     $team_carousel_css_path = get_stylesheet_directory() . '/assets/css/team-carousel.css';
     if (file_exists($team_carousel_css_path)) {
         wp_enqueue_style(
@@ -210,6 +221,90 @@ function dt_enqueue_assets() {
             [],
             filemtime($team_carousel_js_path),
             true
+        );
+    }
+
+    $oa_sectors_carousel_css_path = get_stylesheet_directory() . '/assets/css/oa-sectors-carousel.css';
+    if (file_exists($oa_sectors_carousel_css_path)) {
+        wp_enqueue_style(
+            'child-oa-sectors-carousel',
+            get_stylesheet_directory_uri() . '/assets/css/oa-sectors-carousel.css',
+            ['child-style'],
+            filemtime($oa_sectors_carousel_css_path)
+        );
+    }
+
+    $oa_sectors_carousel_js_path = get_stylesheet_directory() . '/assets/js/oa-sectors-carousel.js';
+    if (file_exists($oa_sectors_carousel_js_path)) {
+        wp_enqueue_script(
+            'child-oa-sectors-carousel',
+            get_stylesheet_directory_uri() . '/assets/js/oa-sectors-carousel.js',
+            [],
+            filemtime($oa_sectors_carousel_js_path),
+            true
+        );
+    }
+
+    $oa_team_grid_css_path = get_stylesheet_directory() . '/assets/css/oa-team-grid.css';
+    if (file_exists($oa_team_grid_css_path)) {
+        wp_enqueue_style(
+            'child-oa-team-grid',
+            get_stylesheet_directory_uri() . '/assets/css/oa-team-grid.css',
+            ['child-style'],
+            filemtime($oa_team_grid_css_path)
+        );
+    }
+
+    $oa_team_grid_js_path = get_stylesheet_directory() . '/assets/js/oa-team-grid.js';
+    if (file_exists($oa_team_grid_js_path)) {
+        wp_enqueue_script(
+            'child-oa-team-grid',
+            get_stylesheet_directory_uri() . '/assets/js/oa-team-grid.js',
+            [],
+            filemtime($oa_team_grid_js_path),
+            true
+        );
+    }
+
+    $oa_team_member_profile_stack_css_path = get_stylesheet_directory() . '/assets/css/oa-team-member-profile-stack.css';
+    if (file_exists($oa_team_member_profile_stack_css_path)) {
+        wp_enqueue_style(
+            'child-oa-team-member-profile-stack',
+            get_stylesheet_directory_uri() . '/assets/css/oa-team-member-profile-stack.css',
+            ['child-style'],
+            filemtime($oa_team_member_profile_stack_css_path)
+        );
+    }
+
+    $oa_team_member_profile_stack_js_path = get_stylesheet_directory() . '/assets/js/oa-team-member-profile-stack.js';
+    if (file_exists($oa_team_member_profile_stack_js_path)) {
+        wp_enqueue_script(
+            'child-oa-team-member-profile-stack',
+            get_stylesheet_directory_uri() . '/assets/js/oa-team-member-profile-stack.js',
+            [],
+            filemtime($oa_team_member_profile_stack_js_path),
+            true
+        );
+    }
+
+    $oa_team_member_get_to_know_js_path = get_stylesheet_directory() . '/assets/js/oa-team-member-get-to-know.js';
+    if (file_exists($oa_team_member_get_to_know_js_path)) {
+        wp_enqueue_script(
+            'child-oa-team-member-get-to-know',
+            get_stylesheet_directory_uri() . '/assets/js/oa-team-member-get-to-know.js',
+            [],
+            filemtime($oa_team_member_get_to_know_js_path),
+            true
+        );
+    }
+
+    $oa_team_member_get_to_know_css_path = get_stylesheet_directory() . '/assets/css/oa-team-member-get-to-know.css';
+    if (file_exists($oa_team_member_get_to_know_css_path)) {
+        wp_enqueue_style(
+            'child-oa-team-member-get-to-know',
+            get_stylesheet_directory_uri() . '/assets/css/oa-team-member-get-to-know.css',
+            ['child-style'],
+            filemtime($oa_team_member_get_to_know_css_path)
         );
     }
 }
