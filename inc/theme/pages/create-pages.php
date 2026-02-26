@@ -11,6 +11,7 @@ function dt_create_pages_on_activation() {
         'Work for us' => 0,
         'Candidates' => 0,
         'Clients' => 0,
+        'Jobs' => 0,
         'Meet the Team' => 0,
         'Contact' => 0,
         'Register Brief' => 0,

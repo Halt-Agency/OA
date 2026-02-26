@@ -94,6 +94,7 @@ add_action('wp_footer', function() {
     $client_logos = [];
     $trusted_by_logos = [];
     $trusted_by_logo_variant = 'white';
+    $jobs_microsite_logos = [];
     if (post_type_exists('clients')) {
         $logo_query = new WP_Query([
             'post_type'      => 'clients',
@@ -152,6 +153,73 @@ add_action('wp_footer', function() {
             if ($logo_entry) {
                 $trusted_by_logos[] = $logo_entry;
             }
+        }
+    }
+
+    // Build Jobs page microsite logo cards dataset (white logos + microsite link).
+    if (post_type_exists('microsite')) {
+        $jobs_logo_microsite_ids = [];
+        if (isset($acf_data['page_content']) && is_array($acf_data['page_content'])) {
+            $jobs_page_content = $acf_data['page_content'];
+            $jobs_use_all_microsites = isset($jobs_page_content['top_logos_use_all']) ? (bool) $jobs_page_content['top_logos_use_all'] : true;
+
+            if ($jobs_use_all_microsites) {
+                $microsite_query = new WP_Query([
+                    'post_type'      => 'microsite',
+                    'post_status'    => 'publish',
+                    'posts_per_page' => -1,
+                    'orderby'        => [
+                        'menu_order' => 'ASC',
+                        'title'      => 'ASC',
+                    ],
+                    'fields'         => 'ids',
+                    'no_found_rows'  => true,
+                ]);
+
+                if ($microsite_query->have_posts()) {
+                    $jobs_logo_microsite_ids = array_map('intval', $microsite_query->posts);
+                }
+            } elseif (!empty($jobs_page_content['top_logos_microsites']) && is_array($jobs_page_content['top_logos_microsites'])) {
+                $jobs_logo_microsite_ids = array_values(array_filter(array_map('intval', $jobs_page_content['top_logos_microsites'])));
+            }
+        }
+
+        foreach ($jobs_logo_microsite_ids as $microsite_id) {
+            $microsite_logo = get_field('client_logo', $microsite_id);
+            $logo_url = '';
+            $logo_alt = '';
+
+            if (is_array($microsite_logo) && isset($microsite_logo['url'])) {
+                $logo_url = (string) $microsite_logo['url'];
+                $logo_alt = isset($microsite_logo['alt']) ? (string) $microsite_logo['alt'] : '';
+            } elseif (is_numeric($microsite_logo)) {
+                $logo_url = wp_get_attachment_image_url((int) $microsite_logo, 'full') ?: '';
+                $logo_alt = (string) get_post_meta((int) $microsite_logo, '_wp_attachment_image_alt', true);
+            } elseif (is_string($microsite_logo)) {
+                $logo_url = $microsite_logo;
+            }
+
+            if ($logo_url === '') {
+                $featured_id = get_post_thumbnail_id($microsite_id);
+                if ($featured_id) {
+                    $logo_url = wp_get_attachment_image_url((int) $featured_id, 'full') ?: '';
+                    $logo_alt = (string) get_post_meta((int) $featured_id, '_wp_attachment_image_alt', true);
+                }
+            }
+
+            if ($logo_url === '') {
+                continue;
+            }
+
+            $jobs_microsite_logos[] = [
+                'id'    => $microsite_id,
+                'title' => (string) get_the_title($microsite_id),
+                'url'   => (string) get_permalink($microsite_id),
+                'logo'  => [
+                    'url' => $logo_url,
+                    'alt' => $logo_alt,
+                ],
+            ];
         }
     }
 
@@ -443,6 +511,7 @@ add_action('wp_footer', function() {
     echo 'window.oaClientLogos = ' . json_encode($client_logos) . ';';
     echo 'window.oaTrustedByLogos = ' . json_encode($trusted_by_logos) . ';';
     echo 'window.oaTrustedByLogoVariant = ' . json_encode($trusted_by_logo_variant) . ';';
+    echo 'window.oaJobsMicrositeLogos = ' . json_encode($jobs_microsite_logos) . ';';
     echo 'window.oaTeamCarousel = ' . json_encode($team_carousel) . ';';
     echo 'window.oaTeamDirectory = ' . json_encode($team_directory) . ';';
     echo 'window.oaTeamMemberProfileStack = ' . json_encode($team_member_profile_stack) . ';';

@@ -103,7 +103,7 @@ function dt_register_team_taxonomies() {
         'show_in_rest'      => true,
     );
 
-    register_taxonomy('specialism', array('team_members', 'oa_job'), $tax_args + array('labels' => $specialism_labels, 'rewrite' => array('slug' => 'specialism')));
+    register_taxonomy('specialism', array('team_members'), $tax_args + array('labels' => $specialism_labels, 'rewrite' => array('slug' => 'specialism')));
     register_taxonomy('solution', array('team_members'), $tax_args + array('labels' => $solution_labels, 'rewrite' => array('slug' => 'solution')));
     register_taxonomy('location', array('team_members'), $tax_args + array('labels' => $location_labels, 'rewrite' => array('slug' => 'location')));
 }
@@ -166,6 +166,5 @@ function dt_remove_team_taxonomy_metaboxes() {
     remove_meta_box('specialismdiv', 'team_members', 'side');
     remove_meta_box('solutiondiv', 'team_members', 'side');
     remove_meta_box('locationdiv', 'team_members', 'side');
-    remove_meta_box('specialismdiv', 'oa_job', 'side');
 }
 add_action('add_meta_boxes', 'dt_remove_team_taxonomy_metaboxes', 11);

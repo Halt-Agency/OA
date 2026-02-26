@@ -307,5 +307,68 @@ function dt_enqueue_assets() {
             filemtime($oa_team_member_get_to_know_css_path)
         );
     }
+
+    $oa_jobs_board_css_path = get_stylesheet_directory() . '/assets/css/oa-jobs-board.css';
+    if (file_exists($oa_jobs_board_css_path)) {
+        wp_enqueue_style(
+            'child-oa-jobs-board',
+            get_stylesheet_directory_uri() . '/assets/css/oa-jobs-board.css',
+            ['child-style'],
+            filemtime($oa_jobs_board_css_path)
+        );
+    }
+
+    $oa_jobs_board_js_path = get_stylesheet_directory() . '/assets/js/oa-jobs-board.js';
+    if (file_exists($oa_jobs_board_js_path)) {
+        wp_enqueue_script(
+            'child-oa-jobs-board',
+            get_stylesheet_directory_uri() . '/assets/js/oa-jobs-board.js',
+            [],
+            filemtime($oa_jobs_board_js_path),
+            true
+        );
+    }
+
+    $oa_jobs_microsite_logos_css_path = get_stylesheet_directory() . '/assets/css/oa-jobs-microsite-logos.css';
+    if (file_exists($oa_jobs_microsite_logos_css_path)) {
+        wp_enqueue_style(
+            'child-oa-jobs-microsite-logos',
+            get_stylesheet_directory_uri() . '/assets/css/oa-jobs-microsite-logos.css',
+            ['child-style'],
+            filemtime($oa_jobs_microsite_logos_css_path)
+        );
+    }
+
+    $oa_jobs_microsite_logos_js_path = get_stylesheet_directory() . '/assets/js/oa-jobs-microsite-logos.js';
+    if (file_exists($oa_jobs_microsite_logos_js_path)) {
+        wp_enqueue_script(
+            'child-oa-jobs-microsite-logos',
+            get_stylesheet_directory_uri() . '/assets/js/oa-jobs-microsite-logos.js',
+            [],
+            filemtime($oa_jobs_microsite_logos_js_path),
+            true
+        );
+    }
+
+    $oa_quick_exit_css_path = get_stylesheet_directory() . '/assets/css/oa-quick-exit.css';
+    if (file_exists($oa_quick_exit_css_path)) {
+        wp_enqueue_style(
+            'child-oa-quick-exit',
+            get_stylesheet_directory_uri() . '/assets/css/oa-quick-exit.css',
+            ['child-style'],
+            filemtime($oa_quick_exit_css_path)
+        );
+    }
+
+    $oa_quick_exit_js_path = get_stylesheet_directory() . '/assets/js/oa-quick-exit.js';
+    if (file_exists($oa_quick_exit_js_path)) {
+        wp_enqueue_script(
+            'child-oa-quick-exit',
+            get_stylesheet_directory_uri() . '/assets/js/oa-quick-exit.js',
+            [],
+            filemtime($oa_quick_exit_js_path),
+            true
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'dt_enqueue_assets');

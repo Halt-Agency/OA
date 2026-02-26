@@ -1,0 +1,1103 @@
+{
+    "key": "group_page_jobs",
+    "title": "Jobs Page",
+    "fields": [
+        {
+            "key": "field_jobs_page_content",
+            "label": "Page Content",
+            "name": "page_content",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "Divi key: page_content",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_jobs_tab_hero",
+                    "label": "Hero Section",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "left",
+                    "endpoint": 0,
+                    "selected": 0
+                },
+                {
+                    "key": "field_jobs_hero_left_image",
+                    "label": "Hero Left Image",
+                    "name": "hero_left_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Divi key: page_content_hero_left_image",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_jobs_hero_center_image",
+                    "label": "Hero Center Image",
+                    "name": "hero_center_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Divi key: page_content_hero_center_image",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_jobs_hero_right_image",
+                    "label": "Hero Right Image",
+                    "name": "hero_right_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Divi key: page_content_hero_right_image",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_jobs_tab_intro",
+                    "label": "Intro Section",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "left",
+                    "endpoint": 0,
+                    "selected": 0
+                },
+                {
+                    "key": "field_jobs_intro_kicker",
+                    "label": "Kicker",
+                    "name": "intro_kicker",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_intro_kicker",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_intro_heading_prefix",
+                    "label": "Heading Prefix",
+                    "name": "intro_heading_prefix",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Text before underlined phrase.\nDivi key: page_content_intro_heading_prefix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_intro_heading_emphasis",
+                    "label": "Heading Emphasis",
+                    "name": "intro_heading_emphasis",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Underlined phrase.\nDivi key: page_content_intro_heading_emphasis",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_intro_heading_suffix",
+                    "label": "Heading Suffix",
+                    "name": "intro_heading_suffix",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Text after underlined phrase.\nDivi key: page_content_intro_heading_suffix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_intro_copy",
+                    "label": "Intro Copy",
+                    "name": "intro_copy",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Divi key: page_content_intro_copy",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 4,
+                    "new_lines": "wpautop"
+                },
+                {
+                    "key": "field_jobs_intro_hubs_button_text",
+                    "label": "Employer Hubs Button Text",
+                    "name": "intro_hubs_button_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_intro_hubs_button_text",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_intro_hubs_button_link",
+                    "label": "Employer Hubs Button Link",
+                    "name": "intro_hubs_button_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Divi key: page_content_intro_hubs_button_link",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url"
+                },
+                {
+                    "key": "field_jobs_intro_view_jobs_button_text",
+                    "label": "View All Jobs Button Text",
+                    "name": "intro_view_jobs_button_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_intro_view_jobs_button_text",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_intro_view_jobs_button_link",
+                    "label": "View All Jobs Button Link",
+                    "name": "intro_view_jobs_button_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Divi key: page_content_intro_view_jobs_button_link",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url"
+                },
+                {
+                    "key": "field_jobs_tab_top_logos",
+                    "label": "Top Logos",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "left",
+                    "endpoint": 0,
+                    "selected": 0
+                },
+                {
+                    "key": "field_jobs_top_logos_use_all",
+                    "label": "Use All Microsites",
+                    "name": "top_logos_use_all",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Divi key: page_content_top_logos_use_all",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "Use all",
+                    "default_value": 1,
+                    "ui": 1,
+                    "ui_on_text": "Yes",
+                    "ui_off_text": "No"
+                },
+                {
+                    "key": "field_jobs_top_logos_microsites",
+                    "label": "Microsites",
+                    "name": "top_logos_microsites",
+                    "aria-label": "",
+                    "type": "relationship",
+                    "instructions": "Uses microsite featured image as logo.\nDivi key: page_content_top_logos_microsites",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_jobs_top_logos_use_all",
+                                "operator": "==",
+                                "value": "0"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "microsite"
+                    ],
+                    "taxonomy": "",
+                    "filters": [
+                        "search"
+                    ],
+                    "elements": "",
+                    "min": "",
+                    "max": "",
+                    "return_format": "id"
+                },
+                {
+                    "key": "field_jobs_tab_filters",
+                    "label": "Filters & Results",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "left",
+                    "endpoint": 0,
+                    "selected": 0
+                },
+                {
+                    "key": "field_jobs_filters_heading",
+                    "label": "Filter Panel Heading",
+                    "name": "filters_heading",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_filters_heading",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_keyword_placeholder",
+                    "label": "Keyword Placeholder",
+                    "name": "keyword_placeholder",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_keyword_placeholder",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_location_placeholder",
+                    "label": "Location Placeholder",
+                    "name": "location_placeholder",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_location_placeholder",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_sector_label",
+                    "label": "Sector Label",
+                    "name": "sector_label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_sector_label",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_contract_type_label",
+                    "label": "Contract Type Label",
+                    "name": "contract_type_label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_contract_type_label",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_search_button_text",
+                    "label": "Search Button Text",
+                    "name": "search_button_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_search_button_text",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_empty_results_text",
+                    "label": "Empty Results Text",
+                    "name": "empty_results_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_empty_results_text",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_pagination_prev_text",
+                    "label": "Pagination Previous Text",
+                    "name": "pagination_prev_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_pagination_prev_text",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_pagination_next_text",
+                    "label": "Pagination Next Text",
+                    "name": "pagination_next_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_pagination_next_text",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_tab_employer_hubs",
+                    "label": "Employer Hubs Section",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "left",
+                    "endpoint": 0,
+                    "selected": 0
+                },
+                {
+                    "key": "field_jobs_hubs_kicker",
+                    "label": "Kicker",
+                    "name": "hubs_kicker",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_hubs_kicker",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_hubs_heading_prefix",
+                    "label": "Heading Prefix",
+                    "name": "hubs_heading_prefix",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Text before underlined phrase.\nDivi key: page_content_hubs_heading_prefix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_hubs_heading_emphasis",
+                    "label": "Heading Emphasis",
+                    "name": "hubs_heading_emphasis",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Underlined phrase.\nDivi key: page_content_hubs_heading_emphasis",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_hubs_heading_suffix",
+                    "label": "Heading Suffix",
+                    "name": "hubs_heading_suffix",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Text after underlined phrase.\nDivi key: page_content_hubs_heading_suffix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_hubs_copy",
+                    "label": "Copy",
+                    "name": "hubs_copy",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Divi key: page_content_hubs_copy",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 4,
+                    "new_lines": "wpautop"
+                },
+                {
+                    "key": "field_jobs_hubs_use_all",
+                    "label": "Use All Microsites",
+                    "name": "hubs_use_all",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Divi key: page_content_hubs_use_all",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "Use all",
+                    "default_value": 1,
+                    "ui": 1,
+                    "ui_on_text": "Yes",
+                    "ui_off_text": "No"
+                },
+                {
+                    "key": "field_jobs_hubs_microsites",
+                    "label": "Microsites",
+                    "name": "hubs_microsites",
+                    "aria-label": "",
+                    "type": "relationship",
+                    "instructions": "Uses microsite featured image as logo.\nDivi key: page_content_hubs_microsites",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_jobs_hubs_use_all",
+                                "operator": "==",
+                                "value": "0"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "microsite"
+                    ],
+                    "taxonomy": "",
+                    "filters": [
+                        "search"
+                    ],
+                    "elements": "",
+                    "min": "",
+                    "max": "",
+                    "return_format": "id"
+                },
+                {
+                    "key": "field_jobs_hubs_button_text",
+                    "label": "View More Button Text",
+                    "name": "hubs_button_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_hubs_button_text",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_hubs_button_link",
+                    "label": "View More Button Link",
+                    "name": "hubs_button_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Divi key: page_content_hubs_button_link",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url"
+                },
+                {
+                    "key": "field_jobs_tab_career_cta",
+                    "label": "Career CTA Section",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "left",
+                    "endpoint": 0,
+                    "selected": 0
+                },
+                {
+                    "key": "field_jobs_career_heading",
+                    "label": "Heading",
+                    "name": "career_heading",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_career_heading",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_career_copy",
+                    "label": "Copy",
+                    "name": "career_copy",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Divi key: page_content_career_copy",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": 3,
+                    "new_lines": "wpautop"
+                },
+                {
+                    "key": "field_jobs_career_button_text",
+                    "label": "Button Text",
+                    "name": "career_button_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_career_button_text",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_career_button_link",
+                    "label": "Button Link",
+                    "name": "career_button_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Divi key: page_content_career_button_link",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url"
+                },
+                {
+                    "key": "field_jobs_tab_insights",
+                    "label": "Insights Section",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "left",
+                    "endpoint": 0,
+                    "selected": 0
+                },
+                {
+                    "key": "field_jobs_insights_heading_prefix",
+                    "label": "Heading Prefix",
+                    "name": "insights_heading_prefix",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_insights_heading_prefix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_insights_heading_emphasis",
+                    "label": "Heading Emphasis",
+                    "name": "insights_heading_emphasis",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_insights_heading_emphasis",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_insights_heading_suffix",
+                    "label": "Heading Suffix",
+                    "name": "insights_heading_suffix",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_insights_heading_suffix",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_insights_button_text",
+                    "label": "Button Text",
+                    "name": "insights_button_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_insights_button_text",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_insights_button_link",
+                    "label": "Button Link",
+                    "name": "insights_button_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Divi key: page_content_insights_button_link",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url"
+                },
+                {
+                    "key": "field_jobs_insights_source",
+                    "label": "Insights Source",
+                    "name": "insights_source",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Divi key: page_content_insights_source",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "latest": "Latest Posts",
+                        "manual": "Manual Selection"
+                    },
+                    "default_value": "latest",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_jobs_insights_count",
+                    "label": "Latest Posts Count",
+                    "name": "insights_count",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Divi key: page_content_insights_count",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_jobs_insights_source",
+                                "operator": "==",
+                                "value": "latest"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_jobs_insights_posts",
+                    "label": "Manual Posts",
+                    "name": "insights_posts",
+                    "aria-label": "",
+                    "type": "relationship",
+                    "instructions": "Divi key: page_content_insights_posts",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_jobs_insights_source",
+                                "operator": "==",
+                                "value": "manual"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "post"
+                    ],
+                    "taxonomy": "",
+                    "filters": [
+                        "search"
+                    ],
+                    "elements": "",
+                    "min": "",
+                    "max": "",
+                    "return_format": "id"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "3569"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": true,
+    "description": "Fields for Jobs board page sections.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1772109799
+}

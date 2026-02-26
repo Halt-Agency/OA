@@ -40,12 +40,72 @@
             "maxlength": ""
         },
         {
+            "key": "field_job_reference",
+            "label": "Job Reference",
+            "name": "job_reference",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Divi key: job_reference",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_job_location",
             "label": "Job Location",
             "name": "job_location",
             "aria-label": "",
             "type": "text",
             "instructions": "Divi key: job_location",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_job_city",
+            "label": "Job City",
+            "name": "job_city",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Divi key: job_city",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_job_country",
+            "label": "Job Country",
+            "name": "job_country",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Divi key: job_country",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -84,7 +144,7 @@
             "label": "Job Contract Type",
             "name": "job_contract_type",
             "aria-label": "",
-            "type": "text",
+            "type": "select",
             "instructions": "Divi key: job_contract_type",
             "required": 0,
             "conditional_logic": 0,
@@ -93,18 +153,31 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": [],
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "return_format": "value",
+            "allow_null": 1,
+            "multiple": 1,
+            "choices": {
+                "permanent": "Permanent",
+                "temporary": "Temporary",
+                "contract": "Contract",
+                "temp_to_perm": "Temp to Perm",
+                "part_time": "Part Time",
+                "full_time": "Full Time"
+            },
+            "ui": 1,
+            "ajax": 0
         },
         {
             "key": "field_job_sector",
             "label": "Job Sector",
             "name": "job_sector",
             "aria-label": "",
-            "type": "taxonomy",
+            "type": "select",
             "instructions": "Divi key: job_sector",
             "required": 0,
             "conditional_logic": 0,
@@ -113,14 +186,21 @@
                 "class": "",
                 "id": ""
             },
-            "taxonomy": "specialism",
-            "add_term": 0,
-            "save_terms": 1,
-            "load_terms": 1,
-            "return_format": "id",
-            "field_type": "checkbox",
-            "allow_null": 0,
-            "multiple": 1
+            "return_format": "value",
+            "allow_null": 1,
+            "multiple": 1,
+            "choices": {
+                "office_commercial": "Office & Commercial",
+                "events_hospitality": "Events & Hospitality",
+                "fulfilment_distribution": "Fulfilment & Distribution",
+                "manufacturing": "Manufacturing",
+                "warehousing": "Warehousing",
+                "engineering": "Engineering"
+            },
+            "default_value": [],
+            "ui": 1,
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_job_tab_compensation",
@@ -279,5 +359,5 @@
     "description": "Fields for the OA Jobs post type",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1769608947
+    "modified": 1772117152
 }

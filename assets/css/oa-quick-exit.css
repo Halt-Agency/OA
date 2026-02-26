@@ -1,0 +1,35 @@
+.oa-quick-exit {
+  position: fixed;
+  right: 0;
+  top: 30%;
+  z-index: 9999;
+  transform: translate3d(110%, -50%, 0);
+  border: 1px solid #8367ff;
+  border-right: 0;
+  border-radius: 15px 0 0 15px;
+  background: #8367ff;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 14px 12px;
+  min-height: 132px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease, background-color 0.2s ease;
+}
+
+.oa-quick-exit.is-visible {
+  transform: translate3d(0, -50%, 0);
+  opacity: 1;
+}
+
+.oa-quick-exit:hover,
+.oa-quick-exit:focus-visible {
+  background: #2c1a5e;
+  outline: none;
+}

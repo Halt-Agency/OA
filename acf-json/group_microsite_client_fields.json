@@ -1,0 +1,96 @@
+{
+    "key": "group_microsite_client_fields",
+    "title": "Microsite Client Logo Fields",
+    "fields": [
+        {
+            "key": "field_microsite_client_logo",
+            "label": "Client Logo (White)",
+            "name": "client_logo",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Upload the white client logo.\nDivi key: client_logo",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg,jpeg,png,svg,gif,webp"
+        },
+        {
+            "key": "field_microsite_client_logo_colour",
+            "label": "Client Logo (Colour)",
+            "name": "client_logo_colour",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Upload the colour client logo.\nDivi key: client_logo_colour",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg,jpeg,png,svg,gif,webp"
+        },
+        {
+            "key": "field_microsite_create_client_logo_post",
+            "label": "Create Client Logo Post?",
+            "name": "create_client_logo_post",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "When enabled, saving this Microsite will create or update a linked Clients post using these logo fields.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "microsite"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Logo fields for Microsites with optional Clients post creation sync.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1772122410
+}

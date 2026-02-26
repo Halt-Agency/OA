@@ -1,0 +1,38 @@
+.oa-jobs-microsite-logos__track {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+}
+
+.oa-jobs-microsite-logos__item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.oa-jobs-microsite-logos__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 181.73 / 88.77;
+  background: #23144a;
+  border-radius: 20px;
+  padding: 14px 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.oa-jobs-microsite-logos__media img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.oa-jobs-microsite-logos__item:hover .oa-jobs-microsite-logos__media,
+.oa-jobs-microsite-logos__item:focus-visible .oa-jobs-microsite-logos__media {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
