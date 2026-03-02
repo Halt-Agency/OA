@@ -1,0 +1,570 @@
+{
+    "key": "group_header_menu_options",
+    "title": "Header Menu",
+    "fields": [
+        {
+            "key": "field_header_menu_logo",
+            "label": "Header Logo",
+            "name": "header_logo",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Global options key: header_logo\nDivi key: header_logo",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_header_menu_items",
+            "label": "Menu Items",
+            "name": "header_menu_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Global options key: header_menu_items\nDivi key: header_menu_items",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_header_menu_item_label",
+            "button_label": "Add Menu Item",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_header_menu_item_label",
+                    "label": "Label",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Global options key: header_menu_items[].label\nDivi key: header_menu_items_label",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_header_menu_item_link",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Global options key: header_menu_items[].link\nDivi key: header_menu_items_link",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_header_menu_item_style",
+                    "label": "Style",
+                    "name": "style",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Global options key: header_menu_items[].style\nDivi key: header_menu_items_style",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "default": "Default",
+                        "filled": "Filled",
+                        "outline": "Outline"
+                    },
+                    "default_value": "default",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_header_menu_item_submenu_type",
+                    "label": "Submenu Type",
+                    "name": "submenu_type",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Global options key: header_menu_items[].submenu_type\nDivi key: header_menu_items_submenu_type",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "none": "None",
+                        "dropdown": "Dropdown",
+                        "mega": "Mega Menu"
+                    },
+                    "default_value": "none",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_header_menu_dropdown_links",
+                    "label": "Dropdown Links",
+                    "name": "dropdown_links",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Global options key: header_menu_items[].dropdown_links\nDivi key: header_menu_items_dropdown_links",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_item_submenu_type",
+                                "operator": "==",
+                                "value": "dropdown"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Dropdown Link",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_header_menu_dropdown_link",
+                            "label": "Link",
+                            "name": "link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "Global options key: header_menu_items[].dropdown_links[].link\nDivi key: header_menu_items_dropdown_links_link",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_header_menu_mega_tab",
+                    "label": "Mega Menu Content",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "top",
+                    "endpoint": 0,
+                    "selected": 0
+                },
+                {
+                    "key": "field_header_menu_mega_left_mode",
+                    "label": "Left Panel Mode",
+                    "name": "mega_left_mode",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Global options key: header_menu_items[].mega_left_mode\nDivi key: header_menu_items_mega_left_mode",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "cards": "Cards",
+                        "contact": "Contact"
+                    },
+                    "default_value": "cards",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_header_menu_mega_left_heading",
+                    "label": "Left Panel Heading",
+                    "name": "mega_left_heading",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Global options key: header_menu_items[].mega_left_heading\nDivi key: header_menu_items_mega_left_heading",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_header_menu_mega_left_view_more",
+                    "label": "Left Panel View More Link",
+                    "name": "mega_left_view_more",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Global options key: header_menu_items[].mega_left_view_more\nDivi key: header_menu_items_mega_left_view_more",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "34",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_header_menu_mega_left_cards",
+                    "label": "Left Cards",
+                    "name": "mega_left_cards",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Global options key: header_menu_items[].mega_left_cards\nDivi key: header_menu_items_mega_left_cards",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            },
+                            {
+                                "field": "field_header_menu_mega_left_mode",
+                                "operator": "==",
+                                "value": "cards"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Card",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_header_menu_mega_left_card_image",
+                            "label": "Image",
+                            "name": "image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "Global options key: header_menu_items[].mega_left_cards[].image\nDivi key: header_menu_items_mega_left_cards_image",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_header_menu_mega_left_card_title",
+                            "label": "Title",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Global options key: header_menu_items[].mega_left_cards[].title\nDivi key: header_menu_items_mega_left_cards_title",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_header_menu_mega_left_card_link",
+                            "label": "Link",
+                            "name": "link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "Global options key: header_menu_items[].mega_left_cards[].link\nDivi key: header_menu_items_mega_left_cards_link",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "34",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_header_menu_mega_contact_image",
+                    "label": "Contact Image",
+                    "name": "mega_contact_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Global options key: header_menu_items[].mega_contact_image\nDivi key: header_menu_items_mega_contact_image",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            },
+                            {
+                                "field": "field_header_menu_mega_left_mode",
+                                "operator": "==",
+                                "value": "contact"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_header_menu_mega_contact_button",
+                    "label": "Contact Button",
+                    "name": "mega_contact_button",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Global options key: header_menu_items[].mega_contact_button\nDivi key: header_menu_items_mega_contact_button",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            },
+                            {
+                                "field": "field_header_menu_mega_left_mode",
+                                "operator": "==",
+                                "value": "contact"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_header_menu_mega_columns",
+                    "label": "Right Columns",
+                    "name": "mega_columns",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Global options key: header_menu_items[].mega_columns\nDivi key: header_menu_items_mega_columns",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "pagination": 0,
+                    "min": 1,
+                    "max": 0,
+                    "collapsed": "field_header_menu_mega_column_title",
+                    "button_label": "Add Column",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_header_menu_mega_column_title",
+                            "label": "Column Title",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Global options key: header_menu_items[].mega_columns[].title\nDivi key: header_menu_items_mega_columns_title",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "40",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_header_menu_mega_column_links",
+                            "label": "Column Links",
+                            "name": "links",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "Global options key: header_menu_items[].mega_columns[].links\nDivi key: header_menu_items_mega_columns_links",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "60",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "pagination": 0,
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Link",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_header_menu_mega_column_link",
+                                    "label": "Link",
+                                    "name": "link",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "Global options key: header_menu_items[].mega_columns[].links[].link\nDivi key: header_menu_items_mega_columns_links_link",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "header-menu-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Global header menu structure for shortcode-driven nav and mega menu.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1772409600
+}

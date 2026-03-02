@@ -370,5 +370,26 @@ function dt_enqueue_assets() {
             true
         );
     }
+
+    $oa_header_menu_css_path = get_stylesheet_directory() . '/assets/css/oa-header-menu.css';
+    if (file_exists($oa_header_menu_css_path)) {
+        wp_enqueue_style(
+            'child-oa-header-menu',
+            get_stylesheet_directory_uri() . '/assets/css/oa-header-menu.css',
+            ['child-style'],
+            filemtime($oa_header_menu_css_path)
+        );
+    }
+
+    $oa_header_menu_js_path = get_stylesheet_directory() . '/assets/js/oa-header-menu.js';
+    if (file_exists($oa_header_menu_js_path)) {
+        wp_enqueue_script(
+            'child-oa-header-menu',
+            get_stylesheet_directory_uri() . '/assets/js/oa-header-menu.js',
+            [],
+            filemtime($oa_header_menu_js_path),
+            true
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'dt_enqueue_assets');

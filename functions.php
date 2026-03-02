@@ -18,3 +18,5 @@ require_once get_stylesheet_directory() . '/inc/theme/cpt/jobs-taxonomies.php';
 require_once get_stylesheet_directory() . '/inc/theme/cpt/microsites.php';
 require_once get_stylesheet_directory() . '/inc/theme/pages/create-pages.php';
 require_once get_stylesheet_directory() . '/inc/theme/ajax/jobs-board.php';
+require_once get_stylesheet_directory() . '/inc/theme/shortcodes/header-menu.php';
+require_once get_stylesheet_directory() . '/inc/theme/ajax/header-menu.php';

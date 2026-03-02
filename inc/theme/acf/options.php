@@ -22,4 +22,13 @@ add_action('acf/init', function() {
         'capability'  => 'edit_posts',
         'redirect'    => false,
     ]);
+
+    acf_add_options_sub_page([
+        'page_title'  => 'Header Menu',
+        'menu_title'  => 'Header Menu',
+        'menu_slug'   => 'header-menu-options',
+        'parent_slug' => 'themes.php',
+        'capability'  => 'edit_posts',
+        'redirect'    => false,
+    ]);
 });
