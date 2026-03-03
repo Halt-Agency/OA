@@ -3,6 +3,24 @@
     "title": "Header Menu",
     "fields": [
         {
+            "key": "field_header_menu_tab_general",
+            "label": "Menu Setup",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 1
+        },
+        {
             "key": "field_header_menu_logo",
             "label": "Header Logo",
             "name": "header_logo",
@@ -26,6 +44,24 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_header_menu_tab_main",
+            "label": "Main Menu",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_header_menu_items",
@@ -234,7 +270,8 @@
                     },
                     "choices": {
                         "cards": "Cards",
-                        "contact": "Contact"
+                        "contact": "Contact",
+                        "resources": "Resources (2 Posts)"
                     },
                     "default_value": "cards",
                     "return_format": "value",
@@ -243,6 +280,129 @@
                     "ui": 0,
                     "ajax": 0,
                     "placeholder": ""
+                },
+                {
+                    "key": "field_header_menu_mega_resources_taxonomy",
+                    "label": "Resources Taxonomy",
+                    "name": "mega_resources_taxonomy",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Global options key: header_menu_items[].mega_resources_taxonomy\nDivi key: header_menu_items_mega_resources_taxonomy",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            },
+                            {
+                                "field": "field_header_menu_mega_left_mode",
+                                "operator": "==",
+                                "value": "resources"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "category": "Category",
+                        "post_tag": "Tag"
+                    },
+                    "default_value": "category",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_header_menu_mega_resources_category",
+                    "label": "Resources Category",
+                    "name": "mega_resources_category",
+                    "aria-label": "",
+                    "type": "taxonomy",
+                    "instructions": "Global options key: header_menu_items[].mega_resources_category\nDivi key: header_menu_items_mega_resources_category",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            },
+                            {
+                                "field": "field_header_menu_mega_left_mode",
+                                "operator": "==",
+                                "value": "resources"
+                            },
+                            {
+                                "field": "field_header_menu_mega_resources_taxonomy",
+                                "operator": "==",
+                                "value": "category"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "34",
+                        "class": "",
+                        "id": ""
+                    },
+                    "taxonomy": "category",
+                    "add_term": 0,
+                    "save_terms": 0,
+                    "load_terms": 0,
+                    "return_format": "id",
+                    "field_type": "select",
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "bidirectional_target": []
+                },
+                {
+                    "key": "field_header_menu_mega_resources_tag",
+                    "label": "Resources Tag",
+                    "name": "mega_resources_tag",
+                    "aria-label": "",
+                    "type": "taxonomy",
+                    "instructions": "Global options key: header_menu_items[].mega_resources_tag\nDivi key: header_menu_items_mega_resources_tag",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            },
+                            {
+                                "field": "field_header_menu_mega_left_mode",
+                                "operator": "==",
+                                "value": "resources"
+                            },
+                            {
+                                "field": "field_header_menu_mega_resources_taxonomy",
+                                "operator": "==",
+                                "value": "post_tag"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "34",
+                        "class": "",
+                        "id": ""
+                    },
+                    "taxonomy": "post_tag",
+                    "add_term": 0,
+                    "save_terms": 0,
+                    "load_terms": 0,
+                    "return_format": "id",
+                    "field_type": "select",
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "bidirectional_target": []
                 },
                 {
                     "key": "field_header_menu_mega_left_heading",
@@ -545,6 +705,667 @@
                     ]
                 }
             ]
+        },
+        {
+            "key": "field_header_menu_tab_end_buttons",
+            "label": "End Buttons",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_header_menu_end_buttons",
+            "label": "End Buttons",
+            "name": "header_menu_end_buttons",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Global options key: header_menu_end_buttons\nDivi key: header_menu_end_buttons",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 2,
+            "collapsed": "field_header_menu_end_item_label",
+            "button_label": "Add End Button",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_header_menu_end_item_label",
+                    "label": "Label",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Global options key: header_menu_end_buttons[].label\nDivi key: header_menu_end_buttons_label",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_header_menu_end_item_link",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Global options key: header_menu_end_buttons[].link\nDivi key: header_menu_end_buttons_link",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_header_menu_end_item_style",
+                    "label": "Style",
+                    "name": "style",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Global options key: header_menu_end_buttons[].style\nDivi key: header_menu_end_buttons_style",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "default": "Default",
+                        "filled": "Filled",
+                        "outline": "Outline"
+                    },
+                    "default_value": "default",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_header_menu_end_item_submenu_type",
+                    "label": "Submenu Type",
+                    "name": "submenu_type",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Global options key: header_menu_end_buttons[].submenu_type\nDivi key: header_menu_end_buttons_submenu_type",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "none": "None",
+                        "dropdown": "Dropdown",
+                        "mega": "Mega Menu"
+                    },
+                    "default_value": "none",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_header_menu_end_dropdown_links",
+                    "label": "Dropdown Links",
+                    "name": "dropdown_links",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Global options key: header_menu_end_buttons[].dropdown_links\nDivi key: header_menu_end_buttons_dropdown_links",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_end_item_submenu_type",
+                                "operator": "==",
+                                "value": "dropdown"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Dropdown Link",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_header_menu_end_dropdown_link",
+                            "label": "Link",
+                            "name": "link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "Global options key: header_menu_end_buttons[].dropdown_links[].link\nDivi key: header_menu_end_buttons_dropdown_links_link",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_header_menu_end_mega_tab",
+                    "label": "Mega Menu Content",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_end_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "top",
+                    "endpoint": 0,
+                    "selected": 0
+                },
+                {
+                    "key": "field_header_menu_end_mega_left_mode",
+                    "label": "Left Panel Mode",
+                    "name": "mega_left_mode",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Global options key: header_menu_end_buttons[].mega_left_mode\nDivi key: header_menu_end_buttons_mega_left_mode",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_end_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "cards": "Cards",
+                        "contact": "Contact",
+                        "resources": "Resources (2 Posts)"
+                    },
+                    "default_value": "cards",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_header_menu_end_mega_resources_taxonomy",
+                    "label": "Resources Taxonomy",
+                    "name": "mega_resources_taxonomy",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Global options key: header_menu_end_buttons[].mega_resources_taxonomy\nDivi key: header_menu_end_buttons_mega_resources_taxonomy",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_end_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            },
+                            {
+                                "field": "field_header_menu_end_mega_left_mode",
+                                "operator": "==",
+                                "value": "resources"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "category": "Category",
+                        "post_tag": "Tag"
+                    },
+                    "default_value": "category",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_header_menu_end_mega_resources_category",
+                    "label": "Resources Category",
+                    "name": "mega_resources_category",
+                    "aria-label": "",
+                    "type": "taxonomy",
+                    "instructions": "Global options key: header_menu_end_buttons[].mega_resources_category\nDivi key: header_menu_end_buttons_mega_resources_category",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_end_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            },
+                            {
+                                "field": "field_header_menu_end_mega_left_mode",
+                                "operator": "==",
+                                "value": "resources"
+                            },
+                            {
+                                "field": "field_header_menu_end_mega_resources_taxonomy",
+                                "operator": "==",
+                                "value": "category"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "34",
+                        "class": "",
+                        "id": ""
+                    },
+                    "taxonomy": "category",
+                    "add_term": 0,
+                    "save_terms": 0,
+                    "load_terms": 0,
+                    "return_format": "id",
+                    "field_type": "select",
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "bidirectional_target": []
+                },
+                {
+                    "key": "field_header_menu_end_mega_resources_tag",
+                    "label": "Resources Tag",
+                    "name": "mega_resources_tag",
+                    "aria-label": "",
+                    "type": "taxonomy",
+                    "instructions": "Global options key: header_menu_end_buttons[].mega_resources_tag\nDivi key: header_menu_end_buttons_mega_resources_tag",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_end_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            },
+                            {
+                                "field": "field_header_menu_end_mega_left_mode",
+                                "operator": "==",
+                                "value": "resources"
+                            },
+                            {
+                                "field": "field_header_menu_end_mega_resources_taxonomy",
+                                "operator": "==",
+                                "value": "post_tag"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "34",
+                        "class": "",
+                        "id": ""
+                    },
+                    "taxonomy": "post_tag",
+                    "add_term": 0,
+                    "save_terms": 0,
+                    "load_terms": 0,
+                    "return_format": "id",
+                    "field_type": "select",
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "bidirectional_target": []
+                },
+                {
+                    "key": "field_header_menu_end_mega_left_heading",
+                    "label": "Left Panel Heading",
+                    "name": "mega_left_heading",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Global options key: header_menu_end_buttons[].mega_left_heading\nDivi key: header_menu_end_buttons_mega_left_heading",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_end_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_header_menu_end_mega_left_view_more",
+                    "label": "Left Panel View More Link",
+                    "name": "mega_left_view_more",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Global options key: header_menu_end_buttons[].mega_left_view_more\nDivi key: header_menu_end_buttons_mega_left_view_more",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_end_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "34",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_header_menu_end_mega_left_cards",
+                    "label": "Left Cards",
+                    "name": "mega_left_cards",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Global options key: header_menu_end_buttons[].mega_left_cards\nDivi key: header_menu_end_buttons_mega_left_cards",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_end_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            },
+                            {
+                                "field": "field_header_menu_end_mega_left_mode",
+                                "operator": "==",
+                                "value": "cards"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Card",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_header_menu_end_mega_left_card_image",
+                            "label": "Image",
+                            "name": "image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "Global options key: header_menu_end_buttons[].mega_left_cards[].image\nDivi key: header_menu_end_buttons_mega_left_cards_image",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_header_menu_end_mega_left_card_title",
+                            "label": "Title",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Global options key: header_menu_end_buttons[].mega_left_cards[].title\nDivi key: header_menu_end_buttons_mega_left_cards_title",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_header_menu_end_mega_left_card_link",
+                            "label": "Link",
+                            "name": "link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "Global options key: header_menu_end_buttons[].mega_left_cards[].link\nDivi key: header_menu_end_buttons_mega_left_cards_link",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "34",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_header_menu_end_mega_contact_image",
+                    "label": "Contact Image",
+                    "name": "mega_contact_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Global options key: header_menu_end_buttons[].mega_contact_image\nDivi key: header_menu_end_buttons_mega_contact_image",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_end_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            },
+                            {
+                                "field": "field_header_menu_end_mega_left_mode",
+                                "operator": "==",
+                                "value": "contact"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_header_menu_end_mega_contact_button",
+                    "label": "Contact Button",
+                    "name": "mega_contact_button",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Global options key: header_menu_end_buttons[].mega_contact_button\nDivi key: header_menu_end_buttons_mega_contact_button",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_end_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            },
+                            {
+                                "field": "field_header_menu_end_mega_left_mode",
+                                "operator": "==",
+                                "value": "contact"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_header_menu_end_mega_columns",
+                    "label": "Right Columns",
+                    "name": "mega_columns",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Global options key: header_menu_end_buttons[].mega_columns\nDivi key: header_menu_end_buttons_mega_columns",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_header_menu_end_item_submenu_type",
+                                "operator": "==",
+                                "value": "mega"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "pagination": 0,
+                    "min": 1,
+                    "max": 0,
+                    "collapsed": "field_header_menu_end_mega_column_title",
+                    "button_label": "Add Column",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_header_menu_end_mega_column_title",
+                            "label": "Column Title",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Global options key: header_menu_end_buttons[].mega_columns[].title\nDivi key: header_menu_end_buttons_mega_columns_title",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "40",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_header_menu_end_mega_column_links",
+                            "label": "Column Links",
+                            "name": "links",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "Global options key: header_menu_end_buttons[].mega_columns[].links\nDivi key: header_menu_end_buttons_mega_columns_links",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "60",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "pagination": 0,
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Link",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_header_menu_end_mega_column_link",
+                                    "label": "Link",
+                                    "name": "link",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "Global options key: header_menu_end_buttons[].mega_columns[].links[].link\nDivi key: header_menu_end_buttons_mega_columns_links_link",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "location": [
@@ -566,5 +1387,5 @@
     "description": "Global header menu structure for shortcode-driven nav and mega menu.",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1772409600
+    "modified": 1772546411
 }

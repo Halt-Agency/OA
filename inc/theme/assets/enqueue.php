@@ -371,6 +371,27 @@ function dt_enqueue_assets() {
         );
     }
 
+    $oa_job_search_tab_css_path = get_stylesheet_directory() . '/assets/css/oa-job-search-tab.css';
+    if (file_exists($oa_job_search_tab_css_path)) {
+        wp_enqueue_style(
+            'child-oa-job-search-tab',
+            get_stylesheet_directory_uri() . '/assets/css/oa-job-search-tab.css',
+            ['child-style'],
+            filemtime($oa_job_search_tab_css_path)
+        );
+    }
+
+    $oa_job_search_tab_js_path = get_stylesheet_directory() . '/assets/js/oa-job-search-tab.js';
+    if (file_exists($oa_job_search_tab_js_path)) {
+        wp_enqueue_script(
+            'child-oa-job-search-tab',
+            get_stylesheet_directory_uri() . '/assets/js/oa-job-search-tab.js',
+            [],
+            filemtime($oa_job_search_tab_js_path),
+            true
+        );
+    }
+
     $oa_header_menu_css_path = get_stylesheet_directory() . '/assets/css/oa-header-menu.css';
     if (file_exists($oa_header_menu_css_path)) {
         wp_enqueue_style(

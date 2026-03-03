@@ -50,6 +50,35 @@
     return window.matchMedia('(max-width: 980px)').matches;
   }
 
+  function alignMegaPanelToMenuRight(item, root) {
+    if (!item || !root || isMobile()) {
+      return;
+    }
+
+    var megaPanel = item.querySelector('.oa-header-menu__panel--mega');
+    if (!megaPanel) {
+      return;
+    }
+
+    var menuRect = root.getBoundingClientRect();
+    var itemRect = item.getBoundingClientRect();
+    var offsetToMenuRight = menuRect.right - itemRect.right;
+    var menuWidth = Math.max(0, menuRect.width);
+    var extraWidthAllowance = 120;
+
+    megaPanel.style.left = 'auto';
+    megaPanel.style.right = (-offsetToMenuRight) + 'px';
+    megaPanel.style.transform = 'none';
+    megaPanel.style.maxWidth = (menuWidth + extraWidthAllowance) + 'px';
+
+    debugLog('alignMegaPanelToMenuRight', {
+      item: describeElement(item),
+      offsetToMenuRight: offsetToMenuRight,
+      menuWidth: menuWidth,
+      extraWidthAllowance: extraWidthAllowance
+    });
+  }
+
   function positionPanel(item) {
     if (!item || isMobile()) {
       return;
@@ -176,8 +205,7 @@
         }
         debugLog('item:mouseenter', { item: describeElement(item) });
         closeAll(root);
-        // Reverted custom viewport-aware orientation; use default CSS orientation.
-        // positionPanel(item);
+        alignMegaPanelToMenuRight(item, root);
         setOpen(item, true);
       });
 
