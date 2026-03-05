@@ -18,6 +18,7 @@ function oa_get_header_menu_markup($atts = []) {
 
     $menu_items = get_field('header_menu_items', 'option');
     $end_buttons = get_field('header_menu_end_buttons', 'option');
+    $mobile_menu_items = get_field('header_mobile_menu_items', 'option');
     if (!is_array($menu_items)) {
         $menu_items = [];
     }
@@ -26,6 +27,9 @@ function oa_get_header_menu_markup($atts = []) {
     }
     if (!is_array($end_buttons)) {
         $end_buttons = [];
+    }
+    if (!is_array($mobile_menu_items)) {
+        $mobile_menu_items = [];
     }
 
     $render_items = [];
@@ -44,6 +48,39 @@ function oa_get_header_menu_markup($atts = []) {
         $render_items[] = $button_item;
     }
 
+    $mobile_menu_payload = [];
+    foreach ($mobile_menu_items as $mobile_item_row) {
+        if (!is_array($mobile_item_row)) {
+            continue;
+        }
+
+        $mobile_label = isset($mobile_item_row['label']) ? trim((string) $mobile_item_row['label']) : '';
+        $mobile_submenu_rows = isset($mobile_item_row['submenu_links']) && is_array($mobile_item_row['submenu_links']) ? $mobile_item_row['submenu_links'] : [];
+
+        if ($mobile_label === '') {
+            continue;
+        }
+
+        $mobile_entry = [
+            'label'        => $mobile_label,
+            'submenuTitle' => $mobile_label,
+            'submenuLinks' => [],
+        ];
+
+        foreach ($mobile_submenu_rows as $mobile_submenu_row) {
+            $mobile_submenu_link = isset($mobile_submenu_row['link']) && is_array($mobile_submenu_row['link']) ? $mobile_submenu_row['link'] : null;
+            if (empty($mobile_submenu_link['url'])) {
+                continue;
+            }
+            $mobile_entry['submenuLinks'][] = [
+                'href' => (string) $mobile_submenu_link['url'],
+                'text' => !empty($mobile_submenu_link['title']) ? (string) $mobile_submenu_link['title'] : (string) $mobile_submenu_link['url'],
+            ];
+        }
+
+        $mobile_menu_payload[] = $mobile_entry;
+    }
+
     $wrapper_classes = ['oa-header-menu'];
     if (!empty($atts['class']) && is_string($atts['class'])) {
         $wrapper_classes[] = sanitize_html_class($atts['class']);
@@ -55,6 +92,9 @@ function oa_get_header_menu_markup($atts = []) {
         <button class="oa-header-menu__toggle" type="button" aria-expanded="false" data-oa-header-toggle>
             Menu
         </button>
+        <?php if (!empty($mobile_menu_payload)) : ?>
+            <script type="application/json" data-oa-mobile-menu-data><?php echo wp_json_encode($mobile_menu_payload); ?></script>
+        <?php endif; ?>
 
         <ul class="oa-header-menu__items" data-oa-header-items>
             <?php foreach ($render_items as $index => $item) :
@@ -232,12 +272,12 @@ function oa_get_header_menu_markup($atts = []) {
                         }
                         ?>
                         <div class="oa-header-menu__panel oa-header-menu__panel--mega" id="<?php echo esc_attr($item_id); ?>" data-oa-menu-panel>
-                            <div class="oa-header-menu__mega-grid">
+                            <div class="oa-header-menu__mega-grid oa-header-menu__mega-grid--<?php echo esc_attr(sanitize_html_class($left_mode)); ?>">
                                 <div class="oa-header-menu__mega-left oa-header-menu__mega-left--<?php echo esc_attr(sanitize_html_class($left_mode)); ?>">
                                     <?php if ($left_heading !== '') : ?>
                                         <div class="oa-header-menu__mega-head">
                                             <h4><?php echo esc_html($left_heading); ?></h4>
-                                            <?php if (!empty($left_view_more['url'])) : ?>
+                                            <?php if ($left_mode !== 'contact' && !empty($left_view_more['url'])) : ?>
                                                 <a
                                                     href="<?php echo esc_url($left_view_more['url']); ?>"
                                                     <?php if (!empty($left_view_more['target'])) : ?>target="<?php echo esc_attr($left_view_more['target']); ?>"<?php endif; ?>
@@ -342,7 +382,9 @@ function oa_get_header_menu_markup($atts = []) {
                                         ?>
                                         <div class="oa-header-menu__mega-column">
                                             <?php if ($column_title !== '') : ?>
-                                                <h5><?php echo esc_html($column_title); ?></h5>
+                                                <div class="oa-header-menu__mega-head oa-header-menu__mega-head--column">
+                                                    <h5><?php echo esc_html($column_title); ?></h5>
+                                                </div>
                                             <?php endif; ?>
                                             <?php if (!empty($column_links)) : ?>
                                                 <ul>

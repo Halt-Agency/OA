@@ -443,6 +443,11 @@
                                 "field": "field_header_menu_item_submenu_type",
                                 "operator": "==",
                                 "value": "mega"
+                            },
+                            {
+                                "field": "field_header_menu_mega_left_mode",
+                                "operator": "!=",
+                                "value": "contact"
                             }
                         ]
                     ],
@@ -701,6 +706,105 @@
                                     "return_format": "array"
                                 }
                             ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_header_menu_tab_mobile",
+            "label": "Mobile Menu",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_header_mobile_menu_items",
+            "label": "Mobile Menu Items",
+            "name": "header_mobile_menu_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Global options key: header_mobile_menu_items\nDivi key: header_mobile_menu_items",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_header_mobile_menu_item_label",
+            "button_label": "Add Mobile Top Level Item",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_header_mobile_menu_item_label",
+                    "label": "Label",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Global options key: header_mobile_menu_items[].label\nDivi key: header_mobile_menu_items_label",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_header_mobile_menu_item_submenu_links",
+                    "label": "Submenu Links",
+                    "name": "submenu_links",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Global options key: header_mobile_menu_items[].submenu_links\nDivi key: header_mobile_menu_items_submenu_links",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Submenu Link",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_header_mobile_menu_item_submenu_link",
+                            "label": "Link",
+                            "name": "link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "Global options key: header_mobile_menu_items[].submenu_links[].link\nDivi key: header_mobile_menu_items_submenu_links_link",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
                         }
                     ]
                 }
@@ -1104,6 +1208,11 @@
                                 "field": "field_header_menu_end_item_submenu_type",
                                 "operator": "==",
                                 "value": "mega"
+                            },
+                            {
+                                "field": "field_header_menu_end_mega_left_mode",
+                                "operator": "!=",
+                                "value": "contact"
                             }
                         ]
                     ],
@@ -1387,5 +1496,5 @@
     "description": "Global header menu structure for shortcode-driven nav and mega menu.",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1772546411
+    "modified": 1772629938
 }
